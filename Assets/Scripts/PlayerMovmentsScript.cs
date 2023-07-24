@@ -16,12 +16,13 @@ public class PlayerMovmentsScript : MonoBehaviour
     bool isRight = true;
     private Animator animations;
 
+    // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch
     enum MovementState
     {
-        walking, sprint, cruch
+        idle, walking, sprint, cruch
     }
 
-    MovementState movementState;
+    MovementState movementState = MovementState.idle;
 
     void MovementStateHandle()
     {
@@ -45,6 +46,8 @@ public class PlayerMovmentsScript : MonoBehaviour
             movementState = MovementState.walking;
             movementSpeed = walkSpeed;
         }
+
+        movementState = MovementState.idle;
     }
 
     // Start is called before the first frame update
@@ -76,15 +79,16 @@ public class PlayerMovmentsScript : MonoBehaviour
         switch (movementState)
         {
             case MovementState.sprint:
-                
+                animations.SetInteger("Anim_State", 2);
                 break;
-            case MovementState.walking: 
-                
+            case MovementState.walking:
+                animations.SetInteger("Anim_State", 1);
                 break;
             case MovementState.cruch:
 
                 break;
             default:
+                animations.SetInteger("Anim_State", 0);
                 break;
 
         }
