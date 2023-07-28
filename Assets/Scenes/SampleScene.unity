@@ -608,9 +608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14268b1ef72f0a74e9e8f668d8952c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprintSpeed: 30
+  sprintSpeed: 10
   cruchSpeed: 0.2
-  walkSpeed: 10
+  walkSpeed: 2
 --- !u!4 &974590989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d,
