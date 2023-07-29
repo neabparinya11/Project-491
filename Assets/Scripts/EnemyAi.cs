@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,11 +18,15 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] float sprintSpeed;
     [SerializeField] float signRange, attackRange;
 
+    //Patroling
+    private Vector3 walkPoint;
     bool walkPointSet;
 
     bool isWalking = false;
     bool isAttacked = false;
     bool playerInSignRange, playerInAttackRange;
+
+
     private void Awake()
     {
         playerTarget = GameObject.Find("Player").transform;
@@ -42,7 +47,34 @@ public class EnemyAi : MonoBehaviour
 
     private void Patrolling()
     {
+        if (!walkPointSet)
+        {
+            SearchWalkPoint();
+        }
+        if (walkPointSet)
+        {
+            agent.SetDestination(walkPoint);
+        }
 
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        if (distanceToWalkPoint.magnitude < 1.0f)
+        {
+            walkPointSet = false;
+        }
+
+    }
+
+    private void SearchWalkPoint()
+    {
+        float randomX = UnityEngine.Random.Range(-walkingRange, walkingRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, .0f, .0f);
+
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround))
+        {
+            walkPointSet = true;
+        }
     }
 
     private void Attack()

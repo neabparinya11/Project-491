@@ -7,22 +7,21 @@ using UnityEngine.UI;
 public class PlayerMovmentsScript : MonoBehaviour
 {
     float movementSpeed = 10.0f;
-    [SerializeField] float sprintSpeed = 200.0f;
+    [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
-    [SerializeField] float walkSpeed = 10.0f;
-    Rigidbody rb;
-
+    [SerializeField] float walkSpeed = 1.0f;
+    private Rigidbody rb;
+    private Animator animations;
+    MovementState movementState = MovementState.idle;
     float Horizontal;
     bool isRight = true;
-    private Animator animations;
-
+    
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch
+    // priority idle << walking << sprint
     enum MovementState
     {
         idle, walking, sprint, cruch
     }
-
-    MovementState movementState = MovementState.idle;
 
     void MovementStateHandle()
     {
@@ -33,7 +32,7 @@ public class PlayerMovmentsScript : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            movementState = MovementState.walking;
+            movementState = MovementState.idle;
             movementSpeed = walkSpeed;
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -46,8 +45,20 @@ public class PlayerMovmentsScript : MonoBehaviour
             movementState = MovementState.walking;
             movementSpeed = walkSpeed;
         }
-
-        movementState = MovementState.idle;
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            if (movementState != MovementState.sprint)
+            {
+                movementState = MovementState.walking;
+                movementSpeed = walkSpeed;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            movementState = MovementState.idle;
+            movementSpeed = walkSpeed;
+        }
+        //movementState = MovementState.idle;
     }
 
     // Start is called before the first frame update
@@ -61,13 +72,16 @@ public class PlayerMovmentsScript : MonoBehaviour
     void Update()
     {
         MovementStateHandle();
-        Movement(); 
+        Movement();
+        Debug.Log(movementState);
     }
 
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3 (Horizontal * movementSpeed, 0, 0);
+
+        // Check direction of character
         if (Horizontal > 0)
         {
             isRight = true;
@@ -76,22 +90,14 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             isRight = false;
         }
-        switch (movementState)
+
+        // Check value horizontal to play animation
+        if (Horizontal != 0)
         {
-            case MovementState.sprint:
-                animations.SetInteger("Anim_State", 2);
-                break;
-            case MovementState.walking:
-                animations.SetInteger("Anim_State", 1);
-                break;
-            case MovementState.cruch:
-
-                break;
-            default:
-                animations.SetInteger("Anim_State", 0);
-                break;
-
+            animations.SetInteger("Anim State", (int)movementState);
         }
+
+        // Rotation character
         if (isRight)
         {
             this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -100,15 +106,6 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
-    }
-
-    void SprintMovement()
-    {
-
-    }
-
-    void CruchMovement()
-    {
 
     }
 }
