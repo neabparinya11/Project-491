@@ -25,6 +25,8 @@ public class EnemyAi : MonoBehaviour
     bool isWalking = false;
     bool isAttacked = false;
     bool playerInSignRange, playerInAttackRange;
+
+
     private void Awake()
     {
         playerTarget = GameObject.Find("Player").transform;
@@ -49,6 +51,18 @@ public class EnemyAi : MonoBehaviour
         {
             SearchWalkPoint();
         }
+        if (walkPointSet)
+        {
+            agent.SetDestination(walkPoint);
+        }
+
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        if (distanceToWalkPoint.magnitude < 1.0f)
+        {
+            walkPointSet = false;
+        }
+
     }
 
     private void SearchWalkPoint()
