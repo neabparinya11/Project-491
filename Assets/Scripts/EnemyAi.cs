@@ -3,88 +3,96 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAi : MonoBehaviour
 {
-    [Header("Initialize")]
-    [SerializeField] Transform playerTarget;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] LayerMask isPlayer, isGround;
+    [SerializeField] List<Transform> destination;
+    [SerializeField] Animator animator;
+    [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime;
+    [SerializeField] bool walking, chasing;
+    [SerializeField] Transform player;
+    [SerializeField] int destinationAmount;
+    [SerializeField] Vector3 rayCastOffSet;
+    //[SerializeField] string deathScene;
 
-    [Header("Setting Enemy")]
-    [SerializeField] float walkingRange;
-    Vector3 walkingPosition;
-    [SerializeField] float walkingSpeed;
-    [SerializeField] float sprintSpeed;
-    [SerializeField] float signRange, attackRange;
+    Transform currentDestination;
+    Vector3 dest;
+    int randomNumber1, randomNumber2;
+    
 
-    //Patroling
-    private Vector3 walkPoint;
-    bool walkPointSet;
-
-    bool isWalking = false;
-    bool isAttacked = false;
-    bool playerInSignRange, playerInAttackRange;
-
-
-    private void Awake()
+    private void Start()
     {
-        playerTarget = GameObject.Find("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
+        walking = true;
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        currentDestination = destination[randomNumber1];
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        playerInSignRange = Physics.CheckSphere(transform.position, signRange, isPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
-
-        if (!playerInSignRange && !playerInAttackRange) Patrolling();
-        if (playerInSignRange && !playerInAttackRange) Hunting();
-        if (playerInSignRange && playerInAttackRange) Attack();
-
-    }
-
-    private void Patrolling()
-    {
-        if (!walkPointSet)
+        Vector3 direction = (player.position - transform.position).normalized;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + rayCastOffSet, direction, out hit, sightDistance))
         {
-            SearchWalkPoint();
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                walking = false;
+                StopCoroutine("stayIdle");
+                StopCoroutine("chaseRoutine");
+                StartCoroutine("chaseRoutine");
+                chasing = true;
+            }
         }
-        if (walkPointSet)
+        if (chasing)
         {
-            agent.SetDestination(walkPoint);
+            dest = player.position;
+            agent.destination = dest;
+            agent.speed = chaseSpeed;
+            if (agent.remainingDistance <= catchDistance)
+            {
+                player.gameObject.SetActive(false);
+                StartCoroutine(deathRoutine());
+                chasing = false;
+            }
         }
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1.0f)
+        if (walking)
         {
-            walkPointSet = false;
-        }
-
-    }
-
-    private void SearchWalkPoint()
-    {
-        float randomX = UnityEngine.Random.Range(-walkingRange, walkingRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, .0f, .0f);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, isGround))
-        {
-            walkPointSet = true;
+            dest = currentDestination.position;
+            agent.destination = dest;
+            agent.speed = walkSpeed;
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                agent.speed = 0;
+                walking = false;
+                StopCoroutine("stayIdle");
+                StartCoroutine("stayIdle");
+            }
         }
     }
-
-    private void Attack()
+    IEnumerator stayIdle()
     {
+        idleTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
+        yield return new WaitForSeconds(idleTime);
+        walking = true;
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        currentDestination = destination[randomNumber1];
 
     }
 
-    private void Hunting()
+    IEnumerator chaseRoutine()
     {
-
+        chaseTime = UnityEngine.Random.Range(minChaseTime, maxChaseTime);
+        yield return new WaitForSeconds(chaseTime);
+        walking = true;
+        chasing = false;
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        currentDestination = destination[randomNumber1];
     }
 
+    IEnumerator deathRoutine()
+    {
+        yield return new WaitForSeconds(deathTime);
+        //SceneManager.LoadScene(deathScene);
+    }
 }

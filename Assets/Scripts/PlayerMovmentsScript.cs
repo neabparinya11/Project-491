@@ -6,59 +6,24 @@ using UnityEngine.UI;
 
 public class PlayerMovmentsScript : MonoBehaviour
 {
-    float movementSpeed = 10.0f;
+    float movementSpeed = 1.0f;
     [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
     [SerializeField] float walkSpeed = 1.0f;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask groundLayer;
     private Rigidbody rb;
     private Animator animations;
-    MovementState movementState = MovementState.idle;
-    float Horizontal;
-    bool isRight = true;
+    private CapsuleCollider capsuleCollider;
+    //MovementState movementState = MovementState.idle;
+    private float Horizontal;
+    private bool isSprint;
     
-    // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch
+    // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
     enum MovementState
     {
-        idle, walking, sprint, cruch
-    }
-
-    void MovementStateHandle()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            movementState = MovementState.sprint;
-            movementSpeed = sprintSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            movementState = MovementState.idle;
-            movementSpeed = walkSpeed;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            movementState = MovementState.cruch;
-            movementSpeed = cruchSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            movementState = MovementState.walking;
-            movementSpeed = walkSpeed;
-        }
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            if (movementState != MovementState.sprint)
-            {
-                movementState = MovementState.walking;
-                movementSpeed = walkSpeed;
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            movementState = MovementState.idle;
-            movementSpeed = walkSpeed;
-        }
-        //movementState = MovementState.idle;
+        idle, walking, sprint, cruch, jump, fall, land
     }
 
     // Start is called before the first frame update
@@ -66,46 +31,105 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovementStateHandle();
         Movement();
-        Debug.Log(movementState);
     }
 
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3 (Horizontal * movementSpeed, 0, 0);
-
+        rb.velocity = new Vector3 (Horizontal * movementSpeed, rb.velocity.y, 0);
         // Check direction of character
-        if (Horizontal > 0)
-        {
-            isRight = true;
-        }
-        if (Horizontal < 0)
-        {
-            isRight = false;
-        }
+        //if (Horizontal > 0)
+        //{
+        //    isRight = true;
+        //}
+        //if (Horizontal < 0)
+        //{
+        //    isRight = false;
+        //}
 
         // Check value horizontal to play animation
-        if (Horizontal != 0)
-        {
-            animations.SetInteger("Anim State", (int)movementState);
-        }
+        //if (Horizontal != 0)
+        //{
+        //    animations.SetInteger("Anim State", (int)movementState);
+        //}
 
         // Rotation character
-        if (isRight)
+        //if (isRight)
+        //{
+        //    this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+        //}
+        //else
+        //{
+        //    this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
+            rb.velocity = new Vector3(rb.velocity.x, 5f, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isSprint = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprint = false;
+        }
+        AnimationUpdates();
+    }
+
+    private bool CheckIsGround()
+    {
+        return Physics.CheckSphere(groundCheck.position, .1f, groundLayer);
+    }
+    private void AnimationUpdates()
+    {
+        MovementState movementState;
+        if (Horizontal > 0.0f)
+        {
+            if (isSprint)
+            {
+                movementState = MovementState.sprint;
+                movementSpeed = sprintSpeed;
+            }
+            else
+            {
+                movementState = MovementState.walking;
+                movementSpeed = walkSpeed;
+            }
+            
             this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+        }else if (Horizontal < 0.0f)
+        {
+            if (isSprint)
+            {
+                movementState = MovementState.sprint;
+                movementSpeed = sprintSpeed;
+            }
+            else
+            {
+                movementState = MovementState.walking;
+                movementSpeed = walkSpeed;
+            }
+            
+            this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         else
         {
-            this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
+            movementState = MovementState.idle;
         }
 
+        if (rb.velocity.y > 0.1f)
+        {
+            movementState = MovementState.jump;
+        }
+        animations.SetInteger("Anim State", (int)movementState);
     }
 }
