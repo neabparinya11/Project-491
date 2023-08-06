@@ -996,6 +996,7 @@ MonoBehaviour:
   player: {fileID: 974590989}
   destinationAmount: 4
   rayCastOffSet: {x: 0, y: 0, z: 0}
+  deathScene: DeathScene
 --- !u!195 &1428581873
 NavMeshAgent:
   m_ObjectHideFlags: 0

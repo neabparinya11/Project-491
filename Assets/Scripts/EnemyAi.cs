@@ -15,11 +15,13 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
-    //[SerializeField] string deathScene;
+    [SerializeField] string deathScene;
 
+    // 1 = normal, 2 = hard, 3 = permadeath
+    int levelEnemy = 1;
     Transform currentDestination;
     Vector3 dest;
-    int randomNumber1, randomNumber2;
+    int randomNumber1;
     
 
     private void Start()
@@ -93,6 +95,6 @@ public class EnemyAi : MonoBehaviour
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(deathTime);
-        //SceneManager.LoadScene(deathScene);
+        SceneManager.LoadScene(deathScene);
     }
 }

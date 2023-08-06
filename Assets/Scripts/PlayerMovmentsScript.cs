@@ -14,7 +14,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     private Rigidbody rb;
     private Animator animations;
-    private CapsuleCollider capsuleCollider;
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
     private bool isSprint;
@@ -31,7 +30,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -72,13 +70,13 @@ public class PlayerMovmentsScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
-            rb.velocity = new Vector3(rb.velocity.x, 5f, 0);
+            rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
             isSprint = true;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
             isSprint = false;
         }
