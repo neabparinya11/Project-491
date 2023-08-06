@@ -16,6 +16,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
     [SerializeField] string deathScene;
+    [SerializeField] AudioSource walkingSound;
 
     // 1 = normal, 2 = hard, 3 = permadeath
     int levelEnemy = 1;
