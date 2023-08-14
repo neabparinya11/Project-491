@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerMovmentsScript : MonoBehaviour
 {
+    bool disable = false;
     float movementSpeed = 1.0f;
     [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
     [SerializeField] float walkSpeed = 1.0f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+    
     private Rigidbody rb;
     private Animator animations;
     //MovementState movementState = MovementState.idle;
@@ -30,12 +32,16 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!disable)
+        {
+            Movement();
+        }
     }
 
     private void Movement()
@@ -94,6 +100,7 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             if (isSprint)
             {
+                
                 movementState = MovementState.sprint;
                 movementSpeed = sprintSpeed;
             }
@@ -124,10 +131,12 @@ public class PlayerMovmentsScript : MonoBehaviour
             movementState = MovementState.idle;
         }
 
-        if (rb.velocity.y > 0.1f)
+        if (rb.velocity.y > 0.0f)
         {
+            
             movementState = MovementState.jump;
         }
         animations.SetInteger("Anim State", (int)movementState);
     }
+
 }
