@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorAction : MonoBehaviour
 {
+    //[SerializeField] GameObject messages;
+    //[SerializeField] TextMeshProUGUI texts;
+    //[SerializeField] GameObject newPosition;
+    //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
+    [Header("Initial Data")]
+    [SerializeField] Transform newPosition;
+    [SerializeField] Transform _player;
 
-    [SerializeField] GameObject messages;
+    bool canAction = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            messages.SetActive(true);
+            //messages.SetActive(true);
+            canAction = true;
+            
         }
     }
 
@@ -18,7 +29,19 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            messages.SetActive(false);
+            //messages.SetActive(false);
+            canAction = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (canAction)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _player.transform.position = new Vector3(newPosition.position.x, newPosition.position.y, newPosition.position.z);
+            }
         }
     }
 }

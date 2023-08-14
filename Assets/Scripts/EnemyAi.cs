@@ -16,6 +16,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
     [SerializeField] string deathScene;
+    [SerializeField] Animator animatons;
     [SerializeField] AudioSource walkingSound;
 
     // 1 = normal, 2 = hard, 3 = permadeath
@@ -23,8 +24,7 @@ public class EnemyAi : MonoBehaviour
     Transform currentDestination;
     Vector3 dest;
     int randomNumber1;
-    
-
+    float enemyDistance;
     private void Start()
     {
         walking = true;
@@ -36,30 +36,32 @@ public class EnemyAi : MonoBehaviour
     {
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
+        enemyDistance = Vector3.Distance(player.position, this.transform.position);
+        Debug.DrawRay(transform.position + rayCastOffSet, direction, Color.green);
         if (Physics.Raycast(transform.position + rayCastOffSet, direction, out hit, sightDistance))
         {
             if (hit.collider.gameObject.tag == "Player")
             {
                 walking = false;
-                StopCoroutine("stayIdle");
-                StopCoroutine("chaseRoutine");
-                StartCoroutine("chaseRoutine");
+                StopCoroutine(stayIdle());
+                StopCoroutine(chaseRoutine());
+                StartCoroutine(chaseRoutine());
                 chasing = true;
             }
         }
-        if (chasing)
+        if (chasing == true)
         {
             dest = player.position;
             agent.destination = dest;
             agent.speed = chaseSpeed;
-            if (agent.remainingDistance <= catchDistance)
+            if (enemyDistance <= catchDistance)
             {
                 player.gameObject.SetActive(false);
                 StartCoroutine(deathRoutine());
                 chasing = false;
             }
         }
-        if (walking)
+        if (walking == true)
         {
             dest = currentDestination.position;
             agent.destination = dest;
@@ -67,9 +69,9 @@ public class EnemyAi : MonoBehaviour
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 agent.speed = 0;
-                walking = false;
                 StopCoroutine("stayIdle");
                 StartCoroutine("stayIdle");
+                walking = false;
             }
         }
     }
@@ -80,7 +82,6 @@ public class EnemyAi : MonoBehaviour
         walking = true;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
-
     }
 
     IEnumerator chaseRoutine()
