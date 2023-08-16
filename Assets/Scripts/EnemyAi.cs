@@ -56,8 +56,8 @@ public class EnemyAi : MonoBehaviour
             agent.speed = chaseSpeed;
             if (enemyDistance <= catchDistance)
             {
-                player.gameObject.SetActive(false);
-                StartCoroutine(deathRoutine());
+                //player.gameObject.SetActive(false);
+                //StartCoroutine(deathRoutine());
                 chasing = false;
             }
         }
