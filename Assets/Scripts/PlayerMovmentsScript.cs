@@ -38,10 +38,8 @@ public class PlayerMovmentsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!disable)
-        {
             Movement();
-        }
+    
     }
 
     private void Movement()
