@@ -1281,6 +1281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3127184695323899268, guid: 113a7782c8d12434ea2ea871d15ad94b,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127184695323899268, guid: 113a7782c8d12434ea2ea871d15ad94b,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2370,7 +2375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newPosition: {fileID: 1655538834}
-  _player: {fileID: 974590989}
+  _player: {fileID: 974590986}
 --- !u!1001 &2080413432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2442,6 +2447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor_B (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127184695323899268, guid: 113a7782c8d12434ea2ea871d15ad94b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3127184695323899268, guid: 113a7782c8d12434ea2ea871d15ad94b,
         type: 3}

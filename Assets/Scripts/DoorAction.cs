@@ -12,7 +12,7 @@ public class DoorAction : MonoBehaviour
     //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
-    [SerializeField] Transform _player;
+    [SerializeField] GameObject _player;
 
     bool canAction = false;
     private void OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ public class DoorAction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _player.transform.position = new Vector3(newPosition.position.x, newPosition.position.y, newPosition.position.z);
+                _player.transform.position = newPosition.transform.position;
             }
         }
     }
