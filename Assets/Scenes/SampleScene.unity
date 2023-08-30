@@ -1001,6 +1001,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  staminaController: {fileID: 0}
 --- !u!4 &974590989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d,
@@ -1037,6 +1038,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &974590992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974590986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93ff7bd82a61b04c90c00ecb122d397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  playerMaxStamina: 100
+  jumpCost: 30
+  regenrate: 1
+  wasSprint: 0
+  staminaDrain: 25
+  staminaRegen: 25
+  slowSpeed: 1
+  normalSpeed: 5
+  staminaProgressUI: {fileID: 2143788342}
+  sliderCanvasGroup: {fileID: 1627206426}
 --- !u!4 &1207226277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2318840636635213630, guid: 113a7782c8d12434ea2ea871d15ad94b,
