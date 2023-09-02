@@ -44,6 +44,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     void Update()
     {
         Movement();
+        //Debug.Log(movementSpeed);
     }
 
     public void PlayerJump()
@@ -85,7 +86,6 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             if (isSprint)
             {
-                
                 movementState = MovementState.sprint;
                 movementSpeed = sprintSpeed;
             }
