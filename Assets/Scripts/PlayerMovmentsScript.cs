@@ -18,7 +18,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     private Animator animations;
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
-    private bool isSprint;
+    public bool isSprint;
     
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
@@ -55,7 +55,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3 (Horizontal * movementSpeed, rb.velocity.y, 0);
+        rb.velocity = new Vector3(Horizontal * movementSpeed, rb.velocity.y, 0);
 
         if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
@@ -64,8 +64,12 @@ public class PlayerMovmentsScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
+            //staminaController.Sprinting();
             isSprint = true;
-            staminaController.wasSprint = true;
+            if (rb.velocity.x != 0.0f)
+            {
+                staminaController.wasSprint = true;
+            }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
@@ -128,7 +132,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Tuch");
             HealthController.health -= 1;
         }
     }
