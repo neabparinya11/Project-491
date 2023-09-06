@@ -46,7 +46,13 @@ public class StaminaController : MonoBehaviour
         }
         else
         {
-            Sprinting();
+            playerStamina -= staminaDrain * Time.deltaTime;
+            UpdateStamina(1);
+            if (playerStamina <= 0)
+            {
+                wasSprint = false;
+                playerScript.isSprint = false;
+            }
         }
     }
 
@@ -65,7 +71,7 @@ public class StaminaController : MonoBehaviour
             }
         }
     }
-
+  
     public void StaminaJump()
     {
         if (playerStamina >= (playerStamina * jumpCost / playerMaxStamina))
