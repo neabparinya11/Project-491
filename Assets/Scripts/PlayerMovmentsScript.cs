@@ -66,7 +66,10 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             //staminaController.Sprinting();
             isSprint = true;
-            staminaController.wasSprint = true;
+            if (rb.velocity.x != 0.0f)
+            {
+                staminaController.wasSprint = true;
+            }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
@@ -129,7 +132,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Tuch");
             HealthController.health -= 1;
         }
     }
