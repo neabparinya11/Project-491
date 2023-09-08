@@ -5,7 +5,8 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<ItemObject> Item = new List<ItemObject>();
+    public List<ItemObject> ListFoodItem = new List<ItemObject>();
+    public List<ItemObject> ListQuestionItem = new List<ItemObject>();
 
     public Transform itemContent;
     public GameObject inventoryItem;
@@ -16,20 +17,36 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(ItemObject _item)
     {
-        Item.Add(_item);
+        if (_item.type == ItemType.Food)
+        {
+            ListFoodItem.Add(_item);
+        }
+
+        if (_item.type == ItemType.Question)
+        {
+            ListQuestionItem.Add(_item);
+        }
     }
 
     public void RemoveItem(ItemObject _item)
     {
-        Item.Remove(_item);
-    }
-
-    public void ListItem()
-    {
-        foreach (var item in Item)
+        if (_item.type == ItemType.Food)
         {
-            GameObject obj = Instantiate(inventoryItem, itemContent);
-            //var itemIcon = obj.transform.Find().GetComponent<>();
+            ListFoodItem.Remove(_item);
+        }
+
+        if (_item.type == ItemType.Question)
+        {
+            ListQuestionItem.Remove(_item);
         }
     }
+
+    //public void ListItem()
+    //{
+    //    foreach (var item in Item)
+    //    {
+    //        GameObject obj = Instantiate(inventoryItem, itemContent);
+    //        var itemIcon = obj.transform.Find().GetComponent<>();
+    //    }
+    //}
 }

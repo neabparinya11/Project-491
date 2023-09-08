@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Food Item", menuName = "item/Food item")]
 public class FoodItem : ItemObject
 {
+    [SerializeField] int restoreHealth;
+    [SerializeField] int restoreStamina;
+    [SerializeField] int restoreSanity;
     private void Awake()
     {
         type = ItemType.Food;
