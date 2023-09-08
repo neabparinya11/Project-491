@@ -13,12 +13,12 @@ public class PlayerMovmentsScript : MonoBehaviour
     [SerializeField] float walkSpeed = 1.0f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    
+    [HideInInspector] public StaminaController staminaController;
     private Rigidbody rb;
     private Animator animations;
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
-    private bool isSprint;
+    public bool isSprint;
     
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
@@ -32,57 +32,49 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
-        
+        staminaController = GetComponent<StaminaController>();
+    }
+
+    public void SetRunSpeed(float _speed)
+    {
+        movementSpeed = _speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-            Movement();
-    
+        Movement();
+        //Debug.Log(movementSpeed);
+    }
+
+    public void PlayerJump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
     }
 
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3 (Horizontal * movementSpeed, rb.velocity.y, 0);
-        // Check direction of character
-        //if (Horizontal > 0)
-        //{
-        //    isRight = true;
-        //}
-        //if (Horizontal < 0)
-        //{
-        //    isRight = false;
-        //}
-
-        // Check value horizontal to play animation
-        //if (Horizontal != 0)
-        //{
-        //    animations.SetInteger("Anim State", (int)movementState);
-        //}
-
-        // Rotation character
-        //if (isRight)
-        //{
-        //    this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
-        //}
-        //else
-        //{
-        //    this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
-        //}
+        rb.velocity = new Vector3(Horizontal * movementSpeed, rb.velocity.y, 0);
 
         if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
-            rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
+            //rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
+            staminaController.StaminaJump();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
+            //staminaController.Sprinting();
             isSprint = true;
+            if (rb.velocity.x != 0.0f)
+            {
+                staminaController.wasSprint = true;
+            }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
             isSprint = false;
+            staminaController.wasSprint = false;
         }
         AnimationUpdates();
     }
@@ -98,7 +90,6 @@ public class PlayerMovmentsScript : MonoBehaviour
         {
             if (isSprint)
             {
-                
                 movementState = MovementState.sprint;
                 movementSpeed = sprintSpeed;
             }
@@ -141,7 +132,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Tuch");
             HealthController.health -= 1;
         }
     }

@@ -1254,6 +1254,7 @@ GameObject:
   - component: {fileID: 3877976546092110421}
   - component: {fileID: 3877976546092110420}
   - component: {fileID: 3877976546092110417}
+  - component: {fileID: 4197237511966470401}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1351,6 +1352,30 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  staminaController: {fileID: 0}
+--- !u!114 &4197237511966470401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473314152575573606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93ff7bd82a61b04c90c00ecb122d397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStamina: 100
+  playerMaxStamina: 100
+  jumpCost: 30
+  regenrate: 1
+  wasSprint: 0
+  staminaDrain: 0.5
+  staminaRegen: 0.5
+  slowSpeed: 4
+  normalSpeed: 8
+  staminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}
 --- !u!1 &2473314152575573608
 GameObject:
   m_ObjectHideFlags: 0
