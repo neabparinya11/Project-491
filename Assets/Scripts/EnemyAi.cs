@@ -11,7 +11,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] List<Transform> destination;
     [SerializeField] Animator animator;
     [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime;
-    [SerializeField] bool walking, chasing;
+    public bool walking, chasing;
     [SerializeField] Transform player;
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
@@ -25,6 +25,7 @@ public class EnemyAi : MonoBehaviour
     Vector3 dest;
     int randomNumber1;
     float enemyDistance;
+
     private void Start()
     {
         walking = true;
@@ -74,6 +75,24 @@ public class EnemyAi : MonoBehaviour
                 walking = false;
             }
         }
+    }
+
+    public void stopChase()
+    {
+        walking = true;
+        chasing = false;
+        StopCoroutine(chaseRoutine());
+        currentDestination = destination[UnityEngine.Random.Range(0, destinationAmount)];
+    }
+
+    public void LevelEnemyIncress()
+    {
+        levelEnemy += 1;
+    }
+
+    public void ResetLevelEnemy()
+    {
+        levelEnemy = 1;
     }
     IEnumerator stayIdle()
     {
