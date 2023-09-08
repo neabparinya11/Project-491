@@ -5,7 +5,6 @@ using UnityEngine;
 public enum ItemType
 {
     Food,
-    Water,
     Question
 }
 
