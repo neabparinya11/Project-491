@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     public List<ItemObject> ListFoodItem = new List<ItemObject>();
     public List<ItemObject> ListQuestionItem = new List<ItemObject>();
 
+    public int selected;
     public Transform itemContent;
     public GameObject inventoryItem;
     private void Awake()
@@ -41,12 +42,20 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //public void ListItem()
-    //{
-    //    foreach (var item in Item)
-    //    {
-    //        GameObject obj = Instantiate(inventoryItem, itemContent);
-    //        var itemIcon = obj.transform.Find().GetComponent<>();
-    //    }
-    //}
+    public void ShowListFoodItem()
+    {
+        foreach (var item in ListFoodItem)
+        {
+            GameObject obj = Instantiate(inventoryItem, itemContent);
+            
+        }
+    }
+
+    public void ShowListQuestionItem()
+    {
+        foreach(var item in ListQuestionItem)
+        {
+            GameObject obj = Instantiate(inventoryItem, itemContent);
+        }
+    }
 }
