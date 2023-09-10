@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HidingObject : MonoBehaviour
 {
-    [SerializeField] GameObject hideText;
+    [SerializeField] GameObject hideText, stopHideText;
     [SerializeField] GameObject normalPlayer, hidingPlayer;
-    [SerializeField] EnemyAi enemyAi;
+    [SerializeField] EnemyAi enemyAiScript;
     [SerializeField] Transform monster;
     [SerializeField] float loseDistance;
     bool interactAble, hiding;
@@ -16,6 +16,8 @@ public class HidingObject : MonoBehaviour
     {
         interactAble = false;
         hiding = false;
+        hideText.SetActive(false);
+        stopHideText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,25 +30,46 @@ public class HidingObject : MonoBehaviour
                 float distance = Vector3.Distance(monster.transform.position, normalPlayer.transform.position);
                 if (distance > loseDistance)
                 {
+                    if (enemyAiScript.chasing == true)
+                    {
+                        enemyAiScript.stopChase();
 
+                    }
                 }
+                hideText.SetActive(false);
+                stopHideText.SetActive(true);
+                hiding = true;
+                normalPlayer.SetActive(false);
+                interactAble = false;
+            }
+        }
+        if (hiding)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                stopHideText.SetActive(false);
+                normalPlayer.SetActive(true);
+                hidingPlayer.SetActive(false);
+                hiding = false;
             }
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(""))
+        if (other.CompareTag("Player"))
         {
-
+            hideText.SetActive(true);
+            interactAble = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(""))
+        if (other.CompareTag("Player"))
         {
-
+            hideText.SetActive(false);
+            interactAble = false;
         }
     }
 }
