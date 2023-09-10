@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerMovmentsScript : MonoBehaviour
 {
-    bool disable = false;
     float movementSpeed = 1.0f;
     [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
@@ -44,7 +43,6 @@ public class PlayerMovmentsScript : MonoBehaviour
     void Update()
     {
         Movement();
-        //Debug.Log(movementSpeed);
     }
 
     public void PlayerJump()
