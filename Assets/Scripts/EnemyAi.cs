@@ -9,14 +9,13 @@ public class EnemyAi : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] List<Transform> destination;
-    [SerializeField] Animator animator;
     [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime;
     public bool walking, chasing;
     [SerializeField] Transform player;
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
     [SerializeField] string deathScene;
-    [SerializeField] Animator animatons;
+    protected Animator animations;
     [SerializeField] AudioSource walkingSound;
 
     // 1 = normal, 2 = hard, 3 = permadeath
@@ -26,11 +25,17 @@ public class EnemyAi : MonoBehaviour
     int randomNumber1;
     float enemyDistance;
 
+    enum EnemyState
+    {
+        idle, walk, run, attack
+    }
     private void Start()
     {
         walking = true;
+        walkingSound.enabled = true;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
+        animations = GetComponent<Animator>();
     }
 
     private void Update()
@@ -48,6 +53,7 @@ public class EnemyAi : MonoBehaviour
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
                 chasing = true;
+                animations.SetInteger("state", (int)EnemyState.run);
             }
         }
         if (chasing == true)
@@ -55,10 +61,12 @@ public class EnemyAi : MonoBehaviour
             dest = player.position;
             agent.destination = dest;
             agent.speed = chaseSpeed;
+            
             if (enemyDistance <= catchDistance)
             {
                 //player.gameObject.SetActive(false);
                 //StartCoroutine(deathRoutine());
+                animations.SetInteger("state", (int)EnemyState.attack);
                 chasing = false;
             }
         }
@@ -67,12 +75,16 @@ public class EnemyAi : MonoBehaviour
             dest = currentDestination.position;
             agent.destination = dest;
             agent.speed = walkSpeed;
+            walkingSound.enabled = true;
+            animations.SetInteger("state", (int)EnemyState.walk);
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 agent.speed = 0;
                 StopCoroutine("stayIdle");
                 StartCoroutine("stayIdle");
                 walking = false;
+                animations.SetInteger("state", (int)EnemyState.idle);
+                walkingSound.enabled = false;
             }
         }
     }
