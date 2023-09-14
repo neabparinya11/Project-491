@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public int selected;
     public Transform itemContent;
     public GameObject iconItem;
+    public GameObject inventoryPanel;
     
     private void Awake()
     {
@@ -48,10 +49,10 @@ public class InventoryManager : MonoBehaviour
 
     public void ShowListFoodItem()
     {
-        //foreach (Transform item in itemContent)
-        //{
-        //    Destroy(item.gameObject);
-        //}
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+        }
         foreach (var item in ListFoodItem)
         {
             GameObject obj = Instantiate(iconItem, itemContent);
@@ -60,15 +61,30 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //public void ShowListQuestionItem()
-    //{
-    //    foreach (Transform item in itemContent)
-    //    {
-    //        Destroy(item.gameObject);
-    //    }
-    //    foreach(var item in ListQuestionItem)
-    //    {
-    //        //GameObject obj = Instantiate(inventoryItem, itemContent);
-    //    }
-    //}
+    public void ShowListQuestionItem()
+    {
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in ListQuestionItem)
+        {
+            GameObject obj = Instantiate(iconItem, itemContent);
+            var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
+            itemIcon.sprite = item.icon;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.I))
+        {
+            inventoryPanel.SetActive(true);
+            ShowListFoodItem();
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            inventoryPanel.SetActive(false);
+        }
+    }
 }
