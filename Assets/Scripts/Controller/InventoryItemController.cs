@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class IventoryManagementController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    ItemObject item;
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveItem()
     {
-        
-    }
-
-    public void UseFoodItem()
-    {
-
+        InventoryManager.Instance.RemoveItem(item);
     }
 }
