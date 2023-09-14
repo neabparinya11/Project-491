@@ -37,13 +37,6 @@ public class BoxItem : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void RandomItem()
     {
         var index = UnityEngine.Random.Range(0, listItemObject.Count);
@@ -57,6 +50,7 @@ public class BoxItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //hide text or disable.
+            loadStock.SetActive(false);
         }
     }
 }
