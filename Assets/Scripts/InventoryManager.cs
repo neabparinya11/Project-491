@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,7 +13,8 @@ public class InventoryManager : MonoBehaviour
 
     public int selected;
     public Transform itemContent;
-    public GameObject inventoryItem;
+    public GameObject iconItem;
+    
     private void Awake()
     {
         Instance = this;
@@ -44,18 +48,27 @@ public class InventoryManager : MonoBehaviour
 
     public void ShowListFoodItem()
     {
+        //foreach (Transform item in itemContent)
+        //{
+        //    Destroy(item.gameObject);
+        //}
         foreach (var item in ListFoodItem)
         {
-            GameObject obj = Instantiate(inventoryItem, itemContent);
-            
+            GameObject obj = Instantiate(iconItem, itemContent);
+            var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
+            itemIcon.sprite = item.icon;
         }
     }
 
-    public void ShowListQuestionItem()
-    {
-        foreach(var item in ListQuestionItem)
-        {
-            GameObject obj = Instantiate(inventoryItem, itemContent);
-        }
-    }
+    //public void ShowListQuestionItem()
+    //{
+    //    foreach (Transform item in itemContent)
+    //    {
+    //        Destroy(item.gameObject);
+    //    }
+    //    foreach(var item in ListQuestionItem)
+    //    {
+    //        //GameObject obj = Instantiate(inventoryItem, itemContent);
+    //    }
+    //}
 }
