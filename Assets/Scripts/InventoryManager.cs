@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +15,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject iconItem;
     public GameObject inventoryPanel;
     
+    public InventoryItemManager[] inventoryItem;
     private void Awake()
     {
         Instance = this;
@@ -59,6 +59,7 @@ public class InventoryManager : MonoBehaviour
             var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
         }
+        SetInventoryItem();
     }
 
     public void ShowListQuestionItem()
@@ -77,14 +78,23 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryPanel.SetActive(true);
             ShowListFoodItem();
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             inventoryPanel.SetActive(false);
+        }
+    }
+
+    public void SetInventoryItem()
+    {
+        inventoryItem = itemContent.GetComponentsInChildren<InventoryItemManager>();
+        for (int i = 0; i< ListFoodItem.Count; i++)
+        {
+            inventoryItem[i].AddNewItem(ListFoodItem[i]);
         }
     }
 }
