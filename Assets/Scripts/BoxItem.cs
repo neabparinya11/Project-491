@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BoxItem : MonoBehaviour
 {
     //public List<GameObject> listItem = new List<GameObject>();
-    public List<ItemObject> listItemObject = new List<ItemObject>();
+    public List<FoodItem> listItemObject = new List<FoodItem>();
     public GameObject loadStock;
     public Slider slide;
     public Text textCommand;
@@ -41,7 +41,7 @@ public class BoxItem : MonoBehaviour
     {
         var index = UnityEngine.Random.Range(0, listItemObject.Count);
         Debug.Log(listItemObject[index].name);
-        InventoryManager.Instance.AddItem(listItemObject[index]);
+        InventoryManager.Instance.AddFoodItem(listItemObject[index]);
         isSearch = true;
 
     }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StaminaController : MonoBehaviour
 {
+    public static StaminaController instance;
     public float playerStamina = 100.0f;
     [SerializeField] private float playerMaxStamina = 100.0f;
     [SerializeField] private float jumpCost = 30.0f;
@@ -19,17 +20,18 @@ public class StaminaController : MonoBehaviour
     [SerializeField] private Image staminaProgressUI;
     [SerializeField] private CanvasGroup sliderCanvasGroup;
 
-    private PlayerMovmentsScript playerScript;
+    //public PlayerMovmentsScript playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = GetComponent<PlayerMovmentsScript>();
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(wasSprint);
         if (!wasSprint)
         {
             if (playerStamina <= playerMaxStamina - 0.01f)
@@ -39,7 +41,7 @@ public class StaminaController : MonoBehaviour
 
                 if (playerStamina >= playerMaxStamina)
                 {
-                    playerScript.SetRunSpeed(normalSpeed);
+                    PlayerMovmentsScript.instance.SetRunSpeed(normalSpeed);
                     regenrate = true;
                 }
             }
@@ -51,7 +53,7 @@ public class StaminaController : MonoBehaviour
             if (playerStamina <= 0)
             {
                 wasSprint = false;
-                playerScript.isSprint = false;
+                PlayerMovmentsScript.instance.isSprint = false;
             }
         }
     }
@@ -66,7 +68,7 @@ public class StaminaController : MonoBehaviour
 
             if (playerStamina <= 0)
             {
-                playerScript.SetRunSpeed(slowSpeed);
+                PlayerMovmentsScript.instance.SetRunSpeed(slowSpeed);
                 regenrate = false;
             }
         }
@@ -77,7 +79,8 @@ public class StaminaController : MonoBehaviour
         if (playerStamina >= (playerStamina * jumpCost / playerMaxStamina))
         {
             playerStamina -= jumpCost;
-            playerScript.PlayerJump();
+            //playerScript.PlayerJump();
+            PlayerMovmentsScript.instance.PlayerJump();
             UpdateStamina(1);
         }
     }
@@ -85,5 +88,10 @@ public class StaminaController : MonoBehaviour
     public void UpdateStamina(int _value)
     {
         staminaProgressUI.fillAmount = playerStamina / playerMaxStamina;
+    }
+
+    public void IncreaseStamina(float _value)
+    {
+        playerStamina += _value;
     }
 }

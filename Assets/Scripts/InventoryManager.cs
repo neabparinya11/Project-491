@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<ItemObject> ListFoodItem = new List<ItemObject>();
+    public List<FoodItem> ListFoodItem = new List<FoodItem>();
     public List<ItemObject> ListQuestionItem = new List<ItemObject>();
 
     public int selected;
@@ -21,30 +21,24 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
-    public void AddItem(ItemObject _item)
+    public void AddFoodItem(FoodItem _item)
     {
-        if (_item.type == ItemType.Food)
-        {
-            ListFoodItem.Add(_item);
-        }
-
-        if (_item.type == ItemType.Question)
-        {
-            ListQuestionItem.Add(_item);
-        }
+        ListFoodItem.Add(_item);
     }
 
-    public void RemoveItem(ItemObject _item)
+    public void AddQuestionItem(QuestionItem _item)
     {
-        if (_item.type == ItemType.Food)
-        {
-            ListFoodItem.Remove(_item);
-        }
+        ListQuestionItem.Add(_item);
+    }
 
-        if (_item.type == ItemType.Question)
-        {
-            ListQuestionItem.Remove(_item);
-        }
+    public void RemoveFoodItem(FoodItem _item)
+    {
+        ListFoodItem.Remove(_item);
+    }
+
+    public void RemoveQuestionItem(QuestionItem _item)
+    {
+        ListQuestionItem.Remove(_item);
     }
 
     public void ShowListFoodItem()
