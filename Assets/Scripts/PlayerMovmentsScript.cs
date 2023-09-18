@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerMovmentsScript : MonoBehaviour
 {
+    public static PlayerMovmentsScript instance;
     float movementSpeed = 1.0f;
     [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
     [SerializeField] float walkSpeed = 1.0f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    [HideInInspector] public StaminaController staminaController;
+    //[HideInInspector] public StaminaController staminaController;
     private Rigidbody rb;
     private Animator animations;
     //MovementState movementState = MovementState.idle;
@@ -29,9 +30,10 @@ public class PlayerMovmentsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
-        staminaController = GetComponent<StaminaController>();
+        //staminaController = GetComponent<StaminaController>();
     }
 
     public void SetRunSpeed(float _speed)
@@ -58,7 +60,7 @@ public class PlayerMovmentsScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
             //rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
-            staminaController.StaminaJump();
+            StaminaController.instance.StaminaJump();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
@@ -66,13 +68,13 @@ public class PlayerMovmentsScript : MonoBehaviour
             isSprint = true;
             if (rb.velocity.x != 0.0f)
             {
-                staminaController.wasSprint = true;
+                StaminaController.instance.wasSprint = true;
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
             isSprint = false;
-            staminaController.wasSprint = false;
+            StaminaController.instance.wasSprint = false;
         }
         AnimationUpdates();
     }
@@ -130,7 +132,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            HealthController.health -= 1;
+            
         }
     }
 }
