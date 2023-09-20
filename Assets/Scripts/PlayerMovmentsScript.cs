@@ -128,11 +128,8 @@ public class PlayerMovmentsScript : MonoBehaviour
         animations.SetInteger("Anim State", (int)movementState);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void onPlayerAttacked(float _value)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            
-        }
+        HealthController.instance.DecreaseHealth(_value);
     }
 }
