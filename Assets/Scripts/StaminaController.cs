@@ -41,6 +41,7 @@ public class StaminaController : MonoBehaviour
 
                 if (playerStamina >= playerMaxStamina)
                 {
+                    sliderCanvasGroup.alpha = 0;
                     PlayerMovmentsScript.instance.SetRunSpeed(normalSpeed);
                     regenrate = true;
                 }
@@ -68,6 +69,7 @@ public class StaminaController : MonoBehaviour
 
             if (playerStamina <= 0)
             {
+                sliderCanvasGroup.alpha = 0;
                 PlayerMovmentsScript.instance.SetRunSpeed(slowSpeed);
                 regenrate = false;
             }
@@ -88,6 +90,14 @@ public class StaminaController : MonoBehaviour
     public void UpdateStamina(int _value)
     {
         staminaProgressUI.fillAmount = playerStamina / playerMaxStamina;
+        if (_value == 0)
+        {
+            sliderCanvasGroup.alpha = 0;
+        }
+        else
+        {
+            sliderCanvasGroup.alpha = 1;
+        }
     }
 
     public void IncreaseStamina(float _value)
