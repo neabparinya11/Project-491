@@ -9,8 +9,9 @@ public class EnemyAi : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] List<Transform> destination;
+    [SerializeField] float attackedTime;
     [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime;
-    public bool walking, chasing;
+    public bool walking, chasing, attacking;
     [SerializeField] Transform player;
     [SerializeField] int destinationAmount;
     [SerializeField] Vector3 rayCastOffSet;
@@ -26,6 +27,7 @@ public class EnemyAi : MonoBehaviour
     Vector3 dest;
     int randomNumber1;
     float enemyDistance;
+    bool attacked = false;
 
     enum EnemyState
     {
@@ -110,7 +112,13 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
     }
+    IEnumerator attackedRoutine()
+    {
 
+        yield return new WaitForSeconds(attackedTime);
+        
+
+    }
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(deathTime);
@@ -127,13 +135,20 @@ public class EnemyAi : MonoBehaviour
 
             if (enemyDistance <= catchDistance)
             {
+                attacking = true;
+                StartCoroutine(attackedRoutine());
                 animations.SetInteger("state", (int)EnemyState.attack);
-                if (colRightHand.isTrigger)
-                {
-                    Debug.Log("true");
-                }
-                
-                chasing = true;
+                //if (!attacked)
+                //{
+                //    if (leftHand.gameObject.tag == "Enemy")
+                //    {
+                //        attacked = true;
+                        
+                //        HealthController.instance.DecreaseHealth(25);
+                //    }
+                //    chasing = true;
+                //}
+
             }
         }
         if (walking == true)
@@ -153,5 +168,18 @@ public class EnemyAi : MonoBehaviour
                 walkingSound.enabled = false;
             }
         }
+        if (attacked == true)
+        {
+            if (!attacked && leftHand.gameObject.tag == "Enemy")
+            {
+                attacked = true;
+                HealthController.instance.DecreaseHealth(25);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.tag);
     }
 }
