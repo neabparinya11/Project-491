@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class InventoryItemManager : MonoBehaviour
 {
-    ItemObject item;
+    FoodItem item;
 
-    //public GameObject healthManager;
     public void RemoveItem()
     {
-        InventoryManager.Instance.RemoveItem(item);
+        InventoryManager.Instance.RemoveFoodItem(item);
         Destroy(gameObject);
     }
 
-    public void AddNewItem(ItemObject _item)
+    public void AddNewItem(FoodItem _item)
     {
         item = _item;
     }
@@ -22,7 +21,9 @@ public class InventoryItemManager : MonoBehaviour
         switch (item.type)
         {
             case ItemType.Food:
-                Debug.Log("Food");
+                HealthController.instance.IncreaseHealth(item.restoreHealth);
+                StaminaController.instance.IncreaseStamina(item.restoreStamina);
+                Debug.Log(item.restoreSanity);
                 break;
             case ItemType.Question:
 

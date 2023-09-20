@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4037456241488990515}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da054f45eb485ee448d7430b1bdbfddb, type: 3}
   m_Name: 
@@ -50,3 +50,4 @@ MonoBehaviour:
   health4: {fileID: 0}
   health5: {fileID: 0}
   deathScene: DeathScene
+  percentageHealth: 100
