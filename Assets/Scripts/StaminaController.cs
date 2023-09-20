@@ -31,7 +31,6 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(wasSprint);
         if (!wasSprint)
         {
             if (playerStamina <= playerMaxStamina - 0.01f)

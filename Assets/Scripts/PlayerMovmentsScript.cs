@@ -128,11 +128,12 @@ public class PlayerMovmentsScript : MonoBehaviour
         animations.SetInteger("Anim State", (int)movementState);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
             
-        }
-    }
+    //    }
+    //}
+
 }
