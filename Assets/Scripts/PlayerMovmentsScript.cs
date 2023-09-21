@@ -132,4 +132,5 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         HealthController.instance.DecreaseHealth(_value);
     }
+
 }
