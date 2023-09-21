@@ -36,8 +36,11 @@ public class InventoryItemManager : MonoBehaviour
 
     public void ItemDetail()
     {
-        ItemDetailManager.Instance.name = item.itemName;
+        ItemDetailManager.Instance.nameitem = item.itemName;
         ItemDetailManager.Instance.description = item.description;
+        ItemDetailManager.Instance.health = item.restoreHealth;
+        ItemDetailManager.Instance.stamina = item.restoreStamina;
+        ItemDetailManager.Instance.sanity = item.restoreSanity;
         ItemDetailManager.Instance.SetActivePanel(true);
     }
 }

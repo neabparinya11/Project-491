@@ -15,18 +15,37 @@ public class ItemDetailManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemRestoreSanity;
 
     public float health, stamina, sanity;
-    public string name, description;
+    public string nameitem, description;
 
     private void Start()
     {
         Instance = this;
         itemName.text = "";
         itemDescription.text = "";
+        itemRestoreHealth.text = "";
+        itemRestoreStamina.text = "";
+        itemRestoreSanity.text = "";
     }
     private void Update()
     {
-        itemName.text = name;
+        itemName.text = nameitem;
         itemDescription.text = description;
+        if (health != 0)
+        {
+            itemRestoreHealth.text = "Heal + " + health;
+            itemRestoreHealth.color = Color.red;
+        }
+        if (stamina != 0)
+        {
+            itemRestoreStamina.text = "Stamina + " + stamina;
+            itemRestoreStamina.color = Color.blue;
+        }
+        if (sanity != 0)
+        {
+            itemRestoreStamina.text = "Sanity + " + sanity;
+            itemRestoreSanity.color = Color.green;
+        }
+        
     }
 
     public void SetActivePanel(bool _open)

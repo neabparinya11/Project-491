@@ -35,6 +35,17 @@ public class BoxItem : MonoBehaviour
                 loadStock.SetActive(false);
                 RandomItem();
             }
+            if (currentLoad < maxLoad && !Input.GetKey(KeyCode.E))
+            {
+                currentLoad -= speed * Time.deltaTime;
+                slide.value = currentLoad;
+                if (currentLoad <= 0)
+                {
+                    currentLoad = 0;
+                    slide.value = 0;
+                }
+            }
+
         }
     }
     private void RandomItem()
@@ -51,6 +62,7 @@ public class BoxItem : MonoBehaviour
         {
             //hide text or disable.
             loadStock.SetActive(false);
+            currentLoad = 0.0f;
         }
     }
 }
