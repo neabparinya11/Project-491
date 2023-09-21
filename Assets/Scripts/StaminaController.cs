@@ -26,6 +26,7 @@ public class StaminaController : MonoBehaviour
     void Start()
     {
         instance = this;
+        UpdateStamina(0);
     }
 
     // Update is called once per frame
