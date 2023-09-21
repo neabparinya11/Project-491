@@ -33,4 +33,11 @@ public class InventoryItemManager : MonoBehaviour
         }
         RemoveItem();
     }
+
+    public void ItemDetail()
+    {
+        ItemDetailManager.Instance.name = item.itemName;
+        ItemDetailManager.Instance.description = item.description;
+        ItemDetailManager.Instance.SetActivePanel(true);
+    }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   icon: {fileID: 0}
   type: 0
-  itemName: "\u0E19\u0E49\u0E33\u0E02\u0E27\u0E14\u0E43\u0E2B\u0E0D\u0E48"
-  description: 
+  itemName: Crystal Water
+  description: ...
   restoreHealth: 0
   restoreStamina: 50
   restoreSanity: 0
