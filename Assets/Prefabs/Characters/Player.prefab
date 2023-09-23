@@ -1269,8 +1269,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473314152575573606}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.01, y: 0.27, z: -0.45}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -8.01, y: 0.27, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  staminaController: {fileID: 0}
+  isSprint: 0
 --- !u!114 &4197237511966470401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473314152575573606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a93ff7bd82a61b04c90c00ecb122d397, type: 3}
   m_Name: 
@@ -1370,10 +1370,10 @@ MonoBehaviour:
   jumpCost: 30
   regenrate: 1
   wasSprint: 0
-  staminaDrain: 0.5
-  staminaRegen: 0.5
-  slowSpeed: 4
-  normalSpeed: 8
+  staminaDrain: 25
+  staminaRegen: 25
+  slowSpeed: 1
+  normalSpeed: 5
   staminaProgressUI: {fileID: 0}
   sliderCanvasGroup: {fileID: 0}
 --- !u!1 &2473314152575573608

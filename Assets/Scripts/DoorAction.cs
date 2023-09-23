@@ -13,6 +13,8 @@ public class DoorAction : MonoBehaviour
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
+    [SerializeField] GameObject _enemy;
+    [SerializeField] EnemyAi _enemyScript;
 
     bool canAction = false;
     private void OnTriggerEnter(Collider other)
@@ -41,6 +43,10 @@ public class DoorAction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _player.transform.position = newPosition.transform.position;
+                if (_enemyScript.chasing)
+                {
+                    _enemy.transform.position = newPosition.transform.position;
+                }
             }
         }
     }
