@@ -18,9 +18,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] string deathScene;
     protected Animator animations;
     [SerializeField] AudioSource walkingSound;
-    [SerializeField] GameObject leftHand, rightHand;
 
-    CapsuleCollider colLeftHand, colRightHand;
     // 1 = normal, 2 = hard, 3 = permadeath
     int levelEnemy = 3;
     Transform currentDestination;
@@ -40,8 +38,6 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
-        colLeftHand = leftHand.GetComponent<CapsuleCollider>();
-        colRightHand = rightHand.GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -170,16 +166,7 @@ public class EnemyAi : MonoBehaviour
         }
         if (attacked == true)
         {
-            if (!attacked && leftHand.gameObject.tag == "Enemy")
-            {
-                attacked = true;
-                HealthController.instance.DecreaseHealth(25);
-            }
+            HealthController.instance.DecreaseHealth(25);
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.tag);
     }
 }
