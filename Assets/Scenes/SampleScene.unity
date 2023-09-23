@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -451,6 +451,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7499423023290695924, guid: 04db2f84392e6fe43894e3beb49c31f8,
     type: 3}
   m_PrefabInstance: {fileID: 7499423023169622495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &370620332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2473314152575573606, guid: 3311595fc7e923643bab419604de6b73,
+    type: 3}
+  m_PrefabInstance: {fileID: 1855163142}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &401845743 stripped
 MonoBehaviour:
@@ -2085,6 +2091,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1855163142}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1311774264 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2473314152582999462, guid: 3311595fc7e923643bab419604de6b73,
+    type: 3}
+  m_PrefabInstance: {fileID: 1855163142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1402370952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2608395141386762423, guid: 40909dc7b04413a4196962157ac4be55,
@@ -3082,7 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newPosition: {fileID: 1655538834}
-  _player: {fileID: 0}
+  _player: {fileID: 370620332}
   _enemy: {fileID: 1702647549}
   _enemyScript: {fileID: 1702647551}
 --- !u!1 &2059017134 stripped
@@ -3419,6 +3431,11 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 730818751}
+    - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
+        type: 3}
+      propertyPath: attackedTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: walkingSound
@@ -3801,7 +3818,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1311774264}
     - target: {fileID: 4432863167786667903, guid: 357b1d32aadb70d48abcd148182087d6,
         type: 3}
       propertyPath: m_RootOrder

@@ -110,10 +110,9 @@ public class EnemyAi : MonoBehaviour
     }
     IEnumerator attackedRoutine()
     {
-
+        attacked = true;
         yield return new WaitForSeconds(attackedTime);
-        
-
+        attacked = false;
     }
     IEnumerator deathRoutine()
     {
@@ -131,9 +130,14 @@ public class EnemyAi : MonoBehaviour
 
             if (enemyDistance <= catchDistance)
             {
-                attacking = true;
-                StartCoroutine(attackedRoutine());
                 animations.SetInteger("state", (int)EnemyState.attack);
+                if (!attacked)
+                {
+                    
+                    HealthController.instance.DecreaseHealth(20);
+                    StartCoroutine(attackedRoutine());
+                    
+                }
                 //if (!attacked)
                 //{
                 //    if (leftHand.gameObject.tag == "Enemy")
@@ -163,10 +167,6 @@ public class EnemyAi : MonoBehaviour
                 animations.SetInteger("state", (int)EnemyState.idle);
                 walkingSound.enabled = false;
             }
-        }
-        if (attacked == true)
-        {
-            HealthController.instance.DecreaseHealth(25);
         }
     }
 }
