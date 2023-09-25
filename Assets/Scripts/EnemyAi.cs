@@ -18,7 +18,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] string deathScene;
     protected Animator animations;
     [SerializeField] AudioSource walkingSound;
-
+   
     // 1 = normal, 2 = hard, 3 = permadeath
     int levelEnemy = 3;
     Transform currentDestination;
@@ -50,6 +50,7 @@ public class EnemyAi : MonoBehaviour
             if (hit.collider.gameObject.tag == "Player")
             {
                 walking = false;
+                walkingSound.enabled = false;
                 StopCoroutine(stayIdle());
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
@@ -133,10 +134,8 @@ public class EnemyAi : MonoBehaviour
                 animations.SetInteger("state", (int)EnemyState.attack);
                 if (!attacked)
                 {
-                    
-                    HealthController.instance.DecreaseHealth(20);
                     StartCoroutine(attackedRoutine());
-                    
+                    HealthController.instance.DecreaseHealth(20);   
                 }
                 //if (!attacked)
                 //{
@@ -169,4 +168,8 @@ public class EnemyAi : MonoBehaviour
             }
         }
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log(other.gameObject.tag);
+    //}
 }
