@@ -18,7 +18,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] string deathScene;
     protected Animator animations;
     [SerializeField] AudioSource walkingSound;
-
+   
     // 1 = normal, 2 = hard, 3 = permadeath
     int levelEnemy = 3;
     Transform currentDestination;
@@ -50,6 +50,7 @@ public class EnemyAi : MonoBehaviour
             if (hit.collider.gameObject.tag == "Player")
             {
                 walking = false;
+                walkingSound.enabled = false;
                 StopCoroutine(stayIdle());
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
@@ -110,10 +111,9 @@ public class EnemyAi : MonoBehaviour
     }
     IEnumerator attackedRoutine()
     {
-
+        attacked = true;
         yield return new WaitForSeconds(attackedTime);
-        
-
+        attacked = false;
     }
     IEnumerator deathRoutine()
     {
@@ -131,9 +131,12 @@ public class EnemyAi : MonoBehaviour
 
             if (enemyDistance <= catchDistance)
             {
-                attacking = true;
-                StartCoroutine(attackedRoutine());
                 animations.SetInteger("state", (int)EnemyState.attack);
+                if (!attacked)
+                {
+                    StartCoroutine(attackedRoutine());
+                    HealthController.instance.DecreaseHealth(20);   
+                }
                 //if (!attacked)
                 //{
                 //    if (leftHand.gameObject.tag == "Enemy")
@@ -164,9 +167,9 @@ public class EnemyAi : MonoBehaviour
                 walkingSound.enabled = false;
             }
         }
-        if (attacked == true)
-        {
-            HealthController.instance.DecreaseHealth(25);
-        }
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log(other.gameObject.tag);
+    //}
 }
