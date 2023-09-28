@@ -3341,6 +3341,19 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1855163142}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1311774269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370620332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1315932398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4970,6 +4983,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3877976546092110421, guid: 3311595fc7e923643bab419604de6b73,
         type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877976546092110421, guid: 3311595fc7e923643bab419604de6b73,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877976546092110421, guid: 3311595fc7e923643bab419604de6b73,
+        type: 3}
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
@@ -5529,7 +5552,7 @@ PrefabInstance:
     - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: attackedTime
-      value: 2.845
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
@@ -5559,12 +5582,12 @@ PrefabInstance:
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: m_Height
-      value: 1.64
+      value: 1.6399999
       objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: m_Radius
-      value: 0.24
+      value: 0.1402721
       objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
@@ -5574,12 +5597,12 @@ PrefabInstance:
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: m_Center.x
-      value: 2.9971043e-17
+      value: 4.769878e-17
       objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.017734021
+      value: 0.011169001
       objectReference: {fileID: 0}
     - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}

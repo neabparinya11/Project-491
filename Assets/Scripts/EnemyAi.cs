@@ -115,6 +115,7 @@ public class EnemyAi : MonoBehaviour
     {
         attacked = true;
         yield return new WaitForSeconds(attackedTime);
+        agent.isStopped = false;
         attacked = false;
     }
     IEnumerator deathRoutine()
@@ -128,11 +129,20 @@ public class EnemyAi : MonoBehaviour
         if (chasing == true)
         {
             dest = player.position;
-            agent.destination = dest - new Vector3(catchDistance - 0.5f, .0f, .0f);
+            if (dest.x > 0)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
+            }
+            if (dest.x < 0)
+            {
+                this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            agent.destination = dest - new Vector3(catchDistance - 0.1f, .0f, .0f);
             agent.speed = chaseSpeed;
 
             if (enemyDistance <= catchDistance)
             {
+                agent.isStopped = true;
                 animations.SetInteger("state", (int)EnemyState.attack);
                 if (!attacked)
                 {
