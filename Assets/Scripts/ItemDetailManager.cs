@@ -13,6 +13,8 @@ public class ItemDetailManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI itemRestoreHealth;
     [SerializeField] TextMeshProUGUI itemRestoreStamina;
     [SerializeField] TextMeshProUGUI itemRestoreSanity;
+    public Button useItemBtn;
+    public Button dropItemBtn;
 
     public float health, stamina, sanity;
     public string nameitem, description;
@@ -26,6 +28,18 @@ public class ItemDetailManager : MonoBehaviour
         itemRestoreStamina.text = "";
         itemRestoreSanity.text = "";
     }
+
+    public void ClearDetail()
+    {
+        itemName.text = "";
+        itemDescription.text = "";
+        itemRestoreHealth.text = "";
+        itemRestoreStamina.text = "";
+        itemRestoreSanity.text = "";
+        Instance.useItemBtn.onClick.RemoveAllListeners();
+        Instance.dropItemBtn.onClick.RemoveAllListeners();
+    }
+
     private void Update()
     {
         itemName.text = nameitem;
@@ -45,7 +59,6 @@ public class ItemDetailManager : MonoBehaviour
             itemRestoreStamina.text = "Sanity + " + sanity;
             itemRestoreSanity.color = Color.green;
         }
-        
     }
 
     public void SetActivePanel(bool _open)

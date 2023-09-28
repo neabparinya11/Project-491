@@ -20,7 +20,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] AudioSource walkingSound;
    
     // 1 = normal, 2 = hard, 3 = permadeath
-    int levelEnemy = 3;
+    int levelEnemy = 1;
     Transform currentDestination;
     Vector3 dest;
     int randomNumber1;
@@ -34,7 +34,7 @@ public class EnemyAi : MonoBehaviour
     private void Start()
     {
         walking = true;
-        walkingSound.enabled = true;
+        walkingSound.enabled = false;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
@@ -63,11 +63,12 @@ public class EnemyAi : MonoBehaviour
             case 0:
                 break;
             case 1:
+                EnemyLevel1();
                 break;
             case 2:
                 break;
             case 3:
-                EnemyLevel3();
+                
                 break;
             default: break;
         }
@@ -77,6 +78,7 @@ public class EnemyAi : MonoBehaviour
     public void stopChase()
     {
         walking = true;
+        walkingSound.enabled = true;
         chasing = false;
         StopCoroutine(chaseRoutine());
         currentDestination = destination[UnityEngine.Random.Range(0, destinationAmount)];
@@ -121,7 +123,7 @@ public class EnemyAi : MonoBehaviour
         SceneManager.LoadScene(deathScene);
     }
 
-    public void EnemyLevel3()
+    public void EnemyLevel1()
     {
         if (chasing == true)
         {
@@ -135,8 +137,10 @@ public class EnemyAi : MonoBehaviour
                 if (!attacked)
                 {
                     StartCoroutine(attackedRoutine());
-                    HealthController.instance.DecreaseHealth(20);   
+                    PlayerMovmentsScript.instance.onPlayerAttacked(20);
                 }
+                chasing = true;
+                StopCoroutine(attackedRoutine());
                 //if (!attacked)
                 //{
                 //    if (leftHand.gameObject.tag == "Enemy")

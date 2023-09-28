@@ -13,9 +13,15 @@ public class PlayerMovmentsScript : MonoBehaviour
     [SerializeField] float walkSpeed = 1.0f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    //[HideInInspector] public StaminaController staminaController;
+
+    [Header("Damage overlay")]
+    [SerializeField] RawImage overlay;
+    [SerializeField] float duration;
+    [SerializeField] float fadeSpeed;
+
     private Rigidbody rb;
     private Animator animations;
+    private float durationTimer;
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
     public bool isSprint;
@@ -34,6 +40,7 @@ public class PlayerMovmentsScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
         //staminaController = GetComponent<StaminaController>();
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
     }
 
     public void SetRunSpeed(float _speed)
@@ -45,6 +52,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     void Update()
     {
         Movement();
+        DamageOverlay();
     }
 
     public void PlayerJump()
@@ -131,6 +139,23 @@ public class PlayerMovmentsScript : MonoBehaviour
     public void onPlayerAttacked(float _value)
     {
         HealthController.instance.DecreaseHealth(_value);
+        durationTimer = 0;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
+    }
+
+    private void DamageOverlay()
+    {
+        Debug.Log("Damage");
+        if (overlay.color.a > 0)
+        {
+            durationTimer += Time.deltaTime;
+            if (durationTimer > duration)
+            {
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime*fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+            }
+        }
     }
 
 }
