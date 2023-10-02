@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryItemManager : MonoBehaviour
 {
@@ -18,12 +19,14 @@ public class InventoryItemManager : MonoBehaviour
     }
     public void UseItem()
     {
+        Debug.Log(item.name);
         switch (item.type)
         {
             case ItemType.Food:
                 HealthController.instance.IncreaseHealth(item.restoreHealth);
                 StaminaController.instance.IncreaseStamina(item.restoreStamina);
-                Debug.Log(item.restoreSanity);
+                //SanityController.instance.IncreaseS(item.restoreSanity);
+                SanityController.instance.IncreaseSanity(item.restoreSanity);
                 break;
             case ItemType.Question:
 
@@ -36,11 +39,27 @@ public class InventoryItemManager : MonoBehaviour
 
     public void ItemDetail()
     {
+        //Clear
+        ItemDetailManager.Instance.ClearDetail();
+        //ItemDetailManager.Instance.useItemBtn.onClick.RemoveAllListeners();
+        //ItemDetailManager.Instance.dropItemBtn.onClick.RemoveAllListeners();
+
+        //Set
         ItemDetailManager.Instance.nameitem = item.itemName;
         ItemDetailManager.Instance.description = item.description;
         ItemDetailManager.Instance.health = item.restoreHealth;
         ItemDetailManager.Instance.stamina = item.restoreStamina;
         ItemDetailManager.Instance.sanity = item.restoreSanity;
         ItemDetailManager.Instance.SetActivePanel(true);
+        ItemDetailManager.Instance.useItemBtn.onClick.AddListener(() =>
+        {
+            UseItem();
+            ItemDetailManager.Instance.detailPanel.SetActive(false);
+        });
+        ItemDetailManager.Instance.dropItemBtn.onClick.AddListener(() =>
+        {
+            RemoveItem();
+            ItemDetailManager.Instance.detailPanel.SetActive(false);
+        });
     }
 }

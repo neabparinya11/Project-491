@@ -8,8 +8,9 @@ public class BoxItem : MonoBehaviour
     //public List<GameObject> listItem = new List<GameObject>();
     public List<FoodItem> listItemObject = new List<FoodItem>();
     public GameObject loadStock;
+    public Transform loadStockTransform;
     public Slider slide;
-    public Text textCommand;
+    
     float speed = 20.0f;
     float maxLoad = 100.0f;
     float currentLoad = 0.0f;
@@ -64,5 +65,12 @@ public class BoxItem : MonoBehaviour
             loadStock.SetActive(false);
             currentLoad = 0.0f;
         }
+    }
+
+    private void Update()
+    {
+        Vector3 objectPosition = transform.position + new Vector3(0.5f, 0.5f, 0);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        loadStockTransform.position = screenPosition;
     }
 }

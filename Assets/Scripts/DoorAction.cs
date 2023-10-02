@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class DoorAction : MonoBehaviour
 {
-    //[SerializeField] GameObject messages;
+    [SerializeField] Transform messagesTransform;
+    [SerializeField] Canvas messagePrefab;
     //[SerializeField] TextMeshProUGUI texts;
     //[SerializeField] GameObject newPosition;
     //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
@@ -21,7 +22,7 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //messages.SetActive(true);
+            messagePrefab.enabled = true;
             canAction = true;
             
         }
@@ -31,13 +32,16 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //messages.SetActive(false);
+            messagePrefab.enabled = false;
             canAction = false;
         }
     }
 
     private void Update()
     {
+        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        messagesTransform.position = screenPosition;
         if (canAction)
         {
             if (Input.GetKeyDown(KeyCode.E))
