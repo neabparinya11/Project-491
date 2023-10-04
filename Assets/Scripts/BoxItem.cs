@@ -8,6 +8,7 @@ public class BoxItem : MonoBehaviour
     //public List<GameObject> listItem = new List<GameObject>();
     public List<FoodItem> listItemObject = new List<FoodItem>();
     public GameObject loadStock;
+    public GameObject interaction;
     public Transform loadStockTransform;
     public Slider slide;
     
@@ -19,7 +20,7 @@ public class BoxItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            interaction.SetActive(true);
             if (isSearch)
             {
                 return;
@@ -27,6 +28,7 @@ public class BoxItem : MonoBehaviour
             
             if (Input.GetKey(KeyCode.E))
             {
+                interaction.SetActive(false);
                 loadStock.SetActive(true);
                 currentLoad += speed * Time.deltaTime;
                 slide.value = currentLoad;
@@ -62,6 +64,7 @@ public class BoxItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //hide text or disable.
+            interaction.SetActive(false);
             loadStock.SetActive(false);
             currentLoad = 0.0f;
         }
@@ -72,5 +75,6 @@ public class BoxItem : MonoBehaviour
         Vector3 objectPosition = transform.position + new Vector3(0.5f, 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         loadStockTransform.position = screenPosition;
+        interaction.transform.position = screenPosition;
     }
 }

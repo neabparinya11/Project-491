@@ -145,7 +145,6 @@ public class PlayerMovmentsScript : MonoBehaviour
 
     private void DamageOverlay()
     {
-        Debug.Log("Damage");
         if (overlay.color.a > 0)
         {
             durationTimer += Time.deltaTime;

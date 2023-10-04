@@ -8,6 +8,9 @@ public class DoorAction : MonoBehaviour
 {
     [SerializeField] Transform messagesTransform;
     [SerializeField] Canvas messagePrefab;
+    [SerializeField] Image messagesSprite;
+    [SerializeField] Sprite normalSprite;
+    [SerializeField] Sprite failureSprite;
     //[SerializeField] TextMeshProUGUI texts;
     //[SerializeField] GameObject newPosition;
     //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
@@ -18,13 +21,14 @@ public class DoorAction : MonoBehaviour
     [SerializeField] EnemyAi _enemyScript;
 
     bool canAction = false;
+    bool isLocked = true;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             messagePrefab.enabled = true;
+            messagesSprite.sprite = normalSprite;
             canAction = true;
-            
         }
     }
 
@@ -46,11 +50,18 @@ public class DoorAction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _player.transform.position = newPosition.transform.position;
-                if (_enemyScript.chasing)
+                if (isLocked)
                 {
-                    _enemy.transform.position = newPosition.transform.position;
+                    messagesSprite.sprite = failureSprite;
                 }
+                else
+                {
+                    _player.transform.position = newPosition.transform.position;
+                }
+                //if (_enemyScript.chasing)
+                //{
+                //    _enemy.transform.position = newPosition.transform.position;
+                //}
             }
         }
     }

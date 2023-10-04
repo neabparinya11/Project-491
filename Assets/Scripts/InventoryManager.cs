@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     public int selected;
     public Transform itemContent;
     public GameObject iconItem;
+    public GameObject iconQuest;
     public GameObject inventoryPanel;
     
     public InventoryItemManager[] inventoryItem;
@@ -64,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         }
         foreach (var item in ListQuestionItem)
         {
-            GameObject obj = Instantiate(iconItem, itemContent);
+            GameObject obj = Instantiate(iconQuest, itemContent);
             var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
         }
