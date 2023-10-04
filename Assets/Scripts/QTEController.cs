@@ -12,14 +12,16 @@ public class QTEController : MonoBehaviour
     [SerializeField] Image timeSlide;
     [SerializeField] CanvasGroup timeCanvas;
     [SerializeField] Sprite[] listSprite;
-    [SerializeField] GameObject problem1, problem2, problem3;
+    //[SerializeField] GameObject problem1, problem2, problem3;
+    [SerializeField] GameObject problem1;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
     protected int countKeycodeCheck = 0;
     protected bool isQTEenable = false;
     protected bool isChecked = false;
-    protected bool pb1 = false, pb2 = false, pb3 = false;
+    //protected bool pb1 = false, pb2 = false, pb3 = false;
+    protected bool pb1 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -60,15 +62,15 @@ public class QTEController : MonoBehaviour
         timeCanvas.alpha = 1;
         timeSlide.fillAmount += Time.deltaTime / timeDuration;
         problem1.GetComponent<Image>().sprite = imageKeyCodeProblem[0];
-        problem2.GetComponent<Image>().sprite = imageKeyCodeProblem[1];
-        problem3.GetComponent<Image>().sprite = imageKeyCodeProblem[2];
+        //problem2.GetComponent<Image>().sprite = imageKeyCodeProblem[1];
+        //problem3.GetComponent<Image>().sprite = imageKeyCodeProblem[2];
 
-        if (!pb1 && !pb2 && !pb3 )
-        {
-            problem1.SetActive(true);
-            problem2.SetActive(true);
-            problem3.SetActive(true);
-        }
+        //if (!pb1 && !pb2 && !pb3 )
+        //{
+        //    problem1.SetActive(true);
+        //    problem2.SetActive(true);
+        //    problem3.SetActive(true);
+        //}
 
         if (timeSlide.fillAmount == 1)
         {
@@ -84,20 +86,39 @@ public class QTEController : MonoBehaviour
             problem1.SetActive(false);
             pb1 = true;
         }
-
-        if (Input.GetKeyDown(keycodeProblem[1]) && pb1)
+        else
         {
-            problem2.SetActive(false);
-            pb2 = true;
+            timeSlide.color = Color.red;
+            isQTEenable = false;
         }
 
-        if (Input.GetKeyDown(keycodeProblem[2]) && pb2 && pb1)
-        {
-            problem3.SetActive(false);
-            pb3 = true;
-        }
+        //if (Input.GetKeyDown(keycodeProblem[1]) && pb1 )
+        //{
+        //    problem2.SetActive(false);
+        //    if (pb2 && Time.time - lastedBetweenPress <= 0.8f)
+        //    {
 
-        if (pb1 && pb2 && pb3)
+        //    }
+        //    pb2 = true;
+        //    lastedBetweenPress = Time.time;
+        //}
+
+        //if (Input.GetKeyDown(keycodeProblem[2]) && pb2 && pb1)
+        //{
+        //    problem3.SetActive(false);
+        //    if (pb2 && Time.time - lastedBetweenPress <= 0.8f)
+        //    {
+
+        //    }
+        //    pb3 = true;
+        //    lastedBetweenPress = Time.time;
+        //}
+
+        //if (pb1 && pb2 && pb3)
+        //{
+        //    return true;
+        //}
+        if (pb1)
         {
             return true;
         }
@@ -112,6 +133,5 @@ public class QTEController : MonoBehaviour
         isQTEenable = false;
         keycodeProblem.Clear();
         imageKeyCodeProblem.Clear();
-
     }
 }
