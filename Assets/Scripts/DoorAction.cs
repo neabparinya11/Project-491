@@ -17,8 +17,8 @@ public class DoorAction : MonoBehaviour
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
-    [SerializeField] GameObject _enemy;
-    [SerializeField] EnemyAi _enemyScript;
+    //[SerializeField] GameObject _enemy;
+    //[SerializeField] EnemyAi _enemyScript;
 
     bool canAction = false;
     bool isLocked = true;

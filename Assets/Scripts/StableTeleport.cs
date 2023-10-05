@@ -29,7 +29,7 @@ public class StableTeleport : MonoBehaviour
             Debug.Log("message1");
             messageTransform1.position = screenPosition1;
             _messageImage1.sprite = _messageSprite1;
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 _player.transform.position = choice1.position;
             }
@@ -40,7 +40,7 @@ public class StableTeleport : MonoBehaviour
             Debug.Log("message2");
             messageTransform2.position = screenPosition2;
             _messageImage2.sprite = _messageSprite2;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 _player.transform.position = choice2.position;
             }
