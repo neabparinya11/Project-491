@@ -25,6 +25,11 @@ public class PickupQuestionItem : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         interaction.transform.position = screenPosition;
         icon.sprite = interactionIcon;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            InventoryManager.Instance.AddQuestionItem(questionItem);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerStay(Collider other)

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DoorAction : MonoBehaviour
 {
     [SerializeField] Transform messagesTransform;
-    [SerializeField] Canvas messagePrefab;
+    [SerializeField] CanvasGroup messagePrefab;
     [SerializeField] Image messagesSprite;
     [SerializeField] Sprite normalSprite;
     [SerializeField] Sprite failureSprite;
@@ -21,12 +21,13 @@ public class DoorAction : MonoBehaviour
     //[SerializeField] EnemyAi _enemyScript;
 
     bool canAction = false;
-    bool isLocked = true;
+    [SerializeField] bool isLocked = true;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            messagePrefab.enabled = true;
+            messagePrefab.alpha = 1;
             messagesSprite.sprite = normalSprite;
             canAction = true;
         }
@@ -36,7 +37,7 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            messagePrefab.enabled = false;
+            messagePrefab.alpha = 0;
             canAction = false;
         }
     }
