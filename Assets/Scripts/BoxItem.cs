@@ -11,6 +11,7 @@ public class BoxItem : MonoBehaviour
     public GameObject interaction;
     public Transform loadStockTransform;
     public Slider slide;
+    [SerializeField] CanvasGroup canvas;
     
     float speed = 20.0f;
     float maxLoad = 100.0f;
@@ -20,7 +21,8 @@ public class BoxItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interaction.SetActive(true);
+            
+            //interaction.SetActive(true);
             if (isSearch)
             {
                 return;
@@ -48,7 +50,11 @@ public class BoxItem : MonoBehaviour
                     slide.value = 0;
                 }
             }
-
+            if (currentLoad == 0)
+            {
+                Debug.Log("current");
+                canvas.alpha = 1;
+            }
         }
     }
     private void RandomItem()
@@ -64,6 +70,7 @@ public class BoxItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //hide text or disable.
+            canvas.alpha = 0;
             interaction.SetActive(false);
             loadStock.SetActive(false);
             currentLoad = 0.0f;

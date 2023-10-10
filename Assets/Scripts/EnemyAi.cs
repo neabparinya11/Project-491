@@ -129,15 +129,16 @@ public class EnemyAi : MonoBehaviour
         if (chasing == true)
         {
             dest = player.position;
-            if (dest.x > 0)
+            Debug.Log(dest.x - transform.position.x);
+            if (transform.position.x - dest.x > 0)
             {
                 this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
             }
-            if (dest.x < 0)
+            if (transform.position.x - dest.x < 0)
             {
                 this.gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
-            agent.destination = dest - new Vector3(catchDistance - 0.1f, .0f, .0f);
+            agent.destination = dest;
             agent.speed = chaseSpeed;
 
             if (enemyDistance <= catchDistance)
