@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PickupQuestionItem : MonoBehaviour
 {
     [SerializeField] QuestionItem questionItem;
+    [SerializeField] CanvasGroup canva;
     [SerializeField] GameObject interaction;
     [SerializeField] Image icon;
     [SerializeField] Sprite interactionIcon;
@@ -25,18 +26,22 @@ public class PickupQuestionItem : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         interaction.transform.position = screenPosition;
         icon.sprite = interactionIcon;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_canInteraction)
         {
-            InventoryManager.Instance.AddQuestionItem(questionItem);
-            Destroy(gameObject);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                InventoryManager.Instance.AddQuestionItem(questionItem);
+                Destroy(gameObject);
+            }
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            interaction.SetActive(true);
+            canva.alpha = 1;
             _canInteraction = true;
         }
     }
@@ -45,7 +50,7 @@ public class PickupQuestionItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interaction.SetActive(false);
+            canva.alpha = 0;
             _canInteraction = false;
         }
     }

@@ -28,7 +28,9 @@ public class QuestionItemDetail : MonoBehaviour
     void Update()
     {
         questionItemName.text = questItemName;
+        questionItemName.color = Color.white;
         questionItemDetail.text = questItemDetail;
+        questionItemDetail.color = Color.white;
         questionItemImage.sprite = questItemImage;
     }
 

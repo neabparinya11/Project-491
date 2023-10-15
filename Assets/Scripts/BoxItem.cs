@@ -48,11 +48,12 @@ public class BoxItem : MonoBehaviour
                 {
                     currentLoad = 0;
                     slide.value = 0;
+                    loadStock.SetActive(false);
+                    interaction.SetActive(true);
                 }
             }
             if (currentLoad == 0)
             {
-                Debug.Log("current");
                 canvas.alpha = 1;
             }
         }
@@ -71,7 +72,7 @@ public class BoxItem : MonoBehaviour
         {
             //hide text or disable.
             canvas.alpha = 0;
-            interaction.SetActive(false);
+            interaction.SetActive(true);
             loadStock.SetActive(false);
             currentLoad = 0.0f;
         }

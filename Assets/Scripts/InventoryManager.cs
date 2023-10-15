@@ -8,15 +8,18 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
     public List<FoodItem> ListFoodItem = new List<FoodItem>();
-    public List<ItemObject> ListQuestionItem = new List<ItemObject>();
+    public List<QuestionItem> ListQuestionItem = new List<QuestionItem>();
 
     public int selected;
     public Transform itemContent;
     public GameObject iconItem;
     public GameObject iconQuest;
     public GameObject inventoryPanel;
+    public GameObject itemDetailPanel;
+    public GameObject itemQuestPanel;
     
     public InventoryItemManager[] inventoryItem;
+    public InventoryQuestManager[] inventoryQuest;
     private void Awake()
     {
         Instance = this;
@@ -44,6 +47,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ShowListFoodItem()
     {
+        itemDetailPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -59,6 +63,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ShowListQuestionItem()
     {
+        itemDetailPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -69,6 +74,7 @@ public class InventoryManager : MonoBehaviour
             var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
         }
+        SetInventoryQuest();
     }
 
     private void Update()
@@ -90,6 +96,15 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i< ListFoodItem.Count; i++)
         {
             inventoryItem[i].AddNewItem(ListFoodItem[i]);
+        }
+    }
+
+    public void SetInventoryQuest()
+    {
+        inventoryQuest = itemContent.GetComponentsInChildren<InventoryQuestManager>();
+        for (int i = 0; i< ListQuestionItem.Count; i++)
+        {
+            inventoryQuest[i].AddQuestionItem(ListQuestionItem[i]);
         }
     }
 }
