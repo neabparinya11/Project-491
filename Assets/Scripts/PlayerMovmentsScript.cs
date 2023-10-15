@@ -25,7 +25,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
     public bool isSprint;
-    
+    public bool isHidden = false;
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
     enum MovementState
@@ -53,6 +53,14 @@ public class PlayerMovmentsScript : MonoBehaviour
     {
         Movement();
         DamageOverlay();
+        if (isHidden)
+        {
+            Hidding();
+        }
+        else
+        {
+            UnHidding();
+        }
     }
 
     public void PlayerJump()
@@ -157,4 +165,13 @@ public class PlayerMovmentsScript : MonoBehaviour
         }
     }
 
+    private void Hidding()
+    {
+         gameObject.SetActive(false);
+    }
+
+    private void UnHidding()
+    {
+         gameObject.SetActive(true);
+    }
 }

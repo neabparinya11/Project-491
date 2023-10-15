@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class HidingObject : MonoBehaviour
 {
-    [SerializeField] GameObject hideText, stopHideText;
-    [SerializeField] GameObject normalPlayer, hidingPlayer;
+    [SerializeField] Transform hideText;
+    [SerializeField] Transform enemy;
+    [SerializeField] float distance;
+    [SerializeField] GameObject normalPlayer;
     [SerializeField] EnemyAi enemyAiScript;
     [SerializeField] Transform monster;
     [SerializeField] float loseDistance;
+    [SerializeField] CanvasGroup canvas;
     bool interactAble, hiding;
 
     // Start is called before the first frame update
@@ -16,8 +19,8 @@ public class HidingObject : MonoBehaviour
     {
         interactAble = false;
         hiding = false;
-        hideText.SetActive(false);
-        stopHideText.SetActive(false);
+        canvas.alpha = .0f;
+        //stopHideText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,11 +36,9 @@ public class HidingObject : MonoBehaviour
                     if (enemyAiScript.chasing == true)
                     {
                         enemyAiScript.stopChase();
-
                     }
                 }
-                hideText.SetActive(false);
-                stopHideText.SetActive(true);
+                canvas.alpha = 0.0f;
                 hiding = true;
                 normalPlayer.SetActive(false);
                 interactAble = false;
@@ -47,19 +48,28 @@ public class HidingObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                stopHideText.SetActive(false);
+                canvas.alpha = 0.0f;
                 normalPlayer.SetActive(true);
-                hidingPlayer.SetActive(false);
                 hiding = false;
             }
         }
+        //Vector3 direction = (enemy.position - transform.position).normalized;
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, direction, out hit, distance))
+        //{
+        //    Debug.Log(hit.collider.gameObject.tag == "Eenemy");
+        //    if (hit.collider.gameObject.tag == "Eenemy")
+        //    {
+        //        QTEController.instance.isQTEenable = true;
+        //    }
+        //}
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            hideText.SetActive(true);
+            canvas.alpha = 1.0f;
             interactAble = true;
         }
     }
@@ -68,8 +78,16 @@ public class HidingObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            hideText.SetActive(false);
+            canvas.alpha = 0.0f;
             interactAble = false;
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        QTEController.instance.isQTEenable = true;
+    //    }
+    //}
 }
