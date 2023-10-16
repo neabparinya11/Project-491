@@ -129,7 +129,6 @@ public class EnemyAi : MonoBehaviour
         if (chasing == true)
         {
             dest = player.position;
-            Debug.Log(dest.x - transform.position.x);
             if (transform.position.x - dest.x > 0)
             {
                 this.gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
