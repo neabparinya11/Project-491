@@ -79,8 +79,8 @@ public class QTEController : MonoBehaviour
         {
             if (start)
             {
-                countTime += regenTime * Time.deltaTime;
-                UpdateTimeSlide();
+            countTime += regenTime * Time.deltaTime;
+            UpdateTimeSlide();
             }
             
             if (countTime >= timeDuration)
