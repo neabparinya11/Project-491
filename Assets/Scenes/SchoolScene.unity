@@ -8815,6 +8815,7 @@ Transform:
   - {fileID: 222042900}
   - {fileID: 692386822}
   - {fileID: 1166241050}
+  - {fileID: 1901612554}
   - {fileID: 448103906}
   - {fileID: 1160527361}
   - {fileID: 851169807}
@@ -21802,7 +21803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23f9dfe0bcb6f7046b95e615f029448f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33595,6 +33596,7 @@ Transform:
   - {fileID: 455965290}
   - {fileID: 1508204555}
   - {fileID: 898747404}
+  - {fileID: 1268481098}
   - {fileID: 25001475}
   - {fileID: 1196469077}
   - {fileID: 759704082}
@@ -39288,6 +39290,7 @@ Transform:
   - {fileID: 1632541140}
   - {fileID: 427023358}
   - {fileID: 851697759}
+  - {fileID: 1632541140}
   - {fileID: 544246739}
   - {fileID: 1350410478}
   - {fileID: 1701437006}
@@ -44887,68 +44890,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 936997506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &937083169 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3171140286265099733, guid: b5a64295322fbee4aa020551d79b4f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1326447552}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &937083170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937083169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f68d34c3cc6b6c4c8264b5d79fe2a40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 937083171}
-  destination:
-  - {fileID: 2034927502}
-  - {fileID: 905782326}
-  - {fileID: 1618096513}
-  - {fileID: 462449743}
-  attackedTime: 2.5
-  walkSpeed: 2
-  chaseSpeed: 6
-  idleTime: 2
-  minIdleTime: 0
-  maxIdleTime: 5
-  sightDistance: 25
-  catchDistance: 10
-  chaseTime: 0
-  minChaseTime: 10
-  maxChaseTime: 25
-  deathTime: 0
-  walking: 0
-  chasing: 0
-  attacking: 0
-  player: {fileID: 1442578478}
-  destinationAmount: 4
-  rayCastOffSet: {x: 0, y: 0, z: 0}
-  deathScene: DeathScene
-  walkingSound: {fileID: 937083172}
---- !u!195 &937083171 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 1313050711307582513, guid: b5a64295322fbee4aa020551d79b4f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1326447552}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &937083172 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1313050711307582512, guid: b5a64295322fbee4aa020551d79b4f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1326447552}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &937083175 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1326447552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &939265994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49092,7 +49033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listKeycode: 11010000120100001401000013010000
   countListKeycode: 4
-  timeDuration: 10
+  timeDuration: 100
   timeSlide: {fileID: 412987286}
   timeCanvas: {fileID: 412987285}
   listSprite:
@@ -49100,7 +49041,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 661fb2db7e2b1ab4bb3fe0276e0f5118, type: 3}
   - {fileID: 21300000, guid: e65a301985e47e94899cb6b5547feb3c, type: 3}
   - {fileID: 21300000, guid: 18ad57cf8ed907d47a5cacbf6243ec88, type: 3}
-  regenTime: 5
+  regenTime: 0.5
   problem1: {fileID: 412987284}
   isQTEenable: 0
 --- !u!1 &1015113097
@@ -63951,81 +63892,6 @@ MonoBehaviour:
   _messageSprite1: {fileID: 21300000, guid: 9374cec59a86d7b4d8306227f5c362dc, type: 3}
   _messageSprite2: {fileID: 0}
   canvasGroup: {fileID: 1496407067}
---- !u!1001 &1326447552
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.820266
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 18.720001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.505249
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831066405534916463, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3171140286265099733, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_Name
-      value: angGirl
-      objectReference: {fileID: 0}
-    - target: {fileID: 3171140286265099733, guid: b5a64295322fbee4aa020551d79b4f7f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1313050711307582515, guid: b5a64295322fbee4aa020551d79b4f7f, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: b5a64295322fbee4aa020551d79b4f7f, type: 3}
 --- !u!1001 &1330662399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68964,16 +68830,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 606172980}
     m_Modifications:
-    - target: {fileID: 4863167447513360644, guid: 2b6fae24f70fc3e479bc731ba59f15d7,
-        type: 3}
-      propertyPath: staminaDrain
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863167447513360644, guid: 2b6fae24f70fc3e479bc731ba59f15d7,
-        type: 3}
-      propertyPath: staminaRegen
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4863167447513360644, guid: 2b6fae24f70fc3e479bc731ba59f15d7,
         type: 3}
       propertyPath: sliderCanvasGroup
@@ -76403,7 +76259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618096512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.624, y: 18.85, z: -4.23}
+  m_LocalPosition: {x: 13.177, y: 18.85, z: -4.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80948,11 +80804,6 @@ PrefabInstance:
         type: 3}
       propertyPath: fadeSpeed
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3877976546092110417, guid: 3311595fc7e923643bab419604de6b73,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3877976546092110420, guid: 3311595fc7e923643bab419604de6b73,
         type: 3}
@@ -94932,11 +94783,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideText: {fileID: 415060142}
-  enemy: {fileID: 937083175}
+  enemy: {fileID: 799802817}
   distance: 10
   normalPlayer: {fileID: 1711086199}
-  enemyAiScript: {fileID: 937083170}
-  monster: {fileID: 937083175}
+  enemyAiScript: {fileID: 799802814}
+  monster: {fileID: 799802817}
   loseDistance: 10
   canvas: {fileID: 983462358}
 --- !u!1 &2057381116
