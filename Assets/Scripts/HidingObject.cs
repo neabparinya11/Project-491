@@ -52,6 +52,7 @@ public class HidingObject : MonoBehaviour
                 normalPlayer.SetActive(true);
                 hiding = false;
             }
+            QTEController.instance.isQTEenable = true;
         }
         //Vector3 direction = (enemy.position - transform.position).normalized;
         //RaycastHit hit;
@@ -63,6 +64,9 @@ public class HidingObject : MonoBehaviour
         //        QTEController.instance.isQTEenable = true;
         //    }
         //}
+        Vector3 objectPosition = transform.position + new Vector3(0.2f, 0.5f, 0);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        hideText.position = screenPosition;
     }
 
     private void OnTriggerStay(Collider other)
