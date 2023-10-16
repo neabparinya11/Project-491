@@ -2,71 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] GameObject health1, health2, health3, health4, health5;
+    public static HealthController instance;
+    [SerializeField] Image _healthBar;
     [SerializeField] string deathScene;
-    public static int health;
+    public float percentageHealth = 100.0f;
+    public float maxPercentageHealth = 100.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
-        health1.gameObject.SetActive(true);
-        health2.gameObject.SetActive(true);
-        health3.gameObject.SetActive(true);
-        health4.gameObject.SetActive(true);
-        health5.gameObject.SetActive(true);
+        percentageHealth = 100.0f;
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (health)
+        if (percentageHealth <= 0)
         {
-            case 5:
-                health1.gameObject.SetActive(true);
-                health2.gameObject.SetActive(true);
-                health3.gameObject.SetActive(true);
-                health4.gameObject.SetActive(true);
-                health5.gameObject.SetActive(true);
-                break;
-            case 4:
-                health1.gameObject.SetActive(true);
-                health2.gameObject.SetActive(true);
-                health3.gameObject.SetActive(true);
-                health4.gameObject.SetActive(true);
-                health5.gameObject.SetActive(false);
-                break;
-            case 3:
-                health1.gameObject.SetActive(true);
-                health2.gameObject.SetActive(true);
-                health3.gameObject.SetActive(true);
-                health4.gameObject.SetActive(false);
-                health5.gameObject.SetActive(false);
-                break;
-            case 2:
-                health1.gameObject.SetActive(true);
-                health2.gameObject.SetActive(true);
-                health3.gameObject.SetActive(false);
-                health4.gameObject.SetActive(false);
-                health5.gameObject.SetActive(false);
-                break;
-            case 1:
-                health1.gameObject.SetActive(true);
-                health2.gameObject.SetActive(false);
-                health3.gameObject.SetActive(false);
-                health4.gameObject.SetActive(false);
-                health5.gameObject.SetActive(false);
-                break;
-            default:
-                health1.gameObject.SetActive(false);
-                health2.gameObject.SetActive(false);
-                health3.gameObject.SetActive(false);
-                health4.gameObject.SetActive(false);
-                health5.gameObject.SetActive(false);
-                SceneManager.LoadScene(deathScene);
-                break;
+            SceneManager.LoadScene(deathScene);
         }
+        UpdateHealth();
+    }
+
+    public void DecreaseHealth(float _value)
+    {
+        percentageHealth -= _value;
+    }
+
+    public void IncreaseHealth(float _value)
+    {
+        percentageHealth += _value;
+    }
+
+    public void UpdateHealth()
+    {
+        _healthBar.fillAmount = percentageHealth/ maxPercentageHealth;
     }
 }

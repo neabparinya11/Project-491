@@ -6,20 +6,26 @@ using UnityEngine.UI;
 
 public class PlayerMovmentsScript : MonoBehaviour
 {
-    bool disable = false;
+    public static PlayerMovmentsScript instance;
     float movementSpeed = 1.0f;
     [SerializeField] float sprintSpeed = 10.0f;
     [SerializeField] float cruchSpeed = .2f;
     [SerializeField] float walkSpeed = 1.0f;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    [HideInInspector] public StaminaController staminaController;
+
+    [Header("Damage overlay")]
+    [SerializeField] RawImage overlay;
+    [SerializeField] float duration;
+    [SerializeField] float fadeSpeed;
+
     private Rigidbody rb;
     private Animator animations;
+    private float durationTimer;
     //MovementState movementState = MovementState.idle;
     private float Horizontal;
     public bool isSprint;
-    
+    public bool isHidden = false;
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
     enum MovementState
@@ -30,9 +36,11 @@ public class PlayerMovmentsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
-        staminaController = GetComponent<StaminaController>();
+        //staminaController = GetComponent<StaminaController>();
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
     }
 
     public void SetRunSpeed(float _speed)
@@ -44,7 +52,15 @@ public class PlayerMovmentsScript : MonoBehaviour
     void Update()
     {
         Movement();
-        //Debug.Log(movementSpeed);
+        DamageOverlay();
+        if (isHidden)
+        {
+            Hidding();
+        }
+        else
+        {
+            UnHidding();
+        }
     }
 
     public void PlayerJump()
@@ -60,7 +76,7 @@ public class PlayerMovmentsScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
         {
             //rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
-            staminaController.StaminaJump();
+            StaminaController.instance.StaminaJump();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
@@ -68,13 +84,13 @@ public class PlayerMovmentsScript : MonoBehaviour
             isSprint = true;
             if (rb.velocity.x != 0.0f)
             {
-                staminaController.wasSprint = true;
+                StaminaController.instance.wasSprint = true;
             }
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) && CheckIsGround())
         {
             isSprint = false;
-            staminaController.wasSprint = false;
+            StaminaController.instance.wasSprint = false;
         }
         AnimationUpdates();
     }
@@ -128,11 +144,34 @@ public class PlayerMovmentsScript : MonoBehaviour
         animations.SetInteger("Anim State", (int)movementState);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void onPlayerAttacked(float _value)
     {
-        if (other.gameObject.tag == "Enemy")
+        HealthController.instance.DecreaseHealth(_value);
+        durationTimer = 0;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
+    }
+
+    private void DamageOverlay()
+    {
+        if (overlay.color.a > 0)
         {
-            HealthController.health -= 1;
+            durationTimer += Time.deltaTime;
+            if (durationTimer > duration)
+            {
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime*fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+            }
         }
+    }
+
+    private void Hidding()
+    {
+         gameObject.SetActive(false);
+    }
+
+    private void UnHidding()
+    {
+         gameObject.SetActive(true);
     }
 }

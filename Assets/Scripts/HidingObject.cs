@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class HidingObject : MonoBehaviour
 {
-    [SerializeField] GameObject hideText;
-    [SerializeField] GameObject normalPlayer, hidingPlayer;
-    [SerializeField] EnemyAi enemyAi;
+    [SerializeField] Transform hideText;
+    [SerializeField] Transform enemy;
+    [SerializeField] float distance;
+    [SerializeField] GameObject normalPlayer;
+    [SerializeField] EnemyAi enemyAiScript;
     [SerializeField] Transform monster;
     [SerializeField] float loseDistance;
+    [SerializeField] CanvasGroup canvas;
     bool interactAble, hiding;
 
     // Start is called before the first frame update
@@ -16,6 +19,8 @@ public class HidingObject : MonoBehaviour
     {
         interactAble = false;
         hiding = false;
+        canvas.alpha = .0f;
+        //stopHideText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,25 +33,61 @@ public class HidingObject : MonoBehaviour
                 float distance = Vector3.Distance(monster.transform.position, normalPlayer.transform.position);
                 if (distance > loseDistance)
                 {
-
+                    if (enemyAiScript.chasing == true)
+                    {
+                        enemyAiScript.stopChase();
+                    }
                 }
+                canvas.alpha = 0.0f;
+                hiding = true;
+                normalPlayer.SetActive(false);
+                interactAble = false;
             }
         }
+        if (hiding)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                canvas.alpha = 0.0f;
+                normalPlayer.SetActive(true);
+                hiding = false;
+            }
+        }
+        //Vector3 direction = (enemy.position - transform.position).normalized;
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, direction, out hit, distance))
+        //{
+        //    Debug.Log(hit.collider.gameObject.tag == "Eenemy");
+        //    if (hit.collider.gameObject.tag == "Eenemy")
+        //    {
+        //        QTEController.instance.isQTEenable = true;
+        //    }
+        //}
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(""))
+        if (other.CompareTag("Player"))
         {
-
+            canvas.alpha = 1.0f;
+            interactAble = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(""))
+        if (other.CompareTag("Player"))
         {
-
+            canvas.alpha = 0.0f;
+            interactAble = false;
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        QTEController.instance.isQTEenable = true;
+    //    }
+    //}
 }
