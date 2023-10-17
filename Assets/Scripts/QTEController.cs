@@ -21,9 +21,9 @@ public class QTEController : MonoBehaviour
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
     protected int countKeycodeCheck = 0;
     public bool isQTEenable;
-    protected bool isChecked = false, onClick = false, start;
+    protected bool isChecked = false;
     //protected bool pb1 = false, pb2 = false, pb3 = false;
-    protected bool pb1 = false;
+    protected bool pb1 = false, onClick = false, start;
     protected float countTime = 0;
 
     // Start is called before the first frame update
@@ -42,6 +42,7 @@ public class QTEController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(isQTEenable);
         if (isQTEenable)
         {
             ShowImageKey();
@@ -90,6 +91,9 @@ public class QTEController : MonoBehaviour
                 isQTEenable = false;
             }
         }
+        
+        
+        
         //problem2.GetComponent<Image>().sprite = imageKeyCodeProblem[1];
         //problem3.GetComponent<Image>().sprite = imageKeyCodeProblem[2];
 
@@ -101,6 +105,11 @@ public class QTEController : MonoBehaviour
         //}
     }
 
+    protected void TimeDurationToKeyPush()
+    {
+
+    }
+
     protected void UpdateTimeSlide()
     {
         timeSlide.fillAmount = countTime / timeDuration;
@@ -108,7 +117,6 @@ public class QTEController : MonoBehaviour
 
     protected bool CheckedKeyInput()
     {
-
         if (Input.GetKeyDown(keycodeProblem[0]))
         {
             onClick = true;
@@ -116,13 +124,7 @@ public class QTEController : MonoBehaviour
             pb1 = true;
             start = false;
         }
-
-        //if (!Input.GetKeyDown(keycodeProblem[0]))
-        //{
-        //    onClick = true;
-        //    start = false;
-        //    pb1 = false;
-        //}
+        
 
         //if (Input.GetKeyDown(keycodeProblem[1]) && pb1 )
         //{
@@ -150,7 +152,7 @@ public class QTEController : MonoBehaviour
         //{
         //    return true;
         //}
-        return pb1;
+       return pb1;
     }
 
     protected void Success()
