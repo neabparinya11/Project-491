@@ -52,7 +52,7 @@ public class HidingObject : MonoBehaviour
                 normalPlayer.SetActive(true);
                 hiding = false;
             }
-            QTEController.instance.isQTEenable = true;
+            //QTEController.instance.isQTEenable = true;
         }
         //Vector3 direction = (enemy.position - transform.position).normalized;
         //RaycastHit hit;
