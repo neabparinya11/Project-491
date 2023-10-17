@@ -23,7 +23,7 @@ public class QTEController : MonoBehaviour
     public bool isQTEenable;
     protected bool isChecked = false;
     //protected bool pb1 = false, pb2 = false, pb3 = false;
-    protected bool pb1 = false;
+    protected bool pb1 = false, onClick = false, start;
     protected float countTime = 0;
 
     // Start is called before the first frame update
@@ -33,8 +33,10 @@ public class QTEController : MonoBehaviour
         timeCanvas.alpha = 0;
         RandomKeyCode();
         countKeycodeCheck = keycodeProblem.Count;
-        isQTEenable=false;
+        isQTEenable = false;
+        start = true;
         UpdateTimeSlide();
+        problem1.SetActive(true);
     }
 
     // Update is called once per frame
@@ -48,6 +50,13 @@ public class QTEController : MonoBehaviour
             if (isChecked)
             {
                 Success();
+            }
+            else
+            {
+                if (!start)
+                {
+                    timeCanvas.alpha = 0;
+                }
             }
         }
     }
@@ -66,18 +75,19 @@ public class QTEController : MonoBehaviour
     {
         timeCanvas.alpha = 1;
         problem1.GetComponent<Image>().sprite = imageKeyCodeProblem[0];
-
+        UpdateTimeSlide();
         if (countTime <= timeDuration - 0.01f)
         {
             if (start)
             {
-            countTime += regenTime * Time.deltaTime;
-            UpdateTimeSlide();
+                countTime += regenTime * Time.deltaTime;
+                UpdateTimeSlide();
             }
             
             if (countTime >= timeDuration)
             {
                 timeCanvas.alpha = 0;
+                start = false;
                 isQTEenable = false;
             }
         }
@@ -109,14 +119,12 @@ public class QTEController : MonoBehaviour
     {
         if (Input.GetKeyDown(keycodeProblem[0]))
         {
+            onClick = true;
             problem1.SetActive(false);
             pb1 = true;
+            start = false;
         }
-        else
-        {
-            timeSlide.color = Color.red;
-            isQTEenable = false;
-        }
+        
 
         //if (Input.GetKeyDown(keycodeProblem[1]) && pb1 )
         //{
@@ -144,20 +152,14 @@ public class QTEController : MonoBehaviour
         //{
         //    return true;
         //}
-        if (pb1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        } 
+       return pb1;
     }
 
     protected void Success()
     {
         isQTEenable = false;
-        keycodeProblem.Clear();
-        imageKeyCodeProblem.Clear();
+        timeCanvas.alpha = 0;
+        //keycodeProblem.Clear();
+        //imageKeyCodeProblem.Clear();
     }
 }
