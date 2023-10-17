@@ -20,29 +20,26 @@ public class QTEController : MonoBehaviour
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
     protected int countKeycodeCheck = 0;
-    public bool isQTEenable;
+    public bool isQTEenable,start;
     protected bool isChecked = false;
     //protected bool pb1 = false, pb2 = false, pb3 = false;
-    protected bool pb1 = false, onClick = false, start;
+    protected bool pb1 = false, onClick = false;
     protected float countTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        timeCanvas.alpha = 0;
+        
         RandomKeyCode();
         countKeycodeCheck = keycodeProblem.Count;
         isQTEenable = false;
-        start = true;
-        UpdateTimeSlide();
-        problem1.SetActive(true);
+        start = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isQTEenable);
         if (isQTEenable)
         {
             ShowImageKey();
@@ -159,6 +156,7 @@ public class QTEController : MonoBehaviour
     {
         isQTEenable = false;
         timeCanvas.alpha = 0;
+        problem1.SetActive(true);
         //keycodeProblem.Clear();
         //imageKeyCodeProblem.Clear();
     }
