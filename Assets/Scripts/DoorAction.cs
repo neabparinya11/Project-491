@@ -10,7 +10,7 @@ public class DoorAction : MonoBehaviour
     [SerializeField] CanvasGroup messagePrefab;
     [SerializeField] Image messagesSprite;
     [SerializeField] Sprite normalSprite;
-    [SerializeField] Sprite failureSprite;
+    //[SerializeField] Sprite failureSprite;
     //[SerializeField] TextMeshProUGUI texts;
     //[SerializeField] GameObject newPosition;
     //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
@@ -53,7 +53,7 @@ public class DoorAction : MonoBehaviour
             {
                 if (isLocked)
                 {
-                    messagesSprite.sprite = failureSprite;
+                    //messagesSprite.sprite = failureSprite;
                 }
                 else
                 {
