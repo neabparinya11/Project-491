@@ -83,7 +83,7 @@ public class QTEController : MonoBehaviour
                 countTime += regenTime * Time.deltaTime;
                 UpdateTimeSlide();
             }
-            
+
             if (countTime >= timeDuration)
             {
                 timeCanvas.alpha = 0;
