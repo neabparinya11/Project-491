@@ -21,7 +21,7 @@ public class StoryController : MonoBehaviour
     {
         instance = this;
         bgSound.loop = true;
-        bgSoundHideAndSeek.loop = true;
+        bgSoundHideAndSeek.loop = false;
         bgSound.enabled = true;
         bgSoundSpawnEnemy.enabled = true;
         bgSoundHideAndSeek.enabled = true;
