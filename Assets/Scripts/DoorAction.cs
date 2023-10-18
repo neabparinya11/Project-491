@@ -54,20 +54,21 @@ public class DoorAction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (!useScene)
+                if (isLocked)
                 {
-                    if (isLocked)
-                    {
                         //messagesSprite.sprite = failureSprite;
-                    }
-                    else
-                    {
-                    _player.transform.position = newPosition.transform.position;
-                    }
                 }
                 else
                 {
-                    SceneManager.LoadScene(finalScene);
+                    if (!useScene)
+                    {
+                        _player.transform.position = newPosition.transform.position;
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(finalScene);
+                    }
+                    
                 }
                 
                 //if (_enemyScript.chasing)
