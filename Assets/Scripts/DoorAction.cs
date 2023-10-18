@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DoorAction : MonoBehaviour
@@ -19,8 +20,10 @@ public class DoorAction : MonoBehaviour
     [SerializeField] GameObject _player;
     //[SerializeField] GameObject _enemy;
     //[SerializeField] EnemyAi _enemyScript;
+    [SerializeField] string finalScene;
 
     bool canAction = false;
+    [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
 
     private void OnTriggerEnter(Collider other)
@@ -51,14 +54,22 @@ public class DoorAction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (isLocked)
+                if (!useScene)
                 {
-                    //messagesSprite.sprite = failureSprite;
+                    if (isLocked)
+                    {
+                        //messagesSprite.sprite = failureSprite;
+                    }
+                    else
+                    {
+                    _player.transform.position = newPosition.transform.position;
+                    }
                 }
                 else
                 {
-                    _player.transform.position = newPosition.transform.position;
+                    SceneManager.LoadScene(finalScene);
                 }
+                
                 //if (_enemyScript.chasing)
                 //{
                 //    _enemy.transform.position = newPosition.transform.position;

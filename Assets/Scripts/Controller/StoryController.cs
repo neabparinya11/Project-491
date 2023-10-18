@@ -56,20 +56,20 @@ public class StoryController : MonoBehaviour
 
         
 
-        if (spawnEnemy)
-        {
-            if (!bgSoundSpawnEnemy.isPlaying)
-            {
-                bgSound.Pause();
-                bgSoundSpawnEnemy.Play();
-            }
+        //if (spawnEnemy)
+        //{
+        //    if (!bgSoundSpawnEnemy.isPlaying)
+        //    {
+        //        bgSound.Pause();
+        //        bgSoundSpawnEnemy.Play();
+        //    }
             
-            //if (!bgSoundSpawnEnemy.isPlaying)
-            //{
-            //    spawnEnemy = false;
-            //    bgSound.Play();
-            //}
-        }
+        //    //if (!bgSoundSpawnEnemy.isPlaying)
+        //    //{
+        //    //    spawnEnemy = false;
+        //    //    bgSound.Play();
+        //    //}
+        //}
 
         if (enemyChasing)
         {

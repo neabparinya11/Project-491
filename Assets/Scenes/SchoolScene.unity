@@ -23294,6 +23294,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &434723665
 BoxCollider:
@@ -43926,6 +43928,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 920346645}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 0
 --- !u!65 &872290642
 BoxCollider:
@@ -47484,6 +47488,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 0
 --- !u!65 &952384187
 BoxCollider:
@@ -49970,6 +49976,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 9e6f099d8daf8cd4a87e7e6f0a21a034, type: 3}
   newPosition: {fileID: 1015759868}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 0
 --- !u!65 &998548167
 BoxCollider:
@@ -56026,6 +56034,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!1001 &1119196468
 PrefabInstance:
@@ -66198,6 +66208,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!1001 &1318224436
 PrefabInstance:
@@ -67653,6 +67665,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1349927845
 BoxCollider:
@@ -70968,6 +70982,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 922029930}
   _player: {fileID: 1711086199}
+  finalScene: to bo continued
+  useScene: 1
   isLocked: 1
 --- !u!65 &1407021297
 BoxCollider:
@@ -72635,6 +72651,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!1001 &1440423289
 PrefabInstance:
@@ -76996,6 +77014,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1556667783
 BoxCollider:
@@ -82979,6 +82999,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1688573641
 BoxCollider:
@@ -83591,6 +83613,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1700654676
 BoxCollider:
@@ -86820,6 +86844,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1767775991
 BoxCollider:
@@ -87169,6 +87195,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1782999504
 BoxCollider:
@@ -92947,6 +92975,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!1001 &1907621854
 PrefabInstance:
@@ -96669,6 +96699,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: 9e6f099d8daf8cd4a87e7e6f0a21a034, type: 3}
   newPosition: {fileID: 1015759868}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &1991736119
 BoxCollider:
@@ -99113,6 +99145,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 640099889}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 0
 --- !u!1001 &2052461489
 PrefabInstance:
@@ -101405,6 +101439,8 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: af54b26048089f947863eb45233ca94d, type: 3}
   newPosition: {fileID: 248981526}
   _player: {fileID: 1711086199}
+  finalScene: 
+  useScene: 0
   isLocked: 1
 --- !u!65 &2092979801
 BoxCollider:
