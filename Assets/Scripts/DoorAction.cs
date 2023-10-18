@@ -66,4 +66,14 @@ public class DoorAction : MonoBehaviour
             }
         }
     }
+
+    public void SetDoorLocked(bool locked)
+    {
+        isLocked = locked;
+    }
+
+    public bool GetDoorLocked()
+    {
+        return isLocked;
+    }
 }

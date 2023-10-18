@@ -19,7 +19,6 @@ public class InventoryItemManager : MonoBehaviour
     }
     public void UseItem()
     {
-        Debug.Log(item.name);
         switch (item.type)
         {
             case ItemType.Food:

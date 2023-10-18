@@ -7,6 +7,7 @@ public class BoxItem : MonoBehaviour
 {
     //public List<GameObject> listItem = new List<GameObject>();
     public List<FoodItem> listItemObject = new List<FoodItem>();
+    public QuestionItem questionItem;
     public GameObject loadStock;
     public GameObject interaction;
     public Transform loadStockTransform;
@@ -61,8 +62,15 @@ public class BoxItem : MonoBehaviour
     private void RandomItem()
     {
         var index = UnityEngine.Random.Range(0, listItemObject.Count);
-        Debug.Log(listItemObject[index].name);
-        InventoryManager.Instance.AddFoodItem(listItemObject[index]);
+        if (questionItem != null)
+        {
+            InventoryManager.Instance.AddQuestionItem(questionItem);
+        }
+        else
+        {
+            InventoryManager.Instance.AddFoodItem(listItemObject[index]);
+        }
+        
         isSearch = true;
 
     }
