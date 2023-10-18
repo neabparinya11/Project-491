@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Q_3
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: af5e91036a2e23d4384c168c55c19e36, type: 3}
+  icon: {fileID: 21300000, guid: 234a4cbfe0c44384bbc1736d003d2ce1, type: 3}
   type: 1
-  itemName: 
+  itemName: Door Key
   description: 
-  index: 0
+  index: 3

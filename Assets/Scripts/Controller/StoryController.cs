@@ -10,9 +10,11 @@ public class StoryController : MonoBehaviour
     [SerializeField] AudioSource bgSoundSpawnEnemy;
     [SerializeField] AudioSource bgSound;
     [SerializeField] AudioSource bgSoundHideAndSeek;
+    [SerializeField] DoorAction finalDoor;
     protected bool spawnEnemy = false;
     protected bool enemyChasing = false;
-    protected int state = 0;
+    protected bool doorLocked = false;
+    public bool getDoorKey = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class StoryController : MonoBehaviour
     void Update()
     {
 
+        // Sound Control
         if (inventoryManager.ListQuestionItem.Count == 1)
         {
             enemy.SetActive(true);
@@ -59,17 +62,14 @@ public class StoryController : MonoBehaviour
         {
             bgSoundHideAndSeek.Stop();
         }
-        
-        
+
+        if (getDoorKey)
+        {
+            finalDoor.SetDoorLocked(true);
+        }
+        Debug.Log("Background Sound Spawn : " + bgSoundSpawnEnemy.isPlaying);
+        Debug.Log("Background Sound : " + bgSound.isPlaying);
+        Debug.Log("Background Hide and Seek : " + bgSoundHideAndSeek.isPlaying);
     }
 
-    public void InCreaseState()
-    {
-        state += 1;
-    }
-
-    public void DecreaseState()
-    {
-        state -= 1;
-    }
 }

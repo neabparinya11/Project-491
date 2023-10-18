@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     public void AddQuestionItem(QuestionItem _item)
     {
         ListQuestionItem.Add(_item);
+        StoryController.instance.getDoorKey = FindQuestItem("Door Key");
     }
 
     public void RemoveFoodItem(FoodItem _item)
@@ -106,5 +107,17 @@ public class InventoryManager : MonoBehaviour
         {
             inventoryQuest[i].AddQuestionItem(ListQuestionItem[i]);
         }
+    }
+
+    public bool FindQuestItem(string itemName)
+    {
+        foreach (QuestionItem item in ListQuestionItem)
+        {
+            if (item.itemName.Equals(itemName))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
