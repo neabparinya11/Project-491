@@ -69,11 +69,11 @@ public class DoorAction : MonoBehaviour
 
     public void SetDoorLocked(bool locked)
     {
-        isLocked = locked;
+        this.isLocked = locked;
     }
 
     public bool GetDoorLocked()
     {
-        return isLocked;
+        return this.isLocked;
     }
 }

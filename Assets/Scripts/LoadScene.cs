@@ -23,4 +23,9 @@ public class LoadScene : MonoBehaviour
         Application.Quite();
 #endif
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        LoadTargetScene();
+    }
 }

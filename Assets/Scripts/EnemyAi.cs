@@ -186,4 +186,12 @@ public class EnemyAi : MonoBehaviour
     //{
     //    Debug.Log(other.gameObject.tag);
     //}
+    public void SetStart()
+    {
+        walking = true;
+        walkingSound.enabled = false;
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        currentDestination = destination[randomNumber1];
+        animations = GetComponent<Animator>();
+    }
 }
