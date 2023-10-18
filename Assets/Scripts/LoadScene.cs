@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,15 +16,23 @@ public class LoadScene : MonoBehaviour
 
     public void QuiteGame()
     {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quite();
-#endif
+        //#if UNITY_EDITOR
+        //        EditorApplication.isPlaying = false;
+        //#else
+        Application.Quit();
+//#endif
     }
 
     private void OnTriggerEnter(Collider other)
     {
         LoadTargetScene();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuiteGame();
+        }  
     }
 }
