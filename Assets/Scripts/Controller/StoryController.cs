@@ -84,13 +84,10 @@ public class StoryController : MonoBehaviour
         }
         else
         {
-            if (bgSoundHideAndSeek.isPlaying)
-            {
-                bgSoundHideAndSeek.Stop();
-            }
             if (!bgSound.isPlaying)
             {
                 bgSound.Play();
+                bgSoundHideAndSeek.loop = false;
             }
         }
 
