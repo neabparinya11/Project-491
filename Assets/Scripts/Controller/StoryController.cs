@@ -22,6 +22,10 @@ public class StoryController : MonoBehaviour
         instance = this;
         bgSound.loop = true;
         bgSoundHideAndSeek.loop = true;
+        bgSound.enabled = true;
+        bgSoundSpawnEnemy.enabled = true;
+        bgSoundHideAndSeek.enabled = true;
+        bgSound.Play();
     }
 
     // Update is called once per frame
@@ -47,18 +51,24 @@ public class StoryController : MonoBehaviour
         else
         {
             enemy.SetActive(false);
+            bgSoundSpawnEnemy.Stop();
         }
 
-        bgSound.Play();
+        
 
         if (spawnEnemy)
         {
-            bgSoundSpawnEnemy.Play();
             if (!bgSoundSpawnEnemy.isPlaying)
             {
-                spawnEnemy = false;
-                bgSound.Play();
+                bgSound.Pause();
+                bgSoundSpawnEnemy.Play();
             }
+            
+            //if (!bgSoundSpawnEnemy.isPlaying)
+            //{
+            //    spawnEnemy = false;
+            //    bgSound.Play();
+            //}
         }
 
         if (enemyChasing)
@@ -67,20 +77,35 @@ public class StoryController : MonoBehaviour
             {
                 bgSound.Pause();
             }
-            bgSoundHideAndSeek.Play();
+            if (!bgSoundHideAndSeek.isPlaying)
+            {
+                bgSoundHideAndSeek.Play();
+            }
         }
         else
         {
-            bgSoundHideAndSeek.Stop();
+            if (bgSoundHideAndSeek.isPlaying)
+            {
+                bgSoundHideAndSeek.Stop();
+            }
+            if (!bgSound.isPlaying)
+            {
+                bgSound.Play();
+            }
         }
 
         if (getDoorKey)
         {
             finalDoor.GetComponent<DoorAction>().SetDoorLocked(false);
         }
+
         Debug.Log("Background Sound Spawn : " + bgSoundSpawnEnemy.isPlaying);
         Debug.Log("Background Sound : " + bgSound.isPlaying);
         Debug.Log("Background Hide and Seek : " + bgSoundHideAndSeek.isPlaying);
     }
 
+    public void SetChasingBoolean(bool chase)
+    {
+        enemyChasing = chase;
+    }
 }

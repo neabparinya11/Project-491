@@ -55,6 +55,7 @@ public class EnemyAi : MonoBehaviour
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
                 chasing = true;
+                StoryController.instance.SetChasingBoolean(true);
                 animations.SetInteger("state", (int)EnemyState.run);
             }
         }
@@ -107,6 +108,7 @@ public class EnemyAi : MonoBehaviour
         chaseTime = UnityEngine.Random.Range(minChaseTime, maxChaseTime);
         yield return new WaitForSeconds(chaseTime);
         walking = true;
+        StoryController.instance.SetChasingBoolean(false);
         chasing = false;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
