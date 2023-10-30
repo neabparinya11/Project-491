@@ -78,6 +78,18 @@ public class EnemyAi : MonoBehaviour
     private void EnemyLevel3()
     {
         throw new NotImplementedException();
+        if (chasing == true)
+        {
+            dest = player.position;
+            agent.destination = dest;
+            agent.speed = chaseSpeed;
+            if (enemyDistance <= catchDistance)
+            {
+                agent.isStopped = true;
+                animations.SetInteger("state", (int)EnemyState.attack);
+
+            }
+        }
     }
 
     private void EnemyLevel2()
