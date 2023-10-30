@@ -61,19 +61,28 @@ public class EnemyAi : MonoBehaviour
         }
         switch (levelEnemy)
         {
-            case 0:
-                break;
             case 1:
                 EnemyLevel1();
                 break;
             case 2:
+                EnemyLevel2();
                 break;
             case 3:
-
+                EnemyLevel3();
                 break;
             default: break;
         }
 
+    }
+
+    private void EnemyLevel3()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void EnemyLevel2()
+    {
+        throw new NotImplementedException();
     }
 
     public void stopChase()
