@@ -18,11 +18,12 @@ public class DoorAction : MonoBehaviour
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
-    //[SerializeField] GameObject _enemy;
+    [SerializeField] GameObject _enemy;
     //[SerializeField] EnemyAi _enemyScript;
     [SerializeField] string finalScene;
 
-    bool canAction = false;
+    bool canAction = false; // for player check to teleport
+    bool canTeleport = false; // for enemy check to teleport
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
 
@@ -34,6 +35,11 @@ public class DoorAction : MonoBehaviour
             messagesSprite.sprite = normalSprite;
             canAction = true;
         }
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            canTeleport = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -42,6 +48,10 @@ public class DoorAction : MonoBehaviour
         {
             messagePrefab.alpha = 0;
             canAction = false;
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            canTeleport = false;
         }
     }
 
@@ -75,6 +85,15 @@ public class DoorAction : MonoBehaviour
                 //{
                 //    _enemy.transform.position = newPosition.transform.position;
                 //}
+            }
+        }
+
+        if (canTeleport)
+        {
+            bool isChase = _enemy.GetComponentInChildren<EnemyAi>().chasing;
+            if (isChase)
+            {
+                _enemy.transform.position = newPosition.transform.position;
             }
         }
     }
