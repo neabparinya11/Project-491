@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: cc1956ea6e9457847a402096c8a8bc95
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Buttocks
+    100004: Buttocks_end
+    100006: Chest
+    100008: Chest.L
+    100010: Chest.L_end
+    100012: Chest.R
+    100014: Chest.R_end
+    100016: Fingers1L
+    100018: Fingers1R
+    100020: Fingers2L
+    100022: Fingers2L_end
+    100024: Fingers2R
+    100026: Fingers2R_end
+    100028: FootL
+    100030: FootL_end
+    100032: FootR
+    100034: FootR_end
+    100036: HandL
+    100038: HandR
+    100040: Head
+    100042: Head_end
+    100044: Hip
+    100046: Hip.L
+    100048: Hip.L_end
+    100050: Hip.R
+    100052: Hip.R_end
+    100054: IndexFinger1L
+    100056: IndexFinger1R
+    100058: IndexFinger2L
+    100060: IndexFinger2L_end
+    100062: IndexRinger2R
+    100064: IndexRinger2R_end
+    100066: InnerThigh.L
+    100068: InnerThigh.L_end
+    100070: InnerThigh.R
+    100072: InnerThigh.R_end
+    100074: LoweArmL
+    100076: LoweArmR
+    100078: Mascots1_Aligator
+    100080: Mascots1_Bear
+    100082: Mascots1_Body1
+    100084: Mascots1_Eagle
+    100086: //RootNode
+    100088: Neck
+    100090: ShinL
+    100092: ShinR
+    100094: ShoulderL
+    100096: ShoulderR
+    100098: Spine
+    100100: ThighL
+    100102: ThighR
+    100104: Thumb1
+    100106: Thumb1R
+    100108: Thumb2
+    100110: Thumb2_end
+    100112: Thumb2R
+    100114: Thumb2R_end
+    100116: UpperArmL
+    100118: UpperArmR
+    400000: Armature
+    400002: Buttocks
+    400004: Buttocks_end
+    400006: Chest
+    400008: Chest.L
+    400010: Chest.L_end
+    400012: Chest.R
+    400014: Chest.R_end
+    400016: Fingers1L
+    400018: Fingers1R
+    400020: Fingers2L
+    400022: Fingers2L_end
+    400024: Fingers2R
+    400026: Fingers2R_end
+    400028: FootL
+    400030: FootL_end
+    400032: FootR
+    400034: FootR_end
+    400036: HandL
+    400038: HandR
+    400040: Head
+    400042: Head_end
+    400044: Hip
+    400046: Hip.L
+    400048: Hip.L_end
+    400050: Hip.R
+    400052: Hip.R_end
+    400054: IndexFinger1L
+    400056: IndexFinger1R
+    400058: IndexFinger2L
+    400060: IndexFinger2L_end
+    400062: IndexRinger2R
+    400064: IndexRinger2R_end
+    400066: InnerThigh.L
+    400068: InnerThigh.L_end
+    400070: InnerThigh.R
+    400072: InnerThigh.R_end
+    400074: LoweArmL
+    400076: LoweArmR
+    400078: Mascots1_Aligator
+    400080: Mascots1_Bear
+    400082: Mascots1_Body1
+    400084: Mascots1_Eagle
+    400086: //RootNode
+    400088: Neck
+    400090: ShinL
+    400092: ShinR
+    400094: ShoulderL
+    400096: ShoulderR
+    400098: Spine
+    400100: ThighL
+    400102: ThighR
+    400104: Thumb1
+    400106: Thumb1R
+    400108: Thumb2
+    400110: Thumb2_end
+    400112: Thumb2R
+    400114: Thumb2R_end
+    400116: UpperArmL
+    400118: UpperArmR
+    2100000: mouth_inside
+    2100002: Eye_reflection
+    2100004: Eyeliner
+    2100006: Eyelashes
+    2100008: Eyebrows
+    2100010: EyeBack
+    2100012: Eye
+    2100014: Face
+    2100016: Body
+    2100018: Hair_head
+    2100020: Eagle
+    2100022: Bear
+    2100024: Aligator
+    4300000: Mascots1_Body1
+    4300002: Mascots1_Eagle
+    4300004: Mascots1_Bear
+    4300006: Mascots1_Aligator
+    7400000: Armature|ArmatureAction
+    7400002: Armature|short_shirt:Tops|Take 001|BaseLayer
+    9500000: //RootNode
+    13700000: Mascots1_Aligator
+    13700002: Mascots1_Bear
+    13700004: Mascots1_Body1
+    13700006: Mascots1_Eagle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 8e526af249278a0498ce8273e07fcc49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye
+    second: {fileID: 2100000, guid: 023452b84affa6f43a8feea0e1c55499, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EyeBack
+    second: {fileID: 2100000, guid: b97b55ed446d8ed48acc18d42edf2de0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_reflection
+    second: {fileID: 2100000, guid: 02b619845fcb6e741b4be7e71e36c491, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyebrows
+    second: {fileID: 2100000, guid: aa86a0f3e62852142bfc3a5d4cd7a828, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyelashes
+    second: {fileID: 2100000, guid: 29c9dd3707158b2448cc0bdf81c33ce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyeliner
+    second: {fileID: 2100000, guid: b8022f4bfe3976845b403285a16c5320, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: 45f47006298912f4dbec4062603b460f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair_head
+    second: {fileID: 2100000, guid: 903deec0895457d43a093ac8ee3e1d97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mouth_inside
+    second: {fileID: 2100000, guid: 6591b6a58c1933643bb87bf9fbef044c, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

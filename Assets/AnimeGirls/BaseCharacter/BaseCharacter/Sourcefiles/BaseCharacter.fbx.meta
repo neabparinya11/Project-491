@@ -71,6 +71,7 @@ ModelImporter:
     100130: Base_bikini
     100132: Base_Body
     100134: Base_underwear
+    100136: Hair6Hat
     400000: Armature
     400002: //RootNode
     400004: bikini
@@ -139,6 +140,7 @@ ModelImporter:
     400130: Base_bikini
     400132: Base_Body
     400134: Base_underwear
+    400136: Hair6Hat
     2100000: bikini
     2100002: F00_000_Hair_00_HAIR.003
     2100004: Image_20.005
@@ -165,6 +167,7 @@ ModelImporter:
     4300016: Base_underwear
     4300018: Base_bikini
     4300020: Base_Body
+    4300022: Hair6Hat
     7400000: Armature|ArmatureAction
     7400002: Armature|short_shirt:Tops|Take 001|BaseLayer
     9500000: //RootNode
@@ -179,6 +182,7 @@ ModelImporter:
     13700016: Base_bikini
     13700018: Base_Body
     13700020: Base_underwear
+    13700022: Hair6Hat
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -239,7 +243,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1

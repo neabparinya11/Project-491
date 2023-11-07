@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 4c55f682d0ed1c44f87bda332a9b49f0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Buttocks
+    100004: Buttocks_end
+    100006: Chest
+    100008: Chest.L
+    100010: Chest.L_end
+    100012: Chest.R
+    100014: Chest.R_end
+    100016: Fingers1L
+    100018: Fingers1R
+    100020: Fingers2L
+    100022: Fingers2L_end
+    100024: Fingers2R
+    100026: Fingers2R_end
+    100028: FootL
+    100030: FootL_end
+    100032: FootR
+    100034: FootR_end
+    100036: HandL
+    100038: HandR
+    100040: Head
+    100042: Head1
+    100044: Head_end
+    100046: //RootNode
+    100048: Hip
+    100050: Hip.L
+    100052: Hip.L_end
+    100054: Hip.R
+    100056: Hip.R_end
+    100058: IndexFinger1L
+    100060: IndexFinger1R
+    100062: IndexFinger2L
+    100064: IndexFinger2L_end
+    100066: IndexRinger2R
+    100068: IndexRinger2R_end
+    100070: InnerThigh.L
+    100072: InnerThigh.L_end
+    100074: InnerThigh.R
+    100076: InnerThigh.R_end
+    100078: LoweArmL
+    100080: LoweArmR
+    100082: Neck
+    100084: ShinL
+    100086: ShinR
+    100088: ShoulderL
+    100090: ShoulderR
+    100092: Spine
+    100094: ThighL
+    100096: ThighR
+    100098: Thumb1
+    100100: Thumb1R
+    100102: Thumb2
+    100104: Thumb2_end
+    100106: Thumb2R
+    100108: Thumb2R_end
+    100110: UpperArmL
+    100112: UpperArmR
+    400000: Armature
+    400002: Buttocks
+    400004: Buttocks_end
+    400006: Chest
+    400008: Chest.L
+    400010: Chest.L_end
+    400012: Chest.R
+    400014: Chest.R_end
+    400016: Fingers1L
+    400018: Fingers1R
+    400020: Fingers2L
+    400022: Fingers2L_end
+    400024: Fingers2R
+    400026: Fingers2R_end
+    400028: FootL
+    400030: FootL_end
+    400032: FootR
+    400034: FootR_end
+    400036: HandL
+    400038: HandR
+    400040: Head
+    400042: Head1
+    400044: Head_end
+    400046: //RootNode
+    400048: Hip
+    400050: Hip.L
+    400052: Hip.L_end
+    400054: Hip.R
+    400056: Hip.R_end
+    400058: IndexFinger1L
+    400060: IndexFinger1R
+    400062: IndexFinger2L
+    400064: IndexFinger2L_end
+    400066: IndexRinger2R
+    400068: IndexRinger2R_end
+    400070: InnerThigh.L
+    400072: InnerThigh.L_end
+    400074: InnerThigh.R
+    400076: InnerThigh.R_end
+    400078: LoweArmL
+    400080: LoweArmR
+    400082: Neck
+    400084: ShinL
+    400086: ShinR
+    400088: ShoulderL
+    400090: ShoulderR
+    400092: Spine
+    400094: ThighL
+    400096: ThighR
+    400098: Thumb1
+    400100: Thumb1R
+    400102: Thumb2
+    400104: Thumb2_end
+    400106: Thumb2R
+    400108: Thumb2R_end
+    400110: UpperArmL
+    400112: UpperArmR
+    2100000: F00_000_Hair_00_HAIR
+    2100002: F00_000_00_FaceMouth_00_FACE
+    2100004: F00_000_00_EyeWhite_00_EYE
+    2100006: F00_000_00_FaceEyeline_00_FACE
+    2100008: F00_000_00_FaceEyelash_00_FACE
+    2100010: F00_000_00_FaceBrow_00_FACE
+    2100012: F00_000_00_EyeIris_00_EYE
+    2100014: F00_000_00_EyeHighlight_00_EYE
+    2100016: F00_000_00_Face_00_SKIN
+    2100018: F00_000_00_EyeExtra_01_EYE
+    2100020: F00_000_00_Body_00_SKIN
+    2300000: Head1
+    2300002: //RootNode
+    3300000: Head1
+    3300002: //RootNode
+    4300000: Head1
+    7400000: Armature|ArmatureAction
+    7400002: Armature|short_shirt:Tops|Take 001|BaseLayer
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.099999994
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
