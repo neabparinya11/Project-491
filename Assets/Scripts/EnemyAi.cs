@@ -55,7 +55,7 @@ public class EnemyAi : MonoBehaviour
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
                 chasing = true;
-                StoryController.instance.SetChasingBoolean(true);
+                //StoryController.instance.SetChasingBoolean(true);
                 animations.SetInteger("state", (int)EnemyState.run);
             }
         }
