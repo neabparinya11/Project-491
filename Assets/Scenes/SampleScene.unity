@@ -570,6 +570,16 @@ PrefabInstance:
       objectReference: {fileID: 1311774259}
     - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
+        type: 3}
+      propertyPath: attackedTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604184274822494059, guid: 40909dc7b04413a4196962157ac4be55,
+        type: 3}
       propertyPath: destinationAmount
       value: 3
       objectReference: {fileID: 0}
@@ -593,6 +603,11 @@ PrefabInstance:
       propertyPath: destination.Array.data[2]
       value: 
       objectReference: {fileID: 1655538834}
+    - target: {fileID: 2604184274822494063, guid: 40909dc7b04413a4196962157ac4be55,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2604650154560388999, guid: 40909dc7b04413a4196962157ac4be55,
         type: 3}
       propertyPath: m_Name
@@ -1571,8 +1586,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3.0624113}
-  m_Center: {x: 1.5, y: 1.5, z: -1.5312052}
+  m_Size: {x: 3, y: 1.997081, z: 3.0624113}
+  m_Center: {x: 1.5, y: 0.9985405, z: -1.5312052}
 --- !u!4 &971227193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3555048242660017499, guid: 985f66943508c3847b89a21d18240cde,
@@ -1673,6 +1688,51 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 308561178}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &1061245697 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2604184274822494058, guid: 40909dc7b04413a4196962157ac4be55,
+    type: 3}
+  m_PrefabInstance: {fileID: 308561178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1061245702
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061245696}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1061245703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061245696}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b2da7c31994a34c936fe429d18162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1061245697}
+  player: {fileID: 1311774259}
+  walkingSound: {fileID: 1367049632}
+  patrolSpeed: 12
+  chaseSpeed: 25
+  detectionRange: 10
+  attackRange: 2
+  listWaypoint:
+  - {fileID: 1260050890}
+  - {fileID: 1655538834}
+  - {fileID: 1565211907}
 --- !u!114 &1065529624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7022068188256138602, guid: 15d912d4466f02247a4501e69ec10a06,
@@ -2114,6 +2174,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7748811, z: 1}
   m_Center: {x: -0, y: 0.8456651, z: 0}
+--- !u!82 &1367049632 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1616226604, guid: 40909dc7b04413a4196962157ac4be55,
+    type: 3}
+  m_PrefabInstance: {fileID: 308561178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1423261064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2414,6 +2480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar_Group
+      objectReference: {fileID: 0}
+    - target: {fileID: 463626051018249826, guid: 5526071e2ac246a44be5f033adea327b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 463626051018249827, guid: 5526071e2ac246a44be5f033adea327b,
         type: 3}
@@ -3123,7 +3194,7 @@ PrefabInstance:
     - target: {fileID: 3877976546092110421, guid: 3311595fc7e923643bab419604de6b73,
         type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3311595fc7e923643bab419604de6b73, type: 3}

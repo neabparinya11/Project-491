@@ -97,7 +97,7 @@ public class EnemyController : MonoBehaviour
 
     void Attack()
     {
-        HealthController.instance.DecreaseHealth(20);
+        //HealthController.instance.DecreaseHealth(20);
         currentState = EnemyState.Chase;
     }
     public void IncreaseLevel(int _value)
@@ -108,5 +108,15 @@ public class EnemyController : MonoBehaviour
     public void DecreaseLevel(int _value)
     {
         level -= _value;
+    }
+
+    public void Teleport(Vector3 _newPosition)
+    {
+        this.transform.position = _newPosition;
+    }
+
+    public int getCurrentStateEnemy()
+    {
+        return (int)this.currentState;
     }
 }

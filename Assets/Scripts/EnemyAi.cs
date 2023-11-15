@@ -129,7 +129,7 @@ public class EnemyAi : MonoBehaviour
         chaseTime = UnityEngine.Random.Range(minChaseTime, maxChaseTime);
         yield return new WaitForSeconds(chaseTime);
         walking = true;
-        StoryController.instance.SetChasingBoolean(false);
+        //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
@@ -138,7 +138,7 @@ public class EnemyAi : MonoBehaviour
     {
         attacked = true;
         yield return new WaitForSeconds(attackedTime);
-        agent.isStopped = false;
+        //agent.isStopped = false;
         attacked = false;
     }
     IEnumerator deathRoutine()
@@ -165,7 +165,7 @@ public class EnemyAi : MonoBehaviour
 
             if (enemyDistance <= catchDistance)
             {
-                agent.isStopped = true;
+                //agent.isStopped = true;
                 animations.SetInteger("state", (int)EnemyState.attack);
                 if (!attacked)
                 {
@@ -216,5 +216,10 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
+    }
+
+    public void SetNewPosition(Vector3 _newPosition)
+    {
+        this.transform.position = _newPosition;
     }
 }

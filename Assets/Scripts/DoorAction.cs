@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -90,10 +91,11 @@ public class DoorAction : MonoBehaviour
 
         if (canTeleport)
         {
-            bool isChase = _enemy.GetComponentInChildren<EnemyAi>().chasing;
-            if (isChase)
+            EnemyAi enemyScript = _enemy.GetComponentInChildren<EnemyAi>();
+            if (enemyScript.chasing)
             {
-                _enemy.transform.position = newPosition.transform.position;
+                enemyScript.SetNewPosition(newPosition.transform.position);
+                canTeleport = false;
             }
         }
     }
