@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
@@ -12,6 +13,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float detectionRange;
     [SerializeField] float attackRange;
     [SerializeField] Transform[] listWaypoint;
+    [SerializeField] float attackedTime;
+    [SerializeField] float idleTime;
+    [SerializeField] float chaseTime;
 
     protected int currentWaypoint = 0;
     protected Animator animator;
@@ -38,15 +42,19 @@ public class EnemyController : MonoBehaviour
         {
             case EnemyState.Patrol:
                 Patrol();
+                animator.SetInteger("state", 0);
                 break;
             case EnemyState.Investigate:
                 Investigate();
+                animator.SetInteger("state", 1);
                 break;
             case EnemyState.Chase:
                 Chase();
+                animator.SetInteger("state", 2);
                 break;
             case EnemyState.Attacked:
                 Attack();
+                animator.SetInteger("state", 3);
                 break;
         }
     }
@@ -112,11 +120,18 @@ public class EnemyController : MonoBehaviour
 
     public void Teleport(Vector3 _newPosition)
     {
-        this.transform.position = _newPosition;
+        //this.transform.position = _newPosition;
+        bool result = agent.Warp(_newPosition + new Vector3(.0f, 2.0f, .0f));
+        Debug.Log("Resulting of warp : " + result);
     }
 
     public int getCurrentStateEnemy()
     {
         return (int)this.currentState;
+    }
+
+    IEnumerator AttackedAnimation()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

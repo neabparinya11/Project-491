@@ -14,27 +14,26 @@ public class QTEController : MonoBehaviour
     [SerializeField] CanvasGroup timeCanvas;
     [SerializeField] Sprite[] listSprite;
     [SerializeField] float regenTime;
-    //[SerializeField] GameObject problem1, problem2, problem3;
-    [SerializeField] GameObject problem1;
+    [SerializeField] GameObject problem1, problem2, problem3;
+    //[SerializeField] GameObject problem1;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
     protected int countKeycodeCheck = 0;
-    public bool isQTEenable,start;
+    public bool isQTEenable, start;
     protected bool isChecked = false;
-    //protected bool pb1 = false, pb2 = false, pb3 = false;
-    protected bool pb1 = false, onClick = false;
+    protected bool pb1 = false, pb2 = false, pb3 = false;
+    //protected bool pb1 = false, onClick = false;
     protected float countTime = 0;
-
+    protected int countKeyDown = 0;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        
-        RandomKeyCode();
+        //RandomKeyCode();
         countKeycodeCheck = keycodeProblem.Count;
-        isQTEenable = false;
-        start = false;
+        //isQTEenable = true;
+        //start = true;
     }
 
     // Update is called once per frame
@@ -44,16 +43,13 @@ public class QTEController : MonoBehaviour
         {
             ShowImageKey();
             isChecked = CheckedKeyInput();
-            if (isChecked)
+            if (isChecked && countKeyDown == 3)
             {
                 Success();
             }
             else
             {
-                if (!start)
-                {
-                    timeCanvas.alpha = 0;
-                }
+                FailedPuzzle();
             }
         }
     }
@@ -72,6 +68,8 @@ public class QTEController : MonoBehaviour
     {
         timeCanvas.alpha = 1;
         problem1.GetComponent<Image>().sprite = imageKeyCodeProblem[0];
+        problem2.GetComponent<Image>().sprite = imageKeyCodeProblem[1];
+        problem3.GetComponent<Image>().sprite = imageKeyCodeProblem[2];
         UpdateTimeSlide();
         if (countTime <= timeDuration - 0.01f)
         {
@@ -81,30 +79,13 @@ public class QTEController : MonoBehaviour
                 UpdateTimeSlide();
             }
 
-            if (countTime >= timeDuration)
+            if (countTime >= timeDuration - 0.01f)
             {
                 timeCanvas.alpha = 0;
                 start = false;
                 isQTEenable = false;
             }
         }
-        
-        
-        
-        //problem2.GetComponent<Image>().sprite = imageKeyCodeProblem[1];
-        //problem3.GetComponent<Image>().sprite = imageKeyCodeProblem[2];
-
-        //if (!pb1 && !pb2 && !pb3 )
-        //{
-        //    problem1.SetActive(true);
-        //    problem2.SetActive(true);
-        //    problem3.SetActive(true);
-        //}
-    }
-
-    protected void TimeDurationToKeyPush()
-    {
-
     }
 
     protected void UpdateTimeSlide()
@@ -114,50 +95,88 @@ public class QTEController : MonoBehaviour
 
     protected bool CheckedKeyInput()
     {
-        if (Input.GetKeyDown(keycodeProblem[0]))
+        switch (countKeyDown)
         {
-            onClick = true;
-            problem1.SetActive(false);
-            pb1 = true;
-            start = false;
+            case 0:
+                if (Input.GetKeyDown(keycodeProblem[countKeyDown]))
+                {
+                    problem1.SetActive(false);
+                    pb1 = true;
+                    countKeyDown++;
+                } else if (CheckedArrowKeyInput())
+                {
+                    countKeyDown++;
+                }
+                break;
+            case 1:
+                if (Input.GetKeyDown(keycodeProblem[countKeyDown]))
+                {
+                    problem2.SetActive(false);
+                    pb2 = true;
+                    countKeyDown++;
+                }
+                else if (CheckedArrowKeyInput())
+                {
+                    countKeyDown++;
+                }
+                break;
+            case 2:
+                if (Input.GetKeyDown(keycodeProblem[countKeyDown]))
+                {
+                    problem3.SetActive(false);
+                    pb3 = true;
+                    countKeyDown++;
+                }
+                else if (CheckedArrowKeyInput())
+                {
+                    countKeyDown++;
+                }
+                break;
+            default:
+                start = false;
+                break;
         }
-        
-
-        //if (Input.GetKeyDown(keycodeProblem[1]) && pb1 )
-        //{
-        //    problem2.SetActive(false);
-        //    if (pb2 && Time.time - lastedBetweenPress <= 0.8f)
-        //    {
-
-        //    }
-        //    pb2 = true;
-        //    lastedBetweenPress = Time.time;
-        //}
-
-        //if (Input.GetKeyDown(keycodeProblem[2]) && pb2 && pb1)
-        //{
-        //    problem3.SetActive(false);
-        //    if (pb2 && Time.time - lastedBetweenPress <= 0.8f)
-        //    {
-
-        //    }
-        //    pb3 = true;
-        //    lastedBetweenPress = Time.time;
-        //}
-
-        //if (pb1 && pb2 && pb3)
-        //{
-        //    return true;
-        //}
-       return pb1;
+        return pb1 && pb2 && pb3;
     }
 
     protected void Success()
     {
+        start = false;
         isQTEenable = false;
         timeCanvas.alpha = 0;
+        countKeyDown = 0;
+        keycodeProblem.Clear();
+        imageKeyCodeProblem.Clear();
         problem1.SetActive(true);
-        //keycodeProblem.Clear();
-        //imageKeyCodeProblem.Clear();
+        problem2.SetActive(true);
+        problem3.SetActive(true);
+    }
+
+    protected void FailedPuzzle()
+    {
+        if (!start)
+        {
+            start = false;
+            isQTEenable = false;
+            timeCanvas.alpha = 0;
+            countKeyDown = 0;
+            keycodeProblem.Clear();
+            imageKeyCodeProblem.Clear();
+            problem1.SetActive(true);
+            problem2.SetActive(true);
+            problem3.SetActive(true);
+        }
+    }
+
+    protected bool CheckedArrowKeyInput()
+    {
+        return Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow);
+    }
+
+    public void GeneratePattern()
+    {
+        RandomKeyCode();
+        isQTEenable = true;
+        start = true;
     }
 }
