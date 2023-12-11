@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,11 +36,6 @@ public class DoorAction : MonoBehaviour
             messagesSprite.sprite = normalSprite;
             canAction = true;
         }
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            canTeleport = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -48,10 +44,6 @@ public class DoorAction : MonoBehaviour
         {
             messagePrefab.alpha = 0;
             canAction = false;
-        }
-        if (other.gameObject.tag == "Enemy")
-        {
-            canTeleport = false;
         }
     }
 
@@ -80,22 +72,23 @@ public class DoorAction : MonoBehaviour
                     }
                     
                 }
-                
-                //if (_enemyScript.chasing)
-                //{
-                //    _enemy.transform.position = newPosition.transform.position;
-                //}
+                canTeleport = true;
             }
         }
-
         if (canTeleport)
         {
-            bool isChase = _enemy.GetComponentInChildren<EnemyAi>().chasing;
-            if (isChase)
-            {
-                _enemy.transform.position = newPosition.transform.position;
-            }
+            StartCoroutine(TeleportEnemy());
+            canTeleport = false;
         }
+        //if (canTeleport)
+        //{
+        //    EnemyController enemyScript = _enemy.GetComponentInChildren<EnemyController>();
+        //    if (enemyScript.getCurrentStateEnemy() == 2)
+        //    {
+        //        enemyScript.Teleport(newPosition.transform.position);
+        //        canTeleport = false;
+        //    }
+        //}
     }
 
     public void SetDoorLocked(bool locked)
@@ -106,5 +99,13 @@ public class DoorAction : MonoBehaviour
     public bool GetDoorLocked()
     {
         return this.isLocked;
+    }
+
+    IEnumerator TeleportEnemy()
+    {
+        yield return new WaitForSeconds(6);
+        EnemyAi _enemyScript = _enemy.GetComponentInChildren<EnemyAi>();
+        _enemyScript.SetNewPosition(newPosition.transform.position);
+        //canTeleport = false;
     }
 }

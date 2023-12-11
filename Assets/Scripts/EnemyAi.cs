@@ -18,6 +18,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] string deathScene;
     protected Animator animations;
     [SerializeField] AudioSource walkingSound;
+    protected float multiDamage = 0;
 
     // 1 = normal, 2 = hard, 3 = permadeath
     int levelEnemy = 1;
@@ -42,6 +43,28 @@ public class EnemyAi : MonoBehaviour
 
     private void Update()
     {
+        Investigate();
+        Walking();
+        ChasingAndAttacked();
+
+        switch (levelEnemy)
+        {
+            case 1:
+                multiDamage = 1;
+                break;
+            case 2:
+                multiDamage = 2;
+                break;
+            case 3:
+                multiDamage = 100;
+                break;
+            default: break;
+        }
+
+    }
+
+    protected void Investigate()
+    {
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
         enemyDistance = Vector3.Distance(player.position, this.transform.position);
@@ -55,46 +78,10 @@ public class EnemyAi : MonoBehaviour
                 StopCoroutine(chaseRoutine());
                 StartCoroutine(chaseRoutine());
                 chasing = true;
-                StoryController.instance.SetChasingBoolean(true);
+                //StoryController.instance.SetChasingBoolean(true);
                 animations.SetInteger("state", (int)EnemyState.run);
             }
         }
-        switch (levelEnemy)
-        {
-            case 1:
-                EnemyLevel1();
-                break;
-            case 2:
-                EnemyLevel2();
-                break;
-            case 3:
-                EnemyLevel3();
-                break;
-            default: break;
-        }
-
-    }
-
-    private void EnemyLevel3()
-    {
-        throw new NotImplementedException();
-        if (chasing == true)
-        {
-            dest = player.position;
-            agent.destination = dest;
-            agent.speed = chaseSpeed;
-            if (enemyDistance <= catchDistance)
-            {
-                agent.isStopped = true;
-                animations.SetInteger("state", (int)EnemyState.attack);
-
-            }
-        }
-    }
-
-    private void EnemyLevel2()
-    {
-        throw new NotImplementedException();
     }
 
     public void stopChase()
@@ -129,7 +116,7 @@ public class EnemyAi : MonoBehaviour
         chaseTime = UnityEngine.Random.Range(minChaseTime, maxChaseTime);
         yield return new WaitForSeconds(chaseTime);
         walking = true;
-        StoryController.instance.SetChasingBoolean(false);
+        //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
@@ -138,7 +125,7 @@ public class EnemyAi : MonoBehaviour
     {
         attacked = true;
         yield return new WaitForSeconds(attackedTime);
-        agent.isStopped = false;
+        //agent.isStopped = false;
         attacked = false;
     }
     IEnumerator deathRoutine()
@@ -147,7 +134,7 @@ public class EnemyAi : MonoBehaviour
         SceneManager.LoadScene(deathScene);
     }
 
-    public void EnemyLevel1()
+    public void ChasingAndAttacked()
     {
         if (chasing == true)
         {
@@ -165,12 +152,12 @@ public class EnemyAi : MonoBehaviour
 
             if (enemyDistance <= catchDistance)
             {
-                agent.isStopped = true;
+                //agent.isStopped = true;
                 animations.SetInteger("state", (int)EnemyState.attack);
                 if (!attacked)
                 {
                     StartCoroutine(attackedRoutine());
-                    PlayerMovmentsScript.instance.onPlayerAttacked(20);
+                    PlayerMovmentsScript.instance.onPlayerAttacked(20*multiDamage);
                 }
                 chasing = true;
                 StopCoroutine(attackedRoutine());
@@ -187,6 +174,11 @@ public class EnemyAi : MonoBehaviour
 
             }
         }
+        
+    }
+
+    protected void Walking()
+    {
         if (walking == true)
         {
             dest = currentDestination.position;
@@ -216,5 +208,11 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
+    }
+
+    public void SetNewPosition(Vector3 _newPosition)
+    {
+        //this.transform.position = _newPosition;
+        agent.Warp(_newPosition + new Vector3(.0f, 2.0f, .0f));
     }
 }
