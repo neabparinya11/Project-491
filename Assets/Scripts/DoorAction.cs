@@ -12,15 +12,10 @@ public class DoorAction : MonoBehaviour
     [SerializeField] CanvasGroup messagePrefab;
     [SerializeField] Image messagesSprite;
     [SerializeField] Sprite normalSprite;
-    //[SerializeField] Sprite failureSprite;
-    //[SerializeField] TextMeshProUGUI texts;
-    //[SerializeField] GameObject newPosition;
-    //[SerializeField] PlayerMovmentsScript playerMovmentsScript;
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _enemy;
-    //[SerializeField] EnemyAi _enemyScript;
     [SerializeField] string finalScene;
 
     bool canAction = false; // for player check to teleport
@@ -28,6 +23,10 @@ public class DoorAction : MonoBehaviour
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
 
+    private void Start()
+    {
+        StartCoroutine(TeleportEnemy());
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -80,15 +79,6 @@ public class DoorAction : MonoBehaviour
             StartCoroutine(TeleportEnemy());
             canTeleport = false;
         }
-        //if (canTeleport)
-        //{
-        //    EnemyController enemyScript = _enemy.GetComponentInChildren<EnemyController>();
-        //    if (enemyScript.getCurrentStateEnemy() == 2)
-        //    {
-        //        enemyScript.Teleport(newPosition.transform.position);
-        //        canTeleport = false;
-        //    }
-        //}
     }
 
     public void SetDoorLocked(bool locked)
@@ -103,7 +93,7 @@ public class DoorAction : MonoBehaviour
 
     IEnumerator TeleportEnemy()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(2);
         EnemyAi _enemyScript = _enemy.GetComponentInChildren<EnemyAi>();
         _enemyScript.SetNewPosition(newPosition.transform.position);
         //canTeleport = false;
