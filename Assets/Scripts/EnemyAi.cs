@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] List<Transform> destination;
     [SerializeField] float attackedTime;
-    [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime;
+    [SerializeField] float walkSpeed, chaseSpeed, idleTime, minIdleTime, maxIdleTime, sightDistance, catchDistance, chaseTime, minChaseTime, maxChaseTime, deathTime, respawnTime;
     public bool walking, chasing, attacking;
     [SerializeField] Transform player;
     [SerializeField] int destinationAmount;
@@ -21,12 +22,13 @@ public class EnemyAi : MonoBehaviour
     protected float multiDamage = 0;
 
     // 1 = normal, 2 = hard, 3 = permadeath
-    int levelEnemy = 1;
-    Transform currentDestination;
-    Vector3 dest;
-    int randomNumber1;
-    float enemyDistance;
-    bool attacked = false;
+    private int levelEnemy = 1;
+    private Transform currentDestination;
+    private Vector3 dest;
+    private int randomNumber1;
+    private float enemyDistance;
+    private bool attacked = false;
+    [SerializeField] private List<Transform> canCurrent = new List<Transform>();
 
     enum EnemyState
     {
@@ -39,6 +41,8 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
+
+        FindNodeInCurrentPosition();
     }
 
     private void Update()
@@ -63,6 +67,9 @@ public class EnemyAi : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// This function is serching player in around enemy
+    /// </summary>
     protected void Investigate()
     {
         Vector3 direction = (player.position - transform.position).normalized;
@@ -84,31 +91,41 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This fuction is stop chasing routine of enemy
+    /// </summary>
     public void stopChase()
     {
         walking = true;
         walkingSound.enabled = true;
         chasing = false;
         StopCoroutine(chaseRoutine());
-        currentDestination = destination[UnityEngine.Random.Range(0, destinationAmount)];
+        currentDestination = canCurrent[UnityEngine.Random.Range(0, canCurrent.Count)];
     }
 
+    /// <summary>
+    /// Increase level or phase of enemy 
+    /// </summary>
     public void LevelEnemyIncress()
     {
         levelEnemy += 1;
     }
 
+    /// <summary>
+    /// Decrease level or phase of enemy
+    /// </summary>
     public void ResetLevelEnemy()
     {
         levelEnemy = 1;
     }
+
     IEnumerator stayIdle()
     {
         idleTime = UnityEngine.Random.Range(minIdleTime, maxIdleTime);
         yield return new WaitForSeconds(idleTime);
         walking = true;
-        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
-        currentDestination = destination[randomNumber1];
+        randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+        currentDestination = canCurrent[randomNumber1];
     }
 
     IEnumerator chaseRoutine()
@@ -118,8 +135,8 @@ public class EnemyAi : MonoBehaviour
         walking = true;
         //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
-        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
-        currentDestination = destination[randomNumber1];
+        randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+        currentDestination = canCurrent[randomNumber1];
     }
     IEnumerator attackedRoutine()
     {
@@ -177,6 +194,9 @@ public class EnemyAi : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     protected void Walking()
     {
         if (walking == true)
@@ -197,10 +217,7 @@ public class EnemyAi : MonoBehaviour
             }
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log(other.gameObject.tag);
-    //}
+
     public void SetStart()
     {
         walking = true;
@@ -213,6 +230,26 @@ public class EnemyAi : MonoBehaviour
     public void SetNewPosition(Vector3 _newPosition)
     {
         //this.transform.position = _newPosition;
-        agent.Warp(_newPosition + new Vector3(.0f, 2.0f, .0f));
+        agent.Warp(_newPosition);
+        FindNodeInCurrentPosition();
+    }
+
+    public IEnumerator RandomSpawn()
+    {
+        yield return new WaitForSeconds(0.1f);
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        SetNewPosition(destination[randomNumber1].position);
+    }
+
+    public void FindNodeInCurrentPosition()
+    {
+        canCurrent.Clear();
+        foreach (Transform transformPosition in destination)
+        {
+            if (transformPosition.position.y == this.transform.position.y)
+            {
+                canCurrent.Add(transformPosition);
+            }
+        }
     }
 }
