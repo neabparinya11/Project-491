@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovmentsScript : MonoBehaviour
+public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
 {
     public static PlayerMovmentsScript instance;
     float movementSpeed = 1.0f;
@@ -15,7 +15,7 @@ public class PlayerMovmentsScript : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     [Header("Damage overlay")]
-    [SerializeField] RawImage overlay;
+    [SerializeField] Image overlay;
     [SerializeField] float duration;
     [SerializeField] float fadeSpeed;
 
@@ -159,7 +159,7 @@ public class PlayerMovmentsScript : MonoBehaviour
             if (durationTimer > duration)
             {
                 float tempAlpha = overlay.color.a;
-                tempAlpha -= Time.deltaTime*fadeSpeed;
+                tempAlpha -= Time.deltaTime * fadeSpeed;
                 overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
             }
         }
@@ -173,5 +173,15 @@ public class PlayerMovmentsScript : MonoBehaviour
     private void UnHidding()
     {
          gameObject.SetActive(true);
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData._playerPosition = this.transform.position;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        this.transform.position = gameData._playerPosition;
     }
 }
