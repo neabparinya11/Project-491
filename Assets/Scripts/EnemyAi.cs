@@ -41,8 +41,7 @@ public class EnemyAi : MonoBehaviour
         randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
         currentDestination = destination[randomNumber1];
         animations = GetComponent<Animator>();
-
-        FindNodeInCurrentPosition();
+        FindNodeInCurrentPosition(this.transform.position);
     }
 
     private void Update()
@@ -135,6 +134,7 @@ public class EnemyAi : MonoBehaviour
         walking = true;
         //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
+        Debug.Log(canCurrent.Count);
         randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
         currentDestination = canCurrent[randomNumber1];
     }
@@ -230,8 +230,9 @@ public class EnemyAi : MonoBehaviour
     public void SetNewPosition(Vector3 _newPosition)
     {
         //this.transform.position = _newPosition;
+        FindNodeInCurrentPosition(_newPosition);
         agent.Warp(_newPosition);
-        FindNodeInCurrentPosition();
+        
     }
 
     public IEnumerator RandomSpawn()
@@ -241,12 +242,12 @@ public class EnemyAi : MonoBehaviour
         SetNewPosition(destination[randomNumber1].position);
     }
 
-    public void FindNodeInCurrentPosition()
+    public void FindNodeInCurrentPosition(Vector3 _currentPosition)
     {
         canCurrent.Clear();
         foreach (Transform transformPosition in destination)
         {
-            if (transformPosition.position.y == this.transform.position.y)
+            if (transformPosition.position.y == _currentPosition.y)
             {
                 canCurrent.Add(transformPosition);
             }
