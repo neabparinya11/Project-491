@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataPersistances : MonoBehaviour
 {
@@ -12,11 +13,23 @@ public class DataPersistances : MonoBehaviour
     private List<IDataPersistances> dataPersistances;
     private FileDataHandle fileDataHandle;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("Found more than data.");
+            Destroy(this.gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        this.fileDataHandle = new FileDataHandle(Application.persistentDataPath, fileName);
+    }
     public void NewGame()
     {
-        this.fileDataHandle = new FileDataHandle(Application.persistentDataPath, fileName);
+        //this.fileDataHandle = new FileDataHandle(Application.persistentDataPath, fileName);
         this.gameData = new GameData();
-        LoadGame();
+        //LoadGame();
     }
 
     public void LoadGame()
@@ -24,7 +37,8 @@ public class DataPersistances : MonoBehaviour
         this.gameData = fileDataHandle.Load();
         if (this.gameData == null)
         {
-            NewGame();
+            Debug.Log("GameData is null");
+            return;
         }
 
         foreach (IDataPersistances dataPersistanceObj in dataPersistances)
@@ -35,16 +49,16 @@ public class DataPersistances : MonoBehaviour
 
     public void SaveGame()
     {
+        if (this.gameData == null)
+        {
+            Debug.Log("Game data is null");
+            return;
+        }
         foreach (IDataPersistances dataPersistanceObj in dataPersistances)
         {
             dataPersistanceObj.SaveData(ref gameData);
         }
         fileDataHandle.Save(gameData);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.dataPersistances = FindAllDataPersistance();
     }
 
     private List<IDataPersistances> FindAllDataPersistance()
@@ -53,4 +67,33 @@ public class DataPersistances : MonoBehaviour
         return new List<IDataPersistances>(dataObjects);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("On Scene Loaded");
+        this.dataPersistances = FindAllDataPersistance();
+        LoadGame();
+    }
+
+    public void OnSceneUnloaded(Scene scene)
+    {
+        Debug.Log("On Scene Unloaded");
+        SaveGame();
+        
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 }

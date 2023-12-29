@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreateNameUser : MonoBehaviour, IDataPersistances
 {
@@ -26,21 +27,33 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
     {
         _objCreateGroup.SetActive(false);
         _objConfirmGroup.SetActive(true);
-        _informationField.text = "คุณต้องการใช้ชื่อ " + _name + " ใช่หรือไม่";
+        if (_name != "")
+        {
+            _informationField.text = "คุณต้องการใช้ชื่อ " + _name + " ใช่หรือไม่";
+        }
+        else
+        {
+
+        }
+        
     }
 
     public void OnCancelClick()
     {
-        Debug.Log("Cac=ncel click");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void OnYesClick()
     {
-
+        SceneManager.LoadScene("next");
     }
 
     public void OnNoClick()
     {
+        _objConfirmGroup.SetActive(false);
+
+        _objCreateGroup.SetActive(true);
+
 
     }
 
