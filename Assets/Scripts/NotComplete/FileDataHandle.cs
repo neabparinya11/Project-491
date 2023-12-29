@@ -18,7 +18,6 @@ public class FileDataHandle
     {
         this.dataDirPath = _path;
         this.dataFileName = _fileName;
-        Debug.Log(_path);
     }
 
     /// <summary>

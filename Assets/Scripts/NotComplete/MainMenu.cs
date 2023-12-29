@@ -2,26 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Set Button")]
+    [SerializeField] private Button _newGameBtn;
+    [SerializeField] private Button _loadGameBtn;
+    [SerializeField] private Button _quitGameBtn;
 
     public void OnClickNewGame()
     {
+        DisableAllButton();
         DataPersistances.instance.NewGame();
-        SceneManager.LoadScene("");
-        
+        SceneManager.LoadSceneAsync("CreateNameScene");
     }
 
     public void OnClickContinueGame()
     {
+        DisableAllButton();
         DataPersistances.instance.LoadGame();
     }
 
     public void OnClickQuiteGame()
     {
+        DisableAllButton();
         DataPersistances.instance.SaveGame();
         Application.Quit();
     }
 
+    private void DisableAllButton()
+    {
+        _newGameBtn.interactable = false;
+        _loadGameBtn.interactable = false;
+        _quitGameBtn.interactable = false;
+    }
 }
