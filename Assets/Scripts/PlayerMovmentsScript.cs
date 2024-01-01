@@ -177,11 +177,11 @@ public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        gameData._playerPosition = this.transform.position;
+        gameData.playerPosition = this.transform.position;
     }
 
     public void LoadData(GameData gameData)
     {
-        this.transform.position = gameData._playerPosition;
+        this.transform.position = gameData.playerPosition;
     }
 }

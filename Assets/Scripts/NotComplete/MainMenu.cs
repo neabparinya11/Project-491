@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _newGameBtn;
     [SerializeField] private Button _loadGameBtn;
     [SerializeField] private Button _quitGameBtn;
+    [SerializeField] private Button _documentBtn;
 
     public void OnClickNewGame()
     {
@@ -36,5 +37,14 @@ public class MainMenu : MonoBehaviour
         _newGameBtn.interactable = false;
         _loadGameBtn.interactable = false;
         _quitGameBtn.interactable = false;
+        _documentBtn.interactable = false;
+    }
+
+    private void Start()
+    {
+        if (!DataPersistances.instance.HasGameData())
+        {
+            _loadGameBtn.interactable = false;
+        }
     }
 }

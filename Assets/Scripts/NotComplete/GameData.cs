@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameData
 {
-    public string _playerName { get; set; }
-    public Vector3 _playerPosition { get; set; }
-    public Vector3 _enemyPosition { get; set; }
-    public int _enemyLevel { get; set; }
+    public string playerName;
+    public Vector3 playerPosition;
+    public Vector3 enemyPosition;
+    public int enemyLevel;
+    public float percentageHealth;
+    public string currentScene;
     public GameData()
     {
-        this._playerName = string.Empty;
-        this._playerPosition = Vector3.zero;
-        this._enemyPosition = Vector3.zero;
-        this._enemyLevel = 1;
+        this.playerName = string.Empty;
+        this.playerPosition = Vector3.zero;
+        this.enemyPosition = Vector3.zero;
+        this.enemyLevel = 1;
+        this.percentageHealth = 0;
+        this.currentScene = string.Empty;
     }
 }

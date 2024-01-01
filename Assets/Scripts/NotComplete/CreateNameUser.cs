@@ -12,40 +12,36 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
     [SerializeField] GameObject _objCreateGroup;
     [SerializeField] TMP_InputField _inputNameField;
 
-    public string _name { get; private set; }
+    public string _playerName { get; private set; }
     public void LoadData(GameData gameData)
     {
-        _name = gameData._playerName;
+        _playerName = gameData.playerName;
     }
 
     public void SaveData(ref GameData gameData)
     {
-        gameData._playerName = _name;
+        gameData.playerName = _playerName;
     }
 
     public void OnConfirmClick()
     {
         _objCreateGroup.SetActive(false);
         _objConfirmGroup.SetActive(true);
-        if (_name != "")
+        if (_playerName != "")
         {
-            _informationField.text = "คุณต้องการใช้ชื่อ " + _name + " ใช่หรือไม่";
-        }
-        else
-        {
-
-        }
-        
+            _informationField.text = "คุณต้องการใช้ชื่อ " + _playerName + " ใช่หรือไม่";
+        }      
     }
 
     public void OnCancelClick()
     {
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
     public void OnYesClick()
     {
-        SceneManager.LoadScene("next");
+        DataPersistances.instance.SaveGame();
+        SceneManager.LoadSceneAsync("Home");
     }
 
     public void OnNoClick()
@@ -59,7 +55,7 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
 
     private void Update()
     {
-        _name = _inputNameField.text;
+        _playerName = _inputNameField.text;
     }
 
 }
