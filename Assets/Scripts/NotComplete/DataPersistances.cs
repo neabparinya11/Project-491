@@ -63,7 +63,7 @@ public class DataPersistances : MonoBehaviour
 
     private List<IDataPersistances> FindAllDataPersistance()
     {
-        IEnumerable<IDataPersistances> dataObjects = FindObjectOfType<MonoBehaviour>().GetComponents<IDataPersistances>();
+        IEnumerable<IDataPersistances> dataObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistances>();
         return new List<IDataPersistances>(dataObjects);
     }
 
@@ -75,14 +75,12 @@ public class DataPersistances : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("On Scene Loaded");
         this.dataPersistances = FindAllDataPersistance();
         LoadGame();
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
-        Debug.Log("On Scene Unloaded");
         SaveGame();
         
     }
@@ -95,5 +93,10 @@ public class DataPersistances : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+
+    public bool HasGameData()
+    {
+        return gameData != null;
     }
 }

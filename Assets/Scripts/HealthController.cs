@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class HealthController : MonoBehaviour
+public class HealthController : MonoBehaviour, IDataPersistances
 {
     public static HealthController instance;
     [SerializeField] Image _healthBar;
@@ -42,5 +42,15 @@ public class HealthController : MonoBehaviour
     public void UpdateHealth()
     {
         _healthBar.fillAmount = percentageHealth/ maxPercentageHealth;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.percentageHealth = percentageHealth;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        percentageHealth = gameData.percentageHealth;
     }
 }
