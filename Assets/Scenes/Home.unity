@@ -260,7 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -40566,7 +40570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -41066,7 +41074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -45407,13 +45419,13 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
-  m_projectionMatrixMode: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 19.07
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -45422,7 +45434,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 64.36118
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -49335,7 +49347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -59353,7 +59369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -59950,7 +59970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -69558,7 +69582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -69757,7 +69785,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: -92.269, y: 410.20398, z: -112.175995}
 --- !u!1001 &1761737687
 PrefabInstance:
@@ -71076,7 +71104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -72444,7 +72476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -72590,7 +72626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
@@ -80661,7 +80701,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
       propertyPath: m_SpotAngle
-      value: 179
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52685ed25fdcb1b488b7047664232501, type: 3}
