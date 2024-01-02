@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CreateNameUser : MonoBehaviour, IDataPersistances
 {
@@ -11,6 +12,10 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
     [SerializeField] GameObject _objConfirmGroup;
     [SerializeField] GameObject _objCreateGroup;
     [SerializeField] TMP_InputField _inputNameField;
+    [SerializeField] Button _yesBtn;
+    [SerializeField] Button _noBtn;
+    [SerializeField] Button _confirmBtn;
+    [SerializeField] Button _cancelBtn;
 
     public string _playerName { get; private set; }
     public void LoadData(GameData gameData)
@@ -35,13 +40,15 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
 
     public void OnCancelClick()
     {
+        DisableConfirmCancelButton();
         SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
     public void OnYesClick()
     {
+        DisableYesNoButton();
         DataPersistances.instance.SaveGame();
-        SceneManager.LoadSceneAsync("Home");
+        SceneManager.LoadSceneAsync("Day_SchoolScene");
     }
 
     public void OnNoClick()
@@ -58,4 +65,15 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
         _playerName = _inputNameField.text;
     }
 
+    private void DisableYesNoButton()
+    {
+        _yesBtn.interactable = false;
+        _noBtn.interactable = false;
+    }
+
+    private void DisableConfirmCancelButton()
+    {
+        _confirmBtn.interactable = false;
+        _cancelBtn.interactable = false;
+    }
 }

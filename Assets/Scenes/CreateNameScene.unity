@@ -2896,6 +2896,10 @@ MonoBehaviour:
   _objConfirmGroup: {fileID: 1268515169}
   _objCreateGroup: {fileID: 1085821039}
   _inputNameField: {fileID: 1596285233}
+  _yesBtn: {fileID: 111014068}
+  _noBtn: {fileID: 456408731}
+  _confirmBtn: {fileID: 977643683}
+  _cancelBtn: {fileID: 791845760}
 --- !u!1 &2117241489
 GameObject:
   m_ObjectHideFlags: 0
