@@ -85,7 +85,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             {
                 nameTag.text = currentStory.Continue().Split(":")[0];
             }
-
+            DisplayChoices();
         }
         else
         {
@@ -112,5 +112,23 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             Debug.LogError("Lenght out off bounds.");
         }
+
+        int index = 0;
+        foreach (Choice choice in currentChoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+
+        for (int i = 0; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void MakeChoice(int index)
+    {
+        currentStory.ChooseChoiceIndex(index);
     }
 }
