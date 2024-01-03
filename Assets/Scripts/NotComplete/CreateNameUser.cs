@@ -48,7 +48,7 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
     {
         DisableYesNoButton();
         DataPersistances.instance.SaveGame();
-        SceneManager.LoadSceneAsync("Day_SchoolScene");
+        SceneManager.LoadSceneAsync("DialogPlayScene");
     }
 
     public void OnNoClick()

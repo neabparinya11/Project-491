@@ -14,8 +14,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [SerializeField] GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
-    private Story currentStory;
-    private string characterName;
+    public Story currentStory { get; private set; }
     private string currentName; // name of player is be created.
     public bool dialogIsPlaying { get; private set; }
     // Start is called before the first frame update
@@ -56,6 +55,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public void EnterDialogMode(TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
+        currentStory.variablesState["playerName"] = currentName;
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
@@ -75,16 +75,18 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         if (currentStory.canContinue)
         {
-            dialogText.text = currentStory.Continue().Split(":")[1];
+            string[] data = currentStory.Continue().Split(":");
+            dialogText.text = data[1];
+            nameTag.text = data[0];
 
-            if (currentStory.Continue().Split(":")[0] == "ตัวเรา")
-            {
-                nameTag.text = currentName;
-            }
-            else
-            {
-                nameTag.text = currentStory.Continue().Split(":")[0];
-            }
+            //if (currentStory.Continue().Split(":")[0] == "ตัวเรา")
+            //{
+            //    nameTag.text = currentName;
+            //}
+            //else
+            //{
+            //    nameTag.text = currentStory.Continue().Split(":")[0];
+            //}
             DisplayChoices();
         }
         else
@@ -96,7 +98,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void LoadData(GameData gameData)

@@ -13,7 +13,7 @@ public class GameData
     public GameData()
     {
         this.playerName = string.Empty;
-        this.playerPosition = new Vector3(-922.75f, 13.29f, -7.6f);
+        this.playerPosition = new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
         this.enemyPosition = Vector3.zero;
         this.enemyLevel = 1;
         this.percentageHealth = 0;
