@@ -9,7 +9,7 @@ public class BoxItem : MonoBehaviour
     public List<FoodItem> listItemObject = new List<FoodItem>();
     public QuestionItem questionItem;
     public GameObject loadStock;
-    public GameObject interaction;
+    //public GameObject interaction;
     public Transform loadStockTransform;
     public Slider slide;
     [SerializeField] CanvasGroup canvas;
@@ -31,7 +31,7 @@ public class BoxItem : MonoBehaviour
             
             if (Input.GetKey(KeyCode.E))
             {
-                interaction.SetActive(false);
+                //interaction.SetActive(false);
                 loadStock.SetActive(true);
                 currentLoad += speed * Time.deltaTime;
                 slide.value = currentLoad;
@@ -50,7 +50,7 @@ public class BoxItem : MonoBehaviour
                     currentLoad = 0;
                     slide.value = 0;
                     loadStock.SetActive(false);
-                    interaction.SetActive(true);
+                    //interaction.SetActive(true);
                 }
             }
             if (currentLoad == 0)
@@ -80,7 +80,7 @@ public class BoxItem : MonoBehaviour
         {
             //hide text or disable.
             canvas.alpha = 0;
-            interaction.SetActive(true);
+            //interaction.SetActive(true);
             loadStock.SetActive(false);
             currentLoad = 0.0f;
         }
@@ -91,6 +91,6 @@ public class BoxItem : MonoBehaviour
         Vector3 objectPosition = transform.position + new Vector3(0.5f, 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         loadStockTransform.position = screenPosition;
-        interaction.transform.position = screenPosition;
+        //interaction.transform.position = screenPosition;
     }
 }

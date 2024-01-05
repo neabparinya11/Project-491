@@ -6,6 +6,14 @@ public class PauseSystem : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
     [SerializeField] Behaviour playerScript;
+    [SerializeField] Behaviour enemyScript;
+
+    public static PauseSystem instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -13,12 +21,14 @@ public class PauseSystem : MonoBehaviour
         {
             PauseGame();
             playerScript.enabled = false;
+            enemyScript.enabled = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ContinueGame();
             playerScript.enabled = true;
+            enemyScript.enabled = true;
         }
     }
 

@@ -22,6 +22,12 @@ public class GameData
 
     private Vector3 setStartPositionOnScene(string nameScene)
     {
+        switch (nameScene)
+        {
+            case "Day_SchoolScene":
+                return new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
+                break;
+        }
         return Vector3.zero;
     }
  }
