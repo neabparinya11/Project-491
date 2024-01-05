@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class HidingObject : MonoBehaviour
 {
-    [SerializeField] Transform hideText;
+    //[SerializeField] Transform hideText;
     [SerializeField] Transform enemy;
     [SerializeField] float distance;
     [SerializeField] GameObject normalPlayer;
     [SerializeField] EnemyAi enemyAiScript;
     [SerializeField] Transform monster;
     [SerializeField] float loseDistance;
-    [SerializeField] CanvasGroup canvas;
+    //[SerializeField] CanvasGroup canvas;
     bool interactAble, hiding;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class HidingObject : MonoBehaviour
     {
         interactAble = false;
         hiding = false;
-        canvas.alpha = .0f;
+        //canvas.alpha = .0f;
         //stopHideText.SetActive(false);
     }
 
@@ -38,7 +38,7 @@ public class HidingObject : MonoBehaviour
                         enemyAiScript.stopChase();
                     }
                 }
-                canvas.alpha = 0.0f;
+                //canvas.alpha = 0.0f;
                 hiding = true;
                 normalPlayer.SetActive(false);
                 interactAble = false;
@@ -48,7 +48,7 @@ public class HidingObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                canvas.alpha = 0.0f;
+                //canvas.alpha = 0.0f;
                 normalPlayer.SetActive(true);
                 hiding = false;
             }
@@ -66,14 +66,14 @@ public class HidingObject : MonoBehaviour
         //}
         Vector3 objectPosition = transform.position + new Vector3(0.2f, 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
-        hideText.position = screenPosition;
+        //hideText.position = screenPosition;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            canvas.alpha = 1.0f;
+            //canvas.alpha = 1.0f;
             interactAble = true;
         }
     }
@@ -82,7 +82,7 @@ public class HidingObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            canvas.alpha = 0.0f;
+            //canvas.alpha = 0.0f;
             interactAble = false;
         }
     }

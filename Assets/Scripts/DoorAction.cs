@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class DoorAction : MonoBehaviour
 {
-    [SerializeField] Transform messagesTransform;
-    [SerializeField] CanvasGroup messagePrefab;
-    [SerializeField] Image messagesSprite;
-    [SerializeField] Sprite normalSprite;
+    //[SerializeField] Transform messagesTransform;
+    //[SerializeField] CanvasGroup messagePrefab;
+    //[SerializeField] Image messagesSprite;
+    //[SerializeField] Sprite normalSprite;
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
@@ -31,8 +31,8 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            messagePrefab.alpha = 1;
-            messagesSprite.sprite = normalSprite;
+            //messagePrefab.alpha = 1;
+            //messagesSprite.sprite = normalSprite;
             canAction = true;
         }
     }
@@ -41,16 +41,16 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            messagePrefab.alpha = 0;
+            //messagePrefab.alpha = 0;
             canAction = false;
         }
     }
 
     private void Update()
     {
-        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
-        messagesTransform.position = screenPosition;
+        //Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        //Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        //messagesTransform.position = screenPosition;
         if (canAction)
         {
             if (Input.GetKeyDown(KeyCode.E))
