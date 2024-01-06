@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IDataPersistances
 {
     public static InventoryManager Instance;
     public List<FoodItem> ListFoodItem = new List<FoodItem>();
@@ -119,5 +119,15 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        throw new System.NotImplementedException();
     }
 }
