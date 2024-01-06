@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxItem : MonoBehaviour
+public class BoxItem : MonoBehaviour, IDataPersistances
 {
+    [SerializeField] string id;
     //public List<GameObject> listItem = new List<GameObject>();
     public List<FoodItem> listItemObject = new List<FoodItem>();
     public QuestionItem questionItem;
@@ -92,5 +93,19 @@ public class BoxItem : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         loadStockTransform.position = screenPosition;
         //interaction.transform.position = screenPosition;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        if (gameData.allBoxItem.ContainsKey(id))
+        {
+            gameData.allBoxItem.Remove(id);
+        }
+        gameData.allBoxItem.Add(id, isSearch);
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        gameData.allBoxItem.TryGetValue(id, out isSearch);
     }
 }

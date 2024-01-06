@@ -10,6 +10,9 @@ public class GameData
     public int enemyLevel;
     public float percentageHealth;
     public string currentScene;
+    public List<FoodItem> listFoodItem;
+    public List<QuestionItem> listQuestItem;
+    public Dictionary<string, bool> allBoxItem;
     public GameData()
     {
         this.playerName = string.Empty;
@@ -18,6 +21,9 @@ public class GameData
         this.enemyLevel = 1;
         this.percentageHealth = 0;
         this.currentScene = string.Empty;
+        this.listFoodItem = new List<FoodItem>();
+        this.listQuestItem = new List<QuestionItem>();
+        this.allBoxItem = new Dictionary<string, bool>();
     }
 
     private Vector3 setStartPositionOnScene(string nameScene)
