@@ -123,11 +123,13 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        throw new System.NotImplementedException();
+        gameData.listFoodItem = this.ListFoodItem;
+        gameData.listQuestItem = this.ListQuestionItem;
     }
 
     public void LoadData(GameData gameData)
     {
-        throw new System.NotImplementedException();
+        this.ListFoodItem = gameData.listFoodItem;
+        this.ListQuestionItem = gameData.listQuestItem;
     }
 }
