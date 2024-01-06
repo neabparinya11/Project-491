@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject visualButton;
+    [SerializeField] private TextAsset inkJson;
 
     private bool playerInRange;
 
@@ -20,6 +21,10 @@ public class DialogTrigger : MonoBehaviour
     {
         if (playerInRange)
         {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                DialogManager.GetInstance().EnterDialogMode(inkJson);
+            }
             visualButton.SetActive(true);
         }
         else
