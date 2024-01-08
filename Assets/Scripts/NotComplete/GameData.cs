@@ -12,7 +12,8 @@ public class GameData
     public string currentScene;
     public List<FoodItem> listFoodItem;
     public List<QuestionItem> listQuestItem;
-    public Dictionary<string, bool> allBoxItem;
+    public Dictionary<string, bool> dictBoxItem;
+    public Dictionary<string, bool> dictDoorAction;
     public GameData()
     {
         this.playerName = string.Empty;
@@ -23,7 +24,8 @@ public class GameData
         this.currentScene = string.Empty;
         this.listFoodItem = new List<FoodItem>();
         this.listQuestItem = new List<QuestionItem>();
-        this.allBoxItem = new Dictionary<string, bool>();
+        this.dictBoxItem = new Dictionary<string, bool>();
+        this.dictDoorAction = new Dictionary<string, bool>();
     }
 
     private Vector3 setStartPositionOnScene(string nameScene)

@@ -16,7 +16,8 @@ public class MainMenu : MonoBehaviour
     {
         DisableAllButton();
         DataPersistances.instance.NewGame();
-        SceneManager.LoadSceneAsync("CreateNameScene");
+        //SceneManager.LoadSceneAsync("CreateNameScene");
+        LoadScene.GetInstance().LoadTargetScene("CreateNameScene");
     }
 
     public void OnClickContinueGame()
