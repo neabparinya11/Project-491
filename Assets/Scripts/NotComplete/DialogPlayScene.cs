@@ -16,12 +16,12 @@ public class DialogPlayScene : MonoBehaviour
     IEnumerator StartDialog()
     {
         yield return new WaitForSeconds(0.1f);
-        manager.EnterDialogMode(inkJson);
+        DialogManager.GetInstance().EnterDialogMode(inkJson);
     }
 
     private void Update()
     {
-        if (!manager.currentStory.canContinue && manager != null)
+        if (!DialogManager.GetInstance().currentStory.canContinue)
         {
             SceneManager.LoadSceneAsync("Day_SchoolScene");
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
@@ -19,13 +20,13 @@ public class DialogTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange)
+        if (playerInRange && !DialogManager.GetInstance().dialogIsPlaying)
         {
+            visualButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 DialogManager.GetInstance().EnterDialogMode(inkJson);
             }
-            visualButton.SetActive(true);
         }
         else
         {
@@ -48,4 +49,5 @@ public class DialogTrigger : MonoBehaviour
             playerInRange = false;
         }
     }
+
 }

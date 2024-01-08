@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BoxItem : MonoBehaviour, IDataPersistances
 {
-    [SerializeField] string id;
+    [SerializeField] private string id;
     //public List<GameObject> listItem = new List<GameObject>();
     public List<FoodItem> listItemObject = new List<FoodItem>();
     public QuestionItem questionItem;
@@ -23,10 +23,10 @@ public class BoxItem : MonoBehaviour, IDataPersistances
     {
         if (other.CompareTag("Player"))
         {
-            
             //interaction.SetActive(true);
             if (isSearch)
             {
+                this.enabled = false;
                 return;
             }
             
@@ -97,15 +97,15 @@ public class BoxItem : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        if (gameData.allBoxItem.ContainsKey(id))
+        if (gameData.dictBoxItem.ContainsKey(id))
         {
-            gameData.allBoxItem.Remove(id);
+            gameData.dictBoxItem.Remove(id);
         }
-        gameData.allBoxItem.Add(id, isSearch);
+        gameData.dictBoxItem.Add(id, isSearch);
     }
 
     public void LoadData(GameData gameData)
     {
-        gameData.allBoxItem.TryGetValue(id, out isSearch);
+        gameData.dictBoxItem.TryGetValue(id, out isSearch);
     }
 }

@@ -46,7 +46,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             return;
         }
 
-        if (Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Space))
         {
             ContinueStory();
         }
@@ -56,6 +56,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         currentStory = new Story(inkJson.text);
         currentStory.variablesState["playerName"] = currentName;
+        
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 

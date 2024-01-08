@@ -6,12 +6,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DoorAction : MonoBehaviour
+public class DoorAction : MonoBehaviour, IDataPersistances
 {
+    [SerializeField] private string id;
     //[SerializeField] Transform messagesTransform;
-    //[SerializeField] CanvasGroup messagePrefab;
-    //[SerializeField] Image messagesSprite;
-    //[SerializeField] Sprite normalSprite;
+    [SerializeField] CanvasGroup messageCanvasGroup;
+    [SerializeField] Image messagesSprite;
+    [SerializeField] Sprite normalSprite;
+    [SerializeField] Sprite failureSprite;
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
@@ -25,13 +27,21 @@ public class DoorAction : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(TeleportEnemy());
+        if (!isLocked)
+        {
+            messagesSprite.sprite = normalSprite;
+        }
+        else
+        {
+            messagesSprite.sprite = failureSprite;
+        }
+        //StartCoroutine(TeleportEnemy());
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            //messagePrefab.alpha = 1;
+            messageCanvasGroup.alpha = 1;
             //messagesSprite.sprite = normalSprite;
             canAction = true;
         }
@@ -41,7 +51,7 @@ public class DoorAction : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //messagePrefab.alpha = 0;
+            messageCanvasGroup.alpha = 0;
             canAction = false;
         }
     }
@@ -51,28 +61,41 @@ public class DoorAction : MonoBehaviour
         //Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
         //Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         //messagesTransform.position = screenPosition;
-        if (canAction)
+        //if (canAction)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        if (isLocked)
+        //        {
+        //                //messagesSprite.sprite = failureSprite;
+        //        }
+        //        else
+        //        {
+        //            if (!useScene)
+        //            {
+        //                _player.transform.position = newPosition.transform.position;
+        //            }
+        //            else
+        //            {
+        //                SceneManager.LoadScene(finalScene);
+        //            }
+
+        //        }
+        //        canTeleport = true;
+        //    }
+        //}
+        if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (useScene)
             {
-                if (isLocked)
-                {
-                        //messagesSprite.sprite = failureSprite;
-                }
-                else
-                {
-                    if (!useScene)
-                    {
-                        _player.transform.position = newPosition.transform.position;
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(finalScene);
-                    }
-                    
-                }
-                canTeleport = true;
+                SceneManager.LoadSceneAsync(finalScene);
             }
+            else
+            {
+                _player.transform.position = newPosition.transform.position;
+            }
+
+            canTeleport = true;
         }
         if (canTeleport)
         {
@@ -97,5 +120,20 @@ public class DoorAction : MonoBehaviour
         EnemyAi _enemyScript = _enemy.GetComponentInChildren<EnemyAi>();
         _enemyScript.SetNewPosition(newPosition.transform.position);
         //canTeleport = false;
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        if (gameData.dictDoorAction.ContainsKey(id))
+        {
+            gameData.dictDoorAction.Remove(id);
+        }
+
+        gameData.dictDoorAction.Add(id, isLocked);
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        gameData.dictDoorAction.TryGetValue(id, out isLocked);
     }
 }

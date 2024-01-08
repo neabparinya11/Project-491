@@ -6,12 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField] string targetSceneName;
-    
-    public void LoadTargetScene()
+    private static LoadScene instance;
+    //[SerializeField] private string targetSceneName;
+    [SerializeField] private float transitionTime;
+    [SerializeField] private Animator anim;
+
+    private void Start()
     {
-        Debug.Log(targetSceneName);
-        SceneManager.LoadScene(targetSceneName);
+        instance = this;
+    }
+
+    public static LoadScene GetInstance()
+    {
+        return instance;
+    }
+    public void LoadTargetScene(string targetSceneNme)
+    {
+        StartCoroutine(LoadNextScene(targetSceneNme));
     }
 
     public void QuiteGame()
@@ -23,16 +34,20 @@ public class LoadScene : MonoBehaviour
 //#endif
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        LoadTargetScene();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             QuiteGame();
         }  
+    }
+
+    private IEnumerator LoadNextScene(string targetSceneName)
+    {
+        anim.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadSceneAsync(targetSceneName);
     }
 }
