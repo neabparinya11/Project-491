@@ -5,9 +5,28 @@ using UnityEngine.Playables;
 
 public class CutsceneTrigger : MonoBehaviour
 {
-    [SerializeField] private PlayableDirector timeline;
+    [SerializeField] private GameObject timeline;
+    [SerializeField] private GameObject cameraCutscene;
+    [SerializeField] private GameObject teacher;
     private void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        if (other.gameObject.tag == "Player")
+        {
+            timeline.SetActive(true);
+            teacher.SetActive(true);
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            cameraCutscene.SetActive(true);
+            timeline.GetComponent<PlayableDirector>().Play();
+        }
+        
+    }
+
+    private void Update()
+    {
+        if (timeline.GetComponent<PlayableDirector>().state != PlayState.Playing)
+        {
+            cameraCutscene.SetActive(false);
+
+        }
     }
 }
