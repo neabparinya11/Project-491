@@ -4,12 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadScene : MonoBehaviour
+public class LoadScene : MonoBehaviour, IDataPersistances
 {
     private static LoadScene instance;
     //[SerializeField] private string targetSceneName;
     [SerializeField] private float transitionTime;
     [SerializeField] private Animator anim;
+
+    private string sceneName;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class LoadScene : MonoBehaviour
     }
     public void LoadTargetScene(string targetSceneNme)
     {
+        this.sceneName = targetSceneNme;
         StartCoroutine(LoadNextScene(targetSceneNme));
     }
 
@@ -49,5 +52,15 @@ public class LoadScene : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadSceneAsync(targetSceneName);
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.currentScene = this.sceneName;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        throw new System.NotImplementedException();
     }
 }
