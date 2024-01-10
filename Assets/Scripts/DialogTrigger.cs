@@ -20,6 +20,9 @@ public class DialogTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        visualButton.transform.position = screenPosition;
         if (playerInRange && !DialogManager.GetInstance().dialogIsPlaying)
         {
             visualButton.SetActive(true);

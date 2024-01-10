@@ -58,9 +58,9 @@ public class DoorAction : MonoBehaviour, IDataPersistances
 
     private void Update()
     {
-        //Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
-        //Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
-        //messagesTransform.position = screenPosition;
+        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        messagesSprite.GetComponent<Transform>().position = screenPosition;
         //if (canAction)
         //{
         //    if (Input.GetKeyDown(KeyCode.E))
