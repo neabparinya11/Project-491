@@ -72,7 +72,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         nameTag.text = "";
     }
 
-    private void ContinueStory()
+    public void ContinueStory()
     {
         if (currentStory.canContinue)
         {
