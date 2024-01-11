@@ -6,6 +6,7 @@ public class DaySchool : MonoBehaviour
 {
     private static DaySchool instance;
     [SerializeField] private AudioSource backgroundSound;
+    [SerializeField] private GameObject keyItem;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class DaySchool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //key 1 key and go out to hospital.
     }
 
     public DaySchool GetInstance()
