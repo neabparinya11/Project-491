@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour, IDataPersistances
@@ -46,8 +47,9 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             return;
         }
 
-        if (Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.Space))
+        if (currentStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log(currentStory.currentChoices.Count);
             ContinueStory();
         }
     }
@@ -64,8 +66,9 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     }
 
 
-    private void ExitDialogMode()
+    private IEnumerator ExitDialogMode()
     {
+        yield return new WaitForSeconds(0.2f);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
         dialogText.text = "";
@@ -93,7 +96,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         else
         {
             //Exit dialog
-            ExitDialogMode();
+            StartCoroutine(ExitDialogMode());
         }
     }
 
@@ -110,7 +113,6 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
-
         if (currentChoices.Count > choices.Length)
         {
             Debug.LogError("Lenght out off bounds.");
@@ -124,14 +126,27 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             index++;
         }
 
-        for (int i = 0; i < choices.Length; i++)
+        if (currentStory.currentChoices.Count == 0)
         {
-            choices[i].gameObject.SetActive(false);
+            for (int i = 0; i < choices.Length; i++)
+            {
+                choices[i].gameObject.SetActive(false);
+            }
         }
+        
+
+        StartCoroutine(SelectFirstChoice());
     }
 
+    private IEnumerator SelectFirstChoice()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
     public void MakeChoice(int index)
     {
         currentStory.ChooseChoiceIndex(index);
+        ContinueStory();
     }
 }

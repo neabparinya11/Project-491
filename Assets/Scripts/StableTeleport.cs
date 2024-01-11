@@ -26,7 +26,6 @@ public class StableTeleport : MonoBehaviour
         }
         if (_messageImage1 != null && choice1 != null)
         {
-            Debug.Log("message1");
             messageTransform1.position = screenPosition1;
             _messageImage1.sprite = _messageSprite1;
             if (Input.GetKeyDown(KeyCode.W))
@@ -37,7 +36,6 @@ public class StableTeleport : MonoBehaviour
 
         if (_messageImage2 != null && choice2 != null)
         {
-            Debug.Log("message2");
             messageTransform2.position = screenPosition2;
             _messageImage2.sprite = _messageSprite2;
             if (Input.GetKeyDown(KeyCode.S))
