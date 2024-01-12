@@ -56,11 +56,12 @@ public class LoadScene : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
+        Debug.Log(this.sceneName);
         gameData.currentScene = this.sceneName;
     }
 
     public void LoadData(GameData gameData)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

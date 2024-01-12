@@ -21,6 +21,7 @@ public class DaySchool : MonoBehaviour
     void Update()
     {
         //key 1 key and go out to hospital.
+
     }
 
     public DaySchool GetInstance()

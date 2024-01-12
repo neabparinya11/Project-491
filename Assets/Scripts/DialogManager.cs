@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [SerializeField] TextMeshProUGUI dialogText;
     [SerializeField] TextMeshProUGUI nameTag;
     [SerializeField] GameObject[] choices;
+    [SerializeField] bool useInCutscene;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     public Story currentStory { get; private set; }
@@ -49,7 +50,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
         if (currentStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(currentStory.currentChoices.Count);
+            if (useInCutscene)
+            {
+                CutsceneController1.GetInstance().ContinueTimeLine();
+            }
             ContinueStory();
         }
     }
@@ -68,6 +72,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     private IEnumerator ExitDialogMode()
     {
+        CutsceneController1.GetInstance().ExitTimeLine();
         yield return new WaitForSeconds(0.2f);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
@@ -82,7 +87,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             string[] data = currentStory.Continue().Split(":");
             dialogText.text = data[1];
             nameTag.text = data[0];
-
+            if (useInCutscene)
+            {
+                CutsceneController1.GetInstance().StopTimeLine();
+            }
             //if (currentStory.Continue().Split(":")[0] == "ตัวเรา")
             //{
             //    nameTag.text = currentName;
