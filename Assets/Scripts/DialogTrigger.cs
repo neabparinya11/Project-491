@@ -9,7 +9,6 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] private TextAsset inkJson;
 
     private bool playerInRange;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +34,7 @@ public class DialogTrigger : MonoBehaviour
         {
             visualButton.SetActive(false);
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
