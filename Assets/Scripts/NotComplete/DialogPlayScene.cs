@@ -23,7 +23,7 @@ public class DialogPlayScene : MonoBehaviour
     {
         if (!DialogManager.GetInstance().currentStory.canContinue)
         {
-            SceneManager.LoadSceneAsync("Day_SchoolScene");
+            LoadScene.GetInstance().LoadTargetScene("Day_SchoolScene");
         }
     }
 }

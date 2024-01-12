@@ -8,6 +8,7 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private GameObject timeline;
     [SerializeField] private GameObject cameraCutscene;
     [SerializeField] private GameObject teacher;
+    [SerializeField] private bool deleteteacher = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -26,6 +27,10 @@ public class CutsceneTrigger : MonoBehaviour
         if (timeline.GetComponent<PlayableDirector>().state != PlayState.Playing)
         {
             cameraCutscene.SetActive(false);
+            if (deleteteacher)
+            {
+                teacher.SetActive(false);
+            }
 
         }
     }

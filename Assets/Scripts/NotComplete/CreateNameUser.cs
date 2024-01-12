@@ -41,14 +41,14 @@ public class CreateNameUser : MonoBehaviour, IDataPersistances
     public void OnCancelClick()
     {
         DisableConfirmCancelButton();
-        SceneManager.LoadSceneAsync("MainMenuScene");
+        LoadScene.GetInstance().LoadTargetScene("MainMenuScene");
     }
 
     public void OnYesClick()
     {
         DisableYesNoButton();
         DataPersistances.instance.SaveGame();
-        SceneManager.LoadSceneAsync("DialogPlayScene");
+        LoadScene.GetInstance().LoadTargetScene("DialogPlayScene");
     }
 
     public void OnNoClick()
