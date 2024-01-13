@@ -19,6 +19,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _enemy;
     [SerializeField] string finalScene;
+    [SerializeField] private bool useEnemy;
 
     bool canAction = false; // for player check to teleport
     bool canTeleport = false; // for enemy check to teleport
@@ -88,16 +89,18 @@ public class DoorAction : MonoBehaviour, IDataPersistances
         {
             if (useScene)
             {
-                SceneManager.LoadSceneAsync(finalScene);
+                //SceneManager.LoadSceneAsync(finalScene);
+                LoadScene.GetInstance().LoadTargetScene(finalScene);
             }
             else
             {
-                _player.transform.position = newPosition.transform.position;
+                //_player.transform.position = newPosition.transform.position;
+                PositionChange.GetInstance().ChangePosition(_player, newPosition.transform.position);
             }
 
             canTeleport = true;
         }
-        if (canTeleport)
+        if (canTeleport && useEnemy)
         {
             StartCoroutine(TeleportEnemy());
             canTeleport = false;
