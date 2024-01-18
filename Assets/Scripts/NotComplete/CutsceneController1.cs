@@ -35,4 +35,5 @@ public class CutsceneController1 : MonoBehaviour
     {
         timeline.time = timeline.duration;
     }
+
 }
