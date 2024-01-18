@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     public void AddQuestionItem(QuestionItem _item)
     {
         ListQuestionItem.Add(_item);
-        StoryController.instance.getDoorKey = FindQuestItem("Door Key");
+        //StoryController.instance.getDoorKey = FindQuestItem("Door Key");
     }
 
     public void RemoveFoodItem(FoodItem _item)

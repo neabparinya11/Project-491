@@ -6,7 +6,6 @@ using UnityEngine.Playables;
 public class PlayCutscenePolice : MonoBehaviour
 {
     [SerializeField] private GameObject policeObject;
-    [SerializeField] private GameObject keypassObject;
     [SerializeField] private GameObject timeline;
     [SerializeField] private GameObject cutsceneCamera;
 
@@ -17,7 +16,6 @@ public class PlayCutscenePolice : MonoBehaviour
     {
         instance = this;
         policeObject.SetActive(true);
-        keypassObject.SetActive(false);
         timeline.SetActive(false);
         cutsceneCamera.SetActive(false);
     }
@@ -33,7 +31,6 @@ public class PlayCutscenePolice : MonoBehaviour
         {
             timeline.SetActive(false);
             cutsceneCamera.SetActive(false);
-            keypassObject?.SetActive(true);
         }
     }
 
