@@ -25,6 +25,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
     bool canTeleport = false; // for enemy check to teleport
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
+    [SerializeField] bool useKey = false;
 
     private void Start()
     {
@@ -86,6 +87,12 @@ public class DoorAction : MonoBehaviour, IDataPersistances
         //        canTeleport = true;
         //    }
         //}
+
+        if (isLocked)
+        {
+            isLocked = false;
+
+        }
         if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
             if (useScene)
