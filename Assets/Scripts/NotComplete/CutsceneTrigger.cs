@@ -3,23 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class CutsceneTrigger : MonoBehaviour
+public class CutsceneTrigger : MonoBehaviour, IDataPersistances
 {
+    [SerializeField] private string id;
     [SerializeField] private GameObject timeline;
     [SerializeField] private GameObject cameraCutscene;
     [SerializeField] private GameObject teacher;
     [SerializeField] private bool deleteteacher = false;
+    private bool showTrigger = true;
+    public void LoadData(GameData gameData)
+    {
+        gameData.dictCutscene.TryGetValue(id, out showTrigger);
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        if (gameData.dictCutscene.ContainsKey(id))
+        {
+            gameData.dictCutscene.Remove(id);
+        }
+        gameData.dictCutscene.Add(id, showTrigger);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             timeline.SetActive(true);
             teacher.SetActive(true);
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            showTrigger = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
             cameraCutscene.SetActive(true);
             timeline.GetComponent<PlayableDirector>().Play();
         }
         
+    }
+    private void Start()
+    {
+        this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
     }
 
     private void Update()

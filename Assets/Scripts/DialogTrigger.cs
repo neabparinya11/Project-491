@@ -7,7 +7,7 @@ public class DialogTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject visualButton;
     [SerializeField] private TextAsset inkJson;
-
+    [SerializeField] private Vector3 adjustPosition = new Vector3(0.8f, 1, 0);
     private bool playerInRange;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class DialogTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        Vector3 objectPosition = transform.position + adjustPosition;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         visualButton.transform.position = screenPosition;
         if (playerInRange && !DialogManager.GetInstance().dialogIsPlaying)

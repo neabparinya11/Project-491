@@ -20,7 +20,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
     [SerializeField] GameObject _enemy;
     [SerializeField] string finalScene;
     [SerializeField] private bool useEnemy;
-
+    [SerializeField] private Vector3 adjustPosition = new Vector3(0.8f, 1, 0);
     bool canAction = false; // for player check to teleport
     bool canTeleport = false; // for enemy check to teleport
     [SerializeField] bool useScene = false;
@@ -37,6 +37,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
             messagesSprite.sprite = failureSprite;
         }
         //StartCoroutine(TeleportEnemy());
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -59,7 +60,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
 
     private void Update()
     {
-        Vector3 objectPosition = transform.position + new Vector3(0.8f, 1, 0);
+        Vector3 objectPosition = transform.position + adjustPosition;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         messagesSprite.GetComponent<Transform>().position = screenPosition;
         //if (canAction)
