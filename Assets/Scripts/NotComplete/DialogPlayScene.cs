@@ -7,6 +7,7 @@ public class DialogPlayScene : MonoBehaviour
 {
     [SerializeField] TextAsset inkJson;
     [SerializeField] DialogManager manager;
+    private bool theFirst = true;
 
     private void Start()
     {
@@ -21,8 +22,13 @@ public class DialogPlayScene : MonoBehaviour
 
     private void Update()
     {
-        if (!DialogManager.GetInstance().currentStory.canContinue)
+        if (DialogManager.GetInstance().currentStory == null)
         {
+            return;
+        }
+        if (!DialogManager.GetInstance().currentStory.canContinue && theFirst)
+        {
+            theFirst = false;
             LoadScene.GetInstance().LoadTargetScene("Day_SchoolScene");
         }
     }

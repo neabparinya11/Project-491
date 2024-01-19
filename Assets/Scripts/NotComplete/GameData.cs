@@ -14,18 +14,21 @@ public class GameData
     public List<QuestionItem> listQuestItem;
     public Dictionary<string, bool> dictBoxItem;
     public Dictionary<string, bool> dictDoorAction;
+    public Dictionary<string, bool> dictQuestItem;
+    public Dictionary<string, bool> dictCutscene;
     public GameData()
     {
         this.playerName = string.Empty;
         this.playerPosition = new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
         this.enemyPosition = Vector3.zero;
         this.enemyLevel = 1;
-        this.percentageHealth = 0;
+        this.percentageHealth = 100.0f;
         this.currentScene = string.Empty;
         this.listFoodItem = new List<FoodItem>();
         this.listQuestItem = new List<QuestionItem>();
         this.dictBoxItem = new Dictionary<string, bool>();
         this.dictDoorAction = new Dictionary<string, bool>();
+        this.dictCutscene = new Dictionary<string, bool>();
     }
 
     private Vector3 setStartPositionOnScene(string nameScene)

@@ -72,7 +72,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     private IEnumerator ExitDialogMode()
     {
-        CutsceneController1.GetInstance().ExitTimeLine();
+        //CutsceneController1.GetInstance().ExitTimeLine();
         yield return new WaitForSeconds(0.2f);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
