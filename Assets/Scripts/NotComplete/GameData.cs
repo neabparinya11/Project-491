@@ -38,6 +38,12 @@ public class GameData
             case "Day_SchoolScene":
                 return new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
                 break;
+            case "HospitalScene":
+                return new Vector3(-32.7900009f, 0, -16.5499992f);
+                break;
+            case "":
+                return new Vector3();
+                break;
         }
         return Vector3.zero;
     }
