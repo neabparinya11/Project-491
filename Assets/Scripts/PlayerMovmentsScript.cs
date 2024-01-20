@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
+public class PlayerMovmentsScript : MonoBehaviour
 {
     public static PlayerMovmentsScript instance;
     float movementSpeed = 1.0f;
@@ -26,6 +26,7 @@ public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
     private float Horizontal;
     public bool isSprint;
     public bool isHidden = false;
+    public bool disable = false;
     // state 0 = idle, state 1 = walking, state 2 = sprint, state 3 = crunch, state 4 = jump, state 5 = fall, state 6 = land
     // priority idle << walking << sprint
     enum MovementState
@@ -51,6 +52,10 @@ public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
     // Update is called once per frame
     void Update()
     {
+        if (disable)
+        {
+            return;
+        }
         Movement();
         DamageOverlay();
         if (isHidden)
@@ -173,15 +178,5 @@ public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
     private void UnHidding()
     {
          gameObject.SetActive(true);
-    }
-
-    public void SaveData(ref GameData gameData)
-    {
-        gameData.playerPosition = this.transform.position;
-    }
-
-    public void LoadData(GameData gameData)
-    {
-        this.transform.position = gameData.playerPosition;
     }
 }
