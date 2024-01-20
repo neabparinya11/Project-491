@@ -28,23 +28,22 @@ public class GameData
         this.listQuestItem = new List<QuestionItem>();
         this.dictBoxItem = new Dictionary<string, bool>();
         this.dictDoorAction = new Dictionary<string, bool>();
-        this.dictCutscene = new Dictionary<string, bool>();
+        this.dictCutscene = new Dictionary<string, bool>() { { "TeacherCutscene", true }, { "PoliceCutscene", true } };
     }
 
-    private Vector3 setStartPositionOnScene(string nameScene)
+    public void setStartPositionOnScene(string nameScene)
     {
         switch (nameScene)
         {
             case "Day_SchoolScene":
-                return new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
+                this.playerPosition = new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
                 break;
             case "HospitalScene":
-                return new Vector3(-32.7900009f, 0, -16.5499992f);
+                this.playerPosition = new Vector3(-32.7900009f, 0, -16.5499992f);
                 break;
             case "":
-                return new Vector3();
+                this.playerPosition = Vector3.zero;
                 break;
         }
-        return Vector3.zero;
     }
  }

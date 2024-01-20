@@ -14,6 +14,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [SerializeField] TextMeshProUGUI nameTag;
     [SerializeField] GameObject[] choices;
     [SerializeField] bool useInCutscene;
+    [SerializeField] float speedSentence;
+    [SerializeField] PlayerMovmentsScript playerMovmentsScript;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     public Story currentStory { get; private set; }
@@ -62,7 +64,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         currentStory = new Story(inkJson.text);
         currentStory.variablesState["playerName"] = currentName;
-        
+        playerMovmentsScript.disable = true;
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
@@ -72,12 +74,13 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     private IEnumerator ExitDialogMode()
     {
-        //CutsceneController1.GetInstance().ExitTimeLine();
+        CutsceneController1.GetInstance().ExitTimeLine();
         yield return new WaitForSeconds(0.2f);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
         dialogText.text = "";
         nameTag.text = "";
+        playerMovmentsScript.disable = false;
     }
 
     public void ContinueStory()
@@ -86,6 +89,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             string[] data = currentStory.Continue().Split(":");
             dialogText.text = data[1];
+            //StartCoroutine(WriteSentences(data[1]));
             nameTag.text = data[0];
             if (useInCutscene)
             {
@@ -156,5 +160,15 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         currentStory.ChooseChoiceIndex(index);
         ContinueStory();
+    }
+
+    IEnumerator WriteSentences(string sentence)
+    {
+        dialogText.text = "";
+        foreach (char charactor in sentence)
+        {
+            dialogText.text += charactor.ToString();
+            yield return new WaitForSeconds(speedSentence);
+        }
     }
 }

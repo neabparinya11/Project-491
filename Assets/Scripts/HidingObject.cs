@@ -11,7 +11,8 @@ public class HidingObject : MonoBehaviour
     [SerializeField] EnemyAi enemyAiScript;
     [SerializeField] Transform monster;
     [SerializeField] float loseDistance;
-    //[SerializeField] CanvasGroup canvas;
+    [SerializeField] CanvasGroup canvas;
+    [SerializeField] Vector3 adjustPosition;
     bool interactAble, hiding;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class HidingObject : MonoBehaviour
     {
         interactAble = false;
         hiding = false;
-        //canvas.alpha = .0f;
+        canvas.alpha = .0f;
         //stopHideText.SetActive(false);
     }
 
@@ -38,7 +39,7 @@ public class HidingObject : MonoBehaviour
                         enemyAiScript.stopChase();
                     }
                 }
-                //canvas.alpha = 0.0f;
+                canvas.alpha = 0.0f;
                 hiding = true;
                 normalPlayer.SetActive(false);
                 interactAble = false;
@@ -48,7 +49,7 @@ public class HidingObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                //canvas.alpha = 0.0f;
+                canvas.alpha = 0.0f;
                 normalPlayer.SetActive(true);
                 hiding = false;
             }
@@ -64,7 +65,7 @@ public class HidingObject : MonoBehaviour
         //        QTEController.instance.isQTEenable = true;
         //    }
         //}
-        Vector3 objectPosition = transform.position + new Vector3(0.2f, 0.5f, 0);
+        Vector3 objectPosition = transform.position + adjustPosition;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         //hideText.position = screenPosition;
     }
@@ -73,7 +74,7 @@ public class HidingObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //canvas.alpha = 1.0f;
+            canvas.alpha = 1.0f;
             interactAble = true;
         }
     }
@@ -82,7 +83,7 @@ public class HidingObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //canvas.alpha = 0.0f;
+            canvas.alpha = 0.0f;
             interactAble = false;
         }
     }

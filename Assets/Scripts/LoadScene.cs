@@ -10,6 +10,8 @@ public class LoadScene : MonoBehaviour, IDataPersistances
     //[SerializeField] private string targetSceneName;
     [SerializeField] private float transitionTime;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject player;
+    [SerializeField] private bool usePlayerPostion;
 
     private string sceneName;
 
@@ -51,17 +53,32 @@ public class LoadScene : MonoBehaviour, IDataPersistances
 
         yield return new WaitForSeconds(transitionTime);
 
+        if (usePlayerPostion)
+        {
+            switch (targetSceneName)
+            {
+                case "Day_SchoolScene":
+                    this.player.transform.position = new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
+                    break;
+                case "HospitalScene":
+                    this.player.transform.position = new Vector3(-32.7900009f, 0, -16.5499992f);
+                    break;
+                default:
+                    this.player.transform.position = Vector3.zero; 
+                    break;
+            }
+        }
+        
         SceneManager.LoadSceneAsync(targetSceneName);
     }
 
     public void SaveData(ref GameData gameData)
     {
-        Debug.Log(this.sceneName);
         gameData.currentScene = this.sceneName;
     }
 
     public void LoadData(GameData gameData)
     {
-        
+        this.sceneName = gameData.currentScene;
     }
 }

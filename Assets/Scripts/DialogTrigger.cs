@@ -8,6 +8,7 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] private GameObject visualButton;
     [SerializeField] private TextAsset inkJson;
     [SerializeField] private Vector3 adjustPosition = new Vector3(0.8f, 1, 0);
+    [SerializeField] private DialogManager dialogueManager;
     private bool playerInRange;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class DialogTrigger : MonoBehaviour
             visualButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DialogManager.GetInstance().EnterDialogMode(inkJson);
+                dialogueManager.EnterDialogMode(inkJson);
             }
         }
         else
