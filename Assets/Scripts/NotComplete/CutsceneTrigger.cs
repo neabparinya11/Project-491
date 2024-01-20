@@ -9,10 +9,12 @@ public class CutsceneTrigger : MonoBehaviour, IDataPersistances
     //[SerializeField] private GameObject timeline;
     //[SerializeField] private GameObject cameraCutscene;
     [SerializeField] private GameObject teacher;
-    [SerializeField] private bool deleteteacher = false;
     [SerializeField] private float fadeTime;
     [SerializeField] private TextAsset inkJson;
     [SerializeField] private DialogManager dialogManager;
+    [SerializeField] private Sprite dialogueBackground;
+    [SerializeField] private bool setBackgroundImage;
+    [SerializeField] private bool setDisableTeacher;
 
     private bool showTrigger = true;
     public void LoadData(GameData gameData)
@@ -38,7 +40,12 @@ public class CutsceneTrigger : MonoBehaviour, IDataPersistances
             showTrigger = false;
             dialogManager.EnterDialogMode(inkJson);
             this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
+            if (setDisableTeacher)
+            {
+                teacher.SetActive(false);
+            }
             
+            dialogManager.SetBackgroundPanel(dialogueBackground, setBackgroundImage);
             //cameraCutscene.SetActive(true);
             //timeline.GetComponent<PlayableDirector>().Play();
         }
