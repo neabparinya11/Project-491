@@ -18,6 +18,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [SerializeField] PlayerMovmentsScript playerMovmentsScript;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
+    private Sprite imagePanel;
+    private bool setImage = false;
     public Story currentStory { get; private set; }
     private string currentName; // name of player is be created.
     public bool dialogIsPlaying { get; private set; }
@@ -57,6 +59,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
                 CutsceneController1.GetInstance().ContinueTimeLine();
             }
             ContinueStory();
+        }
+
+        if (setImage)
+        {
+            dialogPanel.GetComponent<Image>().sprite = imagePanel;
         }
     }
 
@@ -170,5 +177,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             dialogText.text += charactor.ToString();
             yield return new WaitForSeconds(speedSentence);
         }
+    }
+
+    public void SetBackgroundPanel(Sprite bgImage, bool setImage)
+    {
+        this.imagePanel = bgImage;
+        this.setImage = setImage;
     }
 }
