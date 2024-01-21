@@ -71,7 +71,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         currentStory = new Story(inkJson.text);
         currentStory.variablesState["playerName"] = currentName;
-        playerMovmentsScript.disable = true;
+        if (playerMovmentsScript != null)
+        {
+            playerMovmentsScript.disable = true;
+        }
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
@@ -91,7 +94,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         dialogPanel.SetActive(false);
         dialogText.text = "";
         nameTag.text = "";
-        playerMovmentsScript.disable = false;
+        if (playerMovmentsScript != null)
+        {
+            playerMovmentsScript.disable = false;
+        }
+        
     }
 
     public void ContinueStory()
@@ -156,9 +163,12 @@ public class DialogManager : MonoBehaviour, IDataPersistances
                 choices[i].gameObject.SetActive(false);
             }
         }
-        
 
-        StartCoroutine(SelectFirstChoice());
+        if (choices.Length != 0)
+        {
+            StartCoroutine(SelectFirstChoice());
+        }
+        
     }
 
     private IEnumerator SelectFirstChoice()
