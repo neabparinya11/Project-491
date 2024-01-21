@@ -11351,7 +11351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideText: {fileID: 2121699495}
-  enemy: {fileID: 0}
   distance: 0
   normalPlayer: {fileID: 933076950}
   enemyAiScript: {fileID: 0}
@@ -15879,7 +15878,7 @@ MonoBehaviour:
   useEnemy: 0
   adjustPosition: {x: -0.77, y: 1, z: 0}
   useScene: 0
-  isLocked: 0
+  isLocked: 1
   useKey: 0
 --- !u!1001 &1066713295
 PrefabInstance:
