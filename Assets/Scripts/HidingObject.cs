@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HidingObject : MonoBehaviour
 {
-    //[SerializeField] Transform hideText;
-    [SerializeField] Transform enemy;
+    [SerializeField] Transform hideText;
+    //[SerializeField] Transform enemy;
     [SerializeField] float distance;
     [SerializeField] GameObject normalPlayer;
     [SerializeField] EnemyAi enemyAiScript;
@@ -67,7 +67,7 @@ public class HidingObject : MonoBehaviour
         //}
         Vector3 objectPosition = transform.position + adjustPosition;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
-        //hideText.position = screenPosition;
+        hideText.position = screenPosition;
     }
 
     private void OnTriggerStay(Collider other)
