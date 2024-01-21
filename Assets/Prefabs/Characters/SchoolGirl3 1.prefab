@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprintSpeed: 10
   cruchSpeed: 0.2
-  walkSpeed: 1
+  walkSpeed: 1.5
   groundCheck: {fileID: 7304323308610280582}
   groundLayer:
     serializedVersion: 2
@@ -2471,6 +2471,7 @@ MonoBehaviour:
   fadeSpeed: 0.2
   isSprint: 0
   isHidden: 0
+  disable: 0
 --- !u!1 &7526565797879556108
 GameObject:
   m_ObjectHideFlags: 0
