@@ -662,9 +662,10 @@ MonoBehaviour:
   dialogPanel: {fileID: 1133919790}
   dialogText: {fileID: 545186850}
   nameTag: {fileID: 1344572459}
-  choices:
-  - {fileID: 213610300}
+  choices: []
   useInCutscene: 0
+  speedSentence: 0
+  playerMovmentsScript: {fileID: 0}
 --- !u!1 &994805767
 GameObject:
   m_ObjectHideFlags: 0
