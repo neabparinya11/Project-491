@@ -88,11 +88,11 @@ public class DoorAction : MonoBehaviour, IDataPersistances
         //    }
         //}
 
-        if (isLocked)
-        {
-            isLocked = false;
+        //if (isLocked)
+        //{
+        //    isLocked = false;
 
-        }
+        //}
         if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
             if (useScene)
