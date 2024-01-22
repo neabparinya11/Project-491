@@ -5,12 +5,13 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour, IDataPersistances
 {
     [SerializeField] GameObject dialogPanel;
-    [SerializeField] TextMeshProUGUI dialogText;
+    [SerializeField] TextMeshProUGUI dialogText;     
     [SerializeField] TextMeshProUGUI nameTag;
     [SerializeField] GameObject[] choices;
     [SerializeField] bool useInCutscene;
@@ -19,7 +20,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     private Sprite imagePanel;
-    private bool setImage = false;
+    private bool setImage = false; 
     public Story currentStory { get; private set; }
     private string currentName; // name of player is be created.
     public bool dialogIsPlaying { get; private set; }
@@ -197,5 +198,24 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         this.imagePanel = bgImage;
         this.setImage = setImage;
+    }
+
+    public void EnterDialogueWithTime(float timer, TextAsset inkJson)
+    {
+        currentStory = new Story(inkJson.text);
+        currentStory.variablesState["playerName"] = currentName;
+        if (playerMovmentsScript != null)
+        {
+            playerMovmentsScript.disable = true;
+        }
+        dialogIsPlaying = true;
+        dialogPanel.SetActive(true);
+        StartCoroutine(PlayDialogueWithTime(timer));
+    }
+
+    IEnumerator PlayDialogueWithTime(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        StartCoroutine(ExitDialogMode());
     }
 }

@@ -27,9 +27,10 @@ public class EmergencyTrigger : MonoBehaviour
             visualButton.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                dialogManager.EnterDialogMode(inkJson);
+                dialogManager.EnterDialogueWithTime( 4.0f, inkJson);
                 EmergencyControl.GetInstance().DiableAllCharacter();
                 EmergencyControl.GetInstance().UnlockedAllDoor();
+                EmergencyControl.GetInstance().PlaySoundBell();
             }
         }
         else
