@@ -1,3 +1,6 @@
+VAR playerName = ""
+
+-> Main
 === Main ===
 แม่: จะไปไหน มานี่!
 
