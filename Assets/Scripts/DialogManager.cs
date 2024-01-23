@@ -17,6 +17,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [SerializeField] bool useInCutscene;
     [SerializeField] float speedSentence;
     [SerializeField] PlayerMovmentsScript playerMovmentsScript;
+    [SerializeField] string nextScene;
+    [SerializeField] bool useNextScene;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     private Sprite imagePanel;
@@ -89,7 +91,6 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             CutsceneController1.GetInstance().ExitTimeLine();
         }
-        
         yield return new WaitForSeconds(0.2f);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
@@ -99,7 +100,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             playerMovmentsScript.disable = false;
         }
-        
+        if (useNextScene)
+        {
+            LoadScene.GetInstance().LoadTargetScene(nextScene);
+        }
     }
 
     public void ContinueStory()
@@ -215,6 +219,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     IEnumerator PlayDialogueWithTime(float timer)
     {
+        ContinueStory();
         yield return new WaitForSeconds(timer);
         StartCoroutine(ExitDialogMode());
     }

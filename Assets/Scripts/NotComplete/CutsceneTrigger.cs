@@ -15,6 +15,8 @@ public class CutsceneTrigger : MonoBehaviour, IDataPersistances
     [SerializeField] private Sprite dialogueBackground;
     [SerializeField] private bool setBackgroundImage;
     [SerializeField] private bool setDisableTeacher;
+    [SerializeField] private bool useCutscene;
+    private bool isFirst = true;
 
     private bool showTrigger = true;
     public void LoadData(GameData gameData)
@@ -36,20 +38,23 @@ public class CutsceneTrigger : MonoBehaviour, IDataPersistances
         if (other.gameObject.tag == "Player")
         {
             //timeline.SetActive(true);
-            teacher.SetActive(true);
+            if (teacher != null)
+            {
+                teacher.SetActive(true);
+            }
             showTrigger = false;
             dialogManager.EnterDialogMode(inkJson);
             this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
-            if (setDisableTeacher)
+            if (teacher != null && setDisableTeacher)
             {
                 teacher.SetActive(false);
             }
-            
+
             dialogManager.SetBackgroundPanel(dialogueBackground, setBackgroundImage);
             //cameraCutscene.SetActive(true);
             //timeline.GetComponent<PlayableDirector>().Play();
         }
-        
+
     }
     private void Start()
     {
@@ -68,4 +73,5 @@ public class CutsceneTrigger : MonoBehaviour, IDataPersistances
 
         //}
     }
+
 }

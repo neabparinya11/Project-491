@@ -28,7 +28,7 @@ public class GameData
         this.listQuestItem = new List<QuestionItem>();
         this.dictBoxItem = new Dictionary<string, bool>();
         this.dictDoorAction = new Dictionary<string, bool>();
-        this.dictCutscene = new Dictionary<string, bool>() { { "TeacherCutscene", true }, { "PoliceCutscene", true } };
+        this.dictCutscene = new Dictionary<string, bool>() { { "TeacherCutscene", true }, { "PoliceCutscene", true }, { "PreawHospital", true } };
     }
 
     public void setStartPositionOnScene(string nameScene)
