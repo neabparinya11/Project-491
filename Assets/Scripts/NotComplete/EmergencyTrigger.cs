@@ -8,6 +8,7 @@ public class EmergencyTrigger : MonoBehaviour
     [SerializeField] private TextAsset inkJson;
     [SerializeField] private Vector3 adjustPosition;
     [SerializeField] private DialogManager dialogManager;
+    [SerializeField] private AudioSource backgroundSound;
     private bool playerInRange;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class EmergencyTrigger : MonoBehaviour
                 EmergencyControl.GetInstance().DiableAllCharacter();
                 EmergencyControl.GetInstance().UnlockedAllDoor();
                 EmergencyControl.GetInstance().PlaySoundBell();
+                backgroundSound.Pause();
             }
         }
         else

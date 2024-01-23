@@ -22,13 +22,19 @@ public class SoundControl : MonoBehaviour
         if (useBackgroundSoundMain)
         {
             foregroundSoundMain.Pause();
-            backgroundSoundMain.Play();
+            if (!backgroundSoundMain.isPlaying)
+            {
+                backgroundSoundMain.Play();
+            }
         }
 
         if (useForegroundSoundMain)
         {
             backgroundSoundMain.Pause();
-            foregroundSoundMain.Play();
+            if (!foregroundSoundMain.isPlaying)
+            {
+                foregroundSoundMain.Play();
+            }
         }
     }
 
