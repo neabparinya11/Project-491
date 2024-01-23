@@ -666,6 +666,8 @@ MonoBehaviour:
   useInCutscene: 0
   speedSentence: 0
   playerMovmentsScript: {fileID: 0}
+  nextScene: Day_SchoolScene
+  useNextScene: 1
 --- !u!1 &994805767
 GameObject:
   m_ObjectHideFlags: 0
