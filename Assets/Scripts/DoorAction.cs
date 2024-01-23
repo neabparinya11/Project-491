@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DoorAction : MonoBehaviour, IDataPersistances
+public class DoorAction : MonoBehaviour
 {
     [SerializeField] private string id;
     //[SerializeField] Transform messagesTransform;
@@ -25,6 +25,7 @@ public class DoorAction : MonoBehaviour, IDataPersistances
     bool canTeleport = false; // for enemy check to teleport
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
+    [SerializeField] string findItem;
     [SerializeField] bool useKey = false;
 
     private void Start()
@@ -90,7 +91,12 @@ public class DoorAction : MonoBehaviour, IDataPersistances
 
         if (isLocked)
         {
+
             //isLocked = false;
+            if (InventoryManager.Instance.FindQuestItem(findItem) && useKey)
+            {
+                isLocked = false;
+            }
             messagesSprite.sprite = failureSprite;
         }
         else
@@ -137,18 +143,18 @@ public class DoorAction : MonoBehaviour, IDataPersistances
         //canTeleport = false;
     }
 
-    public void SaveData(ref GameData gameData)
-    {
-        if (gameData.dictDoorAction.ContainsKey(id))
-        {
-            gameData.dictDoorAction.Remove(id);
-        }
+    //public void SaveData(ref GameData gameData)
+    //{
+    //    if (gameData.dictDoorAction.ContainsKey(id))
+    //    {
+    //        gameData.dictDoorAction.Remove(id);
+    //    }
 
-        gameData.dictDoorAction.Add(id, isLocked);
-    }
+    //    gameData.dictDoorAction.Add(id, isLocked);
+    //}
 
-    public void LoadData(GameData gameData)
-    {
-        gameData.dictDoorAction.TryGetValue(id, out isLocked);
-    }
+    //public void LoadData(GameData gameData)
+    //{
+    //    gameData.dictDoorAction.TryGetValue(id, out isLocked);
+    //}
 }
