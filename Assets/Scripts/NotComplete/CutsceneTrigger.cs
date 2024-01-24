@@ -16,8 +16,9 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private bool setBackgroundImage;
     [SerializeField] private bool setDisableTeacher;
     [SerializeField] private bool useCutscene;
-    [SerializeField] private AudioSource[] listSoundsOnTrigger;
-    [SerializeField] private bool playBeforeCutscene;
+    [SerializeField] private AudioSource SoundsOnTrigger;
+    [SerializeField] private AudioClip[] listSoundsClip; 
+    [SerializeField] private bool playBeforeCutscene = false;
     private bool isFirst = true;
     private bool showTrigger = true;
 
@@ -45,7 +46,12 @@ public class CutsceneTrigger : MonoBehaviour
                 teacher.SetActive(true);
             }
             showTrigger = false;
-            dialogManager.EnterDialogMode(inkJson);
+
+            if (SoundsOnTrigger == null)
+            {
+                dialogManager.EnterDialogMode(inkJson);
+            }
+            playBeforeCutscene = true;
             this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
             if (teacher != null && setDisableTeacher)
             {
@@ -65,22 +71,21 @@ public class CutsceneTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (playBeforeCutscene)
+        if (playBeforeCutscene && isFirst)
         {
-            
+            StartCoroutine(PlayListSound());
+            isFirst = false;
         }
     }
 
-    private void PlayListSound()
+    private IEnumerator PlayListSound()
     {
-        for (int i = 0; i< listSoundsOnTrigger.Length - 1; i++)
+        foreach (AudioClip clip in listSoundsClip)
         {
-            listSoundsOnTrigger[i].Play();
-            if (!listSoundsOnTrigger[i].isPlaying)
-            {
-                listSoundsOnTrigger[i+1].Play();
-            }
+            SoundsOnTrigger.clip = clip;
+            SoundsOnTrigger.Play();
+            yield return new WaitForSeconds(clip.length);
         }
-
+        dialogManager.EnterDialogMode(inkJson);
     }
 }
