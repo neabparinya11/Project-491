@@ -838,66 +838,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 844ad543895479d4e959d693a2d83406, type: 3}
---- !u!1 &442517501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 442517503}
-  - component: {fileID: 442517502}
-  m_Layer: 0
-  m_Name: QTEManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &442517502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442517501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8451c4a6e36ccef44aed069ce95d02ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listKeycode: 11010000120100001401000013010000
-  countListKeycode: 4
-  timeDuration: 3
-  timeSlide: {fileID: 1065529624}
-  timeCanvas: {fileID: 975845941}
-  listSprite:
-  - {fileID: 21300000, guid: f21b686ff2036ac41a2319fec28a89c4, type: 3}
-  - {fileID: 21300000, guid: 661fb2db7e2b1ab4bb3fe0276e0f5118, type: 3}
-  - {fileID: 21300000, guid: e65a301985e47e94899cb6b5547feb3c, type: 3}
-  - {fileID: 21300000, guid: 18ad57cf8ed907d47a5cacbf6243ec88, type: 3}
-  regenTime: 0.5
-  problem1: {fileID: 1680213039}
-  problem2: {fileID: 750223182}
-  problem3: {fileID: 1805789424}
-  isQTEenable: 0
-  start: 0
---- !u!4 &442517503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442517501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 471.07794, y: 630.958, z: -117.02197}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &450736402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5396418892969716062, guid: 2439422bf28c0714387a2ea79773444c,
@@ -2257,6 +2197,7 @@ MonoBehaviour:
   adjustPosition: {x: 0.8, y: 1, z: 0}
   useScene: 0
   isLocked: 0
+  findItem: 
   useKey: 0
 --- !u!65 &971227189
 BoxCollider:
@@ -6748,3 +6689,97 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16497104730d6d740b865e3d92598c1f, type: 3}
+--- !u!1001 &9009746604669139704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9009746604239207685, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_Name
+      value: QTEManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: problem1
+      value: 
+      objectReference: {fileID: 1680213039}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: problem2
+      value: 
+      objectReference: {fileID: 750223182}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: problem3
+      value: 
+      objectReference: {fileID: 1805789424}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: timeSlide
+      value: 
+      objectReference: {fileID: 1065529624}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: timeCanvas
+      value: 
+      objectReference: {fileID: 975845941}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 471.07794
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 630.958
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -117.02197
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c41f76ce80382c941b7423ac98e1389b, type: 3}
