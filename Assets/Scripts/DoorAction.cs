@@ -27,9 +27,11 @@ public class DoorAction : MonoBehaviour
     [SerializeField] bool isLocked = true;
     [SerializeField] string findItem;
     [SerializeField] bool useKey = false;
+    private static DoorAction instance;
 
     private void Start()
     {
+        instance = this;
         if (!isLocked)
         {
             messagesSprite.sprite = normalSprite;
@@ -40,6 +42,11 @@ public class DoorAction : MonoBehaviour
         }
         //StartCoroutine(TeleportEnemy());
         
+    }
+
+    public static DoorAction GetInstance()
+    {
+        return instance;
     }
     private void OnTriggerEnter(Collider other)
     {

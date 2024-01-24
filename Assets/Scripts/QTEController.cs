@@ -32,7 +32,7 @@ public class QTEController : MonoBehaviour
         instance = this;
         //RandomKeyCode();
         countKeycodeCheck = keycodeProblem.Count;
-        GeneratePattern();
+        //GeneratePattern();
     }
 
     // Update is called once per frame
