@@ -9614,6 +9614,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 116c643e5d6b5544bb7c60e56bf6fe25,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 116c643e5d6b5544bb7c60e56bf6fe25,
         type: 3}
       propertyPath: m_Name
@@ -9634,7 +9639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775869231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dac42f236da70ba4faac7967c10c3df4, type: 3}
   m_Name: 
@@ -9656,7 +9661,7 @@ BoxCollider:
   m_GameObject: {fileID: 775869231}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.3019257, y: 2, z: 2.4435835}
   m_Center: {x: 0.38863373, y: 1, z: 1.2214732}
@@ -11253,7 +11258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955471700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.684, y: 1.497, z: -5.742}
+  m_LocalPosition: {x: 166.684, y: 1.497, z: -5.8579364}
   m_LocalScale: {x: -0.4, y: -0.6, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12140,7 +12145,7 @@ MonoBehaviour:
   messageCanvasGroup: {fileID: 1005735654}
   messagesSprite: {fileID: 1185203685}
   normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
   newPosition: {fileID: 239045377}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -15161,7 +15166,7 @@ MonoBehaviour:
   messageCanvasGroup: {fileID: 742477481}
   messagesSprite: {fileID: 1595439217}
   normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
   newPosition: {fileID: 1268189105}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -24111,7 +24116,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 116c643e5d6b5544bb7c60e56bf6fe25,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -276.80408
+      value: -276.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 116c643e5d6b5544bb7c60e56bf6fe25,
         type: 3}
@@ -24259,9 +24264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15275901bd0133e43b088f0d56a288a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSoundMain: {fileID: 744496807}
   foregroundSoundMain: {fileID: 1452470845}
-  useBackgroundSoundMain: 0
   useForegroundSoundMain: 0
 --- !u!4 &1890494560 stripped
 Transform:
