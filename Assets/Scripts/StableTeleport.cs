@@ -11,6 +11,9 @@ public class StableTeleport : MonoBehaviour
     [SerializeField] Image _messageImage1, _messageImage2;
     [SerializeField] Sprite _messageSprite1, _messageSprite2;
     [SerializeField] CanvasGroup canvasGroup;
+    [SerializeField] GameObject enemyObject;
+    [SerializeField] float enemytimeToTeleport;
+    bool _enemyCanTeleport = false;
     bool _canTeleport = false;
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class StableTeleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W))
             {
                 _player.transform.position = choice1.position;
+                _enemyCanTeleport = true;
             }
         }
 
@@ -41,7 +45,14 @@ public class StableTeleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.S))
             {
                 _player.transform.position = choice2.position;
+                _enemyCanTeleport = true;
             }
+        }
+
+        if (_enemyCanTeleport)
+        {
+
+            _enemyCanTeleport = false;
         }
     }
 
@@ -61,5 +72,10 @@ public class StableTeleport : MonoBehaviour
             _canTeleport = false;
             canvasGroup.alpha = 0;
         }
+    }
+
+    IEnumerator EnemyTeleport()
+    {
+        yield return new WaitForSeconds(enemytimeToTeleport);
     }
 }
