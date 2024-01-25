@@ -38,8 +38,10 @@ public class EnemyAi : MonoBehaviour
     {
         walking = true;
         walkingSound.enabled = false;
-        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
-        currentDestination = destination[randomNumber1];
+        //randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        //Debug.Log("Index: " + randomNumber1);
+        //currentDestination = destination[randomNumber1];
+        //Debug.Log("Destination: " + currentDestination);
         animations = GetComponent<Animator>();
         FindNodeInCurrentPosition(this.transform.position);
     }
@@ -134,7 +136,6 @@ public class EnemyAi : MonoBehaviour
         walking = true;
         //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
-        Debug.Log(canCurrent.Count);
         randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
         currentDestination = canCurrent[randomNumber1];
     }
@@ -201,6 +202,8 @@ public class EnemyAi : MonoBehaviour
     {
         if (walking == true)
         {
+            randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+            currentDestination = canCurrent[randomNumber1];
             dest = currentDestination.position;
             agent.destination = dest;
             agent.speed = walkSpeed;
@@ -247,7 +250,7 @@ public class EnemyAi : MonoBehaviour
         canCurrent.Clear();
         foreach (Transform transformPosition in destination)
         {
-            if (transformPosition.position.y == _currentPosition.y)
+            if (_currentPosition.y <= transformPosition.position.y + 1.0f && _currentPosition.y >= transformPosition.position.y - 1.0f )
             {
                 canCurrent.Add(transformPosition);
             }
