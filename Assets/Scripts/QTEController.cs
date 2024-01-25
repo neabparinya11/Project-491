@@ -19,6 +19,8 @@ public class QTEController : MonoBehaviour
     [SerializeField] TextAsset inkJson;
     [SerializeField] GameObject characterObject;
     [SerializeField] GameObject qteTriggger;
+    [SerializeField] GameObject playerObject;
+    [SerializeField] RandomSpawnEnemy randomSpawnEnemy;
     //[SerializeField] GameObject problem1;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
@@ -27,7 +29,6 @@ public class QTEController : MonoBehaviour
     public bool isQTEenable, start;
     protected bool isChecked = false;
     protected bool pb1 = false, pb2 = false, pb3 = false;
-    //protected bool pb1 = false, onClick = false;
     protected float countTime = 0;
     protected int countKeyDown = 0;
     // Start is called before the first frame update
@@ -49,13 +50,31 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
-                cutsceneController.EnterDialogMode(inkJson);
-                characterObject.SetActive(true);
-                qteTriggger.gameObject.GetComponent<BoxCollider>().enabled = false;
+                if (cutsceneController != null)
+                {
+                    cutsceneController.EnterDialogMode(inkJson);
+                }
+                if (characterObject != null)
+                {
+                    characterObject.SetActive(true);
+                }
+                if (qteTriggger != null)
+                {
+                    qteTriggger.gameObject.GetComponent<BoxCollider>().enabled = false;
+                }
+                if (randomSpawnEnemy != null)
+                {
+                    randomSpawnEnemy.RandomSpawn();
+                }
+                
             }
             else
             {
                 FailedPuzzle();
+                if (playerObject != null)
+                {
+                    playerObject.SetActive(true);
+                }
             }
         }
     }

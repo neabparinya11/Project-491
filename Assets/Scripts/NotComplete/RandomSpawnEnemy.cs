@@ -18,7 +18,12 @@ public class RandomSpawnEnemy : MonoBehaviour
         countUp++;
         if (!enemyScript.chasing && countUp % 1000 == 0)
         {
-            StartCoroutine(enemyScript.RandomSpawn());
+            RandomSpawn();
         }
+    }
+
+    public void RandomSpawn()
+    {
+        StartCoroutine(enemyScript.RandomSpawn());
     }
 }
