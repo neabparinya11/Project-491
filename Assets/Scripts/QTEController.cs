@@ -49,7 +49,7 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
-                cutsceneController.EnterDialogueWithTime(1.5f, inkJson);
+                cutsceneController.EnterDialogMode(inkJson);
                 characterObject.SetActive(true);
                 qteTriggger.gameObject.GetComponent<BoxCollider>().enabled = false;
             }

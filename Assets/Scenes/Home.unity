@@ -17716,6 +17716,11 @@ PrefabInstance:
       objectReference: {fileID: 720060382}
     - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
         type: 3}
+      propertyPath: regenTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
       propertyPath: timeSlide
       value: 
       objectReference: {fileID: 720060385}
@@ -37345,7 +37350,7 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   finalScene: 
   useEnemy: 0
-  adjustPosition: {x: 0.8, y: 1, z: 0}
+  adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 1
   findItem: none
@@ -53217,6 +53222,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 474285245}
     m_Modifications:
+    - target: {fileID: 356040955387548161, guid: d478d950b4ee1064683e454c9d1bb2a3,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 356040955538201812, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -68319,7 +68329,7 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   finalScene: 
   useEnemy: 0
-  adjustPosition: {x: 0.8, y: 1, z: 0}
+  adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 0
   findItem: 
@@ -80905,7 +80915,7 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   finalScene: 
   useEnemy: 0
-  adjustPosition: {x: 0.8, y: 1, z: 0}
+  adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 0
   findItem: 
