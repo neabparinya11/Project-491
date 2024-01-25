@@ -31,6 +31,7 @@ public class QTETrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                canvasGroup.alpha = 0;
                 quickTimeEventManager.GeneratePattern();
             }
         }

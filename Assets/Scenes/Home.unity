@@ -17897,6 +17897,11 @@ PrefabInstance:
       objectReference: {fileID: 720060386}
     - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
         type: 3}
+      propertyPath: qteTriggger
+      value: 
+      objectReference: {fileID: 1422409296}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
       propertyPath: characterObject
       value: 
       objectReference: {fileID: 681359469}

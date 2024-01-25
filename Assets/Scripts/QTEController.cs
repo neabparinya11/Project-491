@@ -18,6 +18,7 @@ public class QTEController : MonoBehaviour
     [SerializeField] DialogManager cutsceneController;
     [SerializeField] TextAsset inkJson;
     [SerializeField] GameObject characterObject;
+    [SerializeField] GameObject qteTriggger;
     //[SerializeField] GameObject problem1;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
@@ -50,6 +51,7 @@ public class QTEController : MonoBehaviour
                 Success();
                 cutsceneController.EnterDialogueWithTime(1.5f, inkJson);
                 characterObject.SetActive(true);
+                qteTriggger.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             else
             {
