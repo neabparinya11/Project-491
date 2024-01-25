@@ -7,7 +7,6 @@ public class JumpScares : MonoBehaviour
     [SerializeField] private GameObject jumpscareObject;
     [SerializeField] private AudioSource jumpscareSound;
     [SerializeField] private float jumpscareTime;
-    private bool trigger = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +21,7 @@ public class JumpScares : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && trigger)
+        if (other.gameObject.tag == "Player")
         {
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             jumpscareObject.SetActive(true);
