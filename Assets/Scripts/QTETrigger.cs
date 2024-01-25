@@ -5,6 +5,10 @@ using UnityEngine;
 public class QTETrigger : MonoBehaviour
 {
     [SerializeField] private QTEController quickTimeEventManager;
+    [SerializeField] private PlayerMovmentsScript playerMovmentsScript;
+    [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private GameObject interaction;
+    [SerializeField] private Vector3 adjustPosition;
     private static QTETrigger instance;
     private bool playerInRange = false;
     // Start is called before the first frame update
@@ -13,12 +17,22 @@ public class QTETrigger : MonoBehaviour
         instance = this;
     }
 
+    public static QTETrigger GetInstance()
+    {
+        return instance;
+    }
     // Update is called once per frame
     void Update()
     {
+        Vector3 objectPosition = transform.position + adjustPosition;
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
+        interaction.GetComponent<Transform>().position = screenPosition;
         if (playerInRange && quickTimeEventManager != null)
         {
-
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                quickTimeEventManager.GeneratePattern();
+            }
         }
     }
 
@@ -27,6 +41,7 @@ public class QTETrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = true;
+            canvasGroup.alpha = 1;
         }
     }
 
@@ -35,6 +50,7 @@ public class QTETrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
+            canvasGroup.alpha = 0;
         }
     }
     //private void OnTriggerEnter(Collider other)

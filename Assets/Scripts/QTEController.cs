@@ -15,6 +15,9 @@ public class QTEController : MonoBehaviour
     [SerializeField] Sprite[] listSprite;
     [SerializeField] float regenTime;
     [SerializeField] GameObject problem1, problem2, problem3;
+    [SerializeField] DialogManager cutsceneController;
+    [SerializeField] TextAsset inkJson;
+    [SerializeField] GameObject characterObject;
     //[SerializeField] GameObject problem1;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
@@ -45,6 +48,8 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
+                cutsceneController.EnterDialogueWithTime(1.5f, inkJson);
+                characterObject.SetActive(true);
             }
             else
             {
