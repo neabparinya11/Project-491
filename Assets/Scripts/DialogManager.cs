@@ -7,9 +7,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Ink.UnityIntegration;
 
 public class DialogManager : MonoBehaviour, IDataPersistances
 {
+    [Header("Global Ink File")]
+    [SerializeField] private InkFile globalInkFile;
     [SerializeField] GameObject dialogPanel;
     [SerializeField] TextMeshProUGUI dialogText;     
     [SerializeField] TextMeshProUGUI nameTag;
@@ -26,10 +29,12 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public Story currentStory { get; private set; }
     private string currentName; // name of player is be created.
     public bool dialogIsPlaying { get; private set; }
+    private DialogueVariable dialogueVariable;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        dialogueVariable = new DialogueVariable(globalInkFile.filePath);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
 
@@ -41,6 +46,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
+
     }
 
     public static DialogManager GetInstance()
@@ -73,7 +80,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public void EnterDialogMode(TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
-        currentStory.variablesState["playerName"] = currentName;
+        dialogueVariable.StartListening(currentStory);
+        //currentStory.variablesState["playerName"] = currentName;
         if (playerMovmentsScript != null)
         {
             playerMovmentsScript.disable = true;
@@ -92,6 +100,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             CutsceneController1.GetInstance().ExitTimeLine();
         }
         yield return new WaitForSeconds(0.2f);
+        dialogueVariable.StopListening(currentStory);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
         dialogText.text = "";
@@ -100,6 +109,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             playerMovmentsScript.disable = false;
         }
+
         if (useNextScene)
         {
             LoadScene.GetInstance().LoadTargetScene(nextScene);
@@ -207,7 +217,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public void EnterDialogueWithTime(float timer, TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
-        currentStory.variablesState["playerName"] = currentName;
+        //currentStory.variablesState["playerName"] = currentName;
         if (playerMovmentsScript != null)
         {
             playerMovmentsScript.disable = true;
@@ -222,5 +232,16 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         ContinueStory();
         yield return new WaitForSeconds(timer);
         StartCoroutine(ExitDialogMode());
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariable.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogWarning("");
+        }
+        return variableValue;
     }
 }
