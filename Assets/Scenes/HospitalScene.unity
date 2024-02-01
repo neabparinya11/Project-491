@@ -11373,6 +11373,7 @@ MonoBehaviour:
   isLocked: 0
   findItem: 
   useKey: 0
+  passwordPuzzle: {fileID: 0}
 --- !u!65 &989345148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11804,6 +11805,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 1867439745}
+    - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2404102014027722157, guid: 910e1fcdd18701c469998b5471f17d2b,
         type: 3}
       propertyPath: m_RootOrder
@@ -12156,6 +12163,7 @@ MonoBehaviour:
   isLocked: 1
   findItem: 
   useKey: 0
+  passwordPuzzle: {fileID: 0}
 --- !u!1 &1066408028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1457552947310954, guid: 56293341dd6a41944b4598384665f1a1,
@@ -15177,6 +15185,7 @@ MonoBehaviour:
   isLocked: 0
   findItem: 
   useKey: 0
+  passwordPuzzle: {fileID: 0}
 --- !u!4 &1213811192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bb72463354432b4d8949045cd9ef2e3,
@@ -15318,6 +15327,7 @@ MonoBehaviour:
   isLocked: 0
   findItem: 
   useKey: 0
+  passwordPuzzle: {fileID: 0}
 --- !u!65 &1234640533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19263,6 +19273,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 399239807}
+    - target: {fileID: 2245385902286735140, guid: 06c44886b0a0744469bcae0d1a2efbef,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2245385902286735141, guid: 06c44886b0a0744469bcae0d1a2efbef,
         type: 3}
       propertyPath: m_RootOrder
@@ -24486,6 +24502,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 399239807}
+    - target: {fileID: 2245385902286735140, guid: 06c44886b0a0744469bcae0d1a2efbef,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2245385902286735141, guid: 06c44886b0a0744469bcae0d1a2efbef,
         type: 3}
       propertyPath: m_RootOrder
@@ -29028,3 +29050,6 @@ MonoBehaviour:
   setBackgroundImage: 1
   setDisableTeacher: 0
   useCutscene: 0
+  SoundsOnTrigger: {fileID: 0}
+  listSoundsClip: []
+  playBeforeCutscene: 0
