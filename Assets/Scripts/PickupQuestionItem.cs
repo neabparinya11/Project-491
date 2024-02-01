@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PickupQuestionItem : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PickupQuestionItem : MonoBehaviour
     [SerializeField] GameObject interaction;
     [SerializeField] Image icon;
     [SerializeField] Sprite interactionIcon;
+    [SerializeField] UnityEvent<string, Sprite> OnPlayerPickup;
 
     protected bool _canInteraction = false;
 
@@ -31,6 +33,7 @@ public class PickupQuestionItem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 InventoryManager.Instance.AddQuestionItem(questionItem);
+                OnPlayerPickup?.Invoke(questionItem.itemName, questionItem.icon);
                 Destroy(gameObject);
             }
         }

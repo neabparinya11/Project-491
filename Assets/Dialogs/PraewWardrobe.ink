@@ -1,4 +1,4 @@
-VAR playerName = ""
+INCLUDE GlobalVariables.ink
 
 -> Main
 

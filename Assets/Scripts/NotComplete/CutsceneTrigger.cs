@@ -41,12 +41,8 @@ public class CutsceneTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //timeline.SetActive(true);
-            if (teacher != null)
-            {
-                teacher.SetActive(true);
-            }
+            teacher?.SetActive(true);
             showTrigger = false;
-
             if (SoundsOnTrigger == null)
             {
                 dialogManager.EnterDialogMode(inkJson);
