@@ -11878,6 +11878,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 1867439745}
+    - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2404102014027722157, guid: 910e1fcdd18701c469998b5471f17d2b,
         type: 3}
       propertyPath: m_RootOrder
@@ -19424,6 +19430,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 399239807}
+    - target: {fileID: 2245385902286735140, guid: 06c44886b0a0744469bcae0d1a2efbef,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2245385902286735141, guid: 06c44886b0a0744469bcae0d1a2efbef,
         type: 3}
       propertyPath: m_RootOrder
@@ -24624,6 +24636,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 399239807}
+    - target: {fileID: 2245385902286735140, guid: 06c44886b0a0744469bcae0d1a2efbef,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2245385902286735141, guid: 06c44886b0a0744469bcae0d1a2efbef,
         type: 3}
       propertyPath: m_RootOrder
