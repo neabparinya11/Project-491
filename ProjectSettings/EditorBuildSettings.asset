@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CreateNameScene.unity
     guid: 0696c30fc48159a4b8c2c4aa1087529e
   - enabled: 1
-    path: Assets/Scenes/Day_SchoolScene.unity
+    path: Assets/Scenes/Day1_SchoolScene.unity
     guid: cf34fda8376e8864e8e59f0d0acac346
   - enabled: 1
     path: Assets/Scenes/SchoolScene.unity
