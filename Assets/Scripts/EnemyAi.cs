@@ -44,6 +44,7 @@ public class EnemyAi : MonoBehaviour
         //Debug.Log("Destination: " + currentDestination);
         animations = GetComponent<Animator>();
         FindNodeInCurrentPosition(this.transform.position);
+        StartCoroutine(RandomSpawn());
     }
 
     private void Update()
@@ -51,7 +52,7 @@ public class EnemyAi : MonoBehaviour
         Investigate();
         Walking();
         ChasingAndAttacked();
-
+        
         switch (levelEnemy)
         {
             case 1:
@@ -240,9 +241,17 @@ public class EnemyAi : MonoBehaviour
 
     public IEnumerator RandomSpawn()
     {
-        yield return new WaitForSeconds(0.1f);
-        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
-        SetNewPosition(destination[randomNumber1].position);
+        while (true)
+        {
+            Debug.Log("Random Position");
+            yield return new WaitForSeconds(10.0f);
+            if (chasing == false)
+            {
+                randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+                SetNewPosition(destination[randomNumber1].position);
+            }
+        }
+        
     }
 
     public void FindNodeInCurrentPosition(Vector3 _currentPosition)
