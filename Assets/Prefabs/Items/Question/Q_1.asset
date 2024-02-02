@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Q_1
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: 78c1f3e3506163241a4cf73e7af44102, type: 3}
+  icon: {fileID: 21300000, guid: 57d624562fafae347b1d6dd3c476dcc1, type: 3}
   type: 1
-  itemName: Note#1
-  description: 
+  itemName: "\u0E1C\u0E28.\u0E14\u0E23.\u0E22\u0E38\u0E17\u0E18\u0E1E\u0E07\u0E29\u0E4C"
+  description: "\u0E44\u0E21\u0E48\u0E21\u0E35\u0E2B\u0E23\u0E2D\u0E01\u0E19\u0E30\u0E44\u0E14\u0E2D\u0E32\u0E23\u0E35\u0E48
+    \u0E21\u0E35\u0E41\u0E15\u0E48\u0E23\u0E39\u0E1B\u0E17\u0E48\u0E32\u0E19\u0E1C\u0E28."
   index: 1
