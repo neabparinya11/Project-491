@@ -40,15 +40,17 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //timeline.SetActive(true);
-            teacher?.SetActive(true);
-            showTrigger = false;
+            if (teacher != null)
+            {
+                teacher?.SetActive(true);
+            }
+            //showTrigger = false;
             if (SoundsOnTrigger == null)
             {
                 dialogManager.EnterDialogMode(inkJson);
             }
             playBeforeCutscene = true;
-            this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             if (teacher != null && setDisableTeacher)
             {
                 teacher.SetActive(false);

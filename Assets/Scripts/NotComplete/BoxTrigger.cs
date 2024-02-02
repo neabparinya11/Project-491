@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class BoxTrigger : MonoBehaviour
 {
-    [SerializeField] private UnityEvent onPlayerTrigger;
-
+    [SerializeField] private UnityEvent OnPlayerTrigger;
+ 
     public delegate void MessageHandle(string messages);
     public event MessageHandle OnMessageRecieve;
 
@@ -14,7 +14,7 @@ public class BoxTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            onPlayerTrigger?.Invoke();
+            OnPlayerTrigger?.Invoke();
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
@@ -24,7 +24,7 @@ public class BoxTrigger : MonoBehaviour
         OnMessageRecieve += HandleMessageRecieve1;
         OnMessageRecieve += HandleMessageRecieve2;
 
-        SendMessaageToSubscribes("Send To Sub");
+        //SendMessaageToSubscribes("Send To Sub");
     }
 
     public void SendMessaageToSubscribes(string message)

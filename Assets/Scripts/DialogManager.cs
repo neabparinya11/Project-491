@@ -81,7 +81,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     {
         currentStory = new Story(inkJson.text);
         dialogueVariable.StartListening(currentStory);
-        //currentStory.variablesState["playerName"] = currentName;
+        currentStory.variablesState["playerName"] = currentName;
         if (playerMovmentsScript != null)
         {
             playerMovmentsScript.disable = true;
@@ -122,20 +122,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             string[] data = currentStory.Continue().Split(":");
             dialogText.text = data[1];
-            //StartCoroutine(WriteSentences(data[1]));
             nameTag.text = data[0];
             if (useInCutscene)
             {
                 CutsceneController1.GetInstance().StopTimeLine();
             }
-            //if (currentStory.Continue().Split(":")[0] == "ตัวเรา")
-            //{
-            //    nameTag.text = currentName;
-            //}
-            //else
-            //{
-            //    nameTag.text = currentStory.Continue().Split(":")[0];
-            //}
             DisplayChoices();
         }
         else
@@ -217,7 +208,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public void EnterDialogueWithTime(float timer, TextAsset inkJson)
     {
         currentStory = new Story(inkJson.text);
-        //currentStory.variablesState["playerName"] = currentName;
+        currentStory.variablesState["playerName"] = currentName;
         if (playerMovmentsScript != null)
         {
             playerMovmentsScript.disable = true;
