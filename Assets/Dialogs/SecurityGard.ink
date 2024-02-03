@@ -1,6 +1,5 @@
+INCLUDE GlobalVariables.ink
 VAR SecurityGardIsHide = true
-VAR playerName = ""
-
 
 -> Main
 
