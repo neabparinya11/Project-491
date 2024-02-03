@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LoadScene : MonoBehaviour, IDataPersistances
 {
@@ -11,8 +12,7 @@ public class LoadScene : MonoBehaviour, IDataPersistances
     //[SerializeField] private string targetSceneName;
     [SerializeField] private float transitionTime;
     [SerializeField] private Animator anim;
-    [SerializeField] private GameObject player;
-    [SerializeField] private bool usePlayerPostion;
+    [SerializeField] private UnityEvent OnPlayerLoadScene;
 
     private string sceneName;
 
@@ -27,6 +27,7 @@ public class LoadScene : MonoBehaviour, IDataPersistances
     }
     public void LoadTargetScene(string targetSceneNme)
     {
+        OnPlayerLoadScene?.Invoke();
         this.sceneName = targetSceneNme;
         StartCoroutine(LoadNextScene(targetSceneNme));
     }
@@ -53,22 +54,6 @@ public class LoadScene : MonoBehaviour, IDataPersistances
         anim.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
-
-        if (usePlayerPostion)
-        {
-            switch (targetSceneName)
-            {
-                case "Day_SchoolScene":
-                    this.player.transform.position = new Vector3(-1008.87f, 24.7600002f, -4.23000002f);
-                    break;
-                case "HospitalScene":
-                    this.player.transform.position = new Vector3(-32.7900009f, 0, -16.5499992f);
-                    break;
-                default:
-                    this.player.transform.position = Vector3.zero; 
-                    break;
-            }
-        }
         
         SceneManager.LoadSceneAsync(targetSceneName);
     }

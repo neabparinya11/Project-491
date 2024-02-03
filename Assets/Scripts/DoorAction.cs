@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DoorAction : MonoBehaviour
 {
@@ -29,18 +30,22 @@ public class DoorAction : MonoBehaviour
     [SerializeField] bool useKey = false;
     [SerializeField] PasswordPuzzle passwordPuzzle;
     private static DoorAction instance;
+    [SerializeField] UnityEvent<string> OnPlayerActionToNextScene;
+    [SerializeField] public UnityEvent<GameObject, Vector3> OnPlayerActionToNextPosition;
 
     private void Start()
     {
         instance = this;
-        if (!isLocked)
-        {
-            messagesSprite.sprite = normalSprite;
-        }
-        else
-        {
-            messagesSprite.sprite = failureSprite;
-        }
+
+        messagesSprite.sprite = !isLocked ? normalSprite : failureSprite;
+        //if (!isLocked)
+        //{
+        //    messagesSprite.sprite = normalSprite;
+        //}
+        //else
+        //{
+        //    messagesSprite.sprite = failureSprite;
+        //}
         //StartCoroutine(TeleportEnemy());
         
     }
@@ -73,29 +78,6 @@ public class DoorAction : MonoBehaviour
         Vector3 objectPosition = transform.position + adjustPosition;
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         messagesSprite.GetComponent<Transform>().position = screenPosition;
-        //if (canAction)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.E))
-        //    {
-        //        if (isLocked)
-        //        {
-        //                //messagesSprite.sprite = failureSprite;
-        //        }
-        //        else
-        //        {
-        //            if (!useScene)
-        //            {
-        //                _player.transform.position = newPosition.transform.position;
-        //            }
-        //            else
-        //            {
-        //                SceneManager.LoadScene(finalScene);
-        //            }
-
-        //        }
-        //        canTeleport = true;
-        //    }
-        //}
 
         if (isLocked && canAction)
         {
@@ -118,16 +100,18 @@ public class DoorAction : MonoBehaviour
         }
         if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
-            if (useScene)
-            {
-                //SceneManager.LoadSceneAsync(finalScene);
-                LoadScene.GetInstance().LoadTargetScene(finalScene);
-            }
-            else
-            {
-                //_player.transform.position = newPosition.transform.position;
-                PositionChange.GetInstance().ChangePosition(_player, newPosition.transform.position);
-            }
+            OnPlayerActionToNextScene?.Invoke(finalScene);
+            OnPlayerActionToNextPosition?.Invoke(_player, newPosition.transform.position);
+            //if (useScene)
+            //{
+            //    //SceneManager.LoadSceneAsync(finalScene);
+            //    LoadScene.GetInstance().LoadTargetScene(finalScene);
+            //}
+            //else
+            //{
+            //    //_player.transform.position = newPosition.transform.position;
+            //    PositionChange.GetInstance().ChangePosition(_player, newPosition.transform.position);
+            //}
 
             canTeleport = true;
         }
