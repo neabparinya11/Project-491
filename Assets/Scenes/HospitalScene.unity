@@ -4138,6 +4138,7 @@ Transform:
   - {fileID: 321188335}
   - {fileID: 1386287677}
   - {fileID: 1931724358}
+  - {fileID: 1790030864}
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9125,6 +9126,21 @@ MonoBehaviour:
   interaction: {fileID: 1468566902}
   icon: {fileID: 1468566904}
   interactionIcon: {fileID: 21300000, guid: 9a5050989a89d334595f577a1eb5deb2, type: 3}
+  OnPlayerPickup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1790030865}
+        m_TargetAssemblyTypeName: Notification, Assembly-CSharp
+        m_MethodName: AddToQueue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &708365488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11447,6 +11463,24 @@ MonoBehaviour:
   findItem: 
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  OnPlayerActionToNextScene:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450499705}
+        m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
+        m_MethodName: ChangePosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &989345148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12237,6 +12271,24 @@ MonoBehaviour:
   findItem: 
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  OnPlayerActionToNextScene:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450499705}
+        m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
+        m_MethodName: ChangePosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1066408028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1457552947310954, guid: 56293341dd6a41944b4598384665f1a1,
@@ -15343,6 +15395,24 @@ MonoBehaviour:
   findItem: 
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  OnPlayerActionToNextScene:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450499705}
+        m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
+        m_MethodName: ChangePosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1213811192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bb72463354432b4d8949045cd9ef2e3,
@@ -15485,6 +15555,12 @@ MonoBehaviour:
   findItem: 
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  OnPlayerActionToNextScene:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1234640533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20067,6 +20143,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1371566839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1450499705 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5899695076192758467, guid: 6eb6e02a4b28c34469b5628b7cf833b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1345309115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e76b81f98d1884691a83378a49df4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1452470843
 GameObject:
   m_ObjectHideFlags: 0
@@ -23960,6 +24048,93 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 445144757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1790030863
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 311082380}
+    m_Modifications:
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434645184392776311, guid: 8175c709f73a47044a4f117c731422b6,
+        type: 3}
+      propertyPath: m_Name
+      value: Notification
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8175c709f73a47044a4f117c731422b6, type: 3}
+--- !u!4 &1790030864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3434645184392776309, guid: 8175c709f73a47044a4f117c731422b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1790030863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1790030865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3434645184392776308, guid: 8175c709f73a47044a4f117c731422b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1790030863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15dd078c257ac2f49b37f49a28c6e667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1820999424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 494596, guid: acb5b460622c8ee4b825a3e68c33c1b6,
