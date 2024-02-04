@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PasswordPuzzle : MonoBehaviour
@@ -13,8 +14,14 @@ public class PasswordPuzzle : MonoBehaviour
     protected string answer;
     [SerializeField] string correctAnswer;
     [SerializeField] GameObject passwordPanel;
+
+    protected UnityEvent callbackFunction;
     protected int answerIndex = 0;
     
+    public void ReceiveCallbackFunction(UnityEvent _function)
+    {
+        callbackFunction = _function;
+    }
     public void GeneratePasscode()
     {
         passwordPanel.SetActive(true);
@@ -53,6 +60,7 @@ public class PasswordPuzzle : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         doorAction.SetDoorLocked(false);
         passwordPanel.SetActive(false);
+        callbackFunction?.Invoke();
     }
     public void ClearPassword()
     {
@@ -62,12 +70,4 @@ public class PasswordPuzzle : MonoBehaviour
         uitext.text = passCode;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if (answerIndex == 4)
-        //{
-        //    EnterPassword();
-        //}
-    }
 }
