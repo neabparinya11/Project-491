@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QTETrigger : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class QTETrigger : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject interaction;
     [SerializeField] private Vector3 adjustPosition;
+    [SerializeField] private UnityEvent OnPlayerSuccessQTE;
     private static QTETrigger instance;
     private bool playerInRange = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class QTETrigger : MonoBehaviour
         interaction.GetComponent<Transform>().position = screenPosition;
         if (playerInRange && quickTimeEventManager != null)
         {
+            quickTimeEventManager.ReceiveCallbackFuntion(OnPlayerSuccessQTE);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 canvasGroup.alpha = 0;
@@ -54,23 +58,4 @@ public class QTETrigger : MonoBehaviour
             canvasGroup.alpha = 0;
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Enemy" )
-    //    {
-    //        QTEController.instance.GeneratePattern();
-    //    }
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("Player");
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-
-    //    }
-    //}
 }

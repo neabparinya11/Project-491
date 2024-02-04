@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class QTEController : MonoBehaviour
@@ -22,6 +23,8 @@ public class QTEController : MonoBehaviour
     [SerializeField] GameObject playerObject;
     [SerializeField] RandomSpawnEnemy randomSpawnEnemy;
     //[SerializeField] GameObject problem1;
+
+    protected UnityEvent callbackFunction;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
@@ -50,6 +53,7 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
+                callbackFunction.Invoke();
                 if (cutsceneController != null)
                 {
                     cutsceneController.EnterDialogMode(inkJson);
@@ -77,6 +81,11 @@ public class QTEController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ReceiveCallbackFuntion(UnityEvent funct)
+    {
+        callbackFunction = funct;
     }
 
     protected void RandomKeyCode()

@@ -32,22 +32,14 @@ public class DoorAction : MonoBehaviour
     private static DoorAction instance;
     [SerializeField] UnityEvent<string> OnPlayerActionToNextScene;
     [SerializeField] public UnityEvent<GameObject, Vector3> OnPlayerActionToNextPosition;
+    [SerializeField] private UnityEvent OnWillUnlockDoor;
+    [SerializeField] private UnityEvent OnAfterUnlockDoor;
 
     private void Start()
     {
         instance = this;
 
         messagesSprite.sprite = !isLocked ? normalSprite : failureSprite;
-        //if (!isLocked)
-        //{
-        //    messagesSprite.sprite = normalSprite;
-        //}
-        //else
-        //{
-        //    messagesSprite.sprite = failureSprite;
-        //}
-        //StartCoroutine(TeleportEnemy());
-        
     }
 
     public static DoorAction GetInstance()
@@ -88,10 +80,15 @@ public class DoorAction : MonoBehaviour
             }
             messagesSprite.sprite = failureSprite;
 
-            if (Input.GetKeyDown(KeyCode.E) && passwordPuzzle != null)
+            //if (Input.GetKeyDown(KeyCode.E) && passwordPuzzle != null)
+            //{
+            //    messageCanvasGroup.alpha = 0;
+            //    passwordPuzzle.GeneratePasscode();
+            //}
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                messageCanvasGroup.alpha = 0;
-                passwordPuzzle.GeneratePasscode();
+                passwordPuzzle.ReceiveCallbackFunction(OnAfterUnlockDoor);
+                OnWillUnlockDoor?.Invoke();
             }
         }
         else

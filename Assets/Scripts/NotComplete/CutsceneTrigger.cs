@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Playables;
 
 public class CutsceneTrigger : MonoBehaviour
@@ -42,7 +43,7 @@ public class CutsceneTrigger : MonoBehaviour
         {
             if (teacher != null)
             {
-                teacher?.SetActive(true);
+                teacher.SetActive(true);
             }
             //showTrigger = false;
             if (SoundsOnTrigger == null)
@@ -51,11 +52,11 @@ public class CutsceneTrigger : MonoBehaviour
             }
             playBeforeCutscene = true;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
             if (teacher != null && setDisableTeacher)
             {
                 teacher.SetActive(false);
             }
-
             dialogManager.SetBackgroundPanel(dialogueBackground, setBackgroundImage);
             //cameraCutscene.SetActive(true);
             //timeline.GetComponent<PlayableDirector>().Play();
