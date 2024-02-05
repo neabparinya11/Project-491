@@ -99,17 +99,6 @@ public class DoorAction : MonoBehaviour
         {
             OnPlayerActionToNextScene?.Invoke(finalScene);
             OnPlayerActionToNextPosition?.Invoke(_player, newPosition.transform.position);
-            //if (useScene)
-            //{
-            //    //SceneManager.LoadSceneAsync(finalScene);
-            //    LoadScene.GetInstance().LoadTargetScene(finalScene);
-            //}
-            //else
-            //{
-            //    //_player.transform.position = newPosition.transform.position;
-            //    PositionChange.GetInstance().ChangePosition(_player, newPosition.transform.position);
-            //}
-
             canTeleport = true;
         }
         if (canTeleport && useEnemy)
