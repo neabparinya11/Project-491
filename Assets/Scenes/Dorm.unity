@@ -8185,10 +8185,16 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Day1_SchoolScene
+          m_StringArgument: Day2_SchoolScene 1
           m_BoolArgument: 0
         m_CallState: 2
   OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWillUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfterUnlockDoor:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1299729882
