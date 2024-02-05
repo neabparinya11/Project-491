@@ -38,12 +38,10 @@ public class EnemyAi : MonoBehaviour
     {
         walking = true;
         walkingSound.enabled = false;
-        //randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
-        //Debug.Log("Index: " + randomNumber1);
-        //currentDestination = destination[randomNumber1];
-        //Debug.Log("Destination: " + currentDestination);
         animations = GetComponent<Animator>();
         FindNodeInCurrentPosition(this.transform.position);
+        randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+        currentDestination = canCurrent[randomNumber1];
         StartCoroutine(RandomSpawn());
     }
 
@@ -180,17 +178,6 @@ public class EnemyAi : MonoBehaviour
                 }
                 chasing = true;
                 StopCoroutine(attackedRoutine());
-                //if (!attacked)
-                //{
-                //    if (leftHand.gameObject.tag == "Enemy")
-                //    {
-                //        attacked = true;
-
-                //        HealthController.instance.DecreaseHealth(25);
-                //    }
-                //    chasing = true;
-                //}
-
             }
         }
         
@@ -203,8 +190,9 @@ public class EnemyAi : MonoBehaviour
     {
         if (walking == true)
         {
-            randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
-            currentDestination = canCurrent[randomNumber1];
+            //randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+            //currentDestination = canCurrent[randomNumber1];
+
             dest = currentDestination.position;
             agent.destination = dest;
             agent.speed = walkSpeed;
@@ -213,8 +201,8 @@ public class EnemyAi : MonoBehaviour
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 agent.speed = 0;
-                StopCoroutine("stayIdle");
-                StartCoroutine("stayIdle");
+                StopCoroutine(stayIdle());
+                StartCoroutine(stayIdle());
                 walking = false;
                 animations.SetInteger("state", (int)EnemyState.idle);
                 walkingSound.enabled = false;
@@ -233,19 +221,18 @@ public class EnemyAi : MonoBehaviour
 
     public void SetNewPosition(Vector3 _newPosition)
     {
-        //this.transform.position = _newPosition;
         FindNodeInCurrentPosition(_newPosition);
         agent.Warp(_newPosition);
-        
+        randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
+        currentDestination = canCurrent[randomNumber1];
     }
 
     public IEnumerator RandomSpawn()
     {
         while (true)
         {
-            Debug.Log("Random Position");
             yield return new WaitForSeconds(10.0f);
-            if (chasing == false)
+            if (chasing == false && agent.remainingDistance <= 0)
             {
                 randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
                 SetNewPosition(destination[randomNumber1].position);

@@ -47,7 +47,7 @@ public class HidingObject : MonoBehaviour
         }
         if (hiding)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 canvas.alpha = 0.0f;
                 normalPlayer.SetActive(true);

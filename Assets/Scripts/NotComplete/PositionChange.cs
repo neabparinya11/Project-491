@@ -18,14 +18,18 @@ public class PositionChange : MonoBehaviour
         return instance;
     }
 
-    private IEnumerator AnimationWhenTransformPosition()
+    private IEnumerator AnimationWhenTransformPosition(GameObject player, Vector3 newPosition)
     {
+
         yield return new WaitForSeconds(transitionTime);
-        
+
+        player.transform.position = newPosition;
     }
 
     public void ChangePosition(GameObject player, Vector3 newPosition)
     {
-        player.transform.position = newPosition;
+        //player.transform.position = newPosition;
+        StartCoroutine(AnimationWhenTransformPosition(player, newPosition));
     }
+
 }
