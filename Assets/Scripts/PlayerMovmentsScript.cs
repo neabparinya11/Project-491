@@ -73,19 +73,21 @@ public class PlayerMovmentsScript : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
     }
 
+    public void StopPlayer()
+    {
+        disable = true;
+        rb.velocity = Vector3.zero;
+        Horizontal = 0.0f;
+        AnimationUpdates();
+    }
+
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3(Horizontal * movementSpeed, rb.velocity.y, 0);
 
-        //if (Input.GetKeyDown(KeyCode.Space) && CheckIsGround())
-        //{
-        //    //rb.velocity = new Vector3(rb.velocity.x, 3f, 0);
-        //    StaminaController.instance.StaminaJump();
-        //}
         if (Input.GetKeyDown(KeyCode.LeftShift) && CheckIsGround())
         {
-            //staminaController.Sprinting();
             isSprint = true;
             if (rb.velocity.x != 0.0f)
             {
@@ -141,11 +143,6 @@ public class PlayerMovmentsScript : MonoBehaviour
             movementState = MovementState.idle;
         }
 
-        //if (rb.velocity.y > 0.0f)
-        //{
-            
-        //    movementState = MovementState.jump;
-        //}
         animations.SetInteger("Anim State", (int)movementState);
     }
 

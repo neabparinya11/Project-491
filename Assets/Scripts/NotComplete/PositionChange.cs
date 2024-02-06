@@ -20,15 +20,16 @@ public class PositionChange : MonoBehaviour
 
     private IEnumerator AnimationWhenTransformPosition(GameObject player, Vector3 newPosition)
     {
-
+        
+        player.GetComponent<PlayerMovmentsScript>().StopPlayer();
         yield return new WaitForSeconds(transitionTime);
 
+        player.GetComponent <PlayerMovmentsScript>().disable = false;
         player.transform.position = newPosition;
     }
 
     public void ChangePosition(GameObject player, Vector3 newPosition)
     {
-        //player.transform.position = newPosition;
         StartCoroutine(AnimationWhenTransformPosition(player, newPosition));
     }
 
