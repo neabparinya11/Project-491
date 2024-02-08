@@ -23,19 +23,19 @@ public class CutsceneTrigger : MonoBehaviour
     private bool isFirst = true;
     private bool showTrigger = true;
 
-    //public void LoadData(GameData gameData)
-    //{
-    //    gameData.dictCutscene.TryGetValue(id, out showTrigger);
-    //}
+    public void LoadData(GameData gameData)
+    {
+        gameData.dictCutscene.TryGetValue(id, out showTrigger);
+    }
 
-    //public void SaveData(ref GameData gameData)
-    //{
-    //    if (gameData.dictCutscene.ContainsKey(id))
-    //    {
-    //        gameData.dictCutscene.Remove(id);
-    //    }
-    //    gameData.dictCutscene.Add(id, showTrigger);
-    //}
+    public void SaveData(ref GameData gameData)
+    {
+        if (gameData.dictCutscene.ContainsKey(id))
+        {
+            gameData.dictCutscene.Remove(id);
+        }
+        gameData.dictCutscene.Add(id, showTrigger);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,13 +45,13 @@ public class CutsceneTrigger : MonoBehaviour
             {
                 teacher.SetActive(true);
             }
-            //showTrigger = false;
+            showTrigger = false;
             if (SoundsOnTrigger == null)
             {
                 dialogManager.EnterDialogMode(inkJson);
             }
             playBeforeCutscene = true;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = showTrigger;
 
             if (teacher != null && setDisableTeacher)
             {

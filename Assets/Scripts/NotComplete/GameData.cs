@@ -12,10 +12,10 @@ public class GameData
     public string currentScene;
     public List<FoodItem> listFoodItem;
     public List<QuestionItem> listQuestItem;
-    public Dictionary<string, bool> dictBoxItem;
-    public Dictionary<string, bool> dictDoorAction;
-    public Dictionary<string, bool> dictQuestItem;
-    public Dictionary<string, bool> dictCutscene;
+    public SerialiazableDictionary<string, bool> dictBoxItem;
+    public SerialiazableDictionary<string, bool> dictDoorAction;
+    public SerialiazableDictionary<string, bool> dictQuestItem;
+    public SerialiazableDictionary<string, bool> dictCutscene;
     public GameData()
     {
         this.playerName = string.Empty;
@@ -26,9 +26,9 @@ public class GameData
         this.currentScene = string.Empty;
         this.listFoodItem = new List<FoodItem>();
         this.listQuestItem = new List<QuestionItem>();
-        this.dictBoxItem = new Dictionary<string, bool>();
-        this.dictDoorAction = new Dictionary<string, bool>();
-        this.dictCutscene = new Dictionary<string, bool>() { 
+        this.dictBoxItem = new SerialiazableDictionary<string, bool>();
+        this.dictDoorAction = new SerialiazableDictionary<string, bool>();
+        this.dictCutscene = new SerialiazableDictionary<string, bool>() { 
             { "TeacherCutscene", true }, 
             { "PoliceCutscene", true }, 
             { "PreawHospital", true },

@@ -26,10 +26,5 @@ public class DialogPlayScene : MonoBehaviour
         {
             return;
         }
-        //if (!DialogManager.GetInstance().currentStory.canContinue && theFirst)
-        //{
-        //    theFirst = false;
-        //    LoadScene.GetInstance().LoadTargetScene("Day_SchoolScene");
-        //}
     }
 }
