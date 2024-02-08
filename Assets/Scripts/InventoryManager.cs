@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -123,13 +124,34 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        gameData.listFoodItem = this.ListFoodItem;
-        gameData.listQuestItem = this.ListQuestionItem;
+        //gameData.listFoodItem = this.ListFoodItem;
+        //gameData.listQuestItem = this.ListQuestionItem;
+
+        gameData.listFoodItem.Clear();
+        gameData.listQuestItem.Clear();
+        foreach (FoodItem itemData in this.ListFoodItem)
+        {
+            gameData.listFoodItem.Add(itemData);
+        }
+        foreach (QuestionItem itemData in this.ListQuestionItem)
+        {
+            gameData.listQuestItem.Add(itemData);
+        }
     }
 
     public void LoadData(GameData gameData)
     {
-        this.ListFoodItem = gameData.listFoodItem;
-        this.ListQuestionItem = gameData.listQuestItem;
+        //this.ListFoodItem = gameData.listFoodItem;
+        //this.ListQuestionItem = gameData.listQuestItem;
+        this.ListFoodItem.Clear();
+        this.ListQuestionItem.Clear();
+        foreach (FoodItem itemData in gameData.listFoodItem)
+        {
+            this.ListFoodItem.Add(itemData);
+        }
+        foreach (QuestionItem itemData in gameData.listQuestItem)
+        {
+            this.ListQuestionItem.Add(itemData);
+        }
     }
 }
