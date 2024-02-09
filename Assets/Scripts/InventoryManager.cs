@@ -34,7 +34,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     public void AddQuestionItem(QuestionItem _item)
     {
         ListQuestionItem.Add(_item);
-        //StoryController.instance.getDoorKey = FindQuestItem("Door Key");
     }
 
     public void RemoveFoodItem(FoodItem _item)
@@ -124,34 +123,34 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void SaveData(ref GameData gameData)
     {
-        //gameData.listFoodItem = this.ListFoodItem;
-        //gameData.listQuestItem = this.ListQuestionItem;
+        gameData.listFoodItem = this.ListFoodItem;
+        gameData.listQuestItem = this.ListQuestionItem;
 
-        gameData.listFoodItem.Clear();
-        gameData.listQuestItem.Clear();
-        foreach (FoodItem itemData in this.ListFoodItem)
-        {
-            gameData.listFoodItem.Add(itemData);
-        }
-        foreach (QuestionItem itemData in this.ListQuestionItem)
-        {
-            gameData.listQuestItem.Add(itemData);
-        }
+        //gameData.listFoodItem.Clear();
+        //gameData.listQuestItem.Clear();
+        //foreach (FoodItem itemData in this.ListFoodItem)
+        //{
+        //    gameData.listFoodItem.Add(itemData.itemName, itemData);
+        //}
+        //foreach (QuestionItem itemData in this.ListQuestionItem)
+        //{
+        //    gameData.listQuestItem.Add(itemData.itemName, itemData);
+        //}
     }
 
     public void LoadData(GameData gameData)
     {
-        //this.ListFoodItem = gameData.listFoodItem;
-        //this.ListQuestionItem = gameData.listQuestItem;
-        this.ListFoodItem.Clear();
-        this.ListQuestionItem.Clear();
-        foreach (FoodItem itemData in gameData.listFoodItem)
-        {
-            this.ListFoodItem.Add(itemData);
-        }
-        foreach (QuestionItem itemData in gameData.listQuestItem)
-        {
-            this.ListQuestionItem.Add(itemData);
-        }
+        this.ListFoodItem = gameData.listFoodItem;
+        this.ListQuestionItem = gameData.listQuestItem;
+        //this.ListFoodItem.Clear();
+        //this.ListQuestionItem.Clear();
+        //foreach (SerialiazableDictionary<string, FoodItem> itemData in gameData.listFoodItem)
+        //{
+        //    this.ListFoodItem.Add(itemData.TryGetValue(itemData.Keys, out  ));
+        //}
+        //foreach (QuestionItem itemData in gameData.listQuestItem)
+        //{
+        //    this.ListQuestionItem.Add(itemData);
+        //}
     }
 }
