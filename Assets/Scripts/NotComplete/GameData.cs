@@ -24,8 +24,10 @@ public class GameData
         this.enemyLevel = 1;
         this.percentageHealth = 100.0f;
         this.currentScene = string.Empty;
-        this.listFoodItem = new List<FoodItem>();
+        //this.listFoodItem = new List<FoodItem>();
+        //this.listQuestItem = new List<QuestionItem>();
         this.listQuestItem = new List<QuestionItem>();
+        this.listFoodItem = new List<FoodItem>();
         this.dictBoxItem = new SerialiazableDictionary<string, bool>();
         this.dictDoorAction = new SerialiazableDictionary<string, bool>();
         this.dictCutscene = new SerialiazableDictionary<string, bool>() { 
