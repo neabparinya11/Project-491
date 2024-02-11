@@ -22,8 +22,9 @@ public class PasswordPuzzle : MonoBehaviour
     {
         callbackFunction = _function;
     }
-    public void GeneratePasscode()
+    public void GeneratePasscode(string correctAnswer)
     {
+        this.correctAnswer = correctAnswer;
         passwordPanel.SetActive(true);
     }
     public void ConcatAnswer(string _answer)
