@@ -37386,13 +37386,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1125089166}
         m_TargetAssemblyTypeName: PasswordPuzzle, Assembly-CSharp
         m_MethodName: GeneratePasscode
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 4282
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2023401822}
@@ -81150,7 +81150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889430959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1382f981ff5e87468e892d1fa045588, type: 3}
   m_Name: 
@@ -81192,7 +81192,7 @@ BoxCollider:
   m_GameObject: {fileID: 1889430959}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
