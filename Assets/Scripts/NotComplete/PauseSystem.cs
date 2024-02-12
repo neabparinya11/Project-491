@@ -20,15 +20,27 @@ public class PauseSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
-            playerScript.enabled = false;
-            enemyScript.enabled = false;
+            if (playerScript != null)
+            {
+                playerScript.enabled = false;
+            }
+            if (enemyScript != null)
+            {
+                enemyScript.enabled = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ContinueGame();
-            playerScript.enabled = true;
-            enemyScript.enabled = true;
+            if (playerScript != null)
+            {
+                playerScript.enabled = true;
+            }
+            if (enemyScript != null)
+            {
+                enemyScript.enabled = true;
+            }
         }
     }
 

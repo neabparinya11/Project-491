@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public enum ItemType
     Question
 }
 
+[Serializable]
 public abstract class ItemObject : ScriptableObject
 {
     public GameObject prefab;

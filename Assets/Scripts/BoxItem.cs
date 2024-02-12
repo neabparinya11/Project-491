@@ -14,6 +14,7 @@ public class BoxItem : MonoBehaviour, IDataPersistances
     public Transform loadStockTransform;
     public Slider slide;
     [SerializeField] CanvasGroup canvas;
+    [SerializeField] GameObject interaction;
 
     float speed = 20.0f;
     float maxLoad = 100.0f;
@@ -92,6 +93,7 @@ public class BoxItem : MonoBehaviour, IDataPersistances
         Vector3 objectPosition = transform.position + new Vector3(0.5f, 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(objectPosition);
         loadStockTransform.position = screenPosition;
+        interaction.transform.position = screenPosition;
         //interaction.transform.position = screenPosition;
     }
 
