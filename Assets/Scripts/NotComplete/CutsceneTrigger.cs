@@ -20,6 +20,8 @@ public class CutsceneTrigger : MonoBehaviour
     [SerializeField] private AudioSource SoundsOnTrigger;
     [SerializeField] private AudioClip[] listSoundsClip; 
     [SerializeField] private bool playBeforeCutscene = false;
+    [SerializeField] private UnityEvent OnPlayerEnter;
+    [SerializeField] private UnityEvent OnPlayerExit;
     private bool isFirst = true;
     private bool showTrigger = true;
 
@@ -41,6 +43,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            OnPlayerEnter?.Invoke();
             if (teacher != null)
             {
                 teacher.SetActive(true);
@@ -58,6 +61,7 @@ public class CutsceneTrigger : MonoBehaviour
                 teacher.SetActive(false);
             }
             dialogManager.SetBackgroundPanel(dialogueBackground, setBackgroundImage);
+            dialogManager.RecieveCallbackOnExitDialogue(OnPlayerExit);
             //cameraCutscene.SetActive(true);
             //timeline.GetComponent<PlayableDirector>().Play();
         }

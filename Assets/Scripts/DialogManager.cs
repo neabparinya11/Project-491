@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Ink.UnityIntegration;
+using UnityEngine.Events;
 
 public class DialogManager : MonoBehaviour, IDataPersistances
 {
@@ -30,6 +31,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     private string currentName; // name of player is be created.
     public bool dialogIsPlaying { get; private set; }
     private DialogueVariable dialogueVariable;
+    private UnityEvent callbackExitDialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +48,6 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-
-
     }
 
     public static DialogManager GetInstance()
@@ -114,6 +114,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         {
             LoadScene.GetInstance().LoadTargetScene(nextScene);
         }
+        callbackExitDialogue?.Invoke();
     }
 
     public void ContinueStory()
@@ -234,5 +235,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             Debug.LogWarning("");
         }
         return variableValue;
+    }
+
+    public void RecieveCallbackOnExitDialogue(UnityEvent function)
+    {
+        this.callbackExitDialogue = function;
     }
 }

@@ -25,6 +25,7 @@ public class QTEController : MonoBehaviour
     //[SerializeField] GameObject problem1;
 
     protected UnityEvent callbackFunction;
+    protected UnityEvent callbackFunction2;
 
     protected List<KeyCode> keycodeProblem = new List<KeyCode>();
     protected List<Sprite> imageKeyCodeProblem = new List<Sprite>();
@@ -53,7 +54,7 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
-                callbackFunction.Invoke();
+                callbackFunction?.Invoke();
                 if (cutsceneController != null)
                 {
                     cutsceneController.EnterDialogMode(inkJson);
@@ -75,6 +76,7 @@ public class QTEController : MonoBehaviour
             else
             {
                 FailedPuzzle();
+                callbackFunction2?.Invoke();
                 if (playerObject != null)
                 {
                     playerObject.SetActive(true);
@@ -86,6 +88,11 @@ public class QTEController : MonoBehaviour
     public void ReceiveCallbackFuntion(UnityEvent funct)
     {
         callbackFunction = funct;
+    }
+
+    public void ReceiveCallbackFuntion2(UnityEvent funct)
+    {
+        callbackFunction2 = funct;
     }
 
     protected void RandomKeyCode()
@@ -194,6 +201,7 @@ public class QTEController : MonoBehaviour
             isQTEenable = false;
             timeCanvas.alpha = 0;
             countKeyDown = 0;
+            countTime = 0;
             keycodeProblem.Clear();
             imageKeyCodeProblem.Clear();
             problem1.SetActive(true);
