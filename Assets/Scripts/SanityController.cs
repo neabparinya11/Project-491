@@ -16,6 +16,11 @@ public class SanityController : MonoBehaviour
     {
         instance = this;
     }
+
+    public float GetPlayerSanity()
+    {
+        return playerSanity;
+    }
     // Update is called once per frame
     void Update()
     {
