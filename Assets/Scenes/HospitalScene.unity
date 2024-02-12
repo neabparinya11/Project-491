@@ -8468,7 +8468,7 @@ BoxCollider:
   m_GameObject: {fileID: 582198197}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 247.45602}
   m_Center: {x: 0, y: 0, z: -120.39721}
@@ -11481,6 +11481,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnWillUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfterUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &989345148
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12289,6 +12295,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnWillUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfterUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1066408028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1457552947310954, guid: 56293341dd6a41944b4598384665f1a1,
@@ -15413,6 +15425,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnWillUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfterUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1213811192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4bb72463354432b4d8949045cd9ef2e3,
@@ -15559,6 +15577,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnPlayerActionToNextPosition:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWillUnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAfterUnlockDoor:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &1234640533
@@ -19028,6 +19052,9 @@ MonoBehaviour:
   inkJson: {fileID: 4900000, guid: aa3a38237a87ed2479a2354d586dca17, type: 3}
   adjustPosition: {x: -2.31, y: 1.18, z: 0}
   dialogueManager: {fileID: 1767274303}
+  OnExitDialogue:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1342438979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29237,6 +29264,21 @@ MonoBehaviour:
   inkJson: {fileID: 4900000, guid: aa3a38237a87ed2479a2354d586dca17, type: 3}
   adjustPosition: {x: 0.2, y: 2.23, z: 0}
   dialogueManager: {fileID: 1767274303}
+  OnExitDialogue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 582198198}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!65 &5338177427749602741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29362,3 +29404,9 @@ MonoBehaviour:
   SoundsOnTrigger: {fileID: 0}
   listSoundsClip: []
   playBeforeCutscene: 0
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls: []

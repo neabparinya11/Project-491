@@ -649,6 +649,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c9df6f1a0bc7aa4cb553cd6e251a37a, type: 3}
   - {fileID: 8300000, guid: 324215af28009ac4b9769f96204f4824, type: 3}
   playBeforeCutscene: 0
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &28677969
 GameObject:
   m_ObjectHideFlags: 0
@@ -38859,6 +38865,12 @@ MonoBehaviour:
   SoundsOnTrigger: {fileID: 0}
   listSoundsClip: []
   playBeforeCutscene: 0
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &952595890
 GameObject:
   m_ObjectHideFlags: 0
@@ -59382,6 +59394,12 @@ MonoBehaviour:
   SoundsOnTrigger: {fileID: 0}
   listSoundsClip: []
   playBeforeCutscene: 0
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1426261570
 BoxCollider:
   m_ObjectHideFlags: 0
