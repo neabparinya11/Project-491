@@ -7,14 +7,14 @@ public class BoxItem : MonoBehaviour, IDataPersistances
 {
     [SerializeField] private string id;
     //public List<GameObject> listItem = new List<GameObject>();
-    public List<FoodItem> listItemObject = new List<FoodItem>();
+    [SerializeField] private List<FoodItem> listItemObject = new List<FoodItem>();
     public QuestionItem questionItem;
-    public GameObject loadStock;
+    [SerializeField] GameObject loadStock;
     //public GameObject interaction;
     public Transform loadStockTransform;
     public Slider slide;
     [SerializeField] CanvasGroup canvas;
-    
+
     float speed = 20.0f;
     float maxLoad = 100.0f;
     float currentLoad = 0.0f;
