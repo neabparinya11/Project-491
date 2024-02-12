@@ -11,6 +11,7 @@ public class QTETrigger : MonoBehaviour
     [SerializeField] private GameObject interaction;
     [SerializeField] private Vector3 adjustPosition;
     [SerializeField] private UnityEvent OnPlayerSuccessQTE;
+    [SerializeField] private UnityEvent OnPlayerFailedQTE;
     private static QTETrigger instance;
     private bool playerInRange = false;
 
@@ -33,6 +34,7 @@ public class QTETrigger : MonoBehaviour
         if (playerInRange && quickTimeEventManager != null)
         {
             quickTimeEventManager.ReceiveCallbackFuntion(OnPlayerSuccessQTE);
+            quickTimeEventManager.ReceiveCallbackFuntion2(OnPlayerFailedQTE);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 canvasGroup.alpha = 0;
