@@ -2134,5 +2134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Data Persistances
       objectReference: {fileID: 0}
+    - target: {fileID: 6285739459836971355, guid: bc2993f8e253e664bbee223aced2d852,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc2993f8e253e664bbee223aced2d852, type: 3}
