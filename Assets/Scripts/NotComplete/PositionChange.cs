@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PositionChange : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
     [SerializeField] private float transitionTime;
     private static PositionChange instance;
     // Start is called before the first frame update
@@ -20,7 +19,6 @@ public class PositionChange : MonoBehaviour
 
     private IEnumerator AnimationWhenTransformPosition(GameObject player, Vector3 newPosition)
     {
-        
         player.GetComponent<PlayerMovmentsScript>().StopPlayer();
         yield return new WaitForSeconds(transitionTime);
 

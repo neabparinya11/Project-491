@@ -42,6 +42,7 @@ public class BoxItem : MonoBehaviour, IDataPersistances
             {
                 loadStock.SetActive(false);
                 RandomItem();
+                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             if (currentLoad < maxLoad && !Input.GetKey(KeyCode.E))
             {
