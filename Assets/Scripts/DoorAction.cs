@@ -32,6 +32,7 @@ public class DoorAction : MonoBehaviour
     private static DoorAction instance;
     [SerializeField] UnityEvent<string> OnPlayerActionToNextScene;
     [SerializeField] public UnityEvent<GameObject, Vector3> OnPlayerActionToNextPosition;
+    [SerializeField] private UnityEvent BeforeTeleport;
     [SerializeField] private UnityEvent OnWillUnlockDoor;
     [SerializeField] private UnityEvent OnAfterUnlockDoor;
 
@@ -97,6 +98,7 @@ public class DoorAction : MonoBehaviour
         }
         if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
+            BeforeTeleport?.Invoke();
             OnPlayerActionToNextScene?.Invoke(finalScene);
             OnPlayerActionToNextPosition?.Invoke(_player, newPosition.transform.position);
             canTeleport = true;
