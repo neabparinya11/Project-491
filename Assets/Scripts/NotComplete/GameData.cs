@@ -34,7 +34,8 @@ public class GameData
             { "TeacherCutscene", true }, 
             { "PoliceCutscene", true }, 
             { "PreawHospital", true },
-            { "PreawMother", true }
+            { "PreawMother", true },
+            { "PreawEx2", true}
         };
     }
 

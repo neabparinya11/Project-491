@@ -81,6 +81,10 @@ public class PlayerMovmentsScript : MonoBehaviour
         AnimationUpdates();
     }
 
+    public void ContinuePlayer()
+    {
+        disable = false;
+    }
     private void Movement()
     {
         Horizontal = Input.GetAxis("Horizontal");
