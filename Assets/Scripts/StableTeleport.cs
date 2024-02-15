@@ -13,6 +13,7 @@ public class StableTeleport : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] GameObject enemyObject;
     [SerializeField] float enemytimeToTeleport;
+    [SerializeField] bool canChoice1 = true, canChoice2 = true;
     bool _enemyCanTeleport = false;
     bool _canTeleport = false;
 
@@ -27,7 +28,7 @@ public class StableTeleport : MonoBehaviour
         {
             return;
         }
-        if (_messageImage1 != null && choice1 != null)
+        if (_messageImage1 != null && choice1 != null && canChoice1)
         {
             messageTransform1.position = screenPosition1;
             _messageImage1.sprite = _messageSprite1;
@@ -38,7 +39,7 @@ public class StableTeleport : MonoBehaviour
             }
         }
 
-        if (_messageImage2 != null && choice2 != null)
+        if (_messageImage2 != null && choice2 != null && canChoice2)
         {
             messageTransform2.position = screenPosition2;
             _messageImage2.sprite = _messageSprite2;
@@ -51,7 +52,6 @@ public class StableTeleport : MonoBehaviour
 
         if (_enemyCanTeleport)
         {
-
             _enemyCanTeleport = false;
         }
     }
@@ -77,5 +77,15 @@ public class StableTeleport : MonoBehaviour
     IEnumerator EnemyTeleport()
     {
         yield return new WaitForSeconds(enemytimeToTeleport);
+    }
+
+    public void SetCanChoice1(bool _set)
+    {
+        this.canChoice1 = _set;
+    }
+
+    public void SetCanChoice2(bool _set)
+    {
+        this.canChoice2 = _set;
     }
 }
