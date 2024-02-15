@@ -43,7 +43,9 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            OnPlayerEnter?.Invoke();
+            //OnPlayerEnter?.Invoke();
+            dialogManager.RecieveCallbackOnEnterDialogue(OnPlayerEnter);
+            dialogManager.RecieveCallbackOnExitDialogue(OnPlayerExit);
             if (teacher != null)
             {
                 teacher.SetActive(true);
@@ -61,7 +63,7 @@ public class CutsceneTrigger : MonoBehaviour
                 teacher.SetActive(false);
             }
             dialogManager.SetBackgroundPanel(dialogueBackground, setBackgroundImage);
-            dialogManager.RecieveCallbackOnExitDialogue(OnPlayerExit);
+            
             //cameraCutscene.SetActive(true);
             //timeline.GetComponent<PlayableDirector>().Play();
         }

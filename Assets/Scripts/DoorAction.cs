@@ -27,6 +27,7 @@ public class DoorAction : MonoBehaviour
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
     [SerializeField] string findItem;
+    [SerializeField] List<QuestionItem> findListItem;
     [SerializeField] bool useKey = false;
     [SerializeField] PasswordPuzzle passwordPuzzle;
     private static DoorAction instance;
@@ -75,7 +76,7 @@ public class DoorAction : MonoBehaviour
         if (isLocked && canAction)
         {
             //isLocked = false;
-            if ( findItem != string.Empty && InventoryManager.Instance.FindQuestItem(findItem) && useKey)
+            if ( findItem != string.Empty && useKey && InventoryManager.Instance.FindListQuestItem(findListItem))
             {
                 isLocked = false;
             }

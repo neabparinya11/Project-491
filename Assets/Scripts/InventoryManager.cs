@@ -121,6 +121,18 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         return false;
     }
 
+    public bool FindListQuestItem(List<QuestionItem> findListQuestItem)
+    {
+        foreach (QuestionItem item in findListQuestItem)
+        {
+            if (!ListQuestionItem.Contains(item))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void SaveData(ref GameData gameData)
     {
         gameData.listFoodItem = this.ListFoodItem;

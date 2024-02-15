@@ -32,6 +32,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public bool dialogIsPlaying { get; private set; }
     private DialogueVariable dialogueVariable;
     private UnityEvent callbackExitDialogue;
+    private UnityEvent callbackEnterDialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +80,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     public void EnterDialogMode(TextAsset inkJson)
     {
+        callbackEnterDialogue?.Invoke();
         currentStory = new Story(inkJson.text);
         dialogueVariable.StartListening(currentStory);
         currentStory.variablesState["playerName"] = currentName;
@@ -240,5 +242,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     public void RecieveCallbackOnExitDialogue(UnityEvent function)
     {
         this.callbackExitDialogue = function;
+    }
+
+    public void RecieveCallbackOnEnterDialogue(UnityEvent function)
+    {
+        this.callbackEnterDialogue = function;
     }
 }
