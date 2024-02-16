@@ -11,6 +11,7 @@ public class DoorAction : MonoBehaviour
 {
     [SerializeField] private string id;
     //[SerializeField] Transform messagesTransform;
+    [Header("Setting UI")]
     [SerializeField] CanvasGroup messageCanvasGroup;
     [SerializeField] Image messagesSprite;
     [SerializeField] Sprite normalSprite;
@@ -18,9 +19,12 @@ public class DoorAction : MonoBehaviour
     [Header("Initial Data")]
     [SerializeField] Transform newPosition;
     [SerializeField] GameObject _player;
+    [Header("Set Enemy Teleport")]
     [SerializeField] GameObject _enemy;
+    [SerializeField] float _timeToTeleport;
     [SerializeField] string finalScene;
     [SerializeField] private bool useEnemy;
+    [Header("Adjust UI Position")]
     [SerializeField] private Vector3 adjustPosition = new Vector3(0.8f, 1, 0);
     bool canAction = false; // for player check to teleport
     bool canTeleport = false; // for enemy check to teleport
@@ -31,8 +35,9 @@ public class DoorAction : MonoBehaviour
     [SerializeField] bool useKey = false;
     [SerializeField] PasswordPuzzle passwordPuzzle;
     private static DoorAction instance;
-    [SerializeField] UnityEvent<string> OnPlayerActionToNextScene;
-    [SerializeField] public UnityEvent<GameObject, Vector3> OnPlayerActionToNextPosition;
+    [Header("Setting Event On")]
+    [SerializeField] private UnityEvent<string> OnPlayerActionToNextScene;
+    [SerializeField] private UnityEvent<GameObject, Vector3> OnPlayerActionToNextPosition;
     [SerializeField] private UnityEvent BeforeTeleport;
     [SerializeField] private UnityEvent OnWillUnlockDoor;
     [SerializeField] private UnityEvent OnAfterUnlockDoor;
@@ -123,7 +128,7 @@ public class DoorAction : MonoBehaviour
 
     IEnumerator TeleportEnemy()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(_timeToTeleport);
         EnemyAi _enemyScript = _enemy.GetComponentInChildren<EnemyAi>();
         _enemyScript.SetNewPosition(newPosition.transform.position);
         //canTeleport = false;
