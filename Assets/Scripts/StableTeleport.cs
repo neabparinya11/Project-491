@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StableTeleport : MonoBehaviour
@@ -14,6 +15,7 @@ public class StableTeleport : MonoBehaviour
     [SerializeField] GameObject enemyObject;
     [SerializeField] float enemytimeToTeleport;
     [SerializeField] bool canChoice1 = true, canChoice2 = true;
+    [SerializeField] UnityEvent OnPlayerAction;
     bool _enemyCanTeleport = false;
     bool _canTeleport = false;
 
@@ -34,7 +36,9 @@ public class StableTeleport : MonoBehaviour
             _messageImage1.sprite = _messageSprite1;
             if (Input.GetKeyDown(KeyCode.W))
             {
-                _player.transform.position = choice1.position;
+                OnPlayerAction?.Invoke();
+                PositionChange.GetInstance().ChangePosition(_player, choice1.position);
+                //_player.transform.position = choice1.position;
                 _enemyCanTeleport = true;
             }
         }
@@ -45,7 +49,9 @@ public class StableTeleport : MonoBehaviour
             _messageImage2.sprite = _messageSprite2;
             if (Input.GetKeyDown(KeyCode.S))
             {
-                _player.transform.position = choice2.position;
+                OnPlayerAction?.Invoke();
+                PositionChange.GetInstance().ChangePosition(_player, choice2.position);
+                //_player.transform.position = choice2.position;
                 _enemyCanTeleport = true;
             }
         }
