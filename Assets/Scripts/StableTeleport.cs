@@ -16,6 +16,8 @@ public class StableTeleport : MonoBehaviour
     [SerializeField] float enemytimeToTeleport;
     [SerializeField] bool canChoice1 = true, canChoice2 = true;
     [SerializeField] UnityEvent OnPlayerAction;
+    [Header("Use teleport enemy")]
+    [SerializeField] private bool useEnemy = false;
     bool _enemyCanTeleport = false;
     bool _canTeleport = false;
 
@@ -56,8 +58,12 @@ public class StableTeleport : MonoBehaviour
             }
         }
 
-        if (_enemyCanTeleport)
-        {
+        if (_enemyCanTeleport && useEnemy) 
+        { 
+            if (enemyObject.GetComponent<EnemyAi>().chasing)
+            {
+                StartCoroutine(EnemyTeleport());
+            }
             _enemyCanTeleport = false;
         }
     }
@@ -83,6 +89,8 @@ public class StableTeleport : MonoBehaviour
     IEnumerator EnemyTeleport()
     {
         yield return new WaitForSeconds(enemytimeToTeleport);
+        EnemyAi scriptObject = enemyObject.GetComponent<EnemyAi>();
+        //scriptObject.SetNewPosition();
     }
 
     public void SetCanChoice1(bool _set)
