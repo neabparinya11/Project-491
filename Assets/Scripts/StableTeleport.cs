@@ -41,6 +41,7 @@ public class StableTeleport : MonoBehaviour
                 OnPlayerAction?.Invoke();
                 PositionChange.GetInstance().ChangePosition(_player, choice1.position);
                 //_player.transform.position = choice1.position;
+                _canTeleport = false;
                 _enemyCanTeleport = true;
             }
         }
@@ -54,6 +55,7 @@ public class StableTeleport : MonoBehaviour
                 OnPlayerAction?.Invoke();
                 PositionChange.GetInstance().ChangePosition(_player, choice2.position);
                 //_player.transform.position = choice2.position;
+                _canTeleport = false;
                 _enemyCanTeleport = true;
             }
         }

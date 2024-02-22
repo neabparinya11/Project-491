@@ -87,11 +87,6 @@ public class DoorAction : MonoBehaviour
             }
             messagesSprite.sprite = failureSprite;
 
-            //if (Input.GetKeyDown(KeyCode.E) && passwordPuzzle != null)
-            //{
-            //    messageCanvasGroup.alpha = 0;
-            //    passwordPuzzle.GeneratePasscode();
-            //}
             if (Input.GetKeyDown(KeyCode.E))
             {
                 passwordPuzzle.ReceiveCallbackFunction(OnAfterUnlockDoor);
@@ -108,6 +103,7 @@ public class DoorAction : MonoBehaviour
             OnPlayerActionToNextScene?.Invoke(finalScene);
             OnPlayerActionToNextPosition?.Invoke(_player, newPosition.transform.position);
             canTeleport = true;
+            canAction = false;
         }
         if (canTeleport && useEnemy)
         {
