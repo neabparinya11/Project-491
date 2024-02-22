@@ -111,7 +111,10 @@ public class DoorAction : MonoBehaviour
         }
         if (canTeleport && useEnemy)
         {
-            StartCoroutine(TeleportEnemy());
+            if (_enemy.GetComponent<EnemyAi>().chasing)
+            {
+                StartCoroutine(TeleportEnemy());
+            }            
             canTeleport = false;
         }
     }
