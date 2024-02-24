@@ -30,10 +30,10 @@ public class DoorAction : MonoBehaviour
     bool canTeleport = false; // for enemy check to teleport
     [SerializeField] bool useScene = false;
     [SerializeField] bool isLocked = true;
-    [SerializeField] string findItem;
     [SerializeField] List<QuestionItem> findListItem;
-    [SerializeField] bool useKey = false;
     [SerializeField] PasswordPuzzle passwordPuzzle;
+    [Header("Audio on Action")]
+    [SerializeField] private AudioClip soundOnAction;
     private static DoorAction instance;
     [Header("Setting Event On")]
     [SerializeField] private UnityEvent<string> OnPlayerActionToNextScene;
@@ -42,11 +42,17 @@ public class DoorAction : MonoBehaviour
     [SerializeField] private UnityEvent OnWillUnlockDoor;
     [SerializeField] private UnityEvent OnAfterUnlockDoor;
 
+    private bool onPasswordPuzzleOpen = false;
     private void Start()
     {
         instance = this;
 
         messagesSprite.sprite = !isLocked ? normalSprite : failureSprite;
+        if (soundOnAction != null)
+        {
+            this.gameObject.AddComponent<AudioSource>();
+            this.gameObject.GetComponent<AudioSource>().clip = soundOnAction;
+        }
     }
 
     public static DoorAction GetInstance()
@@ -81,16 +87,17 @@ public class DoorAction : MonoBehaviour
         if (isLocked && canAction)
         {
             //isLocked = false;
-            if ( findItem != string.Empty && useKey && InventoryManager.Instance.FindListQuestItem(findListItem))
+            if ( findListItem.Count != 0 && InventoryManager.Instance.FindListQuestItem(findListItem))
             {
                 isLocked = false;
             }
             messagesSprite.sprite = failureSprite;
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && passwordPuzzle != null)
             {
                 passwordPuzzle.ReceiveCallbackFunction(OnAfterUnlockDoor);
                 OnWillUnlockDoor?.Invoke();
+                onPasswordPuzzleOpen = true;
             }
         }
         else
@@ -99,6 +106,7 @@ public class DoorAction : MonoBehaviour
         }
         if (canAction && Input.GetKeyDown(KeyCode.E) && !isLocked)
         {
+            if (soundOnAction != null) this.GetComponent<AudioSource>().Play();
             BeforeTeleport?.Invoke();
             OnPlayerActionToNextScene?.Invoke(finalScene);
             OnPlayerActionToNextPosition?.Invoke(_player, newPosition.transform.position);
@@ -112,6 +120,14 @@ public class DoorAction : MonoBehaviour
                 StartCoroutine(TeleportEnemy());
             }            
             canTeleport = false;
+        }
+        if (passwordPuzzle != null && onPasswordPuzzleOpen)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                passwordPuzzle.ExitPasswordPuzzle();
+                onPasswordPuzzleOpen = false;
+            }
         }
     }
 
