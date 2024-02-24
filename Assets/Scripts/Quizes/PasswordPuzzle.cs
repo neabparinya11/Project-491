@@ -71,4 +71,10 @@ public class PasswordPuzzle : MonoBehaviour
         uitext.text = passCode;
     }
 
+    public void ExitPasswordPuzzle()
+    {
+        ClearPassword();
+        callbackFunction?.Invoke();
+        passwordPanel.SetActive(false);
+    }
 }

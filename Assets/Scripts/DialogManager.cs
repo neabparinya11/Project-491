@@ -91,6 +91,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
+        //Test
+        Ink.Runtime.Object value;
+        dialogueVariable.variables.TryGetValue("isReturnKey", out value);
+        bool test = (value.Equals("false"))? false: true;
+        Debug.Log("isReturnKey = " + test);
         ContinueStory();
     }
 
@@ -139,6 +144,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         }
     }
 
+
+    public void CheckKeyItem(string keyItem)
+    {
+
+    }
     public void SaveData(ref GameData gameData)
     {
         
