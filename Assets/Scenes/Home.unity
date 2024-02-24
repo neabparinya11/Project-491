@@ -320,6 +320,7 @@ Transform:
   - {fileID: 1125089165}
   - {fileID: 2023012464}
   - {fileID: 1894724886}
+  - {fileID: 1964036705}
   m_Father: {fileID: 0}
   m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -651,10 +652,34 @@ MonoBehaviour:
   playBeforeCutscene: 0
   OnPlayerEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &28677969
 GameObject:
   m_ObjectHideFlags: 0
@@ -16687,7 +16712,7 @@ PrefabInstance:
     - target: {fileID: 7158881546965020776, guid: eb7798dd4488a6045b30c3830fe437f0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7158881546965020776, guid: eb7798dd4488a6045b30c3830fe437f0,
         type: 3}
@@ -17532,6 +17557,7 @@ RectTransform:
   - {fileID: 753116988}
   - {fileID: 1551540480}
   - {fileID: 1212566820}
+  - {fileID: 1576214589}
   - {fileID: 720060381}
   - {fileID: 1677828310}
   - {fileID: 1189422551}
@@ -20536,6 +20562,36 @@ MonoBehaviour:
   canvasGroup: {fileID: 2119634520}
   enemyObject: {fileID: 0}
   enemytimeToTeleport: 0
+  canChoice1: 1
+  canChoice2: 0
+  OnPlayerAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964036706}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: PlayFadetransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2119634520}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  useEnemy: 0
 --- !u!65 &533656797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29425,7 +29481,7 @@ PrefabInstance:
     - target: {fileID: 7022068188166454854, guid: 15d912d4466f02247a4501e69ec10a06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7022068188166454854, guid: 15d912d4466f02247a4501e69ec10a06,
         type: 3}
@@ -34777,7 +34833,7 @@ PrefabInstance:
     - target: {fileID: 8398188545132586352, guid: 4bafbd342ff520e43b4e3f3486c2c632,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8398188545132586352, guid: 4bafbd342ff520e43b4e3f3486c2c632,
         type: 3}
@@ -37360,14 +37416,17 @@ MonoBehaviour:
   newPosition: {fileID: 1889430960}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}
+  _timeToTeleport: 0
   finalScene: 
   useEnemy: 0
   adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 1
   findItem: 
+  findListItem: []
   useKey: 0
   passwordPuzzle: {fileID: 1125089166}
+  soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -37378,6 +37437,33 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
         m_MethodName: ChangePosition
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  BeforeTeleport:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964036706}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: PlayFadetransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2023401822}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -38867,10 +38953,34 @@ MonoBehaviour:
   playBeforeCutscene: 0
   OnPlayerEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &952595890
 GameObject:
   m_ObjectHideFlags: 0
@@ -49700,7 +49810,7 @@ PrefabInstance:
     - target: {fileID: 856801074719186024, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 856801074719186024, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
         type: 3}
@@ -53421,7 +53531,7 @@ PrefabInstance:
     - target: {fileID: 356040955538201812, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 356040955538201812, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
@@ -58793,27 +58903,57 @@ MonoBehaviour:
   newPosition: {fileID: 1635876992}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}
+  _timeToTeleport: 0
   finalScene: 
   useEnemy: 0
   adjustPosition: {x: 0.8, y: 1, z: 0}
   useScene: 0
   isLocked: 0
   findItem: 
+  findListItem: []
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
   OnPlayerActionToNextPosition:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1831758209}
+        m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
+        m_MethodName: ChangePosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  BeforeTeleport:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964036706}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: PlayFadetransition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 552519854}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -59396,10 +59536,34 @@ MonoBehaviour:
   playBeforeCutscene: 0
   OnPlayerEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1426261570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63320,6 +63484,36 @@ MonoBehaviour:
   canvasGroup: {fileID: 2119634520}
   enemyObject: {fileID: 0}
   enemytimeToTeleport: 0
+  canChoice1: 0
+  canChoice2: 1
+  OnPlayerAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964036706}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: PlayFadetransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 17572638}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  useEnemy: 0
 --- !u!65 &1515614406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66527,6 +66721,137 @@ Transform:
   m_Father: {fileID: 510650531}
   m_RootOrder: 255
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &1576214587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 474285245}
+    m_Modifications:
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281584306811108511, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+        type: 3}
+      propertyPath: m_Name
+      value: Dark Fade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb, type: 3}
+--- !u!95 &1576214588 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5281584306811108497, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576214587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1576214589 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5281584306811108510, guid: a270bbb3a3dec0d4d8fefb8a510c6eeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1576214587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1576222487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68598,14 +68923,17 @@ MonoBehaviour:
   newPosition: {fileID: 1408369979}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}
+  _timeToTeleport: 0
   finalScene: 
   useEnemy: 0
   adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 0
   findItem: 
+  findListItem: []
   useKey: 0
   passwordPuzzle: {fileID: 0}
+  soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -68616,6 +68944,33 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PositionChange, Assembly-CSharp
         m_MethodName: ChangePosition
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  BeforeTeleport:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1964036706}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: PlayFadetransition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 930911638}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -70649,7 +71004,7 @@ PrefabInstance:
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
@@ -81175,8 +81530,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889430960}
-  - component: {fileID: 1889430962}
-  - component: {fileID: 1889430961}
   m_Layer: 0
   m_Name: PraewHouse Back WayPoint
   m_TagString: Untagged
@@ -81200,59 +81553,6 @@ Transform:
   m_Father: {fileID: 1788796057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1889430961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889430959}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1382f981ff5e87468e892d1fa045588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: PraewHouseBack
-  messageCanvasGroup: {fileID: 164753505}
-  messagesSprite: {fileID: 200634711}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
-  newPosition: {fileID: 922511843}
-  _player: {fileID: 1398390232}
-  _enemy: {fileID: 0}
-  finalScene: 
-  useEnemy: 0
-  adjustPosition: {x: 0, y: 1, z: 0}
-  useScene: 0
-  isLocked: 0
-  findItem: 
-  useKey: 0
-  passwordPuzzle: {fileID: 0}
-  OnPlayerActionToNextScene:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPlayerActionToNextPosition:
-    m_PersistentCalls:
-      m_Calls: []
-  OnWillUnlockDoor:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAfterUnlockDoor:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &1889430962
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889430959}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1889848309
 GameObject:
   m_ObjectHideFlags: 0
@@ -84482,6 +84782,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1960123154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1964036704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 12516218}
+    m_Modifications:
+    - target: {fileID: 179560888325856294, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: animation
+      value: 
+      objectReference: {fileID: 1576214588}
+    - target: {fileID: 179560888325856312, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_Name
+      value: Fade Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa7aecc932150d849801f7c08077302b, type: 3}
+--- !u!4 &1964036705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 179560888325856313, guid: fa7aecc932150d849801f7c08077302b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964036704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1964036706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 179560888325856294, guid: fa7aecc932150d849801f7c08077302b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1964036704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0b1de3b6b85144685d936c3db42c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1965399444
 PrefabInstance:
   m_ObjectHideFlags: 0
