@@ -512,8 +512,8 @@ CanvasGroup:
   m_GameObject: {fileID: 17572636}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &17572639
 MonoBehaviour:
@@ -20530,7 +20530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533656794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.45, y: 1.27, z: 3.957}
+  m_LocalPosition: {x: 262.45, y: 1.619, z: 3.957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22034,8 +22034,8 @@ CanvasGroup:
   m_GameObject: {fileID: 552519852}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &552519855
 MonoBehaviour:
@@ -37422,9 +37422,7 @@ MonoBehaviour:
   adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 1
-  findItem: 
   findListItem: []
-  useKey: 0
   passwordPuzzle: {fileID: 1125089166}
   soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
@@ -37511,6 +37509,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -37913,8 +37923,8 @@ CanvasGroup:
   m_GameObject: {fileID: 930911636}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &930911639
 MonoBehaviour:
@@ -58909,9 +58919,7 @@ MonoBehaviour:
   adjustPosition: {x: 0.8, y: 1, z: 0}
   useScene: 0
   isLocked: 0
-  findItem: 
   findListItem: []
-  useKey: 0
   passwordPuzzle: {fileID: 0}
   soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
@@ -59316,7 +59324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quickTimeEventManager: {fileID: 484820227}
-  playerMovmentsScript: {fileID: 890688537}
   canvasGroup: {fileID: 1807132381}
   interaction: {fileID: 282267549}
   adjustPosition: {x: 0, y: 0, z: 0}
@@ -59359,6 +59366,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1807132381}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_alpha
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnPlayerFailedQTE:
     m_PersistentCalls:
       m_Calls:
@@ -59371,6 +59402,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 890688537}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: ContinuePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -63452,7 +63495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515614403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 261.98, y: 4.39, z: 5.767}
+  m_LocalPosition: {x: 261.98, y: 4.759, z: 5.767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63479,13 +63522,13 @@ MonoBehaviour:
   messageTransform2: {fileID: 806655616}
   _messageImage1: {fileID: 0}
   _messageImage2: {fileID: 806655617}
-  _messageSprite1: {fileID: 21300000, guid: 0fc9a11f6ea7b5f438fcf1858cae8216, type: 3}
-  _messageSprite2: {fileID: 0}
+  _messageSprite1: {fileID: 0}
+  _messageSprite2: {fileID: 21300000, guid: 0fc9a11f6ea7b5f438fcf1858cae8216, type: 3}
   canvasGroup: {fileID: 2119634520}
   enemyObject: {fileID: 0}
   enemytimeToTeleport: 0
-  canChoice1: 0
-  canChoice2: 1
+  canChoice1: 1
+  canChoice2: 0
   OnPlayerAction:
     m_PersistentCalls:
       m_Calls:
@@ -68929,9 +68972,7 @@ MonoBehaviour:
   adjustPosition: {x: 0, y: 1, z: 0}
   useScene: 0
   isLocked: 0
-  findItem: 
   findListItem: []
-  useKey: 0
   passwordPuzzle: {fileID: 0}
   soundOnAction: {fileID: 0}
   OnPlayerActionToNextScene:
@@ -87432,8 +87473,8 @@ CanvasGroup:
   m_GameObject: {fileID: 2023401820}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2023401823
 MonoBehaviour:
@@ -92199,8 +92240,8 @@ CanvasGroup:
   m_GameObject: {fileID: 2119634518}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2119634521
 MonoBehaviour:
