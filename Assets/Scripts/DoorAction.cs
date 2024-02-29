@@ -95,6 +95,7 @@ public class DoorAction : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && passwordPuzzle != null)
             {
+                _player.GetComponent<PlayerMovmentsScript>().StopPlayer();
                 passwordPuzzle.ReceiveCallbackFunction(OnAfterUnlockDoor);
                 OnWillUnlockDoor?.Invoke();
                 onPasswordPuzzleOpen = true;
@@ -125,6 +126,7 @@ public class DoorAction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                _player.GetComponent<PlayerMovmentsScript>().ContinuePlayer();
                 passwordPuzzle.ExitPasswordPuzzle();
                 onPasswordPuzzleOpen = false;
             }

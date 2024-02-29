@@ -231,7 +231,7 @@ public class EnemyAi : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds(20.0f);
             if (chasing == false && agent.remainingDistance <= 0)
             {
                 randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);

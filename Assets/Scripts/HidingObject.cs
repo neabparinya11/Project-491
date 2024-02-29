@@ -49,9 +49,7 @@ public class HidingObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                canvas.alpha = 0.0f;
-                normalPlayer.SetActive(true);
-                hiding = false;
+                ExitHiding();
             }
             //QTEController.instance.isQTEenable = true;
         }
@@ -88,6 +86,12 @@ public class HidingObject : MonoBehaviour
         }
     }
 
+    public void ExitHiding()
+    {
+        canvas.alpha = 0.0f;
+        normalPlayer.SetActive(true);
+        hiding = false;
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.CompareTag("Enemy"))
