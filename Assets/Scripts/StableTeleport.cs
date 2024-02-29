@@ -20,6 +20,7 @@ public class StableTeleport : MonoBehaviour
     [SerializeField] private bool useEnemy = false;
     bool _enemyCanTeleport = false;
     bool _canTeleport = false;
+    Vector3 storeNextPosition;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +41,7 @@ public class StableTeleport : MonoBehaviour
             {
                 OnPlayerAction?.Invoke();
                 PositionChange.GetInstance().ChangePosition(_player, choice1.position);
-                //_player.transform.position = choice1.position;
+                storeNextPosition = choice1.position;
                 _canTeleport = false;
                 _enemyCanTeleport = true;
             }
@@ -54,7 +55,7 @@ public class StableTeleport : MonoBehaviour
             {
                 OnPlayerAction?.Invoke();
                 PositionChange.GetInstance().ChangePosition(_player, choice2.position);
-                //_player.transform.position = choice2.position;
+                storeNextPosition = choice2.position;
                 _canTeleport = false;
                 _enemyCanTeleport = true;
             }
@@ -92,7 +93,7 @@ public class StableTeleport : MonoBehaviour
     {
         yield return new WaitForSeconds(enemytimeToTeleport);
         EnemyAi scriptObject = enemyObject.GetComponent<EnemyAi>();
-        //scriptObject.SetNewPosition();
+        scriptObject.SetNewPosition(storeNextPosition);
     }
 
     public void SetCanChoice1(bool _set)

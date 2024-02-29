@@ -54,7 +54,6 @@ public class QTEController : MonoBehaviour
             if (isChecked && countKeyDown == 3)
             {
                 Success();
-                callbackFunction?.Invoke();
                 if (cutsceneController != null)
                 {
                     cutsceneController.EnterDialogMode(inkJson);
@@ -76,7 +75,6 @@ public class QTEController : MonoBehaviour
             else
             {
                 FailedPuzzle();
-                callbackFunction2?.Invoke();
                 if (playerObject != null)
                 {
                     playerObject.SetActive(true);
@@ -182,6 +180,7 @@ public class QTEController : MonoBehaviour
 
     protected void Success()
     {
+        callbackFunction?.Invoke();
         start = false;
         isQTEenable = false;
         timeCanvas.alpha = 0;
@@ -197,6 +196,7 @@ public class QTEController : MonoBehaviour
     {
         if (!start)
         {
+            callbackFunction2?.Invoke();
             start = false;
             isQTEenable = false;
             timeCanvas.alpha = 0;

@@ -78,6 +78,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if (playBeforeCutscene && isFirst)
         {
+            PlayerMovmentsScript.instance.StopPlayer();
             StartCoroutine(PlayListSound());
             isFirst = false;
         }

@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class QTETrigger : MonoBehaviour
 {
     [SerializeField] private QTEController quickTimeEventManager;
-    [SerializeField] private PlayerMovmentsScript playerMovmentsScript;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject interaction;
     [SerializeField] private Vector3 adjustPosition;
@@ -37,6 +36,7 @@ public class QTETrigger : MonoBehaviour
             quickTimeEventManager.ReceiveCallbackFuntion2(OnPlayerFailedQTE);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                PlayerMovmentsScript.instance.StopPlayer();
                 canvasGroup.alpha = 0;
                 quickTimeEventManager.GeneratePattern();
             }
