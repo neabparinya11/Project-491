@@ -99,4 +99,8 @@ public class HidingObject : MonoBehaviour
     //        QTEController.instance.isQTEenable = true;
     //    }
     //}
+    public bool GetHidingState()
+    {
+        return hiding;
+    }
 }

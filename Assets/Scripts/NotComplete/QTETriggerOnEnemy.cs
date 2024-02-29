@@ -10,12 +10,13 @@ public class QTETriggerOnEnemy : MonoBehaviour
     [SerializeField] private UnityEvent OnQuickTimeEventFailed;
     [SerializeField] private UnityEvent OnQuickTimeEventSuccess;
     private bool enemyInRange = false;
-    private bool first = true;
+    [SerializeField] private bool first = true;
+    private HidingObject hidingScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.hidingScript = GetComponent<HidingObject>();
     }
 
     // Update is called once per frame
@@ -32,9 +33,10 @@ public class QTETriggerOnEnemy : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit))
         {
-            if (hit.collider.gameObject.tag == "Enemy")
+            if (hit.collider.gameObject.tag == "Enemy" && hidingScript.GetHidingState() && first)
             {
                 Debug.Log("Enemy");
+                first = false;
             }
         }
     }
@@ -44,6 +46,7 @@ public class QTETriggerOnEnemy : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             enemyInRange = true;
+            first = true;
         }
     }
 
