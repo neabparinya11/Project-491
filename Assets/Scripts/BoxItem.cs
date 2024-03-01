@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxItem : MonoBehaviour, IDataPersistances
+public class BoxItem : MonoBehaviour
 {
     [SerializeField] private string id;
     //public List<GameObject> listItem = new List<GameObject>();
@@ -98,17 +98,17 @@ public class BoxItem : MonoBehaviour, IDataPersistances
         //interaction.transform.position = screenPosition;
     }
 
-    public void SaveData(ref GameData gameData)
-    {
-        if (gameData.dictBoxItem.ContainsKey(id))
-        {
-            gameData.dictBoxItem.Remove(id);
-        }
-        gameData.dictBoxItem.Add(id, isSearch);
-    }
+    //public void SaveData(ref GameData gameData)
+    //{
+    //    if (gameData.dictBoxItem.ContainsKey(id))
+    //    {
+    //        gameData.dictBoxItem.Remove(id);
+    //    }
+    //    gameData.dictBoxItem.Add(id, isSearch);
+    //}
 
-    public void LoadData(GameData gameData)
-    {
-        gameData.dictBoxItem.TryGetValue(id, out isSearch);
-    }
+    //public void LoadData(GameData gameData)
+    //{
+    //    gameData.dictBoxItem.TryGetValue(id, out isSearch);
+    //}
 }
