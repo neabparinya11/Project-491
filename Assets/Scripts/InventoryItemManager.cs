@@ -24,7 +24,6 @@ public class InventoryItemManager : MonoBehaviour
             case ItemType.Food:
                 HealthController.instance.IncreaseHealth(item.restoreHealth);
                 StaminaController.instance.IncreaseStamina(item.restoreStamina);
-                //SanityController.instance.IncreaseS(item.restoreSanity);
                 SanityController.instance.IncreaseSanity(item.restoreSanity);
                 break;
             case ItemType.Question:
@@ -40,8 +39,6 @@ public class InventoryItemManager : MonoBehaviour
     {
         //Clear
         ItemDetailManager.Instance.ClearDetail();
-        //ItemDetailManager.Instance.useItemBtn.onClick.RemoveAllListeners();
-        //ItemDetailManager.Instance.dropItemBtn.onClick.RemoveAllListeners();
 
         //Set
         ItemDetailManager.Instance.nameitem = item.itemName;

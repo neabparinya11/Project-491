@@ -41,6 +41,7 @@ public class BoxItem : MonoBehaviour
             if (currentLoad >= maxLoad)
             {
                 loadStock.SetActive(false);
+                canvas.alpha = 0;
                 RandomItem();
                 //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
