@@ -41,4 +41,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Night_School Scene.unity
     guid: 437b00c020800e4419acf554d0a619e9
+  - enabled: 1
+    path: Assets/Scenes/After Roof Top.unity
+    guid: c43adb13b7efe584090500e614f47a93
+  - enabled: 1
+    path: Assets/Scenes/Last_Chapter.unity
+    guid: ce0b7bcf8bd2e654d9875c5bc24f5498
+  - enabled: 1
+    path: Assets/Scenes/End Credit.unity
+    guid: 06c7d76ac1b5ffe469ddd0b4f2429ab5
   m_configObjects: {}

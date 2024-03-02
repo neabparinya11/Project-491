@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BoxItem : MonoBehaviour
 {
     [SerializeField] private string id;
-    //public List<GameObject> listItem = new List<GameObject>();
     [SerializeField] private List<FoodItem> listItemObject = new List<FoodItem>();
     public QuestionItem questionItem;
     [SerializeField] GameObject loadStock;
-    //public GameObject interaction;
     public Transform loadStockTransform;
     public Slider slide;
     [SerializeField] CanvasGroup canvas;
     [SerializeField] GameObject interaction;
+    [SerializeField] private UnityEvent<string, Sprite> OnSuccessSearch;
 
     float speed = 20.0f;
     float maxLoad = 100.0f;
@@ -34,6 +34,7 @@ public class BoxItem : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 //interaction.SetActive(false);
+                PlayerMovmentsScript.instance.StopPlayer();
                 loadStock.SetActive(true);
                 currentLoad += speed * Time.deltaTime;
                 slide.value = currentLoad;
@@ -43,12 +44,14 @@ public class BoxItem : MonoBehaviour
                 loadStock.SetActive(false);
                 canvas.alpha = 0;
                 RandomItem();
+                PlayerMovmentsScript.instance.ContinuePlayer();
                 //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             if (currentLoad < maxLoad && !Input.GetKey(KeyCode.E))
             {
                 currentLoad -= speed * Time.deltaTime;
                 slide.value = currentLoad;
+                PlayerMovmentsScript.instance.ContinuePlayer();
                 if (currentLoad <= 0)
                 {
                     currentLoad = 0;
@@ -72,11 +75,10 @@ public class BoxItem : MonoBehaviour
         }
         else
         {
+            OnSuccessSearch?.Invoke(listItemObject[index].itemName, listItemObject[index].icon);
             InventoryManager.Instance.AddFoodItem(listItemObject[index]);
         }
-        
         isSearch = true;
-
     }
     private void OnTriggerExit(Collider other)
     {

@@ -47,6 +47,7 @@ public class SanityTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
+            this.enabled = false;
         }
     }
 }
