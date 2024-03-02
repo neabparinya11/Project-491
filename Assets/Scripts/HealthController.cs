@@ -24,9 +24,14 @@ public class HealthController : MonoBehaviour, IDataPersistances
     {
         if (percentageHealth <= 0)
         {
-            SceneManager.LoadScene(deathScene);
+            //SceneManager.LoadScene(deathScene);
+            LoadScene.GetInstance().LoadTargetScene(deathScene);
         }
         UpdateHealth();
+        if (percentageHealth > 100.0f)
+        {
+            percentageHealth = 100.0f;
+        }
     }
 
     public void DecreaseHealth(float _value)

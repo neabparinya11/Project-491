@@ -27,6 +27,14 @@ public class SanityController : MonoBehaviour
         Color newColor = fieldView.color;
         newColor.a = 1 - playerSanity/maxSanity;
         fieldView.color = newColor;
+        if (playerSanity < 0)
+        {
+            playerSanity = 0;
+        }
+        if (playerSanity > 255)
+        {
+            playerSanity = 255;
+        }
     }
 
     public void DecreaseSanity(float _value)
