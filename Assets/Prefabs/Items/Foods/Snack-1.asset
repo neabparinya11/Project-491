@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snack-1
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: dff4c7449cc3a044ab65990f10c16060, type: 3}
+  icon: {fileID: 21300000, guid: b814787f35556bb4a8d16a77c4723a0b, type: 3}
   type: 0
   itemName: "\u0E0A\u0E38\u0E14\u0E1B\u0E10\u0E21\u0E1E\u0E22\u0E32\u0E1A\u0E32\u0E25"
   description: "\u0E21\u0E35\u0E17\u0E31\u0E49\u0E07\u0E19\u0E49\u0E33\u0E40\u0E01\u0E25\u0E37\u0E2D\u0E25\u0E49\u0E32\u0E07\u0E41\u0E1C\u0E25
