@@ -14,15 +14,16 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 {
     [Header("Global Ink File")]
     [SerializeField] private InkFile globalInkFile;
-    [SerializeField] GameObject dialogPanel;
-    [SerializeField] TextMeshProUGUI dialogText;     
-    [SerializeField] TextMeshProUGUI nameTag;
-    [SerializeField] GameObject[] choices;
-    [SerializeField] bool useInCutscene;
-    [SerializeField] float speedSentence;
-    [SerializeField] PlayerMovmentsScript playerMovmentsScript;
-    [SerializeField] string nextScene;
-    [SerializeField] bool useNextScene;
+    [SerializeField] private GameObject dialogPanel;
+    [SerializeField] private TextMeshProUGUI dialogText;     
+    [SerializeField] private TextMeshProUGUI nameTag;
+    [SerializeField] private GameObject[] choices;
+    [SerializeField] private float speedSentence;
+    [Header("Manage player")]
+    [SerializeField] private PlayerMovmentsScript playerMovmentsScript;
+    [Header("Go to next scene when exit")]
+    [SerializeField] private string nextScene;
+    [SerializeField] private bool useNextScene;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     private Sprite imagePanel;
@@ -33,6 +34,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     private DialogueVariable dialogueVariable;
     private UnityEvent callbackExitDialogue;
     private UnityEvent callbackEnterDialogue;
+
+    Ink.Runtime.Object test;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,10 +68,6 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
         if (currentStory.currentChoices.Count == 0 && Input.GetMouseButtonDown(((int)MouseButton.Left)) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (useInCutscene)
-            {
-                CutsceneController1.GetInstance().ContinueTimeLine();
-            }
             ContinueStory();
         }
 
@@ -86,26 +85,19 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         currentStory.variablesState["playerName"] = currentName;
         if (playerMovmentsScript != null)
         {
-            playerMovmentsScript.disable = true;
+            playerMovmentsScript.StopPlayer();
         }
         dialogIsPlaying = true;
         dialogPanel.SetActive(true);
 
         //Test
-        Ink.Runtime.Object value;
-        dialogueVariable.variables.TryGetValue("isReturnKey", out value);
-        bool test = (value.Equals("false"))? false: true;
-        Debug.Log("isReturnKey = " + test);
+        
         ContinueStory();
     }
 
 
     private IEnumerator ExitDialogMode()
     {
-        if (useInCutscene)
-        {
-            CutsceneController1.GetInstance().ExitTimeLine();
-        }
         yield return new WaitForSeconds(0.2f);
         dialogueVariable.StopListening(currentStory);
         dialogIsPlaying = false;
@@ -114,7 +106,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
         nameTag.text = "";
         if (playerMovmentsScript != null)
         {
-            playerMovmentsScript.disable = false;
+            playerMovmentsScript.ContinuePlayer();
         }
 
         if (useNextScene)
@@ -131,11 +123,10 @@ public class DialogManager : MonoBehaviour, IDataPersistances
             string[] data = currentStory.Continue().Split(":");
             dialogText.text = data[1];
             nameTag.text = data[0];
-            if (useInCutscene)
-            {
-                CutsceneController1.GetInstance().StopTimeLine();
-            }
             DisplayChoices();
+            //dialogueVariable.variables.TryGetValue("isReturnKey", out test);
+            //bool test2 = test.ToString() == "true";
+            //Debug.Log("Print : " + test2);
         }
         else
         {
