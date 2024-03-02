@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pill
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: a0dd2531f11e1a24aa02061dd05b4391, type: 3}
+  icon: {fileID: 21300000, guid: 9c383496c08ebab46bf465b959318c57, type: 3}
   type: 0
   itemName: "\u0E22\u0E32\u0E1B\u0E23\u0E30\u0E2B\u0E25\u0E32\u0E14"
   description: "\u0E40\u0E1B\u0E47\u0E19\u0E22\u0E32\u0E40\u0E21\u0E47\u0E14\u0E2A\u0E35\u0E02\u0E32\u0E27
