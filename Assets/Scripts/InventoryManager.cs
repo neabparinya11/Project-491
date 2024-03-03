@@ -114,6 +114,11 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
             var taskButton = obj.GetComponent<Button>();
             taskButton.interactable = !task.isComplete;
         }
+
+        for (int i=0; i< 3; i++)
+        {
+            GameObject obj = Instantiate(iconTask, taskContent);
+        }
         SetInventoryTask();
     }
 
@@ -145,6 +150,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryPanel.SetActive(true);
+            Debug.Log(inventoryItem.Length);
             ShowListFoodItem();
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -156,9 +162,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void ClearDataList()
     {
-        Array.Clear(inventoryItem, 0, inventoryItem.Length);
-        Array.Clear(inventoryQuest, 0, inventoryQuest.Length);
-        Array.Clear(inventoryTask, 0, inventoryTask.Length);
+        
     }
     public void SetInventoryItem()
     {
