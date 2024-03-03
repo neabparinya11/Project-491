@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -111,13 +112,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         foreach (var task in ListTask)
         {
             GameObject obj = Instantiate(iconTask, taskContent);
+            var head = obj.transform.Find("Task Header").GetComponent<TextMeshProUGUI>();
+            head.SetText(!task.isComplete ? task.headTask : "<s>" + task.headTask + "</s>");
             var taskButton = obj.GetComponent<Button>();
             taskButton.interactable = !task.isComplete;
-        }
-
-        for (int i=0; i< 3; i++)
-        {
-            GameObject obj = Instantiate(iconTask, taskContent);
         }
         SetInventoryTask();
     }
@@ -150,7 +148,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryPanel.SetActive(true);
-            Debug.Log(inventoryItem.Length);
             ShowListFoodItem();
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -162,11 +159,23 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void ClearDataList()
     {
-        
+        foreach (Transform var in itemContent)
+        {
+            Destroy(var.gameObject);
+        }
+
+        foreach (Transform item in taskContent)
+        {
+            Destroy(item.gameObject);
+        }
+        itemDetailPanel?.SetActive(false);
+        itemQuestPanel?.SetActive(false);
+        itemTaskPanel?.SetActive(false);
     }
     public void SetInventoryItem()
     {
         inventoryItem = itemContent.GetComponentsInChildren<InventoryItemManager>();
+        Debug.Log(ListFoodItem.Count);
         for (int i = 0; i< ListFoodItem.Count; i++)
         {
             inventoryItem[i].AddNewItem(ListFoodItem[i]);
