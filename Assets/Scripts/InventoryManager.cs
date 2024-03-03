@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -109,6 +110,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         {
             Destroy(item.gameObject);
         }
+        ListTask = ListTask.OrderByDescending(x => x.index).ToList();
         foreach (var task in ListTask)
         {
             GameObject obj = Instantiate(iconTask, taskContent);
@@ -175,7 +177,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     public void SetInventoryItem()
     {
         inventoryItem = itemContent.GetComponentsInChildren<InventoryItemManager>();
-        Debug.Log(ListFoodItem.Count);
         for (int i = 0; i< ListFoodItem.Count; i++)
         {
             inventoryItem[i].AddNewItem(ListFoodItem[i]);
@@ -227,7 +228,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         gameData.listFoodItem = this.ListFoodItem;
         gameData.listQuestItem = this.ListQuestionItem;
-
+        gameData.listTaskComponent = this.ListTask;
         //gameData.listFoodItem.Clear();
         //gameData.listQuestItem.Clear();
         //foreach (FoodItem itemData in this.ListFoodItem)
@@ -244,6 +245,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         this.ListFoodItem = gameData.listFoodItem;
         this.ListQuestionItem = gameData.listQuestItem;
+        this.ListTask = gameData.listTaskComponent;
         //this.ListFoodItem.Clear();
         //this.ListQuestionItem.Clear();
         //foreach (SerialiazableDictionary<string, FoodItem> itemData in gameData.listFoodItem)
