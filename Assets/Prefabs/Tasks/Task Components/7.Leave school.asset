@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2797fe467c956424882c0ed51317e945, type: 3}
   m_Name: 7.Leave school
   m_EditorClassIdentifier: 
-  index: 2
-  headTask: 
+  index: 7
+  headTask: "\u0E2D\u0E2D\u0E01\u0E08\u0E32\u0E01\u0E42\u0E23\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19"
   descriptionTask: 
   isComplete: 0
