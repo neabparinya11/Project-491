@@ -16,5 +16,6 @@ public class InventoryTaskManager : MonoBehaviour
 
         TaskDetailManager.GetInstance().taskHeader = task.headTask;
         TaskDetailManager.GetInstance().taskDetail = task.descriptionTask;
+        TaskDetailManager.GetInstance().SetctivtePanel(true);
     }
 }

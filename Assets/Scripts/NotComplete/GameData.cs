@@ -12,6 +12,7 @@ public class GameData
     public string currentScene;
     public List<FoodItem> listFoodItem;
     public List<QuestionItem> listQuestItem;
+    public List<TaskComponent> listTaskComponent;
     public SerialiazableDictionary<string, bool> dictBoxItem;
     public SerialiazableDictionary<string, bool> dictDoorAction;
     public SerialiazableDictionary<string, bool> dictQuestItem;
@@ -28,6 +29,7 @@ public class GameData
         //this.listQuestItem = new List<QuestionItem>();
         this.listQuestItem = new List<QuestionItem>();
         this.listFoodItem = new List<FoodItem>();
+        this.listTaskComponent = new List<TaskComponent>();
         this.dictBoxItem = new SerialiazableDictionary<string, bool>();
         this.dictDoorAction = new SerialiazableDictionary<string, bool>();
         this.dictCutscene = new SerialiazableDictionary<string, bool>() { 

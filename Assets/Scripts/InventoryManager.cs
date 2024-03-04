@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -108,16 +110,14 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         {
             Destroy(item.gameObject);
         }
+        ListTask = ListTask.OrderByDescending(x => x.index).ToList();
         foreach (var task in ListTask)
         {
             GameObject obj = Instantiate(iconTask, taskContent);
+            var head = obj.transform.Find("Task Header").GetComponent<TextMeshProUGUI>();
+            head.SetText(!task.isComplete ? task.headTask : "<s>" + task.headTask + "</s>");
             var taskButton = obj.GetComponent<Button>();
             taskButton.interactable = !task.isComplete;
-        }
-
-        for (int i=0; i< 3; i++)
-        {
-            GameObject obj = Instantiate(iconTask, taskContent);
         }
         SetInventoryTask();
     }
@@ -150,7 +150,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryPanel.SetActive(true);
-            Debug.Log(inventoryItem.Length);
             ShowListFoodItem();
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -162,7 +161,18 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void ClearDataList()
     {
-        
+        foreach (Transform var in itemContent)
+        {
+            Destroy(var.gameObject);
+        }
+
+        foreach (Transform item in taskContent)
+        {
+            Destroy(item.gameObject);
+        }
+        itemDetailPanel?.SetActive(false);
+        itemQuestPanel?.SetActive(false);
+        itemTaskPanel?.SetActive(false);
     }
     public void SetInventoryItem()
     {
@@ -218,7 +228,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         gameData.listFoodItem = this.ListFoodItem;
         gameData.listQuestItem = this.ListQuestionItem;
-
+        gameData.listTaskComponent = this.ListTask;
         //gameData.listFoodItem.Clear();
         //gameData.listQuestItem.Clear();
         //foreach (FoodItem itemData in this.ListFoodItem)
@@ -235,6 +245,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         this.ListFoodItem = gameData.listFoodItem;
         this.ListQuestionItem = gameData.listQuestItem;
+        this.ListTask = gameData.listTaskComponent;
         //this.ListFoodItem.Clear();
         //this.ListQuestionItem.Clear();
         //foreach (SerialiazableDictionary<string, FoodItem> itemData in gameData.listFoodItem)
