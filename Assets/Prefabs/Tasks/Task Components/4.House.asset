@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2797fe467c956424882c0ed51317e945, type: 3}
   m_Name: 4.House
   m_EditorClassIdentifier: 
-  index: 2
+  index: 3
   headTask: "\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E1A\u0E49\u0E32\u0E19\u0E02\u0E2D\u0E07\u0E41\u0E1E\u0E23\u0E27"
   descriptionTask: 
   isComplete: 0
