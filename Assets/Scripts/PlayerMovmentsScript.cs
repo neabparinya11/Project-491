@@ -40,7 +40,6 @@ public class PlayerMovmentsScript : MonoBehaviour
         instance = this;
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<Animator>();
-        //staminaController = GetComponent<StaminaController>();
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
     }
 

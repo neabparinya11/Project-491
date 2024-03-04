@@ -49,11 +49,25 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void AddQuestionItem(QuestionItem _item)
     {
+        foreach (QuestionItem item in ListQuestionItem)
+        {
+            if (item.Equals(_item))
+            {
+                ListQuestionItem.Remove(item);
+            }
+        }
         ListQuestionItem.Add(_item);
     }
 
     public void AddTaskList(TaskComponent _task)
     {
+        foreach (TaskComponent item in ListTask)
+        {
+            if (item.Equals(_task))
+            {
+                ListTask.Remove(item);
+            }
+        }
         ListTask.Add(_task);
     }
 
@@ -77,6 +91,15 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         ListQuestionItem.Remove(_item);
     }
 
+    public void RemoveTaskComponent(TaskComponent _item)
+    {
+        ListTask.Remove(_item);
+    }
+
+    public void RemoveTutorialComponent(TutorialComponent _item)
+    {
+        ListTutorial.Remove(_item);
+    }
     public void ShowListFoodItem()
     {
         taskContentObject.SetActive(false);
@@ -116,7 +139,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         {
             Destroy(item.gameObject);
         }
-        ListTask = ListTask.OrderByDescending(x => x.index).ToList();
+        ListTask = ListTask.Count > 0? ListTask.OrderByDescending(x => x.index).ToList(): ListTask;
         foreach (var task in ListTask)
         {
             GameObject obj = Instantiate(iconTask, taskContent);
