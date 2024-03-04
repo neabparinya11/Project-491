@@ -22,13 +22,6 @@ public class QTETriggerOnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyInRange && first)
-        {
-            qteController.ReceiveCallbackFuntion2(OnQuickTimeEventFailed);
-            qteController.ReceiveCallbackFuntion(OnQuickTimeEventSuccess);
-            qteController.GeneratePattern();
-            first = false;
-        }
         Vector3 direction = (enemyObject.transform.position - transform.position).normalized;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, direction, out hit))
@@ -36,6 +29,9 @@ public class QTETriggerOnEnemy : MonoBehaviour
             if (hit.collider.gameObject.tag == "Enemy" && hidingScript.GetHidingState() && first)
             {
                 Debug.Log("Enemy");
+                qteController.ReceiveCallbackFuntion2(OnQuickTimeEventFailed);
+                qteController.ReceiveCallbackFuntion(OnQuickTimeEventSuccess);
+                qteController.GeneratePattern();
                 first = false;
             }
         }

@@ -57,6 +57,7 @@ public class StaminaController : MonoBehaviour
                 PlayerMovmentsScript.instance.isSprint = false;
             }
         }
+        _ = playerStamina >= 30 ? staminaProgressUI.color = Color.white: staminaProgressUI.color = Color.red;
     }
 
     public void Sprinting()
