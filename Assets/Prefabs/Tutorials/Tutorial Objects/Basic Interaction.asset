@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63835443d3a71eb4c8b85ac838200d70, type: 3}
+  m_Name: Basic Interaction
+  m_EditorClassIdentifier: 
+  index: 1
+  headerTutorial: "\u0E01\u0E32\u0E23\u0E40\u0E14\u0E34\u0E19\u0E17\u0E32\u0E07\u0E02\u0E2D\u0E07\u0E09\u0E31\u0E19\u0E41\u0E25\u0E30\u0E40\u0E18\u0E2D\u0E04\u0E37\u0E2D\u0E01\u0E32\u0E23\u0E40\u0E23\u0E35\u0E22\u0E19\u0E23\u0E39\u0E49"
+  bodyTutorial: "\u0E16\u0E49\u0E32\u0E32\u0E32\u0E32\u0E32\u0E32\u0E32\u0E32\u0E32"
+  imageTutorial: {fileID: 21300000, guid: 7f331f711b25b314dbf2e1881348ff99, type: 3}
