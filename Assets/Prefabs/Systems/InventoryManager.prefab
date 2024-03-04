@@ -47,6 +47,7 @@ MonoBehaviour:
   ListFoodItem: []
   ListQuestionItem: []
   ListTask: []
+  ListTutorial: []
   selected: 0
   itemContent: {fileID: 0}
   taskContent: {fileID: 0}
@@ -58,10 +59,14 @@ MonoBehaviour:
     type: 3}
   iconTask: {fileID: 3766547986323596295, guid: bf7601933630b7e48bbe769fc1568fd7,
     type: 3}
+  iconTutorial: {fileID: 4412187404097204716, guid: c851f9cfb99332349902f695311a6f9f,
+    type: 3}
   inventoryPanel: {fileID: 0}
   itemDetailPanel: {fileID: 0}
   itemQuestPanel: {fileID: 0}
   itemTaskPanel: {fileID: 0}
+  itemTutorialPanel: {fileID: 0}
   inventoryItem: []
   inventoryQuest: []
   inventoryTask: []
+  inventoryTutorial: []
