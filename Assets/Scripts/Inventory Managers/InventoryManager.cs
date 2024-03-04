@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     public List<FoodItem> ListFoodItem = new List<FoodItem>();
     public List<QuestionItem> ListQuestionItem = new List<QuestionItem>();
     public List<TaskComponent> ListTask = new List<TaskComponent>();
+    public List<TutorialComponent> ListTutorial = new List<TutorialComponent>();
 
     public int selected;
     [Header("Set continer item")]
@@ -23,16 +24,19 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     [Header("Set default item")]
     public GameObject iconItem;
     public GameObject iconQuest;
-    public GameObject iconTask;
+    public GameObject iconTask; // Use content task content
+    public GameObject iconTutorial; // Use content task content
     [Header("Set detail panel")]
     public GameObject inventoryPanel;
     public GameObject itemDetailPanel;
     public GameObject itemQuestPanel;
     public GameObject itemTaskPanel;
+    public GameObject itemTutorialPanel;
     
     public InventoryItemManager[] inventoryItem;
     public InventoryQuestManager[] inventoryQuest;
     public InventoryTaskManager[] inventoryTask;
+    public InventoryTutorialManager[] inventoryTutorial;
     private void Awake()
     {
         Instance = this;
@@ -79,6 +83,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemContentObject.SetActive(true);
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
+        itemTutorialPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -102,6 +107,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         taskContentObject.SetActive(true);
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
+        itemTutorialPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -128,6 +134,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemContentObject.SetActive(true);
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
+        itemTutorialPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -143,6 +150,36 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
             itemIcon.sprite = item.icon;
         }
         SetInventoryQuest();
+    }
+
+    public void ShowListTutorial()
+    {
+        itemContentObject.SetActive(false);
+        taskContentObject.SetActive(true);
+
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in taskContent)
+        {
+            Destroy (item.gameObject);
+        }
+        foreach (var item in ListTutorial)
+        {
+            GameObject obj = Instantiate(iconTask, taskContent);
+
+        }
+        SetInventoryTutorial();
+    }
+
+    private void SetInventoryTutorial()
+    {
+        inventoryTutorial = taskContent.GetComponentsInChildren<InventoryTutorialManager>();
+        for (int i = 0; i< ListTutorial.Count; i++)
+        {
+            inventoryTutorial[i].AddTutorial(ListTutorial[i]);
+        }
     }
 
     private void Update()
@@ -173,6 +210,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemDetailPanel?.SetActive(false);
         itemQuestPanel?.SetActive(false);
         itemTaskPanel?.SetActive(false);
+        itemTutorialPanel?.SetActive(false);
     }
     public void SetInventoryItem()
     {
