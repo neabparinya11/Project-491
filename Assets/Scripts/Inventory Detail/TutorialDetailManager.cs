@@ -37,10 +37,16 @@ public class TutorialDetailManager : MonoBehaviour
         {
             bodyTextForImage.text = bodyTutorial;
             imageFeild.sprite = imageTutorial;
+            var tempColor = imageFeild.color;
+            tempColor.a = 1.0f;
+            imageFeild.color = tempColor;
         }
         else
         {
             bodyTextForNonImage.text = bodyTutorial;
+            var tempColor = imageFeild.color;
+            tempColor.a = 0.0f;
+            imageFeild.color = tempColor;
         }
     }
 

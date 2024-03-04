@@ -156,7 +156,9 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         itemContentObject.SetActive(false);
         taskContentObject.SetActive(true);
-
+        itemTaskPanel.SetActive(false);
+        itemDetailPanel.SetActive(false);
+        itemTutorialPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -167,8 +169,9 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         }
         foreach (var item in ListTutorial)
         {
-            GameObject obj = Instantiate(iconTask, taskContent);
-
+            GameObject obj = Instantiate(iconTutorial, taskContent);
+            var itemHeader = obj.transform.Find("Tutorial Header").GetComponent<TextMeshProUGUI>();
+            itemHeader.text = item.headerTutorial;
         }
         SetInventoryTutorial();
     }
