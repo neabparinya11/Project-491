@@ -6876,6 +6876,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialog Display
       objectReference: {fileID: 0}
+    - target: {fileID: 356040955538201813, guid: d478d950b4ee1064683e454c9d1bb2a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 356040955732286345, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8020,6 +8025,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1017839106}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1017839109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7304323309034102671, guid: c7012cc5a39f9a14184ea2ba31070152,
+    type: 3}
+  m_PrefabInstance: {fileID: 1017839106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017839108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14268b1ef72f0a74e9e8f668d8952c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1043249937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9604,7 +9621,19 @@ MonoBehaviour:
       m_Calls: []
   BeforeTeleport:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1017839109}
+        m_TargetAssemblyTypeName: PlayerMovmentsScript, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWillUnlockDoor:
     m_PersistentCalls:
       m_Calls: []
@@ -12717,6 +12746,12 @@ PrefabInstance:
       propertyPath: choices.Array.data[2]
       value: 
       objectReference: {fileID: 1968539276}
+    - target: {fileID: 2245385902286735140, guid: 06c44886b0a0744469bcae0d1a2efbef,
+        type: 3}
+      propertyPath: globalInkFile.inkAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 6f6f0ed86c2962a47873850bfee4bfa9,
+        type: 3}
     - target: {fileID: 2245385902286735141, guid: 06c44886b0a0744469bcae0d1a2efbef,
         type: 3}
       propertyPath: m_RootOrder
@@ -14589,6 +14624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dialogue Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398188545132586353, guid: 4bafbd342ff520e43b4e3f3486c2c632,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bafbd342ff520e43b4e3f3486c2c632, type: 3}
