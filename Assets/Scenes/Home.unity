@@ -9647,7 +9647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a5050989a89d334595f577a1eb5deb2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0219b5fe2974b24e80d201b67bf27ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20765,7 +20765,7 @@ MonoBehaviour:
   messageTransform2: {fileID: 0}
   _messageImage1: {fileID: 793564614}
   _messageImage2: {fileID: 0}
-  _messageSprite1: {fileID: 21300000, guid: b79a6e5c2fc47c94fbf884491f4017a7, type: 3}
+  _messageSprite1: {fileID: 21300000, guid: 6dcd1ee73475d514e866bed4c483cb06, type: 3}
   _messageSprite2: {fileID: 0}
   canvasGroup: {fileID: 2119634520}
   enemyObject: {fileID: 0}
@@ -38076,8 +38076,8 @@ MonoBehaviour:
   id: PraewHouseFront
   messageCanvasGroup: {fileID: 2023401822}
   messagesSprite: {fileID: 1483476014}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 1889430960}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}
@@ -59714,8 +59714,8 @@ MonoBehaviour:
   id: PreawHouseRoomBack
   messageCanvasGroup: {fileID: 552519854}
   messagesSprite: {fileID: 411436065}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 1635876992}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}
@@ -62619,7 +62619,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483476012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64443,7 +64443,7 @@ MonoBehaviour:
   _messageImage1: {fileID: 0}
   _messageImage2: {fileID: 806655617}
   _messageSprite1: {fileID: 0}
-  _messageSprite2: {fileID: 21300000, guid: 0fc9a11f6ea7b5f438fcf1858cae8216, type: 3}
+  _messageSprite2: {fileID: 21300000, guid: 119f96ef0b420144f9f99570e893984c, type: 3}
   canvasGroup: {fileID: 2119634520}
   enemyObject: {fileID: 0}
   enemytimeToTeleport: 0
@@ -70036,8 +70036,8 @@ MonoBehaviour:
   id: PreawHouseRoomFront
   messageCanvasGroup: {fileID: 930911638}
   messagesSprite: {fileID: 536009867}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 1408369979}
   _player: {fileID: 1398390232}
   _enemy: {fileID: 0}

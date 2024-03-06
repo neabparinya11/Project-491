@@ -115,6 +115,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
         itemTutorialPanel.SetActive(false);
+        itemQuestPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -139,6 +140,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
         itemTutorialPanel.SetActive(false);
+        itemQuestPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -166,6 +168,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
         itemTutorialPanel.SetActive(false);
+        itemQuestPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);
@@ -192,6 +195,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         itemTaskPanel.SetActive(false);
         itemDetailPanel.SetActive(false);
         itemTutorialPanel.SetActive(false);
+        itemQuestPanel.SetActive(false);
         foreach (Transform item in itemContent)
         {
             Destroy(item.gameObject);

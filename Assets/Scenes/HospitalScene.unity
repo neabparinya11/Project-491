@@ -8349,7 +8349,7 @@ PrefabInstance:
         type: 3}
       propertyPath: exitDetail
       value: 
-      objectReference: {fileID: 1656849159}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemName
@@ -8359,7 +8359,7 @@ PrefabInstance:
         type: 3}
       propertyPath: questionItemImage
       value: 
-      objectReference: {fileID: 1656849160}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemDetail
@@ -9520,7 +9520,7 @@ MonoBehaviour:
   canva: {fileID: 1069932112}
   interaction: {fileID: 1468566902}
   icon: {fileID: 1468566904}
-  interactionIcon: {fileID: 21300000, guid: 9a5050989a89d334595f577a1eb5deb2, type: 3}
+  interactionIcon: {fileID: 21300000, guid: e0219b5fe2974b24e80d201b67bf27ef, type: 3}
   OnPlayerPickup:
     m_PersistentCalls:
       m_Calls:
@@ -11855,8 +11855,8 @@ MonoBehaviour:
   id: HospitalDocumentRoomBack
   messageCanvasGroup: {fileID: 1236684650}
   messagesSprite: {fileID: 1636175681}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 759332817}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -12700,8 +12700,8 @@ MonoBehaviour:
   id: HospitalDocumentRoom
   messageCanvasGroup: {fileID: 1005735654}
   messagesSprite: {fileID: 1185203685}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 239045377}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -12943,7 +12943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15871,8 +15871,8 @@ MonoBehaviour:
   id: EmergencyRoomFront
   messageCanvasGroup: {fileID: 742477481}
   messagesSprite: {fileID: 1595439217}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 1268189105}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -16121,8 +16121,8 @@ MonoBehaviour:
   id: EmergencyRoomBack
   messageCanvasGroup: {fileID: 1386630231}
   messagesSprite: {fileID: 1690856526}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 709221257}
   _player: {fileID: 933076950}
   _enemy: {fileID: 0}
@@ -21351,7 +21351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69ac78584542dfa4aa387894da086881, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0d992490ea869f4095453afd028e883, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22583,30 +22583,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8731c658242b36a4689d41c9348cc5b7, type: 3}
---- !u!114 &1656849159 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4712939438156613361, guid: 8731c658242b36a4689d41c9348cc5b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1656849158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1656849160 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2668633580572806617, guid: 8731c658242b36a4689d41c9348cc5b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1656849158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1656849161 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4947189046539722271, guid: 8731c658242b36a4689d41c9348cc5b7,
