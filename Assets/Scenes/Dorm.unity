@@ -1663,18 +1663,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 220717627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &220717629 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 297415426, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 220717627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &220717630 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8791707438153417119, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
@@ -2584,7 +2572,7 @@ PrefabInstance:
         type: 3}
       propertyPath: questionItemImage
       value: 
-      objectReference: {fileID: 220717629}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemDetail
@@ -7679,7 +7667,7 @@ MonoBehaviour:
   id: 
   teacher: {fileID: 0}
   fadeTime: 0
-  inkJson: {fileID: 4900000, guid: 841b32e7195d8874cb3dcb9fc0d990cb, type: 3}
+  inkJson: {fileID: 4900000, guid: 487f78a394b7e804abe03401cc4a8456, type: 3}
   dialogManager: {fileID: 921173876}
   dialogueBackground: {fileID: 0}
   setBackgroundImage: 0
