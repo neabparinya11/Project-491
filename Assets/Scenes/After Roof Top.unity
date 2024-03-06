@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
         type: 3}
       propertyPath: nextScene
-      value: Last_Chapter
+      value: End Credit
       objectReference: {fileID: 0}
     - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
         type: 3}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb6657edf8aa4c4ab94fecfb058efb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJson: {fileID: 4900000, guid: 940353b7eb4468445a4a30cbeb34b4c4, type: 3}
+  inkJson: {fileID: 4900000, guid: f05b76e1b6af1bb40a1557c2dcc1174c, type: 3}
   manager: {fileID: 466607141}
   listAudio: []
   soundSource: {fileID: 15941729}

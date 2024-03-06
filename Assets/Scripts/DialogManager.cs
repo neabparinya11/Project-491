@@ -137,10 +137,11 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     }
 
 
-    public void CheckKeyItem(string keyBoolean)
+    public bool CheckKeyItem(string keyBoolean)
     {
         Ink.Runtime.Object isCheck;
         dialogueVariable.variables.TryGetValue(keyBoolean, out isCheck);
+        return isCheck.ToString() == "true";
     }
     public void SaveData(ref GameData gameData)
     {
