@@ -5362,8 +5362,8 @@ CanvasGroup:
   m_GameObject: {fileID: 164753503}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &164753506
 MonoBehaviour:
@@ -16894,7 +16894,7 @@ PrefabInstance:
     - target: {fileID: 7158881546965020776, guid: eb7798dd4488a6045b30c3830fe437f0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7158881546965020776, guid: eb7798dd4488a6045b30c3830fe437f0,
         type: 3}
@@ -17740,7 +17740,6 @@ RectTransform:
   - {fileID: 1576214589}
   - {fileID: 720060381}
   - {fileID: 1279162975}
-  - {fileID: 1677828310}
   - {fileID: 1281528463}
   - {fileID: 845632622}
   - {fileID: 753116988}
@@ -17748,6 +17747,7 @@ RectTransform:
   - {fileID: 459247443}
   - {fileID: 1578434154}
   - {fileID: 874706365}
+  - {fileID: 1677828310}
   m_Father: {fileID: 0}
   m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17960,6 +17960,30 @@ PrefabInstance:
       propertyPath: cutsceneController
       value: 
       objectReference: {fileID: 741569656}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: listSprite.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 274f36f30f760dd4ab7b49013c38869c,
+        type: 3}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: listSprite.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d7d3269ba3cd83e448b7fe62a63f7265,
+        type: 3}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: listSprite.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b3c888c4a3503c24d89318a10a3b44af,
+        type: 3}
+    - target: {fileID: 9009746604239207686, guid: c41f76ce80382c941b7423ac98e1389b,
+        type: 3}
+      propertyPath: listSprite.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ed43cede2899ce4381644f59073be56,
+        type: 3}
     - target: {fileID: 9009746604239207687, guid: c41f76ce80382c941b7423ac98e1389b,
         type: 3}
       propertyPath: m_RootOrder
@@ -31270,7 +31294,7 @@ PrefabInstance:
     - target: {fileID: 7499423025223387760, guid: 04db2f84392e6fe43894e3beb49c31f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7499423025223387760, guid: 04db2f84392e6fe43894e3beb49c31f8,
         type: 3}
@@ -35295,7 +35319,7 @@ PrefabInstance:
     - target: {fileID: 8398188545132586352, guid: 4bafbd342ff520e43b4e3f3486c2c632,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8398188545132586352, guid: 4bafbd342ff520e43b4e3f3486c2c632,
         type: 3}
@@ -36212,7 +36236,7 @@ PrefabInstance:
     - target: {fileID: 3739691084708782210, guid: d8723660fd7db494ba4f8707e8f6bbda,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3739691084708782210, guid: d8723660fd7db494ba4f8707e8f6bbda,
         type: 3}
@@ -50323,7 +50347,7 @@ PrefabInstance:
     - target: {fileID: 856801074719186024, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 856801074719186024, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
         type: 3}
@@ -50427,30 +50451,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fefaaef8d708c4c4c9dbd84f8267af2a, type: 3}
---- !u!114 &1189422546 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3956677207543006493, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1189422545}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1189422547 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 297415426, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1189422545}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1189422548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8791707438153417119, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
@@ -54175,7 +54175,7 @@ PrefabInstance:
     - target: {fileID: 356040955538201812, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 356040955538201812, guid: d478d950b4ee1064683e454c9d1bb2a3,
         type: 3}
@@ -60294,19 +60294,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 328871684}
-        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
-        m_MethodName: AddTaskToQueue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2ec145f6e1108a0448a10e62cffc8fe2,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -67968,7 +67955,7 @@ PrefabInstance:
     - target: {fileID: 8295282517442482466, guid: 94cfe50965d995f4ba4f79a33d9b4dbf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8295282517442482466, guid: 94cfe50965d995f4ba4f79a33d9b4dbf,
         type: 3}
@@ -72133,7 +72120,7 @@ PrefabInstance:
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
@@ -72188,17 +72175,17 @@ PrefabInstance:
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3144236099308563424, guid: 19976b7e7e0bc7344a9270f932db6f6b,
         type: 3}
@@ -82965,7 +82952,7 @@ PrefabInstance:
         type: 3}
       propertyPath: exitDetail
       value: 
-      objectReference: {fileID: 1189422546}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemName
@@ -82975,7 +82962,7 @@ PrefabInstance:
         type: 3}
       propertyPath: questionItemImage
       value: 
-      objectReference: {fileID: 1189422547}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemDetail
