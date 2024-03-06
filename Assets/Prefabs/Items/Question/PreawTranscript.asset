@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: PreawTranscript
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
+  pathSprite: 
+  icon: {fileID: 21300000, guid: 3912c0eb62cae42489283695b4918c2c, type: 3}
   type: 1
   itemName: "\u0E2A\u0E21\u0E38\u0E14\u0E1E\u0E01\u0E02\u0E2D\u0E07\u0E41\u0E1E\u0E23\u0E27"
   description: "\u0E0A\u0E37\u0E48\u0E2D: \u0E19\u0E32\u0E07\u0E2A\u0E32\u0E27\u0E41\u0E1E\u0E23\u0E27\u0E32 

@@ -1519,7 +1519,6 @@ MonoBehaviour:
   _newGameBtn: {fileID: 1518966013}
   _loadGameBtn: {fileID: 680281680}
   _quitGameBtn: {fileID: 1394538988}
-  _documentBtn: {fileID: 817578899}
 --- !u!4 &1711865621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2888583058255361399, guid: 499493078172d7a46874b4537e79a9c0,
@@ -1720,7 +1719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a87788deecab3db4bbb3f5ee30b80e5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91ea9bc8ed7da764990cbfdead2fc8f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

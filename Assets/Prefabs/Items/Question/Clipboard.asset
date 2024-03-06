@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clipboard
   m_EditorClassIdentifier: 
   pathSprite: Sprites2D/clipboard
-  icon: {fileID: 21300000, guid: 85e96439b7f1cfd44b8fdc863738ff16, type: 3}
+  icon: {fileID: 21300000, guid: 8e58f9ed8fcaf0348922717a207f93f3, type: 3}
   type: 1
   itemName: "\u0E41\u0E1F\u0E49\u0E21\u0E1B\u0E23\u0E30\u0E27\u0E31\u0E15\u0E34"
   description: "\u0E41\u0E1C\u0E19\u0E01: \u0E09\u0E38\u0E01\u0E40\u0E09\u0E34\u0E19\n\u0E0A\u0E37\u0E48\u0E2D\u0E08\u0E23\u0E34\u0E07:

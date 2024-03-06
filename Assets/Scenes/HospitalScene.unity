@@ -1211,7 +1211,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ebb96ee5f4c5674449346dc473981f91, type: 2}
+  - {fileID: 2100000, guid: 854b85d3ffb3e9f4ebed6afb3a960f0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8800,7 +8800,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aafbc043682390d45beeb899961f7c23, type: 2}
+  - {fileID: 2100000, guid: b3a03b43216a5e74695dec3118177141, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24864,7 +24864,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ffe54628311177643bb13a9c031996df, type: 2}
+  - {fileID: 2100000, guid: 1164c373ba8ee7646ab84840cb0d5eac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30411,7 +30411,7 @@ MonoBehaviour:
   fadeTime: 0
   inkJson: {fileID: 4900000, guid: 29ee129049cc9394aadeb2b414b626bb, type: 3}
   dialogManager: {fileID: 1386287676}
-  dialogueBackground: {fileID: 21300000, guid: f3f02bfb81b0679499093bdc5a64a225, type: 3}
+  dialogueBackground: {fileID: 21300000, guid: 08baff471e763834e849a456ac00981a, type: 3}
   setBackgroundImage: 1
   setDisableTeacher: 0
   useCutscene: 0
