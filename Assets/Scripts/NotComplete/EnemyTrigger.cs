@@ -5,14 +5,21 @@ using UnityEngine.Events;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnEnemyEnter;
-
+    [SerializeField] private UnityEvent OnEnemyEnterBadEnd;
+    [SerializeField] private UnityEvent OnEnemyEnterGoodEnd;
+    [SerializeField] private DialogManager dialogManager;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            
-            OnEnemyEnter?.Invoke();
+            if (dialogManager.CheckKeyItem("bad_end"))
+            {
+                OnEnemyEnterBadEnd?.Invoke();
+            }
+            else
+            {
+                OnEnemyEnterGoodEnd?.Invoke();
+            }
         }
     }
 
