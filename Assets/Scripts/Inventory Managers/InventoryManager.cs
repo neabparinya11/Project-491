@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour, IDataPersistances
@@ -173,11 +174,13 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         {
             Destroy(item.gameObject);
         }
+
         foreach (var item in ListQuestionItem)
         {
             GameObject obj = Instantiate(iconQuest, itemContent);
             var itemIcon = obj.transform.Find("Icon").GetComponent<Image>();
             itemIcon.sprite = item.icon;
+            //itemIcon.sprite = Resources.Load<Sprite>(item.pathSprite);
         }
         SetInventoryQuest();
     }

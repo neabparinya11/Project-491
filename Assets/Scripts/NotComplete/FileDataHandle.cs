@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,7 +42,8 @@ public class FileDataHandle
                     }
                 }
 
-                loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+                //loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+                loadData = JsonConvert.DeserializeObject<GameData>(dataToLoad);
             }catch (Exception e)
             {
                 Debug.LogError("Error: " + e.Message);
@@ -61,12 +63,13 @@ public class FileDataHandle
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
-            string dataToStore = JsonUtility.ToJson(gameData, true);
+            //string dataToStore = JsonUtility.ToJson(gameData, true);
+            string dataToStore2 = JsonConvert.SerializeObject(gameData, Formatting.Indented);
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
                 using (StreamWriter write = new StreamWriter(stream))
                 {
-                    write.Write(dataToStore);
+                    write.Write(dataToStore2);
                 }
             }
         }

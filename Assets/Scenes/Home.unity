@@ -31202,6 +31202,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: InventoryManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7499423023658100106, guid: 04db2f84392e6fe43894e3beb49c31f8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1913077119}
+    - target: {fileID: 7499423023658100106, guid: 04db2f84392e6fe43894e3beb49c31f8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowListQuestionItem
+      objectReference: {fileID: 0}
     - target: {fileID: 7499423023828979925, guid: 04db2f84392e6fe43894e3beb49c31f8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -31226,6 +31236,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -33.8221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499423024907277516, guid: 04db2f84392e6fe43894e3beb49c31f8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1913077119}
+    - target: {fileID: 7499423024907277516, guid: 04db2f84392e6fe43894e3beb49c31f8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowListFoodItem
       objectReference: {fileID: 0}
     - target: {fileID: 7499423025063872407, guid: 04db2f84392e6fe43894e3beb49c31f8,
         type: 3}
