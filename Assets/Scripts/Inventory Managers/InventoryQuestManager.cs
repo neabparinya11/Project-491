@@ -23,11 +23,6 @@ public class InventoryQuestManager : MonoBehaviour
 
         QuestionItemDetail.instance.questItemName = quest.itemName;
         QuestionItemDetail.instance.questItemDetail = quest.description;
-        QuestionItemDetail.instance.questItemImage = quest.icon;
         QuestionItemDetail.instance.SetActivate(true);
-        QuestionItemDetail.instance.exitDetail.onClick.AddListener(() =>
-        {
-            QuestionItemDetail.instance.SetActivate(false);
-        });
     }
 }

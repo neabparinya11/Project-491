@@ -10,18 +10,14 @@ public class QuestionItemDetail : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] TextMeshProUGUI questionItemName;
     [SerializeField] TextMeshProUGUI questionItemDetail;
-    [SerializeField] Image questionItemImage;
-    public Button exitDetail;
     // Start is called before the first frame update
 
     public string questItemName, questItemDetail;
-    public Sprite questItemImage;
     void Start()
     {
         instance = this;
         questionItemDetail.text = "";
         questionItemName.text = "";
-        questionItemImage.sprite = null;
     }
 
     // Update is called once per frame
@@ -31,15 +27,12 @@ public class QuestionItemDetail : MonoBehaviour
         questionItemName.color = Color.white;
         questionItemDetail.text = questItemDetail;
         questionItemDetail.color = Color.white;
-        questionItemImage.sprite = questItemImage;
     }
 
     public void ClearAllDetail()
     {
         questItemName = "";
         questItemDetail = "";
-        questItemImage = null;
-        exitDetail.onClick.RemoveAllListeners();
     }
 
     public void SetActivate(bool _value)
