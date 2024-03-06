@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snack
   m_EditorClassIdentifier: 
   pathSprite: Sprites2D/snack
-  icon: {fileID: 21300000, guid: f8fa21ca68737094a88f7f5d99eaf060, type: 3}
+  icon: {fileID: 21300000, guid: 4ea27134dd3e4544da7930a57a8df9c3, type: 3}
   type: 0
   itemName: "\u0E2D\u0E32\u0E2B\u0E32\u0E23\u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07"
   description: "\u0E16\u0E31\u0E48\u0E27\u0E02\u0E32\u0E27\u0E43\u0E19\u0E0B\u0E2D\u0E2A\u0E21\u0E30\u0E40\u0E02\u0E37\u0E2D\u0E40\u0E17\u0E28
