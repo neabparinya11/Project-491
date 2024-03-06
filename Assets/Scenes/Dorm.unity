@@ -11252,7 +11252,7 @@ PrefabInstance:
         type: 3}
       propertyPath: iconQuest
       value: 
-      objectReference: {fileID: 8869317158755209643, guid: 5343613f561622a40afe7314257c318f,
+      objectReference: {fileID: 8869317158755209643, guid: e64e57844443ee74cb9961f85478aab0,
         type: 3}
     - target: {fileID: 5971032483182170430, guid: f1e13910838255c4ab64e5da69321559,
         type: 3}

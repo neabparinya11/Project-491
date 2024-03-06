@@ -323,6 +323,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
         {
             item.icon = Resources.Load<Sprite>(item.pathSprite);
         }
+        foreach (var item in this.ListFoodItem)
+        {
+            item.icon = Resources.Load<Sprite>(item.pathSprite);
+        }
         this.ListTask = gameData.listTaskComponent;
         //this.ListFoodItem.Clear();
         //this.ListQuestionItem.Clear();

@@ -57,9 +57,9 @@ MonoBehaviour:
   taskContent: {fileID: 0}
   itemContentObject: {fileID: 0}
   taskContentObject: {fileID: 0}
-  iconItem: {fileID: 1798517213127739851, guid: 4ddf08e3df629f04dbcc1a493c1d88a7,
+  iconItem: {fileID: 1798517213127739851, guid: 39afed1bb28882048a112ac19b9990ea,
     type: 3}
-  iconQuest: {fileID: 8869317158755209643, guid: 5343613f561622a40afe7314257c318f,
+  iconQuest: {fileID: 8869317158755209643, guid: e64e57844443ee74cb9961f85478aab0,
     type: 3}
   iconTask: {fileID: 3766547986323596295, guid: bf7601933630b7e48bbe769fc1568fd7,
     type: 3}

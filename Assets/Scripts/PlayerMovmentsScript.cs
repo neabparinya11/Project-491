@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovmentsScript : MonoBehaviour
+public class PlayerMovmentsScript : MonoBehaviour, IDataPersistances
 {
     public static PlayerMovmentsScript instance;
     float movementSpeed = 1.0f;
@@ -178,5 +178,15 @@ public class PlayerMovmentsScript : MonoBehaviour
     private void UnHidding()
     {
          gameObject.SetActive(true);
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        
     }
 }
