@@ -1687,18 +1687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &220717632 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3956677207543006493, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 220717627}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &220717633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1746545990508796989, guid: fefaaef8d708c4c4c9dbd84f8267af2a,
@@ -2562,7 +2550,7 @@ PrefabInstance:
         type: 3}
       propertyPath: exitDetail
       value: 
-      objectReference: {fileID: 220717632}
+      objectReference: {fileID: 0}
     - target: {fileID: 2037895185201065073, guid: c9e3035d3022ff84fab92df3511bb813,
         type: 3}
       propertyPath: questionItemName
@@ -9575,8 +9563,8 @@ MonoBehaviour:
   id: HomeDoor
   messageCanvasGroup: {fileID: 1825795928}
   messagesSprite: {fileID: 149439705}
-  normalSprite: {fileID: 21300000, guid: 17f797d6ef043f047b5f492643c619af, type: 3}
-  failureSprite: {fileID: 21300000, guid: a871296b5fec5ed4da2a0eaa04a960f5, type: 3}
+  normalSprite: {fileID: 21300000, guid: 56abfc5aaa6bd1c49a23524c9e5fb6cc, type: 3}
+  failureSprite: {fileID: 21300000, guid: 6957b4b9a169fbf4385b8f5a78168e18, type: 3}
   newPosition: {fileID: 2033509017}
   _player: {fileID: 1331697036}
   _enemy: {fileID: 0}
