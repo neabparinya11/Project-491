@@ -19,6 +19,8 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] string deathScene;
     protected Animator animations;
     [SerializeField] AudioSource walkingSound;
+    [SerializeField] AudioClip backgroundAudio;
+    [SerializeField] AudioClip chasingAudio;
     protected float multiDamage = 0;
 
     // 1 = normal, 2 = hard, 3 = permadeath
@@ -86,6 +88,7 @@ public class EnemyAi : MonoBehaviour
                 StartCoroutine(chaseRoutine());
                 chasing = true;
                 //StoryController.instance.SetChasingBoolean(true);
+                AudioManager.GetInstance().ChangeBackgroundMusic(chasingAudio);
                 animations.SetInteger("state", (int)EnemyState.run);
             }
         }
@@ -135,6 +138,7 @@ public class EnemyAi : MonoBehaviour
         walking = true;
         //StoryController.instance.SetChasingBoolean(false);
         chasing = false;
+        AudioManager.GetInstance().ChangeBackgroundMusic(backgroundAudio);
         randomNumber1 = UnityEngine.Random.Range(0, canCurrent.Count);
         currentDestination = canCurrent[randomNumber1];
     }
