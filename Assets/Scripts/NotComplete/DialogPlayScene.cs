@@ -29,7 +29,7 @@ public class DialogPlayScene : MonoBehaviour
             {
                 this.gameObject.AddComponent<AudioSource>();
             }
-            this.gameObject.GetComponents<AudioSource>();
+            listAudioSource = this.gameObject.GetComponents<AudioSource>();
         }
     }
 
@@ -48,7 +48,7 @@ public class DialogPlayScene : MonoBehaviour
             yield return new WaitForSeconds(sound.length);
         }
         manager.EnterDialogMode(inkJson);
-        for (int i=0; i< listAudioSource.Length; i++)
+        for (int i=0; i< listAudioBetweenDialogue.Length; i++)
         {
             listAudioSource[i].clip = listAudioBetweenDialogue[i];
             listAudioSource[i].Play();
