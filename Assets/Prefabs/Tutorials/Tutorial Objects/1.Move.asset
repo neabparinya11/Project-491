@@ -20,4 +20,4 @@ MonoBehaviour:
     Shift \n\u0E43\u0E19\u0E01\u0E32\u0E23\u0E02\u0E36\u0E49\u0E19 \u0E2B\u0E23\u0E37\u0E2D
     \u0E25\u0E07 \u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E0A\u0E31\u0E49\u0E19
     \u0E43\u0E0A\u0E49\u0E1B\u0E38\u0E48\u0E21 W \u0E2B\u0E23\u0E37\u0E2D S\n"
-  imageTutorial: {fileID: 0}
+  imageTutorial: {fileID: 21300000, guid: 2bdb3221ed1a99945aa8a6ebf8f1d175, type: 3}
