@@ -38213,7 +38213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922511842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.82, y: 0.56, z: -4.22}
+  m_LocalPosition: {x: 31.134, y: 0.56, z: -4.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38249,7 +38249,7 @@ MonoBehaviour:
   isLocked: 1
   findListItem: []
   passwordPuzzle: {fileID: 1125089166}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -59728,7 +59728,7 @@ MonoBehaviour:
   isLocked: 0
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -70055,7 +70055,7 @@ MonoBehaviour:
   isLocked: 0
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []

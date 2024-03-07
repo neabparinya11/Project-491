@@ -12023,7 +12023,7 @@ MonoBehaviour:
   isLocked: 0
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -12873,7 +12873,7 @@ MonoBehaviour:
   isLocked: 1
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -16172,7 +16172,7 @@ MonoBehaviour:
   isLocked: 0
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
@@ -16422,7 +16422,7 @@ MonoBehaviour:
   isLocked: 0
   findListItem: []
   passwordPuzzle: {fileID: 0}
-  soundOnAction: {fileID: 0}
+  soundOnAction: {fileID: 8300000, guid: db1bb7ca58947d74190d12ec11db6a3d, type: 3}
   OnPlayerActionToNextScene:
     m_PersistentCalls:
       m_Calls: []
