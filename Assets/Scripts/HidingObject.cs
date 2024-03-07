@@ -39,6 +39,10 @@ public class HidingObject : MonoBehaviour
                         enemyAiScript.stopChase();
                     }
                 }
+                else
+                {
+                    ExitHiding();
+                }
                 canvas.alpha = 0.0f;
                 hiding = true;
                 normalPlayer.SetActive(false);
