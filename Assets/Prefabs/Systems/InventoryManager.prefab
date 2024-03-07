@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8fa10d6a7170e784c95a8aaa16995060, type: 2}
   - {fileID: 11400000, guid: 42863f0488e2aa44d879f5a808e02955, type: 2}
   - {fileID: 11400000, guid: 9c0c7f0ae0493c848b03e816ac7a918e, type: 2}
+  - {fileID: 11400000, guid: 3c4483be5d2531541912921381d63ac7, type: 2}
   selected: 0
   itemContent: {fileID: 0}
   taskContent: {fileID: 0}
