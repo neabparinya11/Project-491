@@ -11,7 +11,7 @@ public class DialogPlayScene : MonoBehaviour
     [SerializeField] AudioClip[] listAudioBetweenDialogue;
     [SerializeField] AudioSource soundSource;
     [SerializeField] bool playWithSound = true;
-
+    private AudioSource[] listAudioSource;
     private void Start()
     {
         if (playWithSound && soundSource != null)
@@ -21,6 +21,15 @@ public class DialogPlayScene : MonoBehaviour
         else
         {
             StartCoroutine(StartDialog());
+        }
+
+        if (listAudioBetweenDialogue.Length > 0)
+        {
+            for (int i=0; i< listAudioBetweenDialogue.Length; i++)
+            {
+                this.gameObject.AddComponent<AudioSource>();
+            }
+            this.gameObject.GetComponents<AudioSource>();
         }
     }
 
@@ -39,10 +48,10 @@ public class DialogPlayScene : MonoBehaviour
             yield return new WaitForSeconds(sound.length);
         }
         manager.EnterDialogMode(inkJson);
-        foreach (AudioClip sound in listAudioBetweenDialogue)
+        for (int i=0; i< listAudioSource.Length; i++)
         {
-            soundSource.clip = sound;
-            soundSource.Play();
+            listAudioSource[i].clip = listAudioBetweenDialogue[i];
+            listAudioSource[i].Play();
         }
     }
     private void Update()
