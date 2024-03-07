@@ -52,7 +52,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         foreach (QuestionItem item in ListQuestionItem)
         {
-            if (item.Equals(_item))
+            if (item.GetIndex() == _item.GetIndex())
             {
                 ListQuestionItem.Remove(item);
             }
@@ -64,7 +64,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         foreach (TaskComponent item in ListTask)
         {
-            if (item.Equals(_task))
+            if (item.index == _task.index)
             {
                 ListTask.Remove(item);
             }
@@ -91,9 +91,9 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
     {
         foreach (var item in ListQuestionItem)
         {
-            if (item.Equals(_item))
+            if (_item.GetIndex() == item.GetIndex())
             {
-                ListQuestionItem.Remove(_item);
+                ListQuestionItem.Remove(item);
             }
         }
     }

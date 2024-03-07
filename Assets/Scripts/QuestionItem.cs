@@ -7,9 +7,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Qustion item", menuName = "Item/Question item")]
 public class QuestionItem : ItemObject
 {
-    [SerializeField] int index;
+    public int index;
     private void Awake()
     {
         type = ItemType.Question;
+    }
+
+    public int GetIndex()
+    {
+        return index;
     }
 }
