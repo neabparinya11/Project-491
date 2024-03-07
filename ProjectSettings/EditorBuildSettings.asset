@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Day1_SchoolScene.unity
     guid: cf34fda8376e8864e8e59f0d0acac346
   - enabled: 1
+    path: Assets/Scenes/HospitalScene.unity
+    guid: e59ddb0754a5ca648bc7d8e2100766bc
+  - enabled: 1
+    path: Assets/Scenes/Dorm.unity
+    guid: 691befe59de91df48bc7312d5f9b63dc
+  - enabled: 1
     path: Assets/Scenes/SchoolScene.unity
     guid: 4c8a2f31d89d93c4facb511009aa58da
   - enabled: 1
@@ -23,18 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogPlayScene.unity
     guid: 4da862cb72de2a347b6a46ee29737cb1
-  - enabled: 1
-    path: Assets/Scenes/HospitalScene.unity
-    guid: e59ddb0754a5ca648bc7d8e2100766bc
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Home.unity
     guid: b3963c79e829dc8439c48d97d858c85e
-  - enabled: 1
-    path: Assets/Scenes/Dorm.unity
-    guid: 691befe59de91df48bc7312d5f9b63dc
   - enabled: 1
     path: Assets/Scenes/Day2_SchoolScene 1.unity
     guid: 3b5fa372eaa94bb40a4d3a443fa1aa0b
@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End Credit.unity
     guid: 06c7d76ac1b5ffe469ddd0b4f2429ab5
+  - enabled: 1
+    path: Assets/Scenes/After Roof Top Good.unity
+    guid: 445aad9cd689ba34bb20fafc87f21e3e
   m_configObjects: {}

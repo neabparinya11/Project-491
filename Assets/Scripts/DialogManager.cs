@@ -24,8 +24,8 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     [Header("Go to next scene when exit")]
     [SerializeField] private string nextScene;
     [SerializeField] private bool useNextScene;
-    //[Header("Set sound on play dialogue")]
-    //[SerializeField] private AudioSource soundDialogue;
+    [Header("Set sound on play dialogue")]
+    [SerializeField] private AudioSource soundDialogue;
     private TextMeshProUGUI[] choicesText;
     private static DialogManager instance;
     private Sprite imagePanel;
@@ -118,7 +118,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
 
     public void ContinueStory()
     {
-        //soundDialogue.Play();
+        soundDialogue.Play();
         if (currentStory.canContinue)
         {
             string[] data = currentStory.Continue().Split(":");
