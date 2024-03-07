@@ -684,6 +684,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1913077119}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: AddTaskList
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f98123d30115e7b43b08112039678cba,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 328871684}
+        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
+        m_MethodName: AddTaskToQueue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f98123d30115e7b43b08112039678cba,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &28677969
 GameObject:
   m_ObjectHideFlags: 0
@@ -31967,32 +31993,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913077119}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: AddTaskList
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2ec145f6e1108a0448a10e62cffc8fe2,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 328871684}
-        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
-        m_MethodName: AddTaskToQueue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 2ec145f6e1108a0448a10e62cffc8fe2,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!65 &765478968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39848,6 +39848,32 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913077119}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: AddTaskList
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d1bdd1897f323684cafd60cc641bb346,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 328871684}
+        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
+        m_MethodName: AddTaskToQueue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d1bdd1897f323684cafd60cc641bb346,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -60332,6 +60358,19 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 328871684}
+        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
+        m_MethodName: AddTaskToQueue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d1bdd1897f323684cafd60cc641bb346,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -82680,8 +82719,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889430960}
-  - component: {fileID: 1889430962}
-  - component: {fileID: 1889430961}
   m_Layer: 0
   m_Name: PraewHouse Back WayPoint
   m_TagString: Untagged
@@ -82705,60 +82742,6 @@ Transform:
   m_Father: {fileID: 1788796057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1889430961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889430959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe1f88234c182e448bf411ff708cf5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPlayerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1913077119}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: AddTaskList
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f98123d30115e7b43b08112039678cba,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 328871684}
-        m_TargetAssemblyTypeName: TaskNotification, Assembly-CSharp
-        m_MethodName: AddTaskToQueue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f98123d30115e7b43b08112039678cba,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TaskComponent, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!65 &1889430962
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889430959}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1889848309
 GameObject:
   m_ObjectHideFlags: 0
