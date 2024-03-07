@@ -253,6 +253,11 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
+    public void RandomPosition()
+    {
+        randomNumber1 = UnityEngine.Random.Range(0, destinationAmount);
+        SetNewPosition(destination[randomNumber1].position);
+    }
     public void SetPosition(Transform position)
     {
         this.gameObject.transform.position = position.position;
