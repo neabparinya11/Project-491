@@ -35,6 +35,7 @@ public class QTEController : MonoBehaviour
     protected bool pb1 = false, pb2 = false, pb3 = false;
     protected float countTime = 0;
     protected int countKeyDown = 0;
+    protected bool speedUp = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +82,14 @@ public class QTEController : MonoBehaviour
                 }
             }
         }
+        if (SanityController.instance.GetPlayerSanity() >= 125.0f)
+        {
+            speedUp = false;
+        }
+        else
+        {
+            speedUp = true;
+        }
     }
 
     public void ReceiveCallbackFuntion(UnityEvent funct)
@@ -114,7 +123,8 @@ public class QTEController : MonoBehaviour
         {
             if (start)
             {
-                countTime += regenTime * Time.deltaTime;
+                int multiple = speedUp ? 2 : 1;
+                countTime += regenTime * Time.deltaTime * multiple;
                 UpdateTimeSlide();
             }
 

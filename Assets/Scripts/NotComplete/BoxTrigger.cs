@@ -14,31 +14,35 @@ public class BoxTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            OnPlayerTrigger?.Invoke();
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                OnPlayerTrigger?.Invoke();
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+            
         }
     }
 
-    private void Start()
-    {
-        OnMessageRecieve += HandleMessageRecieve1;
-        OnMessageRecieve += HandleMessageRecieve2;
+    //private void Start()
+    //{
+    //    OnMessageRecieve += HandleMessageRecieve1;
+    //    OnMessageRecieve += HandleMessageRecieve2;
 
-        //SendMessaageToSubscribes("Send To Sub");
-    }
+    //    //SendMessaageToSubscribes("Send To Sub");
+    //}
 
-    public void SendMessaageToSubscribes(string message)
-    {
-        OnMessageRecieve?.Invoke(message);
-    }
+    //public void SendMessaageToSubscribes(string message)
+    //{
+    //    OnMessageRecieve?.Invoke(message);
+    //}
 
-    public void HandleMessageRecieve1(string messages)
-    {
-        Debug.Log("Message 1 Recieve: " + messages);
-    }
+    //public void HandleMessageRecieve1(string messages)
+    //{
+    //    Debug.Log("Message 1 Recieve: " + messages);
+    //}
 
-    public void HandleMessageRecieve2(string messages)
-    {
-        Debug.Log("Message 2 Recieve: " + messages);
-    }
+    //public void HandleMessageRecieve2(string messages)
+    //{
+    //    Debug.Log("Message 2 Recieve: " + messages);
+    //}
 }

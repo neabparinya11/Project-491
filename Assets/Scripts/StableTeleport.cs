@@ -29,7 +29,7 @@ public class StableTeleport : MonoBehaviour
         Vector3 objectPosition2 = transform.position;
         Vector3 screenPosition1 = Camera.main.WorldToScreenPoint(objectPosition1);
         Vector3 screenPosition2 = Camera.main.WorldToScreenPoint(objectPosition2);
-        if (choice1 != null && !canChoice1 && messageObject1 != null)
+        if (canChoice1 == false && messageObject1 != null)
         {
             messageObject1.SetActive(false);
         }
@@ -37,7 +37,7 @@ public class StableTeleport : MonoBehaviour
         {
             messageObject1.SetActive(true);
         }
-        if (choice2 != null && !canChoice2 && messageObject2 != null)
+        if (canChoice2 == false && messageObject2 != null)
         {
             messageObject2.SetActive(false);
         }
