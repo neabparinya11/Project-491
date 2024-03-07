@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SchoolKey
   m_EditorClassIdentifier: 
   pathSprite: Sprites2D/item_quest_key
-  icon: {fileID: 21300000, guid: 234a4cbfe0c44384bbc1736d003d2ce1, type: 3}
+  icon: {fileID: 21300000, guid: f3520d292a9cfab4bb33ff9a529d35a3, type: 3}
   type: 1
   itemName: "\u0E01\u0E38\u0E0D\u0E41\u0E08\u0E42\u0E23\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19"
   description: "\u0E01\u0E38\u0E0D\u0E41\u0E08\u0E2A\u0E33\u0E2B\u0E23\u0E31\u0E1A\u0E40\u0E02\u0E49\u0E32\u0E2D\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E15\u0E39\u0E42\u0E23\u0E07\u0E40\u0E23\u0E35\u0E22\u0E19"
