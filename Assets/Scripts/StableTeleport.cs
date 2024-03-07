@@ -8,7 +8,7 @@ public class StableTeleport : MonoBehaviour
 {
     [SerializeField] Transform choice1, choice2;
     [SerializeField] GameObject _player;
-    [SerializeField] Transform messageTransform1, messageTransform2;
+    [SerializeField] GameObject messageObject1, messageObject2;
     [SerializeField] Image _messageImage1, _messageImage2;
     [SerializeField] Sprite _messageSprite1, _messageSprite2;
     [SerializeField] CanvasGroup canvasGroup;
@@ -29,13 +29,30 @@ public class StableTeleport : MonoBehaviour
         Vector3 objectPosition2 = transform.position;
         Vector3 screenPosition1 = Camera.main.WorldToScreenPoint(objectPosition1);
         Vector3 screenPosition2 = Camera.main.WorldToScreenPoint(objectPosition2);
+        if (choice1 != null && !canChoice1 && messageObject1 != null)
+        {
+            messageObject1.SetActive(false);
+        }
+        else
+        {
+            messageObject1.SetActive(true);
+        }
+        if (choice2 != null && !canChoice2 && messageObject2 != null)
+        {
+            messageObject2.SetActive(false);
+        }
+        else
+        {
+            messageObject2.SetActive(true);
+        }
+
         if (!_canTeleport)
         {
             return;
         }
         if (_messageImage1 != null && choice1 != null && canChoice1)
         {
-            messageTransform1.position = screenPosition1;
+            messageObject1.transform.position = screenPosition1;
             _messageImage1.sprite = _messageSprite1;
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -49,7 +66,7 @@ public class StableTeleport : MonoBehaviour
 
         if (_messageImage2 != null && choice2 != null && canChoice2)
         {
-            messageTransform2.position = screenPosition2;
+            messageObject2.transform.position = screenPosition2;
             _messageImage2.sprite = _messageSprite2;
             if (Input.GetKeyDown(KeyCode.S))
             {
