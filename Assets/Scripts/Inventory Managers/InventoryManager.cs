@@ -89,14 +89,13 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void RemoveQuestionItem(QuestionItem _item)
     {
-        foreach (var item in ListFoodItem)
+        foreach (var item in ListQuestionItem)
         {
             if (item.Equals(_item))
             {
                 ListQuestionItem.Remove(_item);
             }
         }
-        
     }
 
     public void RemoveTaskComponent(TaskComponent _item)
