@@ -50,13 +50,19 @@ MonoBehaviour:
   timeSlide: {fileID: 0}
   timeCanvas: {fileID: 0}
   listSprite:
-  - {fileID: 21300000, guid: f21b686ff2036ac41a2319fec28a89c4, type: 3}
-  - {fileID: 21300000, guid: 661fb2db7e2b1ab4bb3fe0276e0f5118, type: 3}
-  - {fileID: 21300000, guid: e65a301985e47e94899cb6b5547feb3c, type: 3}
-  - {fileID: 21300000, guid: 18ad57cf8ed907d47a5cacbf6243ec88, type: 3}
+  - {fileID: 21300000, guid: 274f36f30f760dd4ab7b49013c38869c, type: 3}
+  - {fileID: 21300000, guid: d7d3269ba3cd83e448b7fe62a63f7265, type: 3}
+  - {fileID: 21300000, guid: b3c888c4a3503c24d89318a10a3b44af, type: 3}
+  - {fileID: 21300000, guid: 9ed43cede2899ce4381644f59073be56, type: 3}
   regenTime: 0.5
   problem1: {fileID: 0}
   problem2: {fileID: 0}
   problem3: {fileID: 0}
+  cutsceneController: {fileID: 0}
+  inkJson: {fileID: 0}
+  characterObject: {fileID: 0}
+  qteTriggger: {fileID: 0}
+  playerObject: {fileID: 0}
+  randomSpawnEnemy: {fileID: 0}
   isQTEenable: 0
   start: 0
