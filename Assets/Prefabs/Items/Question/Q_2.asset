@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: Q_2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  pathSprite: 
   icon: {fileID: 21300000, guid: 4683586cd4ebc9642ad8bd8e9619fa27, type: 3}
   type: 1
   itemName: Note#2
   description: 
-  index: 2
+  index: 0
