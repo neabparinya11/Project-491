@@ -633,6 +633,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1210574754946050301, guid: 2e4eed4cf2328f04c8531950b749c6fa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4eed4cf2328f04c8531950b749c6fa, type: 3}
 --- !u!95 &1847570992 stripped
@@ -766,8 +771,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b700bbd76d54f56438fba20fd89c039f,
+      objectReference: {fileID: 21300000, guid: be347392bbf0e764bb978b2c94776eec,
         type: 3}
+    - target: {fileID: 8463738153730376946, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463738153730376946, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463738153730376946, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463738153730376946, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8463738154269101257, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
         type: 3}
       propertyPath: m_RootOrder
