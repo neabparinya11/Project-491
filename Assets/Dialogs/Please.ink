@@ -22,10 +22,11 @@ INCLUDE GlobalVariables.ink
 
 === Choice ===
 +[โอเค…]
+{playerName} : โอเค…
  ~bad_end = true
  ->END
 
-+[ไม่ ฉันไม่กลับ]
++[ไม่]
 ->Continue
 
 === Continue ===
@@ -40,12 +41,13 @@ INCLUDE GlobalVariables.ink
 -> Choice2
 
 === Choice2 ===
-+[(เดินจากไป)]
++[(เดินหนี)]
+{playerName} : …
  ~bad_end = true
  ->END
 
 
-+[(ขอโทษแพรว)]
++[(ขอโทษ)]
 
 ->Continue2
 
@@ -71,10 +73,11 @@ INCLUDE GlobalVariables.ink
 
 === Choice3 ===
 
-+[ใจเย็น ๆ ฉันอยู่ตรงนี้แล้ว]
++[ ฉันอยู่ตรงนี้แล้ว]
 ->Continue3
 
-+[ทำแบบนี้ แกไม่สงสารพ่อแม่แกหรอ]
++[ไม่สงสารพ่อแม่หรอ]
+{playerName} : ทำแบบนี้ไม่สงสารพ่อแม่หรอ
  ~bad_end = true
  ->END
 
@@ -91,11 +94,12 @@ INCLUDE GlobalVariables.ink
 
 === Choice4 ===
 
-+[ฉันเข้าใจแกนะแพรว]
++[ฉันเข้าใจแกนะ]
 
 ->Continue4
 
-+[ยังมีคนอื่นที่ลำบากกว่าแกเยอะแยะเลยนะแพรว] 
++[คนอื่นลำบากกว่านี้] 
+{playerName} : ยังมีคนที่ลำบากกว่าแกเยอะแยะเลย
  ~bad_end = true
  ->END
 
@@ -114,11 +118,12 @@ INCLUDE GlobalVariables.ink
 -> Choice5
 
 === Choice5 ===
-+[เดี๋ยวก็หายนะแพรว สู้ ๆ] 
++[สู้ ๆ นะ] 
+{playerName} : สู้ ๆ นะ
  ~bad_end = true
  ->END
 
-+[โอเค ฉันคงไม่เข้าใจแกจริง ๆ]
++[ใจเย็น ๆ ก่อน]
 
 {playerName} : โอเค ฉันคงไม่เข้าใจแกจริง ๆ
 
@@ -134,10 +139,10 @@ INCLUDE GlobalVariables.ink
 
 === Choice6 ===
 
-+[(เดินไปกอดแพรว)]
++[(กอดแพรว)]
 -> END
 
-+[(ยืนรอแพรวเดินมาหา)]
++[(ยืนรอ)]
 
 ->Continue6
 
