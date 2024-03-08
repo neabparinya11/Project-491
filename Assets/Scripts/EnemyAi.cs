@@ -178,7 +178,7 @@ public class EnemyAi : MonoBehaviour
                 if (!attacked)
                 {
                     StartCoroutine(attackedRoutine());
-                    PlayerMovmentsScript.instance.onPlayerAttacked(20*multiDamage);
+                    PlayerMovmentsScript.instance.onPlayerAttacked(10*multiDamage);
                 }
                 chasing = true;
                 StopCoroutine(attackedRoutine());
