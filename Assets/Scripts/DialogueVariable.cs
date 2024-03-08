@@ -8,11 +8,10 @@ public class DialogueVariable
 {
     public Dictionary<string, Ink.Runtime.Object> variables { get; private set; }
 
-    public DialogueVariable(string filePath)
+    public DialogueVariable(TextAsset filePath)
     {
-        string inkContents = File.ReadAllText(filePath);
-        Ink.Compiler compiler = new Ink.Compiler(inkContents);
-        Story storyVariables = compiler.Compile();
+        
+        Story storyVariables = new Story(filePath.text);
 
         variables = new Dictionary<string, Ink.Runtime.Object>();
         foreach (string name in storyVariables.variablesState)

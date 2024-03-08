@@ -7,13 +7,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
-using Ink.UnityIntegration;
 using UnityEngine.Events;
 
 public class DialogManager : MonoBehaviour, IDataPersistances
 {
     [Header("Global Ink File")]
-    [SerializeField] private InkFile globalInkFile;
+    [SerializeField] private TextAsset globalInkFile;
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TextMeshProUGUI dialogText;     
     [SerializeField] private TextMeshProUGUI nameTag;
@@ -42,7 +41,7 @@ public class DialogManager : MonoBehaviour, IDataPersistances
     void Start()
     {
         instance = this;
-        dialogueVariable = new DialogueVariable(globalInkFile.filePath);
+        dialogueVariable = new DialogueVariable(globalInkFile);
         dialogIsPlaying = false;
         dialogPanel.SetActive(false);
 
