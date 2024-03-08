@@ -264,7 +264,7 @@ public class EnemyAi : MonoBehaviour
     }
     public void SetPosition(Transform position)
     {
-        this.gameObject.transform.position = position.position;
+        SetNewPosition(position.position);
     }
 
 }

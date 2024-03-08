@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,7 @@ public class BoxTrigger : MonoBehaviour
     public delegate void MessageHandle(string messages);
     public event MessageHandle OnMessageRecieve;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {

@@ -461,6 +461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
         type: 3}
+      propertyPath: globalInkFile
+      value: 
+      objectReference: {fileID: 4900000, guid: aafca3426fde28d4f95a0710070106e2, type: 3}
+    - target: {fileID: 2404102014027722156, guid: 910e1fcdd18701c469998b5471f17d2b,
+        type: 3}
       propertyPath: soundDialogue
       value: 
       objectReference: {fileID: 1296307677}
