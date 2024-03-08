@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: ChatPaper
   m_EditorClassIdentifier: 
-  pathSprite: 
+  pathSprite: Sprites2D/chat_paper
   icon: {fileID: 21300000, guid: b4dbb4657c3c58c40b6bda1c6320787e, type: 3}
   type: 1
   itemName: "\u0E20\u0E32\u0E1E\u0E2B\u0E19\u0E49\u0E32\u0E08\u0E2D\u0E04\u0E2D\u0E21"
