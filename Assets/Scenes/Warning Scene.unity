@@ -420,6 +420,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1210574754946050301, guid: 2e4eed4cf2328f04c8531950b749c6fa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4c4e4c4c61c9b84e8ad02a5d481c5b6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4eed4cf2328f04c8531950b749c6fa, type: 3}
 --- !u!224 &548639860 stripped
@@ -559,6 +565,12 @@ PrefabInstance:
       propertyPath: OnAfterTimer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8463738153730376946, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4c4e4c4c61c9b84e8ad02a5d481c5b6,
+        type: 3}
     - target: {fileID: 8463738154269101257, guid: 84b162f15ac3e3647be6c4aa5ddd09c0,
         type: 3}
       propertyPath: m_RootOrder
