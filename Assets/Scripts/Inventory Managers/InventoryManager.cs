@@ -62,6 +62,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistances
 
     public void AddTaskList(TaskComponent _task)
     {
+        _task.isComplete = false;
         foreach (TaskComponent item in ListTask)
         {
             if (item.index == _task.index)
