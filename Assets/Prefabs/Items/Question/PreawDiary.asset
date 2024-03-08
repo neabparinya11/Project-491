@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: PreawDiary
   m_EditorClassIdentifier: 
-  pathSprite: 
+  pathSprite: Sprites2D/diary_new
   icon: {fileID: 21300000, guid: d741b9f77a1bf95429539cd7ec1cb6a6, type: 3}
   type: 1
   itemName: "\u0E44\u0E14\u0E2D\u0E32\u0E23\u0E35\u0E48\u0E02\u0E2D\u0E07\u0E41\u0E1E\u0E23\u0E27"

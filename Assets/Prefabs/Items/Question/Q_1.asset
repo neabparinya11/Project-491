@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: Q_1
   m_EditorClassIdentifier: 
-  pathSprite: 
+  pathSprite: Sprites2D/item_quest_letter_key_position
   icon: {fileID: 21300000, guid: a27465e5648a7a546a4c327e85a49c99, type: 3}
   type: 1
   itemName: "\u0E2B\u0E19\u0E35\u0E44\u0E1B"

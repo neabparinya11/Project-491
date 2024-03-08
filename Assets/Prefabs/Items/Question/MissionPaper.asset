@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c95a2256b6a3a247ad56b9118d73550, type: 3}
   m_Name: MissionPaper
   m_EditorClassIdentifier: 
-  pathSprite: 
+  pathSprite: Sprites2D/mission_paper
   icon: {fileID: 21300000, guid: c75dd65793a789440b30196e8ac2a479, type: 3}
   type: 1
   itemName: "\u0E01\u0E23\u0E30\u0E14\u0E32\u0E29\u0E1B\u0E23\u0E30\u0E2B\u0E25\u0E32\u0E14"
