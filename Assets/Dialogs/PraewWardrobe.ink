@@ -17,4 +17,6 @@ INCLUDE GlobalVariables.ink
 
 {playerName} : (...)
 
+{playerName} : ลองเดินไปที่โต๊ะอ่านหนังสือของแพรวดูสิ
+
 -> END

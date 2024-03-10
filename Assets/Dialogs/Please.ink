@@ -124,6 +124,7 @@ INCLUDE GlobalVariables.ink
  ->END
 
 +[ใจเย็น ๆ ก่อน]
+{playerName} : ใจเย็น ๆ ก่อนนะแพรว
 
 {playerName} : โอเค ฉันคงไม่เข้าใจแกจริง ๆ
 
@@ -140,6 +141,8 @@ INCLUDE GlobalVariables.ink
 === Choice6 ===
 
 +[(กอดแพรว)]
+{playerName} : (เดินเข้าไปกอดแพรว)
+
 -> END
 
 +[(ยืนรอ)]
@@ -150,3 +153,4 @@ INCLUDE GlobalVariables.ink
 
 
 -> END
+
