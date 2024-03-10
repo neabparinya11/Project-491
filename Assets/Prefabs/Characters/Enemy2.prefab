@@ -2567,8 +2567,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attackedTime: 2.5
-  walkSpeed: 3
-  chaseSpeed: 8
+  walkSpeed: 5
+  chaseSpeed: 10
   idleTime: 2
   minIdleTime: 0
   maxIdleTime: 5
@@ -2587,6 +2587,8 @@ MonoBehaviour:
   rayCastOffSet: {x: 0, y: 0, z: 0}
   deathScene: 
   walkingSound: {fileID: 950393810}
+  backgroundAudio: {fileID: 0}
+  chasingAudio: {fileID: 0}
   canCurrent: []
 --- !u!1 &6277700974735955373
 GameObject:
