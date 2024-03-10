@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listKeycode: 11010000120100001401000013010000
   countListKeycode: 4
-  timeDuration: 3
+  timeDuration: 10
   timeSlide: {fileID: 0}
   timeCanvas: {fileID: 0}
   listSprite:
@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d7d3269ba3cd83e448b7fe62a63f7265, type: 3}
   - {fileID: 21300000, guid: b3c888c4a3503c24d89318a10a3b44af, type: 3}
   - {fileID: 21300000, guid: 9ed43cede2899ce4381644f59073be56, type: 3}
-  regenTime: 0.5
+  regenTime: 2
   problem1: {fileID: 0}
   problem2: {fileID: 0}
   problem3: {fileID: 0}
