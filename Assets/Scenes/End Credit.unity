@@ -275,6 +275,11 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1847570992}
+    - target: {fileID: 2888583058255361396, guid: 499493078172d7a46874b4537e79a9c0,
+        type: 3}
+      propertyPath: transitionTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2888583058255361398, guid: 499493078172d7a46874b4537e79a9c0,
         type: 3}
       propertyPath: m_Name
